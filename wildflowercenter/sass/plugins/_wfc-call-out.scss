@@ -6,7 +6,9 @@ li.wfc-callout {
     max-width: 590px;
     padding: 4rem 0 0 3rem;
 }
+@media screen and (max-width: 985px) {
 
-.flexipoo {
-	display: flex;
+    li.wfc-callout {
+    	float: left;
+	}
 }

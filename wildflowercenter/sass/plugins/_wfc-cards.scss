@@ -1,3 +1,9 @@
+/*
+===========================
+Styles for WFC Cards widget
+===========================
+*/
+
 .wfc-cards-container {
     border: 1px solid #dedede;
     max-width: 300px;
@@ -49,4 +55,15 @@ li.wfc-cards {
 
 li.wfc-cards:nth-child(3) {
     clear: left;
+}
+
+@media screen and (max-width: 985px) {
+
+    li.wfc-cards:nth-child(2) {
+        clear: left;
+    }
+
+    li.wfc-cards:nth-child(3) {
+        clear: none;
+    }
 }

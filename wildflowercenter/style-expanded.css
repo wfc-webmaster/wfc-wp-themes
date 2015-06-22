@@ -16,6 +16,11 @@
 Plugins
 =======
 */
+/*
+===========================
+Styles for WFC Cards widget
+===========================
+*/
 .wfc-cards-container {
   border: 1px solid #dedede;
   max-width: 300px;
@@ -69,6 +74,15 @@ li.wfc-cards:nth-child(3) {
   clear: left;
 }
 
+@media screen and (max-width: 985px) {
+  li.wfc-cards:nth-child(2) {
+    clear: left;
+  }
+
+  li.wfc-cards:nth-child(3) {
+    clear: none;
+  }
+}
 li.wfc-callout {
   display: inline-block;
 }
@@ -78,8 +92,8 @@ li.wfc-callout {
   padding: 4rem 0 0 3rem;
 }
 
-.flexipoo {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+@media screen and (max-width: 985px) {
+  li.wfc-callout {
+    float: left;
+  }
 }
