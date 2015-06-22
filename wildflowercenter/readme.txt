@@ -1,0 +1,1 @@
+This is a Headway child theme using SASS.
