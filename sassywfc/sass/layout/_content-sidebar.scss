@@ -1,0 +1,66 @@
+/*!
+Theme Name: Sassy WFC
+Layout: Content-Sidebar
+*/
+
+.site-main {
+	background: #b2b2b2;
+	// margin: 0 $size__site-sidebar 0 0;
+}
+
+.site-content .widget-area {
+	background: #fff;
+	float: right;
+	overflow: hidden;
+	padding: 4rem;
+	width: $size__site-sidebar;
+}
+
+.site-footer {
+	clear: both;
+	width: $size__site-main;
+}
+
+.entry-header,
+.entry-content,
+.entry-meta,
+.entry-footer,
+.tag-links,
+.post-navigation,
+.comments-area,
+.paging-navigation {
+	position: relative;
+	max-width: 800px;
+	padding: 0 4rem;
+	margin: 0 auto;
+}
+
+@media screen and (min-width: 1160px) {
+	.content-area {
+		float: left;
+		// margin: 0 (-$size__site-sidebar) 0 0;
+		margin-left: (-$size__site-sidebar);
+		padding-left: ($size__site-sidebar);
+		width: $size__site-main;
+	}
+
+	.entry-header,
+	.entry-content,
+	.entry-meta,
+	.entry-footer,
+	.tag-links,
+	.post-navigation,
+	.comments-area,
+	.paging-navigation {
+		margin-right: 0;
+	}
+}
+
+@media screen and (max-width: 1159px) {
+	.site-content .widget-area {
+		float: none;
+		width: auto;
+		max-width: 800px;
+		margin: 1em auto 0;
+	}
+}
