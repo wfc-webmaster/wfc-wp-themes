@@ -1,2 +1,2 @@
 # wfc-wp-themes
-Themes for WFC WordPress site using SASS
+Themes for WFC WordPress site using SASS.
