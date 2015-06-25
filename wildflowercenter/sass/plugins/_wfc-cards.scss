@@ -57,12 +57,11 @@ li.wfc-cards:nth-child(3) {
     clear: left;
 }
 
-@media screen and (max-width: 985px) {
-
+@media screen and (max-width: 989px) {
+    
     li.wfc-cards:nth-child(2) {
         clear: left;
     }
-
     li.wfc-cards:nth-child(3) {
         clear: none;
     }
@@ -80,4 +79,14 @@ li.wfc-cards:nth-child(3) {
         float: none;
         text-align: left;
     }
+}
+
+@media screen and (max-width: 659px) {
+
+    .landing-cards > .block-content ul {
+        max-width: 500px;
+    }
+
+    
+
 }
