@@ -65,7 +65,7 @@ Styles for WFC Cards widget
 
 li.wfc-cards {
   float: left;
-  margin: 1rem 0.95rem !important;
+  margin: 2rem 1rem !important;
   padding: 0 !important;
   width: auto !important;
 }
@@ -82,6 +82,21 @@ li.wfc-cards:nth-child(3) {
   li.wfc-cards:nth-child(3) {
     clear: none;
   }
+
+  .landing-cards > .block-content {
+    text-align: center;
+  }
+
+  .landing-cards > .block-content ul {
+    max-width: 700px;
+    text-align: center;
+  }
+
+  li.wfc-cards {
+    display: inline-block;
+    float: none;
+    text-align: left;
+  }
 }
 li.wfc-callout {
   display: inline-block;
@@ -94,6 +109,6 @@ li.wfc-callout {
 
 @media screen and (max-width: 985px) {
   li.wfc-callout {
-    float: left;
+    text-align: left;
   }
 }
