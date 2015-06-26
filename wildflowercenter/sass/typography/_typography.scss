@@ -1,0 +1,41 @@
+html{
+  @include responsive("font-size", 11px,
+    (
+       600px: 12px,
+       800px: 13px,
+      1180px: 14px,
+      1300px: 15px,
+      1750px: 16px,
+      1900px: 17px,
+      2100px: 18px,
+      2400px: 19px
+    )
+  );
+}
+
+$ms-base: 1rem;
+$ms-ratio: $major-third;  // 1.25
+
+body { 
+	font-size: ms(0); 
+}
+
+h5 { 
+	font-size: ms(1); 
+}
+
+h4 { 
+	font-size: ms(2); 
+}
+
+h3 { 
+	font-size: ms(3); 
+}
+
+h2 { 
+	font-size: ms(4); 
+}
+
+h1 { 
+	font-size: ms(5); 
+}

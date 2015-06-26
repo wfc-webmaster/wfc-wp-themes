@@ -7,6 +7,27 @@ li.wfc-callout {
     padding: 4rem 0 0 3rem;
 }
 
+.wfc-callout-container {
+    h1 {
+        font-size: ms(5, 1em, $minor-third);
+    }
+
+    h3 {
+        font-size: ms(1, 1em, $minor-third);
+        line-height: 1.4;
+    }
+
+    p {
+        margin-top: 4em;
+    }
+
+    a {
+    color: $wfc-orange !important;
+    font-style: italic;
+    text-decoration: none;
+    }
+}
+
 @media screen and (max-width: 989px) {
 
 	li.wfc-callout {

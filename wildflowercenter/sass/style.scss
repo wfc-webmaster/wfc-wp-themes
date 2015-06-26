@@ -14,9 +14,27 @@
 */
 
 /*
+=========
+Variables
+=========
+*/
+
+@import 'variables-site/_colors.scss';
+
+/*
+==========
+Typography
+==========
+*/
+@import '_modular-scale.scss';
+@import 'mixins/_responsive.scss';
+@import 'typography/_typography.scss';
+
+/*
 =======
 Plugins
 =======
 */
 @import 'plugins/_wfc-cards.scss';
 @import 'plugins/_wfc-call-out.scss';
+@import 'plugins/_pizazz_sliderplus.scss';

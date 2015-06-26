@@ -12,6 +12,84 @@
    Add SCSS style files below:
 */
 /*
+=========
+Variables
+=========
+*/
+/*
+==========
+Typography
+==========
+*/
+html {
+  font-size: 11px;
+}
+@media screen and (min-width: 600px) {
+  html {
+    font-size: 12px;
+  }
+}
+@media screen and (min-width: 800px) {
+  html {
+    font-size: 13px;
+  }
+}
+@media screen and (min-width: 1180px) {
+  html {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 1300px) {
+  html {
+    font-size: 15px;
+  }
+}
+@media screen and (min-width: 1750px) {
+  html {
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 1900px) {
+  html {
+    font-size: 17px;
+  }
+}
+@media screen and (min-width: 2100px) {
+  html {
+    font-size: 18px;
+  }
+}
+@media screen and (min-width: 2400px) {
+  html {
+    font-size: 19px;
+  }
+}
+
+body {
+  font-size: 1rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-size: 1.5625rem;
+}
+
+h3 {
+  font-size: 1.95313rem;
+}
+
+h2 {
+  font-size: 2.44141rem;
+}
+
+h1 {
+  font-size: 3.05176rem;
+}
+
+/*
 =======
 Plugins
 =======
@@ -38,13 +116,14 @@ Styles for WFC Cards widget
 }
 
 .wfc-cards-text > h1 {
-  font-size: 2rem;
+  font-size: 1.80203em;
   line-height: 1.18em;
+  margin-bottom: 0.4em;
   padding-top: 0.2em;
 }
 
 .wfc-cards-text h3 {
-  font-size: .9rem;
+  font-size: 0.85em;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -55,7 +134,7 @@ Styles for WFC Cards widget
 
 .landing-cards > .block-content ul {
   margin: 0 auto;
-  max-width: 1000px;
+  max-width: 1020px;
   overflow: auto;
 }
 
@@ -112,6 +191,22 @@ li.wfc-callout {
   padding: 4rem 0 0 3rem;
 }
 
+.wfc-callout-container h1 {
+  font-size: 2.48832em;
+}
+.wfc-callout-container h3 {
+  font-size: 1.2em;
+  line-height: 1.4;
+}
+.wfc-callout-container p {
+  margin-top: 4em;
+}
+.wfc-callout-container a {
+  color: #ed6322 !important;
+  font-style: italic;
+  text-decoration: none;
+}
+
 @media screen and (max-width: 989px) {
   li.wfc-callout {
     display: block;
@@ -131,4 +226,28 @@ li.wfc-callout {
   li.wfc-callout {
     text-align: left;
   }
+}
+.pzsp-entry-body {
+  color: #fff;
+  text-align: center;
+}
+
+.slider-button {
+  background-color: #356033;
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  margin-top: 3rem;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+}
+
+.slider-button a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.pzsp-content-rightorbottom {
+  bottom: 33% !important;
 }

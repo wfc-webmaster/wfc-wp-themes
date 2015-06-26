@@ -21,13 +21,14 @@ Styles for WFC Cards widget
 }
 
 .wfc-cards-text > h1 {
-    font-size: 2rem;
+    font-size: ms(5, 1em, $major-second);
     line-height: 1.18em;
+    margin-bottom: 0.4em;
     padding-top: 0.2em;
 }
 
 .wfc-cards-text h3 {
-    font-size: .9rem;
+    font-size: ms(0, 0.85em);
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -38,7 +39,7 @@ Styles for WFC Cards widget
 
 .landing-cards > .block-content ul {
     margin: 0 auto;
-    max-width: 1000px;
+    max-width: 1020px;
     overflow: auto;
 }
 
