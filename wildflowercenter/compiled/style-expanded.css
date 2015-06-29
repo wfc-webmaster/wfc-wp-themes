@@ -90,6 +90,29 @@ h1 {
 }
 
 /*
+==========
+Navigation
+==========
+*/
+.block-type-navigation ul.menu li:last-child > a {
+  border-style: none !important;
+}
+
+#menu-action-nav {
+  padding: 0.5em 0;
+  font-size: 0.8em;
+}
+
+ul#menu-action-nav li:nth-last-child(2) a {
+  border-style: none;
+}
+
+ul#menu-action-nav li:last-child a {
+  background: #ed6322 none repeat scroll 0 0;
+  color: #fff;
+}
+
+/*
 =======
 Plugins
 =======
@@ -123,12 +146,13 @@ Styles for WFC Cards widget
 }
 
 .wfc-cards-text h3 {
-  font-size: 0.85em;
+  font-size: 0.87891em;
   font-weight: bold;
   text-transform: uppercase;
 }
 
 .wfc-cards-text > p {
+  font-size: 0.9em;
   padding: 0.5em 0;
 }
 
@@ -212,6 +236,10 @@ li.wfc-callout {
     display: block;
     text-align: left;
   }
+
+  .wfc-callout-container p {
+    margin-top: 1.6em;
+  }
 }
 @media screen and (max-width: 659px) {
   .wfc-callout-container {
@@ -230,6 +258,7 @@ li.wfc-callout {
 .pzsp-entry-body {
   color: #fff;
   text-align: center;
+  text-shadow: 1px 1px #3f3f3f;
 }
 
 .slider-button {
