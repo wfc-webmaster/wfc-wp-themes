@@ -1,3 +1,7 @@
+.pzsp-container {
+    font-size: inherit !important;
+}
+
 .pzsp-entry-body {
     color: #fff;
     text-align: center;
@@ -12,14 +16,46 @@
     letter-spacing: 0.05em;
     margin-top: 3rem;
     padding: 1rem 2rem;
+    position: relative;
     text-transform: uppercase;
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
 }
 
-.slider-button a {
-	color: inherit;
-	text-decoration: none;
+//Class for <span> tag that allows entire <div> to be clickable button
+.button-link {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
 }
 
-.pzsp-content-rightorbottom {
+//Sets the text on landing page feature slider to the center
+div#block-bez558b23a77c556 .pzsp-content-rightorbottom {
 	bottom: 33% !important;
+}
+
+//Sets the text on footer feature slider to the top
+div#block-bei5591a71621877 .pzsp-content-leftortop {
+    top: 10% !important;
+}
+
+div#footerImage-text {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: inline-block;
+    padding: 1.2em 3em;
+
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    h1 {
+        margin-bottom: 0.5rem;
+    }
 }
