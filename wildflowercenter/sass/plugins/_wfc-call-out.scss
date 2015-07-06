@@ -22,8 +22,8 @@ li.wfc-callout {
     }
 
     a {
-    color: $wfc-orange !important;
-    font-style: italic;
+    color: $wfc-orange;
+    font-weight: 900;
     text-decoration: none;
     }
 }
@@ -58,4 +58,8 @@ li.wfc-callout {
     li.wfc-callout {
     	text-align: left;
 	}
+}
+
+.callout-arrow {
+    margin-top: 0.5rem;
 }

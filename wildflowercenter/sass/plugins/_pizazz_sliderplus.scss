@@ -11,7 +11,7 @@
 .slider-button {
     background-color: #356033;
     display: inline-block;
-    font-size: 1.5rem;
+    font-size: ms(1);
     font-weight: 900;
     letter-spacing: 0.05em;
     margin-top: 3rem;
@@ -35,9 +35,21 @@
     z-index: 1;
 }
 
-//Sets the text on landing page feature slider to the center
+div#block-bez558b23a77c556 {
+    background-color: $wfc-darkgreen;
+    margin-bottom: 0;
+}
+
+//Sets the text on landing page feature slider to the center horizontally
 div#block-bez558b23a77c556 .pzsp-content-rightorbottom {
 	bottom: 33% !important;
+}
+
+@media screen and (max-width: 768px) {
+    div#block-bez558b23a77c556 .pzsp-content-rightorbottom {
+        bottom: 25% !important;
+    }
+
 }
 
 //Sets the text on footer feature slider to the top

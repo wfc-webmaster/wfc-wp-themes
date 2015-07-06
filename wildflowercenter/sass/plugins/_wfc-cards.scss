@@ -89,6 +89,10 @@ li.wfc-cards:nth-child(3) {
         max-width: 500px;
     }
 
-    
+}
 
+.wfc-cards-text a {
+    color: $wfc-orange;
+    font-style: italic;
+    text-decoration: none;
 }
