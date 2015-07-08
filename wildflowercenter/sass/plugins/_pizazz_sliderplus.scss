@@ -8,35 +8,7 @@
     text-shadow: 1px 1px #3f3f3f;
 }
 
-.slider-button {
-    background-color: #356033;
-    display: inline-block;
-    font-size: ms(1);
-    font-weight: 900;
-    letter-spacing: 0.05em;
-    margin-top: 3rem;
-    padding: 1rem 2rem;
-    position: relative;
-    text-transform: uppercase;
-
-    a {
-        color: inherit;
-        text-decoration: none;
-    }
-}
-
-//Class for <span> tag that allows entire <div> to be clickable button
-.button-link {
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 1;
-}
-
 div#block-bez558b23a77c556 {
-    background-color: $wfc-darkgreen;
     margin-bottom: 0;
 }
 

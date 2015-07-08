@@ -89,6 +89,55 @@ h1 {
   font-size: 3.05176rem;
 }
 
+address {
+  font-style: normal;
+  margin: 0 0 1.2rem;
+}
+
+/*
+=======
+Buttons
+=======
+*/
+.button-link {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.slider-button {
+  background-color: #356033;
+  display: inline-block;
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  margin-top: 3rem;
+  padding: 1rem 2rem;
+  position: relative;
+  text-transform: uppercase;
+}
+.slider-button a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.orange-button {
+  background-color: #ed6322;
+  display: inline-block;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  padding: 0.5rem 1rem;
+  position: relative;
+  text-transform: uppercase;
+}
+.orange-button a {
+  color: inherit;
+  text-decoration: none;
+}
+
 /*
 ==========
 Navigation
@@ -275,33 +324,7 @@ li.wfc-callout {
   text-shadow: 1px 1px #3f3f3f;
 }
 
-.slider-button {
-  background-color: #356033;
-  display: inline-block;
-  font-size: 1.25rem;
-  font-weight: 900;
-  letter-spacing: 0.05em;
-  margin-top: 3rem;
-  padding: 1rem 2rem;
-  position: relative;
-  text-transform: uppercase;
-}
-.slider-button a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.button-link {
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 1;
-}
-
 div#block-bez558b23a77c556 {
-  background-color: #356033;
   margin-bottom: 0;
 }
 
@@ -337,13 +360,95 @@ Headway Page Blocks
 ===================
 */
 /*
+=========
+WFC Logo
+=========
+*/
+div#wfc-logo {
+  background-color: #4D4D4D;
+  display: inline-block;
+  margin-left: 5.5%;
+  position: absolute;
+  top: 0;
+  width: 20rem;
+  z-index: 999;
+}
+div#wfc-logo img {
+  max-width: 100%;
+  width: 100%;
+}
+
+/*
 ===========
 Visit Block
 ===========
 */
 .wrapper-visit {
   background-color: #7ec23b;
+  border-top: 0.6rem solid #356033;
   color: #fff;
+}
+
+#visit-hours,
+#visit-prices,
+#visit-directions {
+  display: inline-block;
+  float: left;
+  padding: 1rem 0 1rem 1.35rem;
+  width: 28%;
+}
+#visit-hours p:first-of-type,
+#visit-prices p:first-of-type,
+#visit-directions p:first-of-type {
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+}
+#visit-hours a,
+#visit-prices a,
+#visit-directions a {
+  color: inherit;
+  font-weight: bold;
+  letter-spacing: 0.02rem;
+  text-decoration: none;
+}
+
+#visit-prices,
+#visit-directions {
+  border-left: 1px solid #759f4d;
+}
+
+#wfc-hours {
+  margin: 0 0 1.2rem;
+}
+
+#visit-guest-type,
+#visit-price-amount {
+  float: left;
+}
+
+#visit-guest-type {
+  width: 75%;
+}
+
+#visit-price-amount {
+  width: 25%;
+}
+
+#visit-action-bar {
+  border-top: 1px solid #759f4d;
+  clear: both;
+  display: inline-block;
+  padding: 0.65rem 0rem 0.65rem 1.35rem;
+  width: 100%;
+}
+
+#visit-action-bar p {
+  display: inline-block;
+}
+
+#visit-membership {
+  float: right;
+  margin-right: 3.25rem;
 }
 
 /*

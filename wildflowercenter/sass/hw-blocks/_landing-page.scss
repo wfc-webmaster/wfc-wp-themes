@@ -1,4 +1,25 @@
 /*
+=========
+WFC Logo
+=========
+*/
+
+div#wfc-logo {
+	background-color: #4D4D4D;
+	display: inline-block;
+  	margin-left: 5.5%;
+	position: absolute;
+  	top: 0;
+  	width: 20rem;
+  	z-index: 999;
+
+  	img {
+  		max-width: 100%;
+  		width: 100%;
+  	}
+}
+
+/*
 ===========
 Visit Block
 ===========
@@ -6,8 +27,74 @@ Visit Block
 
 .wrapper-visit {
 	background-color: $wfc-green;
+	border-top: 0.6rem solid $wfc-darkgreen;
 	color: $wfc-white;
 }
+
+.visit-block {
+	// padding: 0.7rem 0;
+}
+
+#visit-hours,
+#visit-prices,
+#visit-directions {
+    display: inline-block;
+    float: left;
+    padding: 1rem 0 1rem 1.35rem;
+    width: 28%;
+
+    p:first-of-type {
+	  font-weight: bold;
+	  margin-bottom: 0.4rem;
+	}
+
+	a {
+		color: inherit;
+		font-weight: bold;
+		letter-spacing: 0.02rem;
+		text-decoration: none;
+	}
+}
+
+#visit-prices,
+#visit-directions {
+	border-left: 1px solid #759f4d;
+	//padding-left: 1.5rem;
+}
+
+#wfc-hours {
+	margin: 0 0 1.2rem;
+}
+
+#visit-guest-type,
+#visit-price-amount {
+  float: left;
+}
+
+#visit-guest-type {
+	width: 75%;
+}
+
+#visit-price-amount {
+	width: 25%;
+}
+
+#visit-action-bar {
+	border-top: 1px solid #759f4d;
+	clear: both;
+	display: inline-block;
+	padding: 0.65rem 0rem 0.65rem 1.35rem;
+	width: 100%;
+}	
+
+#visit-action-bar p {
+ 	display: inline-block;
+}
+
+#visit-membership {
+	float: right;
+	margin-right: 3.25rem;
+} 
 
 /*
 =============

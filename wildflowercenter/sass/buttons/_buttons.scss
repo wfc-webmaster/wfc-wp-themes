@@ -1,0 +1,41 @@
+//Class for <span> tag that allows entire <div> to be clickable button
+.button-link {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.slider-button {
+    background-color: $wfc-darkgreen;
+    display: inline-block;
+    font-size: ms(1);
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    margin-top: 3rem;
+    padding: 1rem 2rem;
+    position: relative;
+    text-transform: uppercase;
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+}
+
+.orange-button {
+    background-color: $wfc-orange;
+    display: inline-block;
+    font-weight: 900;
+    letter-spacing: 0.03em;
+    padding: 0.5rem 1rem;
+    position: relative;
+    text-transform: uppercase;
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+}
