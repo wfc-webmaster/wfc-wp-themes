@@ -138,6 +138,11 @@ Buttons
   text-decoration: none;
 }
 
+.callout-arrow {
+  margin-top: 0.5rem;
+  width: 1.38rem;
+}
+
 /*
 ==========
 Navigation
@@ -173,13 +178,16 @@ Styles for WFC Cards widget
 */
 .wfc-cards-container {
   border: 1px solid #dedede;
-  max-width: 300px;
+  height: 26rem;
   overflow: auto;
+  width: 15.5rem;
 }
 
 .wfc-cards-container img {
   float: left;
   clear: both;
+  max-width: 100%;
+  width: 100%;
 }
 
 .wfc-cards-text {
@@ -310,10 +318,6 @@ li.wfc-callout {
     text-align: left;
   }
 }
-.callout-arrow {
-  margin-top: 0.5rem;
-}
-
 .pzsp-container {
   font-size: inherit !important;
 }
@@ -365,12 +369,13 @@ WFC Logo
 =========
 */
 div#wfc-logo {
-  background-color: #4D4D4D;
+  background-color: #f0b252;
   display: inline-block;
   margin-left: 5.5%;
+  padding: 0.9rem 1.6rem;
   position: absolute;
   top: 0;
-  width: 20rem;
+  width: 13rem;
   z-index: 999;
 }
 div#wfc-logo img {
@@ -394,6 +399,7 @@ Visit Block
 #visit-directions {
   display: inline-block;
   float: left;
+  height: 13rem;
   padding: 1rem 0 1rem 1.35rem;
   width: 28%;
 }
@@ -412,9 +418,9 @@ Visit Block
   text-decoration: none;
 }
 
-#visit-prices,
-#visit-directions {
+#visit-prices {
   border-left: 1px solid #759f4d;
+  border-right: 1px solid #759f4d;
 }
 
 #wfc-hours {
@@ -466,5 +472,105 @@ Footer Block
 ============
 */
 .footer-block {
-  background-color: #fff;
+  background-color: #232a2f;
+}
+
+#block-bo555788f728a8fa {
+  background-color: #e9d8c8;
+}
+
+#footer-about-wfc {
+  line-height: 160%;
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 1.8rem 0;
+  width: 70rem;
+}
+
+#footer-nav-container {
+  color: #fff;
+  display: table;
+  font-size: 0.85em;
+  line-height: 150%;
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 1.8rem 0rem;
+  width: 70rem;
+}
+#footer-nav-container a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-nav-section {
+  display: inline-block;
+  float: left;
+}
+.footer-nav-section p:first-of-type {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+#footer-nav-1 {
+  width: 11rem;
+}
+#footer-nav-1 address {
+  line-height: 150%;
+  margin: 0;
+}
+#footer-nav-1 img {
+  margin-bottom: 1rem;
+  width: 9rem;
+}
+
+#footer-nav-2,
+#footer-nav-3,
+#footer-nav-4,
+#footer-nav-5 {
+  margin-left: 1.7rem;
+  width: 8rem;
+}
+
+#footer-nav-6 {
+  margin-left: 1.7rem;
+  width: 14rem;
+}
+
+#footer-copyright-container {
+  border-top: 1px solid #fff;
+  color: #fff;
+  display: table;
+  font-size: 0.85em;
+  margin: 0 auto 0.7rem;
+  max-width: 1280px;
+  padding: 0.5rem 0;
+  width: 70rem;
+}
+#footer-copyright-container a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#footer-copyright {
+  display: inline-block;
+  float: left;
+}
+
+#footer-social-media {
+  float: right;
+}
+#footer-social-media ul {
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.footer-ut-logo {
+  background-color: #4d4d4d;
+}
+
+#ut-footer-logo {
+  color: #fff;
+  margin: 0 auto;
+  max-width: 1280px;
 }

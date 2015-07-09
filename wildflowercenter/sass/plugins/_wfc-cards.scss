@@ -6,13 +6,16 @@ Styles for WFC Cards widget
 
 .wfc-cards-container {
     border: 1px solid #dedede;
-    max-width: 300px;
+    height: 26rem;
     overflow: auto;
+    width: 15.5rem;
 }
 
 .wfc-cards-container img {
     float: left;
     clear: both;
+    max-width: 100%;
+    width: 100%;
 }
 
 .wfc-cards-text {
