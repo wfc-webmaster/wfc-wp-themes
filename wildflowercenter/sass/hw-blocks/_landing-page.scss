@@ -4,7 +4,7 @@ WFC Logo
 =========
 */
 
-div#wfc-logo {
+#wfc-logo {
 	background-color: $wfc-lightorange;
 	display: inline-block;
   	margin-left: 5.5%;
@@ -18,6 +18,13 @@ div#wfc-logo {
   		max-width: 100%;
   		width: 100%;
   	}
+}
+
+@media screen and (max-width: 599px) {
+	#wfc-logo {
+		margin-left: 0;
+		width: 9rem;
+	}
 }
 
 /*

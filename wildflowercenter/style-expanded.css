@@ -432,7 +432,7 @@ Headway Page Blocks
 WFC Logo
 =========
 */
-div#wfc-logo {
+#wfc-logo {
   background-color: #f0b252;
   display: inline-block;
   margin-left: 5.5%;
@@ -442,11 +442,17 @@ div#wfc-logo {
   width: 13rem;
   z-index: 999;
 }
-div#wfc-logo img {
+#wfc-logo img {
   max-width: 100%;
   width: 100%;
 }
 
+@media screen and (max-width: 599px) {
+  #wfc-logo {
+    margin-left: 0;
+    width: 9rem;
+  }
+}
 /*
 ===========
 Visit Block
