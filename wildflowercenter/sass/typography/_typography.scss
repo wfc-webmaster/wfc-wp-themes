@@ -14,9 +14,10 @@ html{
 }
 
 $ms-base: 1rem;
-$ms-ratio: $major-third;  // 1.25
+$ms-ratio: $minor-third;  // 1.2
 
-body { 
+body {
+  font-family: Open Sans; 
 	font-size: ms(0); 
 }
 

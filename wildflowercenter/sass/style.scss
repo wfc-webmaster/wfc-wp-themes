@@ -14,6 +14,14 @@
 */
 
 /*
+=====
+Reset
+=====
+*/
+
+@import 'reset/_reset.scss';
+
+/*
 =========
 Variables
 =========
@@ -60,3 +68,4 @@ Headway Page Blocks
 ===================
 */
 @import 'hw-blocks/_landing-page.scss';
+@import 'hw-blocks/_footer.scss';

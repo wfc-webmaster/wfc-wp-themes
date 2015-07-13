@@ -6,7 +6,7 @@ Styles for WFC Cards widget
 
 .wfc-cards-container {
     border: 1px solid #dedede;
-    height: 26rem;
+    height: 27rem;
     overflow: auto;
     width: 15.5rem;
 }
@@ -102,8 +102,19 @@ li.wfc-cards:nth-child(3) {
 
 @media screen and (max-width: 389px) {
 
-    
+    .landing-cards>.block-content ul {
+        width: auto;
+    }
 
+    .wfc-cards-container {
+        height: 31rem;
+        margin: 0 auto;
+        width: 22rem;
+    }
+
+    li.wfc-cards {
+        float: none;    
+    }
 }
 
 .wfc-cards-text a {
