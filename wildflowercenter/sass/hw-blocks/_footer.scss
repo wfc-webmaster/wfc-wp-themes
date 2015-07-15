@@ -75,6 +75,43 @@
 	width: 14rem;
 }
 
+// MailChimp sign-up form
+
+.footer-nav-mc {
+  margin: .6rem 0;
+
+	label {
+	  display: inline-block;
+	  width: 4.75rem;
+	}
+
+ 	input {
+	  background-color: $wfc-darkgray;
+	  border-color: $wfc-white;
+	  border-radius: 0;
+	  color: $wfc-white;
+	  font-size: inherit;
+	  width: 100%;
+	}
+
+	input:focus {
+		background-color: inherit;
+		border-color: inherit;
+		color: inherit;
+		font-size: inherit;
+	}
+	input[type="submit"] {
+		background-color: $wfc-lightorange;
+		border-radius: 0;
+		font-size: inherit;
+		padding: 0 0.75rem;
+		width: auto;
+	}
+	input[type="submit"]:hover {
+		color: inherit;
+	}
+}
+
 @media screen and (max-width: 953px) {
 	
 	#footer-nav-1 {

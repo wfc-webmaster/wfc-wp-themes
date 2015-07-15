@@ -20,9 +20,15 @@ WFC Logo
   	}
 }
 
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 999px) {
 	#wfc-logo {
 		margin-left: 0;
+		width: 11rem;
+	}
+}
+
+@media screen and (max-width: 599px) {
+	#wfc-logo {
 		width: 9rem;
 	}
 }

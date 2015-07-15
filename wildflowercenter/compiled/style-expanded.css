@@ -214,7 +214,7 @@ Navigation
 
 #menu-action-nav {
   padding: 0.5em 0;
-  font-size: 0.8em;
+  font-size: 0.65em;
 }
 
 ul#menu-action-nav li:nth-last-child(2) a {
@@ -224,6 +224,30 @@ ul#menu-action-nav li:nth-last-child(2) a {
 ul#menu-action-nav li:last-child a {
   background: #ed6322 none repeat scroll 0 0;
   color: #fff;
+  margin-right: 1.35rem;
+}
+
+#menu-main-nav a {
+  padding: 0 1.5rem;
+}
+#menu-main-nav li:hover {
+  background-color: #7ec23b;
+}
+
+#menu-main-nav-wrap,
+#menu-action-nav-wrap {
+  display: table;
+  margin: 0 auto;
+  width: 33rem;
+}
+
+#takeover-container {
+  background-color: #7ec23b;
+  display: table;
+  height: 5rem;
+  position: absolute;
+  width: 100%;
+  z-index: 998;
 }
 
 /*
@@ -447,9 +471,14 @@ WFC Logo
   width: 100%;
 }
 
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 999px) {
   #wfc-logo {
     margin-left: 0;
+    width: 11rem;
+  }
+}
+@media screen and (max-width: 599px) {
+  #wfc-logo {
     width: 9rem;
   }
 }
@@ -674,6 +703,38 @@ Content Block
 #footer-nav-6 {
   margin-left: 1.7rem;
   width: 14rem;
+}
+
+.footer-nav-mc {
+  margin: .6rem 0;
+}
+.footer-nav-mc label {
+  display: inline-block;
+  width: 4.75rem;
+}
+.footer-nav-mc input {
+  background-color: #232a2f;
+  border-color: #fff;
+  border-radius: 0;
+  color: #fff;
+  font-size: inherit;
+  width: 100%;
+}
+.footer-nav-mc input:focus {
+  background-color: inherit;
+  border-color: inherit;
+  color: inherit;
+  font-size: inherit;
+}
+.footer-nav-mc input[type="submit"] {
+  background-color: #f0b252;
+  border-radius: 0;
+  font-size: inherit;
+  padding: 0 0.75rem;
+  width: auto;
+}
+.footer-nav-mc input[type="submit"]:hover {
+  color: inherit;
 }
 
 @media screen and (max-width: 953px) {

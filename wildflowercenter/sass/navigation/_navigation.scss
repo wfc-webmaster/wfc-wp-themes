@@ -1,4 +1,4 @@
-// Navigation background colors are set in Headway design editor
+// Navigation bar background colors are set in Headway design editor
 
 .block-type-navigation ul.menu li:last-child > a {
     border-style: none !important;
@@ -6,7 +6,7 @@
 
 #menu-action-nav {
     padding: 0.5em 0;
-    font-size: ms(0, 0.8em);
+    font-size: ms(0, 0.65em);
 }
 
 ul#menu-action-nav li:nth-last-child(2) a {
@@ -15,6 +15,32 @@ ul#menu-action-nav li:nth-last-child(2) a {
 
 // Controls "Donate" button on Action Nav
 ul#menu-action-nav li:last-child a {
-    background: #ed6322 none repeat scroll 0 0;
+    background: $wfc-orange none repeat scroll 0 0;
     color: #fff;
+    margin-right: 1.35rem;
+}
+
+#menu-main-nav {
+	a {
+		padding: 0 1.5rem;
+	}
+	li:hover {
+		background-color: $wfc-green;
+	}
+}
+
+#menu-main-nav-wrap, 
+#menu-action-nav-wrap {
+  display: table;
+  margin: 0 auto;
+  width: 33rem;
+}
+
+#takeover-container {
+  background-color: $wfc-green;
+  display: table;
+  height: 5rem;
+  position: absolute;
+  width: 100%;
+  z-index: 998;
 }
