@@ -24,9 +24,9 @@ ul#menu-action-nav li:last-child a {
 	a {
 		padding: 0 1.5rem;
 	}
-	li:hover {
-		background-color: $wfc-green;
-	}
+	// li:hover {
+	// 	background-color: $wfc-green;
+	// }
 }
 
 #menu-main-nav-wrap, 
@@ -36,9 +36,9 @@ ul#menu-action-nav li:last-child a {
   width: 33rem;
 }
 
-#takeover-container {
+.takeover-show {
   background-color: $wfc-green;
-  display: table;
+  display: none;
   height: 5rem;
   position: absolute;
   width: 100%;

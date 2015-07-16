@@ -230,9 +230,6 @@ ul#menu-action-nav li:last-child a {
 #menu-main-nav a {
   padding: 0 1.5rem;
 }
-#menu-main-nav li:hover {
-  background-color: #7ec23b;
-}
 
 #menu-main-nav-wrap,
 #menu-action-nav-wrap {
@@ -241,9 +238,9 @@ ul#menu-action-nav li:last-child a {
   width: 33rem;
 }
 
-#takeover-container {
+.takeover-show {
   background-color: #7ec23b;
-  display: table;
+  display: none;
   height: 5rem;
   position: absolute;
   width: 100%;
