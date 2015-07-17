@@ -21,12 +21,13 @@ ul#menu-action-nav li:last-child a {
 }
 
 #menu-main-nav {
-	a {
+  a {
 		padding: 0 1.5rem;
 	}
-	// li:hover {
-	// 	background-color: $wfc-green;
-	// }
+  
+	li:hover {
+		background-color: $wfc-green;
+  }
 }
 
 #menu-main-nav-wrap, 
@@ -40,7 +41,39 @@ ul#menu-action-nav li:last-child a {
   background-color: $wfc-green;
   display: none;
   height: 5rem;
+  left: 0;
   position: absolute;
+  text-align: left;
   width: 100%;
   z-index: 998;
+}
+
+.visit-wrap {
+  background-color: $wfc-orange;
+  display: table;
+  margin: 0 auto;
+  width: 30rem;
+}
+
+.subnav-list-wrap {
+  background-color: #dedede;
+  float: left;
+}
+
+.subnav-list {
+  color: red;
+  text-align: left !important;
+
+  > li {
+    clear: both;
+    display: block !important;
+    //float: left;  
+  }
+}
+
+.subnav-images {
+  background-color: red;
+  float: left;
+  height: 2rem;
+  width: 2rem;
 }
