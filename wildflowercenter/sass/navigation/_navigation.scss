@@ -20,15 +20,35 @@ ul#menu-action-nav li:last-child a {
     margin-right: 1.35rem;
 }
 
-#menu-main-nav {
+ul#menu-main-nav {
+  text-align: center;
+
   a {
 		padding: 0 1.5rem;
 	}
+
+  // > li {
+  //   color: $wfc-white;
+  //   height: 50px;
+  //   line-height: 50px;
+  //   padding: 0 1.5rem;
+  // }
   
-	li:hover {
+  li:hover {
 		background-color: $wfc-green;
   }
 }
+
+.nav-responsive-touch {
+    border-color: #B3B3B3;
+    border-style: solid;
+    border-right-width: 1px;
+    color: $wfc-white;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 1.5rem;
+    text-transform: uppercase;
+  }
 
 #menu-main-nav-wrap, 
 #menu-action-nav-wrap {
@@ -38,9 +58,8 @@ ul#menu-action-nav li:last-child a {
 }
 
 .takeover-show {
-  background-color: $wfc-green;
   display: none;
-  height: 5rem;
+  //height: 5rem;
   left: 0;
   position: absolute;
   text-align: left;
@@ -48,20 +67,21 @@ ul#menu-action-nav li:last-child a {
   z-index: 998;
 }
 
-.visit-wrap {
-  background-color: $wfc-orange;
+.takeover-wrap {
+  background-color: $wfc-green;
   display: table;
   margin: 0 auto;
-  width: 30rem;
+  padding: 1rem;
+  width: 45rem;
 }
 
 .subnav-list-wrap {
-  background-color: #dedede;
   float: left;
 }
 
 .subnav-list {
-  color: red;
+  color: $wfc-white;
+  line-height: 150%;
   text-align: left !important;
 
   > li {
@@ -69,11 +89,41 @@ ul#menu-action-nav li:last-child a {
     display: block !important;
     //float: left;  
   }
+
+  > li a {
+    padding: 0 0.5rem !important;
+    text-transform: none !important;
+  }
 }
 
 .subnav-images {
-  background-color: red;
-  float: left;
-  height: 2rem;
-  width: 2rem;
+  float: right;
 }
+
+.subnav-img-container {
+  color: $wfc-white;
+  display: table;
+  float: left;
+  line-height: 1;
+  margin-right: 1.6rem;
+  width: 9rem;
+
+  a {
+    padding: 0 !important;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  p {
+    font-size: ms(0, 0.8em);
+    margin-top: 0.5rem;
+  }
+
+}
+
+
+
+
+
