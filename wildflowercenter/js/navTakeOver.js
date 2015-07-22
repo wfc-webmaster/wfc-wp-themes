@@ -29,25 +29,10 @@ var codeVisit = [
 	'<div id="visit-takeover" class="takeover-show">',
 		'<div id="visit-takeover-wrap" class="takeover-wrap">',
 			'<div class="subnav-list-wrap">',
-			'<ul class="subnav-list">',
-				'<li><a href="">Visit Item 1</a></li>',
-				'<li><a href="">Visit Item 2</a></li>',
-				'<li><a href="">Visit Item 3</a></li>',
+			'<ul class="subnav-list">',				
 			'</ul>',
 			'</div>',
 			'<div class="subnav-images">',
-				'<div class="subnav-img-container">',
-				'<a href=""><img src="wp-content/uploads/2013/03/image-alignment-150x150.jpg" /></a>',
-				'<p>Caption text here.</p>',
-				'</div>',
-				'<div class="subnav-img-container">',
-				'<a href=""><img src="wp-content/uploads/2013/03/image-alignment-150x150.jpg" /></a>',
-				'<p>Caption text here.</p>',
-				'</div>',
-				'<div class="subnav-img-container">',
-				'<a href=""><img src="wp-content/uploads/2013/03/image-alignment-150x150.jpg" /></a>',
-				'<p>Caption text here.</p>',
-				'</div>',
 			'</div>',
 		'</div>',
 	'</div>'
@@ -208,10 +193,70 @@ jQuery(document).ready(function($) {
 		});
 }
 
+// DoubleTapToGo by Osvaldas Valutis :: www.osvaldas.info :: Available for use under the MIT License
+	
+	$.fn.doubleTapToGo = function(params) {
+			if( !( 'ontouchstart' in window ) &&
+				!navigator.msMaxTouchPoints &&
+				!navigator.userAgent.toLowerCase().match( /windows phone os 7/i ) ) return false;
 
+			this.each( function() {
+				var curItem = false;
 
+				$( this ).on( 'click', function(e) {
+					var item = $( this );
+					if (item[0] != curItem[0]) {
+						e.preventDefault();
+						curItem = item;
+					}
+				});
 
+				$(document).on('click touchstart MSPointerDown', function(e) {
+					var resetItem = true,
+						parents	= $(e.target).parents();
 
+					for (var i = 0; i < parents.length; i++)
+						if(parents[i] == curItem[0])
+							resetItem = false;
 
+					if(resetItem)
+						curItem = false;
+				});
+			});
+			return this;
+		};
+
+		$('#menu-main-nav > li').doubleTapToGo();
+
+// Get link and image data from JSON file and insert it into takeover subnav		
+
+	$.getJSON('wp-content/themes/wildflowercenter/json/takeoverNavData.json', function(data) {
+						
+			var visitLinks = '',
+				visitURL;
+
+			for (var i = 0; i < data.nav_visit_links.length; i++) {
+				for (key in data.nav_visit_links[i]) {
+					if (data.nav_visit_links[i].hasOwnProperty(key)) {
+						visitURL = data.nav_visit_links[i][key];
+						visitLinks += '<li><a href="' + visitURL + '">' + key + '</a></li>';
+						$('#visit-takeover-wrap > .subnav-list-wrap > .subnav-list').html(visitLinks);
+					}
+				}
+			};
+
+			$.each(data.nav_visit_pics, function(i, nav_visit_pic) {
+				var visitImageContainer = $('<div>').attr('class', 'subnav-img-container'),
+					visitImage = $('<img/>').attr('src', nav_visit_pic.image),
+					visitImageLink = $('<a>').attr('href', nav_visit_pic.url);
+					visitImageCap = $('<p>').append(nav_visit_pic.caption);
+
+				visitImageLink.append(visitImage);
+				visitImageContainer.append(visitImageLink);
+				visitImageContainer.append(visitImageCap);
+				$('#visit-takeover-wrap .subnav-images').append(visitImageContainer);
+			});
+
+	});
 
 });

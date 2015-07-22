@@ -1,0 +1,141 @@
+{
+	"nav_visit_pics" : [
+		{ 
+			"image"		: "wp-content/uploads/2013/03/image-alignment-150x150.jpg",
+			"url"		: "http://sample1.com",
+			"caption"	: "Here's a caption one." 
+		},
+
+		{ 
+			"image"		: "wp-content/uploads/2013/03/image-alignment-150x150.jpg",
+			"url"		: "http://sample2.com",
+			"caption"	: "Here's a caption two." 
+		},
+
+		{ 
+			"image"		: "wp-content/uploads/2013/03/image-alignment-150x150.jpg",
+			"url"		: "http://sample3.com",
+			"caption"	: "Here's a caption three." 
+		}
+	],
+
+	"nav_visit_links" : [
+			{ "Visit link 1"	: "http://example1.com" },
+			{ "Visit link 2" 	: "http://example2.com" },
+			{ "Visit link 3"  	: "http://example3.com" },
+			{ "Visit link 4"  	: "http://example4.com" },
+			{ "Visit link 5"  	: "http://example5.com" }
+	],
+
+	"nav_plants_pics" : [
+		{ 
+			"image"		: "wp-content/uploads/2013/03/image-alignment-150x150.jpg",
+			"url"		: "http://sample1.com",
+			"caption"	: "Here's a caption one." 
+		},
+
+		{ 
+			"image"		: "wp-content/uploads/2013/03/image-alignment-150x150.jpg",
+			"url"		: "http://sample2.com",
+			"caption"	: "Here's a caption two." 
+		},
+
+		{ 
+			"image"		: "wp-content/uploads/2013/03/image-alignment-150x150.jpg",
+			"url"		: "http://sample3.com",
+			"caption"	: "Here's a caption three." 
+		}
+	],
+
+	"nav_plants_links" : [
+			{ "link 1"	: "http://example1.com" },
+			{ "link 2" 	: "http://example2.com" },
+			{ "link 3"  : "http://example3.com" },
+			{ "link 4"  : "http://example4.com" },
+			{ "link 5"  : "http://example5.com" }
+	],
+
+	"nav_learn_pics" : [
+		{ 
+			"image"		: "wp-content/uploads/2013/03/image-alignment-150x150.jpg",
+			"url"		: "http://sample1.com",
+			"caption"	: "Here's a caption one." 
+		},
+
+		{ 
+			"image"		: "wp-content/uploads/2013/03/image-alignment-150x150.jpg",
+			"url"		: "http://sample2.com",
+			"caption"	: "Here's a caption two." 
+		},
+
+		{ 
+			"image"		: "wp-content/uploads/2013/03/image-alignment-150x150.jpg",
+			"url"		: "http://sample3.com",
+			"caption"	: "Here's a caption three." 
+		}
+	],
+
+	"nav_learn_links" : [
+			{ "link 1"	: "http://example1.com" },
+			{ "link 2" 	: "http://example2.com" },
+			{ "link 3"  : "http://example3.com" },
+			{ "link 4"  : "http://example4.com" },
+			{ "link 5"  : "http://example5.com" }
+	],
+
+	"nav_work_pics" : [
+		{ 
+			"image"		: "wp-content/uploads/2013/03/image-alignment-150x150.jpg",
+			"url"		: "http://sample1.com",
+			"caption"	: "Here's a caption one." 
+		},
+
+		{ 
+			"image"		: "wp-content/uploads/2013/03/image-alignment-150x150.jpg",
+			"url"		: "http://sample2.com",
+			"caption"	: "Here's a caption two." 
+		},
+
+		{ 
+			"image"		: "wp-content/uploads/2013/03/image-alignment-150x150.jpg",
+			"url"		: "http://sample3.com",
+			"caption"	: "Here's a caption three." 
+		}
+	],
+
+	"nav_work_links" : [
+			{ "link 1"	: "http://example1.com" },
+			{ "link 2" 	: "http://example2.com" },
+			{ "link 3"  : "http://example3.com" },
+			{ "link 4"  : "http://example4.com" },
+			{ "link 5"  : "http://example5.com" }
+	],
+
+	"nav_news_pics" : [
+		{ 
+			"image"		: "wp-content/uploads/2013/03/image-alignment-150x150.jpg",
+			"url"		: "http://sample1.com",
+			"caption"	: "Here's a caption one." 
+		},
+
+		{ 
+			"image"		: "wp-content/uploads/2013/03/image-alignment-150x150.jpg",
+			"url"		: "http://sample2.com",
+			"caption"	: "Here's a caption two." 
+		},
+
+		{ 
+			"image"		: "wp-content/uploads/2013/03/image-alignment-150x150.jpg",
+			"url"		: "http://sample3.com",
+			"caption"	: "Here's a caption three." 
+		}
+	],
+
+	"nav_news_links" : [
+			{ "link 1"	: "http://example1.com" },
+			{ "link 2" 	: "http://example2.com" },
+			{ "link 3"  : "http://example3.com" },
+			{ "link 4"  : "http://example4.com" },
+			{ "link 5"  : "http://example5.com" }
+	]
+}
