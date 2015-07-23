@@ -44,25 +44,10 @@ var codePlants = [
 	'<div id="plants-takeover" class="takeover-show">',
 		'<div id="plants-takeover-wrap" class="takeover-wrap">',
 			'<div class="subnav-list-wrap">',
-			'<ul class="subnav-list">',
-				'<li><a href="">Plants Item 1</a></li>',
-				'<li><a href="">Plants Item 2</a></li>',
-				'<li><a href="">Plants Item 3</a></li>',
+			'<ul class="subnav-list">',				
 			'</ul>',
 			'</div>',
 			'<div class="subnav-images">',
-				'<div class="subnav-img-container">',
-				'<img src="wp-content/uploads/2013/03/image-alignment-150x150.jpg" />',
-				'<p>Caption text here.</p>',
-				'</div>',
-				'<div class="subnav-img-container">',
-				'<img src="wp-content/uploads/2013/03/image-alignment-150x150.jpg" />',
-				'<p>Caption text here.</p>',
-				'</div>',
-				'<div class="subnav-img-container">',
-				'<img src="wp-content/uploads/2013/03/image-alignment-150x150.jpg" />',
-				'<p>Caption text here.</p>',
-				'</div>',
 			'</div>',
 		'</div>',
 	'</div>'
@@ -74,25 +59,10 @@ var codeLearn = [
 	'<div id="learn-takeover" class="takeover-show">',
 		'<div id="learn-takeover-wrap" class="takeover-wrap">',
 			'<div class="subnav-list-wrap">',
-			'<ul class="subnav-list">',
-				'<li><a href="">Learn Item 1</a></li>',
-				'<li><a href="">Learn Item 2</a></li>',
-				'<li><a href="">Learn Item 3</a></li>',
+			'<ul class="subnav-list">',				
 			'</ul>',
 			'</div>',
 			'<div class="subnav-images">',
-				'<div class="subnav-img-container">',
-				'<img src="wp-content/uploads/2013/03/image-alignment-150x150.jpg" />',
-				'<p>Caption text here.</p>',
-				'</div>',
-				'<div class="subnav-img-container">',
-				'<img src="wp-content/uploads/2013/03/image-alignment-150x150.jpg" />',
-				'<p>Caption text here.</p>',
-				'</div>',
-				'<div class="subnav-img-container">',
-				'<img src="wp-content/uploads/2013/03/image-alignment-150x150.jpg" />',
-				'<p>Caption text here.</p>',
-				'</div>',
 			'</div>',
 		'</div>',
 	'</div>'
@@ -104,25 +74,10 @@ var codeWork = [
 	'<div id="work-takeover" class="takeover-show">',
 		'<div id="work-takeover-wrap" class="takeover-wrap">',
 			'<div class="subnav-list-wrap">',
-			'<ul class="subnav-list">',
-				'<li><a href="">Work Item 1</a></li>',
-				'<li><a href="">Work Item 2</a></li>',
-				'<li><a href="">Work Item 3</a></li>',
+			'<ul class="subnav-list">',				
 			'</ul>',
 			'</div>',
 			'<div class="subnav-images">',
-				'<div class="subnav-img-container">',
-				'<img src="wp-content/uploads/2013/03/image-alignment-150x150.jpg" />',
-				'<p>Caption text here.</p>',
-				'</div>',
-				'<div class="subnav-img-container">',
-				'<img src="wp-content/uploads/2013/03/image-alignment-150x150.jpg" />',
-				'<p>Caption text here.</p>',
-				'</div>',
-				'<div class="subnav-img-container">',
-				'<img src="wp-content/uploads/2013/03/image-alignment-150x150.jpg" />',
-				'<p>Caption text here.</p>',
-				'</div>',
 			'</div>',
 		'</div>',
 	'</div>'
@@ -134,25 +89,10 @@ var codeNews = [
 	'<div id="news-takeover" class="takeover-show">',
 		'<div id="news-takeover-wrap" class="takeover-wrap">',
 			'<div class="subnav-list-wrap">',
-			'<ul class="subnav-list">',
-				'<li><a href="">News Item 1</a></li>',
-				'<li><a href="">News Item 2</a></li>',
-				'<li><a href="">News Item 3</a></li>',
+			'<ul class="subnav-list">',				
 			'</ul>',
 			'</div>',
 			'<div class="subnav-images">',
-				'<div class="subnav-img-container">',
-				'<img src="wp-content/uploads/2013/03/image-alignment-150x150.jpg" />',
-				'<p>Caption text here.</p>',
-				'</div>',
-				'<div class="subnav-img-container">',
-				'<img src="wp-content/uploads/2013/03/image-alignment-150x150.jpg" />',
-				'<p>Caption text here.</p>',
-				'</div>',
-				'<div class="subnav-img-container">',
-				'<img src="wp-content/uploads/2013/03/image-alignment-150x150.jpg" />',
-				'<p>Caption text here.</p>',
-				'</div>',
 			'</div>',
 		'</div>',
 	'</div>'
@@ -226,12 +166,14 @@ jQuery(document).ready(function($) {
 			return this;
 		};
 
-		$('#menu-main-nav > li').doubleTapToGo();
+	$('#menu-main-nav > li').doubleTapToGo();
 
 // Get link and image data from JSON file and insert it into takeover subnav		
 
 	$.getJSON('wp-content/themes/wildflowercenter/json/takeoverNavData.json', function(data) {
 						
+			// Gets JSON data and inserts it into Visit subnav
+
 			var visitLinks = '',
 				visitURL;
 
@@ -246,16 +188,125 @@ jQuery(document).ready(function($) {
 			};
 
 			$.each(data.nav_visit_pics, function(i, nav_visit_pic) {
-				var visitImageContainer = $('<div>').attr('class', 'subnav-img-container'),
-					visitImage = $('<img/>').attr('src', nav_visit_pic.image),
-					visitImageLink = $('<a>').attr('href', nav_visit_pic.url);
-					visitImageCap = $('<p>').append(nav_visit_pic.caption);
+				var imageContainer = $('<div>').attr('class', 'subnav-img-container'),
+					image = $('<img/>').attr('src', nav_visit_pic.image),
+					imageLink = $('<a>').attr('href', nav_visit_pic.url);
+					imageCap = $('<p>').append(nav_visit_pic.caption);
 
-				visitImageLink.append(visitImage);
-				visitImageContainer.append(visitImageLink);
-				visitImageContainer.append(visitImageCap);
-				$('#visit-takeover-wrap .subnav-images').append(visitImageContainer);
+				imageLink.append(image);
+				imageContainer.append(imageLink);
+				imageContainer.append(imageCap);
+				$('#visit-takeover-wrap .subnav-images').append(imageContainer);
 			});
+
+			// Gets JSON data and inserts it into Plants subnav
+
+			var plantsLinks = '',
+				plantsURL;
+
+			for (var i = 0; i < data.nav_plants_links.length; i++) {
+				for (key in data.nav_plants_links[i]) {
+					if (data.nav_plants_links[i].hasOwnProperty(key)) {
+						plantsURL = data.nav_plants_links[i][key];
+						plantsLinks += '<li><a href="' + plantsURL + '">' + key + '</a></li>';
+						$('#plants-takeover-wrap > .subnav-list-wrap > .subnav-list').html(plantsLinks);
+					}
+				}
+			};
+
+			$.each(data.nav_plants_pics, function(i, nav_plants_pic) {
+				var imageContainer = $('<div>').attr('class', 'subnav-img-container'),
+					image = $('<img/>').attr('src', nav_plants_pic.image),
+					imageLink = $('<a>').attr('href', nav_plants_pic.url);
+					imageCap = $('<p>').append(nav_plants_pic.caption);
+
+				imageLink.append(image);
+				imageContainer.append(imageLink);
+				imageContainer.append(imageCap);
+				$('#plants-takeover-wrap .subnav-images').append(imageContainer);
+			});
+
+			// Gets JSON data and inserts it into Learn subnav
+
+			var learnLinks = '',
+				learnURL;
+
+			for (var i = 0; i < data.nav_learn_links.length; i++) {
+				for (key in data.nav_learn_links[i]) {
+					if (data.nav_learn_links[i].hasOwnProperty(key)) {
+						learnURL = data.nav_learn_links[i][key];
+						learnLinks += '<li><a href="' + learnURL + '">' + key + '</a></li>';
+						$('#learn-takeover-wrap > .subnav-list-wrap > .subnav-list').html(learnLinks);
+					}
+				}
+			};
+
+			$.each(data.nav_learn_pics, function(i, nav_learn_pic) {
+				var imageContainer = $('<div>').attr('class', 'subnav-img-container'),
+					image = $('<img/>').attr('src', nav_learn_pic.image),
+					imageLink = $('<a>').attr('href', nav_learn_pic.url);
+					imageCap = $('<p>').append(nav_learn_pic.caption);
+
+				imageLink.append(image);
+				imageContainer.append(imageLink);
+				imageContainer.append(imageCap);
+				$('#learn-takeover-wrap .subnav-images').append(imageContainer);
+			});
+
+			// Gets JSON data and inserts it into Work subnav
+
+			var workLinks = '',
+				workURL;
+
+			for (var i = 0; i < data.nav_work_links.length; i++) {
+				for (key in data.nav_work_links[i]) {
+					if (data.nav_work_links[i].hasOwnProperty(key)) {
+						workURL = data.nav_work_links[i][key];
+						workLinks += '<li><a href="' + workURL + '">' + key + '</a></li>';
+						$('#work-takeover-wrap > .subnav-list-wrap > .subnav-list').html(workLinks);
+					}
+				}
+			};
+
+			$.each(data.nav_work_pics, function(i, nav_work_pic) {
+				var imageContainer = $('<div>').attr('class', 'subnav-img-container'),
+					image = $('<img/>').attr('src', nav_work_pic.image),
+					imageLink = $('<a>').attr('href', nav_work_pic.url);
+					imageCap = $('<p>').append(nav_work_pic.caption);
+
+				imageLink.append(image);
+				imageContainer.append(imageLink);
+				imageContainer.append(imageCap);
+				$('#work-takeover-wrap .subnav-images').append(imageContainer);
+			});
+
+			// Gets JSON data and inserts it into News subnav
+
+			var newsLinks = '',
+				newsURL;
+
+			for (var i = 0; i < data.nav_news_links.length; i++) {
+				for (key in data.nav_news_links[i]) {
+					if (data.nav_news_links[i].hasOwnProperty(key)) {
+						newsURL = data.nav_news_links[i][key];
+						newsLinks += '<li><a href="' + newsURL + '">' + key + '</a></li>';
+						$('#news-takeover-wrap > .subnav-list-wrap > .subnav-list').html(newsLinks);
+					}
+				}
+			};
+
+			$.each(data.nav_news_pics, function(i, nav_news_pic) {
+				var imageContainer = $('<div>').attr('class', 'subnav-img-container'),
+					image = $('<img/>').attr('src', nav_news_pic.image),
+					imageLink = $('<a>').attr('href', nav_news_pic.url);
+					imageCap = $('<p>').append(nav_news_pic.caption);
+
+				imageLink.append(image);
+				imageContainer.append(imageLink);
+				imageContainer.append(imageCap);
+				$('#news-takeover-wrap .subnav-images').append(imageContainer);
+			});
+
 
 	});
 

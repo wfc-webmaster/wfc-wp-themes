@@ -48,11 +48,11 @@
 	],
 
 	"nav_plants_links" : [
-			{ "link 1"	: "http://example1.com" },
-			{ "link 2" 	: "http://example2.com" },
-			{ "link 3"  : "http://example3.com" },
-			{ "link 4"  : "http://example4.com" },
-			{ "link 5"  : "http://example5.com" }
+			{ "Plants link 1"	: "http://example1.com" },
+			{ "Plants link 2" 	: "http://example2.com" },
+			{ "Plants link 3"  	: "http://example3.com" },
+			{ "Plants link 4"  	: "http://example4.com" },
+			{ "Plants link 5"  	: "http://example5.com" }
 	],
 
 	"nav_learn_pics" : [
@@ -76,11 +76,11 @@
 	],
 
 	"nav_learn_links" : [
-			{ "link 1"	: "http://example1.com" },
-			{ "link 2" 	: "http://example2.com" },
-			{ "link 3"  : "http://example3.com" },
-			{ "link 4"  : "http://example4.com" },
-			{ "link 5"  : "http://example5.com" }
+			{ "Learn link 1"		: "http://example1.com" },
+			{ "Learn link 2" 		: "http://example2.com" },
+			{ "Learn link 3"  	: "http://example3.com" },
+			{ "Learn link 4"  	: "http://example4.com" },
+			{ "Learn link 5"  	: "http://example5.com" }
 	],
 
 	"nav_work_pics" : [
@@ -104,11 +104,11 @@
 	],
 
 	"nav_work_links" : [
-			{ "link 1"	: "http://example1.com" },
-			{ "link 2" 	: "http://example2.com" },
-			{ "link 3"  : "http://example3.com" },
-			{ "link 4"  : "http://example4.com" },
-			{ "link 5"  : "http://example5.com" }
+			{ "Work link 1"		: "http://example1.com" },
+			{ "Work link 2" 	: "http://example2.com" },
+			{ "Work link 3"  	: "http://example3.com" },
+			{ "Work link 4"  	: "http://example4.com" },
+			{ "Work link 5"  	: "http://example5.com" }
 	],
 
 	"nav_news_pics" : [
@@ -132,10 +132,10 @@
 	],
 
 	"nav_news_links" : [
-			{ "link 1"	: "http://example1.com" },
-			{ "link 2" 	: "http://example2.com" },
-			{ "link 3"  : "http://example3.com" },
-			{ "link 4"  : "http://example4.com" },
-			{ "link 5"  : "http://example5.com" }
+			{ "News link 1"		: "http://example1.com" },
+			{ "News link 2" 	: "http://example2.com" },
+			{ "News link 3"  	: "http://example3.com" },
+			{ "News link 4"  	: "http://example4.com" },
+			{ "News link 5"  	: "http://example5.com" }
 	]
 }
