@@ -183,11 +183,62 @@ Visit Block
 }
 
 /*
+===================
+Visit Gardens Block
+===================
+*/
+
+.landing-gardens {
+	background-color: $wfc-white;
+}
+
+#garden-visit-img {
+    float: right;
+    padding: 2rem 0;
+    text-align: center;
+    width: 28.948rem;
+
+    img {
+    	max-width: 100%;
+    	width: 100%;
+    }
+}
+
+/*
+==========
+NPIN Block
+==========
+*/
+
+.landing-npin {
+	background-color: $wfc-white;
+}
+
+#npin-search-wrapper {
+	height: 36rem;
+    overflow: hidden;
+    position: relative;
+
+	p {
+	    position: relative;
+	    z-index: 2;
+	} 
+	 img {
+	    position: absolute;
+	    left: 0;
+	    top: 0;
+	    width: 100%;
+	    height: auto;
+	    opacity: 0.6;
+	}
+}
+
+/*
 =============
-Content Block
+Widgets Block
 =============
 */
 
-.landing-content {
+.landing-widgets {
 	background-color: $wfc-white;
 }
