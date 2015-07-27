@@ -196,12 +196,17 @@ Visit Gardens Block
     float: right;
     padding: 2rem 0;
     text-align: center;
-    width: 28.948rem;
-
+    
     img {
     	max-width: 100%;
     	width: 100%;
     }
+}
+
+@media screen and (max-width: 759px) {
+	.landing-gardens .wfc-callout-container {
+		width: initial;
+	}
 }
 
 /*
@@ -215,21 +220,90 @@ NPIN Block
 }
 
 #npin-search-wrapper {
-	height: 36rem;
-    overflow: hidden;
+	background-image: url('http://localhost:8888/wildflower_2/wordpress/wp-content/uploads/2015/07/BL_IMG000092_light.jpg');
+	background-repeat: no-repeat;
+    background-size: cover;
+    height: 0;
+    padding-top: 39rem;
     position: relative;
+    width: 100%;
+}
 
-	p {
-	    position: relative;
-	    z-index: 2;
-	} 
-	 img {
-	    position: absolute;
-	    left: 0;
-	    top: 0;
-	    width: 100%;
-	    height: auto;
-	    opacity: 0.6;
+#npin-search-form-wrapper {
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+}
+
+#npin-search-form {
+	background-color: rgba(0,0,0,0.45);
+	color: $wfc-white;
+	display: inline-block;
+	margin-top: 4rem;
+	padding: 3rem;
+	text-align: left;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+	width: 35rem;
+
+	h1 {
+		line-height: 160%;
+	}
+
+	h3 {
+		line-height: 140%;
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+}
+
+#form-npin-simple {
+	input[type="text"] {
+		height: 3rem;
+	    margin: 2rem 0;
+	    width: 29rem;
+	}
+
+	input[placeholder] {
+		font-size: 1.2rem;
+		padding-left: 1rem;
+	}
+
+	button {
+		background: none;
+
+		img {
+			vertical-align: bottom;
+		}
+	}
+}
+
+@media screen and (max-width: 375px) {
+	#npin-search-form {
+		padding: 2rem;
+		width: 26rem;
+	}
+
+	#form-npin-simple {
+		input[type="text"] {
+			margin: 2rem 0;
+			width: 22rem;
+		}
+
+		input[placeholder] {
+			font-size: 1rem;
+		}
+
+		button {
+			padding: 0;
+		}
+
+		img {
+			width: 65%;
+		}
 	}
 }
 
