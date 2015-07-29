@@ -316,6 +316,75 @@ ul#menu-main-nav li:hover {
 }
 
 /*
+=======================================
+Mobile Navigation (The Hamburger, yum!)
+=======================================
+*/
+#mobile-menu-overlay {
+  background-color: #000;
+  display: none;
+  height: 100%;
+  left: 0;
+  opacity: 0.5;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.expand {
+  display: block !important;
+}
+
+#mobile-menu-btn {
+  display: none;
+  left: 88%;
+  position: fixed;
+  top: 2%;
+  z-index: 1000;
+}
+
+#menu-btn {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+}
+#menu-btn span {
+  display: block;
+  width: 22px;
+  height: 3px;
+  margin: 4px 0;
+  background: #fff;
+  z-index: 999;
+}
+
+#menu-btn.menu-btn-nocolor {
+  background-color: transparent;
+}
+
+@media screen and (max-width: 1024px) {
+  #mobile-menu-btn {
+    display: inline-block;
+  }
+}
+@media screen and (min-width: 768px) {
+  #mobile-menu-btn {
+    left: 94%;
+  }
+}
+#mobile-menu-wrap {
+  display: none;
+  color: #fff;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  z-index: 1000;
+}
+
+#mobile-menu-wrap.show-menu {
+  display: inline-block;
+}
+
+/*
 =======
 Plugins
 =======
@@ -424,7 +493,6 @@ li.wfc-callout {
   padding: 4rem 0 0 3rem;
   width: 30rem;
 }
-
 .wfc-callout-container h1 {
   font-size: 2.48832em;
   margin-bottom: 1.2rem;
@@ -457,6 +525,7 @@ li.wfc-callout {
 @media screen and (max-width: 659px) {
   .wfc-callout-container {
     padding: 0 3rem 0 0;
+    width: auto;
   }
   .wfc-callout-container p {
     margin-top: 1.5em;
@@ -501,7 +570,7 @@ div#block-bei5591a71621877 .pzsp-content-leftortop {
 div#footerImage-text {
   background-color: rgba(0, 0, 0, 0.5);
   display: inline-block;
-  padding: 1.2em 3em;
+  padding: 1.5em 3em;
 }
 div#footerImage-text a {
   color: #fff;
@@ -509,6 +578,18 @@ div#footerImage-text a {
 }
 div#footerImage-text h1 {
   margin-bottom: 0.5rem;
+}
+div#footerImage-text p {
+  margin: 2.5rem 0 1.5rem;
+}
+
+@media screen and (max-width: 736px) {
+  div#footerImage-text {
+    padding: 1.2em 3em 0.3em;
+  }
+}
+.cycle-slideshow img.callout-arrow {
+  width: 1.38rem;
 }
 
 /*
@@ -725,7 +806,7 @@ NPIN Block
 }
 
 #npin-search-wrapper {
-  background-image: url("http://localhost:8888/wildflower_2/wordpress/wp-content/uploads/2015/07/BL_IMG000092_light.jpg");
+  background-image: url("//utw10069.utweb.utexas.edu/wp-content/uploads/2015/07/BL_IMG000092_light.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 0;
@@ -779,6 +860,10 @@ NPIN Block
 }
 
 @media screen and (max-width: 375px) {
+  #npin-search-wrapper {
+    padding-top: 43rem;
+  }
+
   #npin-search-form {
     padding: 2rem;
     width: 26rem;
@@ -1004,11 +1089,6 @@ Widgets Block
 
   #footer-social-media {
     width: 22rem;
-  }
-}
-@media screen and (max-width: 736px) {
-  div#footerImage-text {
-    padding: 0.3em 3em;
   }
 }
 @media screen and (max-width: 715px) {

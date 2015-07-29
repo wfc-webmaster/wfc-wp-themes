@@ -123,7 +123,74 @@ ul#menu-main-nav {
 
 }
 
+/*
+=======================================
+Mobile Navigation (The Hamburger, yum!)
+=======================================
+*/
+#mobile-menu-overlay {
+    background-color: #000;
+    display: none;
+    height: 100%;
+    left: 0;
+    opacity: 0.5;
+    position: fixed;
+    top: 0;    
+    width: 100%;    
+    z-index: 999;
+}
 
+.expand {
+  display: block !important;
+}
 
+#mobile-menu-btn {
+  display: none;
+  left: 88%;
+  position: fixed;
+  top: 2%;
+  z-index: 1000;
+}
 
+#menu-btn {
+    background-color: rgba(0,0,0,0.5);
+    padding: 5px;
+  
+  span {
+    display: block;
+    width: 22px;
+    height: 3px;
+    margin: 4px 0;
+    background: $wfc-white;
+    z-index: 999;
+  }
+}
 
+#menu-btn.menu-btn-nocolor {
+    background-color: transparent;
+  }
+
+@media screen and (max-width: 1024px) {
+    #mobile-menu-btn {
+      display: inline-block;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #mobile-menu-btn {
+      left: 94%;
+  }
+}
+
+#mobile-menu-wrap {
+    display: none;
+    color: $wfc-white;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    z-index: 1000;
+}
+
+#mobile-menu-wrap.show-menu {
+  display: inline-block;
+}

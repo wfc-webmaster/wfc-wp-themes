@@ -220,7 +220,7 @@ NPIN Block
 }
 
 #npin-search-wrapper {
-	background-image: url('http://localhost:8888/wildflower_2/wordpress/wp-content/uploads/2015/07/BL_IMG000092_light.jpg');
+	background-image: url('//utw10069.utweb.utexas.edu/wp-content/uploads/2015/07/BL_IMG000092_light.jpg');
 	background-repeat: no-repeat;
     background-size: cover;
     height: 0;
@@ -282,6 +282,10 @@ NPIN Block
 }
 
 @media screen and (max-width: 375px) {
+	#npin-search-wrapper {
+		padding-top: 43rem;
+	}
+
 	#npin-search-form {
 		padding: 2rem;
 		width: 26rem;

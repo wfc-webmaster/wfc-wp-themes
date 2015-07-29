@@ -32,7 +32,7 @@ div#block-bei5591a71621877 .pzsp-content-leftortop {
 div#footerImage-text {
     background-color: rgba(0, 0, 0, 0.5);
     display: inline-block;
-    padding: 1.2em 3em;
+    padding: 1.5em 3em;
 
     a {
         color: #fff;
@@ -42,4 +42,19 @@ div#footerImage-text {
     h1 {
         margin-bottom: 0.5rem;
     }
+
+    p {
+        margin: 2.5rem 0 1.5rem;
+    }
+}
+
+@media screen and (max-width: 736px) {
+
+    div#footerImage-text {
+        padding: 1.2em 3em 0.3em;
+    }
+}
+
+.cycle-slideshow img.callout-arrow {
+    width: 1.38rem;
 }
