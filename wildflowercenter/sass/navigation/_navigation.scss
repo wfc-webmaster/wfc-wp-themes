@@ -133,7 +133,7 @@ Mobile Navigation (The Hamburger, yum!)
     display: none;
     height: 100%;
     left: 0;
-    opacity: 0.5;
+    opacity: 0.7;
     position: fixed;
     top: 0;    
     width: 100%;    
@@ -142,6 +142,11 @@ Mobile Navigation (The Hamburger, yum!)
 
 .expand {
   display: block !important;
+}
+
+// This class (added via JS) prevents body from scrolling when mobile menu is active
+.body-noscroll {
+  overflow: hidden;
 }
 
 #mobile-menu-btn {
@@ -183,14 +188,51 @@ Mobile Navigation (The Hamburger, yum!)
 }
 
 #mobile-menu-wrap {
-    display: none;
+    bottom: 0;
     color: $wfc-white;
-    position: absolute;
+    display: none;
+    left: 0;
+    overflow-y: scroll;
+    position: fixed;
+    right: 0;
     text-align: center;
-    width: 100%;
+    top: 0;
     z-index: 1000;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 }
 
 #mobile-menu-wrap.show-menu {
-  display: inline-block;
+    display: inline-block;
+}
+
+.mobile-menu-container {
+    border-top: 1px solid #fff;
+    float: left;
+    margin-bottom: 2rem;
+    padding-top: 2rem;
+    text-align: left;
+    width: 50%;
+}
+
+.mobile-menu-container:nth-child(-n+2) {
+      border: none;
+    }
+
+#mobile-menu-centering {
+    display: table;
+    width: 85%;
+    margin: 0 auto;
+}
+
+.mobile-subnav-list {
+    margin: 1rem 0 0 2.5rem;
+
+    li a {
+      font-size: 1.2rem;
+      line-height: 175%;    
+    }
 }
