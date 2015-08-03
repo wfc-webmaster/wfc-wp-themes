@@ -5,12 +5,34 @@ page.outerHTML += '<div id="mobile-menu-overlay"></div><div id="mobile-menu-btn"
 // Set what happens when the menu is clicked
 jQuery(document).ready(function($) {
 
-	$('#mobile-menu-btn').click(function(){
+	$('#mobile-menu-btn').click(function() {
+		$(this).toggleClass('return-body');
 		$('#menu-btn').toggleClass('menu-btn-nocolor');
 		$('#mobile-menu-overlay').toggleClass('expand');
 		$('#mobile-menu-wrap').toggleClass('show-menu');
-		$('body').toggleClass('body-noscroll');
+		$('body').on("touchmove", function(e) {
+			e.preventDefault();
+		});	
+
+		// $('.return-body').click(function() {
+		// 	console.log('Bigness');
+		// 	$('body').off();
+		// });
+
 	});
+
+	$('#mobile-menu-btn').click(function() {
+		if (!$('#mobile-menu-btn').hasClass('return-body')) {
+			console.log('No class');
+			$('body').off();
+		};
+	});
+	
+
+		
+
+	
+				
 });
 
 // Set up the menu
@@ -128,3 +150,14 @@ jQuery(document).ready(function($) {
 	});
 
 });
+
+// Prevent scrolling beneath the menu overlay 
+
+
+
+
+
+
+
+
+
