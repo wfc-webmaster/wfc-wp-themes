@@ -1,4 +1,4 @@
-var page = document.getElementById('wrapper-wax55787a7014171');
+	var page = document.getElementById('whitewrap');
 page.outerHTML += '<div id="mobile-menu-overlay"></div><div id="mobile-menu-btn"><div id="menu-btn"><span></span><span></span><span></span></div></div>';
 
 
@@ -7,32 +7,25 @@ jQuery(document).ready(function($) {
 
 	$('#mobile-menu-btn').click(function() {
 		$(this).toggleClass('return-body');
+		$('html').toggleClass('no-scroll');
 		$('#menu-btn').toggleClass('menu-btn-nocolor');
 		$('#mobile-menu-overlay').toggleClass('expand');
 		$('#mobile-menu-wrap').toggleClass('show-menu');
-		$('body').on("touchmove", function(e) {
-			e.preventDefault();
-		});	
-
-		// $('.return-body').click(function() {
-		// 	console.log('Bigness');
-		// 	$('body').off();
-		// });
-
 	});
 
-	$('#mobile-menu-btn').click(function() {
-		if (!$('#mobile-menu-btn').hasClass('return-body')) {
-			console.log('No class');
-			$('body').off();
-		};
-	});
-	
-
-		
-
-	
-				
+	// $('#mobile-menu-btn').click(function() {
+	// 	if ($('#mobile-menu-btn').hasClass('return-body')) {
+	// 		console.log('Has class');
+	// 		$(document).on('scroll touchmove mousewheel', function(e){
+	// 		  e.preventDefault();
+	// 		$('#mobile-menu-overlay').off();           
+	// 		});
+	// 	} else {
+	// 		console.log('No class');
+	// 		$(document).off();
+	// 	};
+	// });
+					
 });
 
 // Set up the menu

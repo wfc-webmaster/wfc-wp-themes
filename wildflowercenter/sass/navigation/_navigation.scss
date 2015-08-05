@@ -130,22 +130,26 @@ Mobile Navigation (The Hamburger, yum!)
 */
 #mobile-menu-overlay {
     background-color: #000;
+    bottom: 0;
     display: none;
     height: 100%;
     left: 0;
     opacity: 0.7;
+    overflow-y: scroll;
     position: fixed;
+    right: 0;
     top: 0;    
     width: 100%;    
     z-index: 999;
+    -webkit-overflow-scrolling: touch;
 }
 
 .expand {
   display: block !important;
 }
 
-// This class (added via JS) prevents body from scrolling when mobile menu is active
-.body-noscroll {
+.no-scroll {
+  height: 100%;
   overflow: hidden;
 }
 
@@ -198,6 +202,7 @@ Mobile Navigation (The Hamburger, yum!)
     text-align: center;
     top: 0;
     z-index: 1000;
+    -webkit-overflow-scrolling: touch;
 
     a {
       color: inherit;
