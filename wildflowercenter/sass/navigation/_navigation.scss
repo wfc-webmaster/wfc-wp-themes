@@ -54,7 +54,7 @@ ul#menu-main-nav {
 #menu-action-nav-wrap {
   display: table;
   margin: 0 auto;
-  width: 33rem;
+  width: 37rem;
 }
 
 .takeover-show {
@@ -71,6 +71,7 @@ ul#menu-main-nav {
   background-color: $wfc-green;
   display: table;
   margin: 0 auto;
+  //min-height: 11rem;
   padding: 1rem;
   width: 45rem;
 }
@@ -121,6 +122,40 @@ ul#menu-main-nav {
     margin-top: 0.5rem;
   }
 
+}
+
+.subnav-search {
+  color: $wfc-white;
+  line-height: 150%;
+  text-align: center;
+}
+
+.subnav-search-form {
+  margin: 0 auto 0.8rem;
+  width: 23rem;
+
+  form input {
+    margin-right: 1rem;
+    width: 18rem;
+  }
+
+  input#header_search_field {
+    margin-top: 1rem;
+  }
+
+  input#header_search_field[placeholder] {
+    font-size: 0.8rem;
+    padding: 0.45rem;
+  }
+
+  button {
+    background-color: $wfc-orange;
+    border-radius: 0;
+    color: $wfc-white;
+    font-size: inherit;
+    padding: 0.2rem 0.75rem;
+    width: auto;
+  }
 }
 
 /*

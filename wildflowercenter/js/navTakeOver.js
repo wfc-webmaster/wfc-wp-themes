@@ -19,7 +19,8 @@ var takeoverContainer = document.getElementById('takeover-container'),
 	navPlants = document.getElementById('menu-item-1780'),
 	navLearn = document.getElementById('menu-item-1781'),
 	navWork = document.getElementById('menu-item-1782'),
-	navNews = document.getElementById('menu-item-1783');
+	navNews = document.getElementById('menu-item-1783'),
+	navSearch = document.getElementById('menu-item-1791');
 
 // Add takeover subnav content to each parent nav item that follows:
 
@@ -98,13 +99,37 @@ var codeNews = [
 	'</div>'
 ].join('');
 
+// Search
+
+var codeGoogleSearch = [
+	'<form name="searchform" method="get" action="http://www.google.com/search" target="_blank" autocomplete="off">',
+		'<input type="hidden" name="sitesearch" value="www.wildflower.org">',
+		'<input type="text" id="header_search_field" name="as_q" placeholder="What are you looking for?">',
+		'<button id="header_search_field_go" type="submit" value="Go">GO</button>',
+	'</form>'
+].join('');
+
+var codeSearch = [
+	'<div id="search-takeover" class="takeover-show">',
+		'<div id="search-takeover-wrap" class="takeover-wrap">',
+			'<div class="subnav-search-wrap">',
+			'<p class="subnav-search">Search the Wildflower Center website:',		
+			'</p>',
+			'</div>',
+			'<div class="subnav-search-form">' + codeGoogleSearch,
+			'</div>',
+		'</div>',
+	'</div>'
+].join('');
+
 // Adds the takeover subnav to the page
 	
 navVisit.innerHTML += codeVisit;
 navPlants.innerHTML += codePlants;
 navLearn.innerHTML += codeLearn;
 navWork.innerHTML += codeWork;
-navNews.innerHTML += codeNews;	
+navNews.innerHTML += codeNews;
+navSearch.innerHTML += codeSearch;	
 
 // Controls the Show/Hide of the takeover subnav
 

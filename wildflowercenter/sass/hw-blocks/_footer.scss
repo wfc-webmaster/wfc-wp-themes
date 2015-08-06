@@ -106,6 +106,8 @@
 		font-size: inherit;
 		padding: 0 0.75rem;
 		width: auto;
+		-moz-appearance: none;
+		-webkit-appearance: none;
 	}
 	input[type="submit"]:hover {
 		color: inherit;
