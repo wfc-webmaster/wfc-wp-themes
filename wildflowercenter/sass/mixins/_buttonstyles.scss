@@ -1,0 +1,8 @@
+@mixin nav_search_button {
+	background-color: $wfc-orange;
+	border-radius: 0;
+	color: $wfc-white;
+	font-size: inherit;
+	padding: 0.2rem 0.75rem;
+	width: auto;
+}

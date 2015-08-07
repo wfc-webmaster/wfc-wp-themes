@@ -262,6 +262,7 @@ ul#menu-main-nav li:hover {
   left: 0;
   position: absolute;
   text-align: left;
+  transition: 0.25s;
   width: 100%;
   z-index: 998;
 }
@@ -457,6 +458,28 @@ Mobile Navigation (The Hamburger, yum!)
 .mobile-subnav-list li a {
   font-size: 1.2rem;
   line-height: 175%;
+}
+
+#mobile-search form {
+  margin-top: 1.3rem;
+}
+#mobile-search input {
+  float: left;
+  width: 100%;
+}
+#mobile-search button {
+  background-color: #ed6322;
+  border-radius: 0;
+  color: #fff;
+  font-size: inherit;
+  padding: 0.2rem 0.75rem;
+  width: auto;
+  clear: left;
+  float: left;
+  margin-top: 0.75rem;
+}
+#mobile-search .mobile-subnav input[placeholder] {
+  font-size: 0.9rem;
 }
 
 /*

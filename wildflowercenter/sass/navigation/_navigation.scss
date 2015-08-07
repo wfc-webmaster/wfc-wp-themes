@@ -27,13 +27,6 @@ ul#menu-main-nav {
 		padding: 0 1.5rem;
 	}
 
-  // > li {
-  //   color: $wfc-white;
-  //   height: 50px;
-  //   line-height: 50px;
-  //   padding: 0 1.5rem;
-  // }
-  
   li:hover {
 		background-color: $wfc-green;
   }
@@ -59,10 +52,10 @@ ul#menu-main-nav {
 
 .takeover-show {
   display: none;
-  //height: 5rem;
   left: 0;
   position: absolute;
   text-align: left;
+  transition: 0.25s;
   width: 100%;
   z-index: 998;
 }
@@ -149,13 +142,9 @@ ul#menu-main-nav {
   }
 
   button {
-    background-color: $wfc-orange;
-    border-radius: 0;
-    color: $wfc-white;
-    font-size: inherit;
-    padding: 0.2rem 0.75rem;
-    width: auto;
+    @include nav_search_button;
   }
+
 }
 
 /*
@@ -276,3 +265,27 @@ Mobile Navigation (The Hamburger, yum!)
       line-height: 175%;    
     }
 }
+
+#mobile-search {
+  form {
+    margin-top: 1.3rem;
+  }
+  input {
+    float: left;
+    width: 100%;
+  }
+  button {
+    @include nav_search_button;
+    clear: left;
+    float: left;
+    margin-top: 0.75rem;
+  }
+
+  .mobile-subnav input[placeholder] {
+    font-size: 0.9rem;
+  }
+}
+
+
+
+

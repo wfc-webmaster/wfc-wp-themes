@@ -66,9 +66,24 @@ var main_nav_news = [
 	'</div>'
 ].join('');
 
+var codeGoogleSearch = [
+	'<form name="searchform" method="get" action="http://www.google.com/search" target="_blank" autocomplete="off">',
+		'<input type="hidden" name="sitesearch" value="www.wildflower.org">',
+		'<input type="text" id="header_search_field" name="as_q" placeholder="What are you looking for?">',
+		'<button id="header_search_field_go" type="submit" value="Go">GO</button>',
+	'</form>'
+].join('');
+
+var main_nav_search = [
+	'<div id="mobile-search" class="mobile-menu-container">',
+		'<div class="mobile-main-nav"><h3>Search</h3></div>',
+		'<div class="mobile-subnav">' + codeGoogleSearch + '</div>',
+	'</div>'
+].join('');
+
 
 // Display the menu
-mobile_menu.outerHTML += '<div id="mobile-menu-wrap"><div id="mobile-menu-centering">' + main_nav_visit + main_nav_plants + main_nav_learn + main_nav_work + main_nav_news + '</div></div>';
+mobile_menu.outerHTML += '<div id="mobile-menu-wrap"><div id="mobile-menu-centering">' + main_nav_visit + main_nav_plants + main_nav_learn + main_nav_work + main_nav_news + main_nav_search + '</div></div>';
 
 jQuery(document).ready(function($) {
 
@@ -143,14 +158,3 @@ jQuery(document).ready(function($) {
 	});
 
 });
-
-// Prevent scrolling beneath the menu overlay 
-
-
-
-
-
-
-
-
-
