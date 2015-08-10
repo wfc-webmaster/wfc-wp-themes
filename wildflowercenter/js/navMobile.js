@@ -7,7 +7,7 @@ jQuery(document).ready(function($) {
 
 	$('#mobile-menu-btn').click(function() {
 		$(this).toggleClass('return-body');
-		$('html').toggleClass('no-scroll');
+		$('body').toggleClass('no-scroll');
 		$('#menu-btn').toggleClass('menu-btn-nocolor');
 		$('#mobile-menu-overlay').toggleClass('expand');
 		$('#mobile-menu-wrap').toggleClass('show-menu');
@@ -67,7 +67,7 @@ var main_nav_news = [
 ].join('');
 
 var codeGoogleSearch = [
-	'<form name="searchform" method="get" action="http://www.google.com/search" target="_blank" autocomplete="off">',
+	'<form name="searchform" method="get" action="http://www.google.com/search" autocomplete="off">',
 		'<input type="hidden" name="sitesearch" value="www.wildflower.org">',
 		'<input type="text" id="header_search_field" name="as_q" placeholder="What are you looking for?">',
 		'<button id="header_search_field_go" type="submit" value="Go">GO</button>',
