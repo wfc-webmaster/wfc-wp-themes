@@ -102,7 +102,7 @@ var codeNews = [
 // Search
 
 var codeGoogleSearch = [
-	'<form name="searchform" method="get" action="http://www.google.com/search" target="_blank" autocomplete="off">',
+	'<form name="searchform" method="get" action="//www.google.com/search" target="_blank" autocomplete="off">',
 		'<input type="hidden" name="sitesearch" value="www.wildflower.org">',
 		'<input type="text" id="header_search_field" name="as_q" placeholder="What are you looking for?">',
 		'<button id="header_search_field_go" type="submit" value="Go">GO</button>',
@@ -160,7 +160,7 @@ jQuery(document).ready(function($) {
 
 // Get link and image data from JSON file and insert it into takeover subnav		
 
-	$.getJSON('wp-content/themes/wildflowercenter/json/takeoverNavData.json', function(data) {
+	$.getJSON('//localhost:8888/wildflower_2/wordpress/wp-content/themes/wildflowercenter/json/takeoverNavData.json', function(data) {
 						
 			// Gets JSON data and inserts it into Visit subnav
 

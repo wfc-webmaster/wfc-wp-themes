@@ -7,24 +7,29 @@ jQuery(document).ready(function($) {
 
 	$('#mobile-menu-btn').click(function() {
 		$(this).toggleClass('return-body');
-		$('body').toggleClass('no-scroll');
+		$('#whitewrap').toggleClass('no-scroll');
 		$('#menu-btn').toggleClass('menu-btn-nocolor');
 		$('#mobile-menu-overlay').toggleClass('expand');
 		$('#mobile-menu-wrap').toggleClass('show-menu');
 	});
 
-	// $('#mobile-menu-btn').click(function() {
-	// 	if ($('#mobile-menu-btn').hasClass('return-body')) {
-	// 		console.log('Has class');
-	// 		$(document).on('scroll touchmove mousewheel', function(e){
-	// 		  e.preventDefault();
-	// 		$('#mobile-menu-overlay').off();           
-	// 		});
-	// 	} else {
-	// 		console.log('No class');
-	// 		$(document).off();
-	// 	};
-	// });
+	$('#mobile-menu-btn').click(function() {
+		if ($('#mobile-menu-btn').hasClass('return-body')) {
+			console.log('Has class');
+			$('body').on('touchmove', function (e) {
+				if (!$('.show-menu').has($(e.target)).length) e.preventDefault();
+			});
+		} else {
+			console.log('No class');
+			$('body').off();
+		};
+	});
+
+	// $('body').on('touchmove', function (e) {
+	//     if (!$('.show-menu').has($(e.target)).length) e.preventDefault();
+	//  });
+
+
 					
 });
 
@@ -67,7 +72,7 @@ var main_nav_news = [
 ].join('');
 
 var codeGoogleSearch = [
-	'<form name="searchform" method="get" action="http://www.google.com/search" autocomplete="off">',
+	'<form name="searchform" method="get" action="//www.google.com/search" autocomplete="off">',
 		'<input type="hidden" name="sitesearch" value="www.wildflower.org">',
 		'<input type="text" id="header_search_field" name="as_q" placeholder="What are you looking for?">',
 		'<button id="header_search_field_go" type="submit" value="Go">GO</button>',
@@ -87,7 +92,7 @@ mobile_menu.outerHTML += '<div id="mobile-menu-wrap"><div id="mobile-menu-center
 
 jQuery(document).ready(function($) {
 
-	$.getJSON('wp-content/themes/wildflowercenter/json/takeoverNavData.json', function(data) {
+	$.getJSON('//localhost:8888/wildflower_2/wordpress/wp-content/themes/wildflowercenter/json/takeoverNavData.json', function(data) {
 
 		var visitLinks = '',
 			visitURL;

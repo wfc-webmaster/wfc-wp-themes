@@ -1,19 +1,19 @@
 {
 	"nav_visit_pics" : [
 		{ 
-			"image"		: "wp-content/uploads/2013/03/image-alignment-150x150.jpg",
+			"image"		: "//localhost:8888/wildflower_2/wordpress/wp-content/uploads/2013/03/image-alignment-150x150.jpg",
 			"url"		: "http://sample1.com",
 			"caption"	: "Here's a caption one." 
 		},
 
 		{ 
-			"image"		: "wp-content/uploads/2013/03/image-alignment-150x150.jpg",
+			"image"		: "//localhost:8888/wildflower_2/wordpress/wp-content/uploads/2013/03/image-alignment-150x150.jpg",
 			"url"		: "http://sample2.com",
 			"caption"	: "Here's a caption two." 
 		},
 
 		{ 
-			"image"		: "wp-content/uploads/2013/03/image-alignment-150x150.jpg",
+			"image"		: "//localhost:8888/wildflower_2/wordpress/wp-content/uploads/2013/03/image-alignment-150x150.jpg",
 			"url"		: "http://sample3.com",
 			"caption"	: "Here's a caption three." 
 		}
@@ -29,19 +29,19 @@
 
 	"nav_plants_pics" : [
 		{ 
-			"image"		: "wp-content/uploads/2013/03/image-alignment-150x150.jpg",
+			"image"		: "//localhost:8888/wildflower_2/wordpress/wp-content/uploads/2013/03/image-alignment-150x150.jpg",
 			"url"		: "http://sample1.com",
 			"caption"	: "Here's a caption one." 
 		},
 
 		{ 
-			"image"		: "wp-content/uploads/2013/03/image-alignment-150x150.jpg",
+			"image"		: "//localhost:8888/wildflower_2/wordpress/wp-content/uploads/2013/03/image-alignment-150x150.jpg",
 			"url"		: "http://sample2.com",
 			"caption"	: "Here's a caption two." 
 		},
 
 		{ 
-			"image"		: "wp-content/uploads/2013/03/image-alignment-150x150.jpg",
+			"image"		: "//localhost:8888/wildflower_2/wordpress/wp-content/uploads/2013/03/image-alignment-150x150.jpg",
 			"url"		: "http://sample3.com",
 			"caption"	: "Here's a caption three." 
 		}
@@ -57,19 +57,19 @@
 
 	"nav_learn_pics" : [
 		{ 
-			"image"		: "wp-content/uploads/2013/03/image-alignment-150x150.jpg",
+			"image"		: "//localhost:8888/wildflower_2/wordpress/wp-content/uploads/2013/03/image-alignment-150x150.jpg",
 			"url"		: "http://sample1.com",
 			"caption"	: "Here's a caption one." 
 		},
 
 		{ 
-			"image"		: "wp-content/uploads/2013/03/image-alignment-150x150.jpg",
+			"image"		: "//localhost:8888/wildflower_2/wordpress/wp-content/uploads/2013/03/image-alignment-150x150.jpg",
 			"url"		: "http://sample2.com",
 			"caption"	: "Here's a caption two." 
 		},
 
 		{ 
-			"image"		: "wp-content/uploads/2013/03/image-alignment-150x150.jpg",
+			"image"		: "//localhost:8888/wildflower_2/wordpress/wp-content/uploads/2013/03/image-alignment-150x150.jpg",
 			"url"		: "http://sample3.com",
 			"caption"	: "Here's a caption three." 
 		}
@@ -85,19 +85,19 @@
 
 	"nav_work_pics" : [
 		{ 
-			"image"		: "wp-content/uploads/2013/03/image-alignment-150x150.jpg",
+			"image"		: "//localhost:8888/wildflower_2/wordpress/wp-content/uploads/2013/03/image-alignment-150x150.jpg",
 			"url"		: "http://sample1.com",
 			"caption"	: "Here's a caption one." 
 		},
 
 		{ 
-			"image"		: "wp-content/uploads/2013/03/image-alignment-150x150.jpg",
+			"image"		: "//localhost:8888/wildflower_2/wordpress/wp-content/uploads/2013/03/image-alignment-150x150.jpg",
 			"url"		: "http://sample2.com",
 			"caption"	: "Here's a caption two." 
 		},
 
 		{ 
-			"image"		: "wp-content/uploads/2013/03/image-alignment-150x150.jpg",
+			"image"		: "//localhost:8888/wildflower_2/wordpress/wp-content/uploads/2013/03/image-alignment-150x150.jpg",
 			"url"		: "http://sample3.com",
 			"caption"	: "Here's a caption three." 
 		}
@@ -113,19 +113,19 @@
 
 	"nav_news_pics" : [
 		{ 
-			"image"		: "wp-content/uploads/2013/03/image-alignment-150x150.jpg",
+			"image"		: "//localhost:8888/wildflower_2/wordpress/wp-content/uploads/2013/03/image-alignment-150x150.jpg",
 			"url"		: "http://sample1.com",
 			"caption"	: "Here's a caption one." 
 		},
 
 		{ 
-			"image"		: "wp-content/uploads/2013/03/image-alignment-150x150.jpg",
+			"image"		: "//localhost:8888/wildflower_2/wordpress/wp-content/uploads/2013/03/image-alignment-150x150.jpg",
 			"url"		: "http://sample2.com",
 			"caption"	: "Here's a caption two." 
 		},
 
 		{ 
-			"image"		: "wp-content/uploads/2013/03/image-alignment-150x150.jpg",
+			"image"		: "//localhost:8888/wildflower_2/wordpress/wp-content/uploads/2013/03/image-alignment-150x150.jpg",
 			"url"		: "http://sample3.com",
 			"caption"	: "Here's a caption three." 
 		}

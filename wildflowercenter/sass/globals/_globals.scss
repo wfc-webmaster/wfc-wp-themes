@@ -1,0 +1,35 @@
+body {
+	background-color: $wfc-white;
+}
+
+.loop {
+	padding: 1rem 1.5rem 0;
+}
+
+@media screen and (max-width: 2134px) {
+	.loop {
+	    margin-top: 4rem;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.loop {
+	    margin-top: 6rem;
+	}
+}
+
+
+//Page navigation at bottom
+.block-type-content div.loop-navigation div.nav-previous a,
+.block-type-content div.loop-navigation div.nav-next a {
+	background-color: $wfc-orange;
+	border-radius: 0;
+	color: $wfc-white;
+	font-size: ms(0, 0.8em);
+	padding: 0.5rem 1rem;
+}
+
+.block-type-content div.loop-navigation div.nav-previous a:hover,
+.block-type-content div.loop-navigation div.nav-next a:hover {
+	background-color: $wfc-orange;
+}

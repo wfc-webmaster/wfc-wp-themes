@@ -1,0 +1,2 @@
+var insertDiv = document.getElementById('whitewrap');
+insertDiv.innerHTML += '<div id="wfc-logo"><a href="/"><img src="//localhost:8888/wildflower_2/wordpress/wp-content/uploads/2015/07/WFC-logo-01.svg"></a></div>';

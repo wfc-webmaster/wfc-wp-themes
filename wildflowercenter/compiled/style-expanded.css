@@ -156,6 +156,43 @@ address {
 
 /*
 =======
+Globals
+=======
+*/
+body {
+  background-color: #fff;
+}
+
+.loop {
+  padding: 1rem 1.5rem 0;
+}
+
+@media screen and (max-width: 2134px) {
+  .loop {
+    margin-top: 4rem;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .loop {
+    margin-top: 6rem;
+  }
+}
+.block-type-content div.loop-navigation div.nav-previous a,
+.block-type-content div.loop-navigation div.nav-next a {
+  background-color: #ed6322;
+  border-radius: 0;
+  color: #fff;
+  font-size: 0.8em;
+  padding: 0.5rem 1rem;
+}
+
+.block-type-content div.loop-navigation div.nav-previous a:hover,
+.block-type-content div.loop-navigation div.nav-next a:hover {
+  background-color: #ed6322;
+}
+
+/*
+=======
 Buttons
 =======
 */
@@ -357,7 +394,6 @@ Mobile Navigation (The Hamburger, yum!)
   display: none;
   height: 100%;
   left: 0;
-  opacity: 0.7;
   overflow-y: scroll;
   position: fixed;
   right: 0;
@@ -416,7 +452,7 @@ Mobile Navigation (The Hamburger, yum!)
   color: #fff;
   display: none;
   left: 0;
-  overflow-y: scroll;
+  overflow-y: auto;
   position: fixed;
   right: 0;
   text-align: center;
@@ -450,6 +486,8 @@ Mobile Navigation (The Hamburger, yum!)
   display: table;
   width: 85%;
   margin: 0 auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .mobile-subnav-list {
