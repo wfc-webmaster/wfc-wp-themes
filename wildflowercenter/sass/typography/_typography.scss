@@ -38,10 +38,15 @@ h2 {
 }
 
 h1 { 
-	font-size: ms(5); 
+	font-size: ms(5);
+  font-weight: 600; 
 }
 
 address {
   font-style: normal;
   margin: 0 0 1.2rem;
+}
+
+em {
+  font-style: italic;
 }

@@ -54,6 +54,11 @@ Visit Block
 	margin: 0 auto;
 }
 
+#visit-container {
+	display: table;
+	margin: 0 auto;
+}
+
 #visit-hours,
 #visit-prices,
 #visit-directions {
@@ -131,6 +136,10 @@ Visit Block
 }
 
 @media screen and (max-width: 662px) {
+	#visit-container{
+		display: block;
+	}
+
 	#visit-directions {
 	  clear: left;
 	}
@@ -277,6 +286,7 @@ NPIN Block
 
 		img {
 			vertical-align: bottom;
+			width: 2rem;
 		}
 	}
 }
