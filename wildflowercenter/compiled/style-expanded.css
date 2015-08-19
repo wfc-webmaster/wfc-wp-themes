@@ -147,11 +147,16 @@ h2 {
 
 h1 {
   font-size: 2.48832rem;
+  font-weight: 600;
 }
 
 address {
   font-style: normal;
   margin: 0 0 1.2rem;
+}
+
+em {
+  font-style: italic;
 }
 
 /*
@@ -551,6 +556,7 @@ Styles for WFC Cards widget
 
 .wfc-cards-text > h1 {
   font-size: 1.80203em;
+  font-weight: normal;
   line-height: 1.18em;
   margin-bottom: 0.4em;
   padding-top: 0.2em;
@@ -784,6 +790,11 @@ Visit Block
   margin: 0 auto;
 }
 
+#visit-container {
+  display: table;
+  margin: 0 auto;
+}
+
 #visit-hours,
 #visit-prices,
 #visit-directions {
@@ -859,6 +870,10 @@ Visit Block
   }
 }
 @media screen and (max-width: 662px) {
+  #visit-container {
+    display: block;
+  }
+
   #visit-directions {
     clear: left;
   }
@@ -993,6 +1008,7 @@ NPIN Block
 }
 #form-npin-simple button img {
   vertical-align: bottom;
+  width: 2rem;
 }
 
 @media screen and (max-width: 375px) {
