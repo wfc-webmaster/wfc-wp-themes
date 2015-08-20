@@ -7,11 +7,11 @@
         $password = 'VzseTzamEuSbXA58';
 
         // connect to the database
-        $dbh = new PDO("mysql:host=$hostname;dbname=$db_name", $username, $password);
+        $dbh = new PDO("mysql:host=$hostname;dbname=$db_name;charset=utf8", $username, $password);
 
         // a query get all the records from the users table
         // $sql = 'SELECT title FROM feature';
-        $sql = 'SELECT summary FROM feature WHERE id=136';
+        $sql = 'SELECT * FROM feature WHERE id>=163';
 
         // use prepared statements, even if not strictly required is good practice
         $stmt = $dbh->prepare( $sql );
@@ -24,8 +24,10 @@
 
         //print_r($result);
 
+        header('Content-Type: application/json; Charset="UTF-8"');
         // convert to json
-        $json = json_encode($result, JSON_HEX_APOS | JSON_HEX_QUOT);
+        $json = json_encode($result);
+
 
         // echo the json string
         echo $json;

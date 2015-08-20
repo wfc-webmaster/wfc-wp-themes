@@ -1,24 +1,23 @@
-<html ng-app>
+<html ng-app="featureArchive">
 
 	<head>
 		<title>PHP MySQL API Consumed with AngularJS</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-sanitize.js"></script>
 		<script src="./data.js"></script>
 	</head>
 
 	<body>
-		<div ng-controller="GetIds">
+		<div ng-controller="getFeatures">
 
-			<table>
-			<thead><tr><th>ID</th><th>Date</th></tr></thead>
-			<tbody>
-			<tr ng-repeat="feature in features">
-				<td>{{feature.id}}</td>
-				<td>{{feature.summary}}</td>
-			</tr>
-			</tbody>
-			</tfoot></tfoot>
-			</table>
+			<div ng-repeat="feature in features">
+				<div>{{feature.id}}</div>
+				<div>{{feature.date}}</div>
+				<div>{{feature.title}}</div>
+				<div>{{feature.summary}}</div>
+				<div ng-bind-html="feature.content_full"></div>
+			</div>
 
 		</div>
 	</body>
