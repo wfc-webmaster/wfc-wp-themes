@@ -6,6 +6,8 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-sanitize.js"></script>
 		<script src="./data.js"></script>
+		<!-- <script src="./data-adjust.js"></script> -->
+
 	</head>
 
 	<body>
@@ -16,7 +18,9 @@
 				<div>{{feature.date}}</div>
 				<div>{{feature.title}}</div>
 				<div>{{feature.summary}}</div>
-				<div ng-bind-html="feature.content_full"></div>
+				<full-article ng-if="features">
+					<div ng-bind-html="feature.content_full"></div>
+				</full-article>	
 			</div>
 
 		</div>
