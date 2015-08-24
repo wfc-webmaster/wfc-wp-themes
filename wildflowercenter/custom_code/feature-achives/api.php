@@ -11,7 +11,7 @@
 
         // a query get all the records from the users table
         // $sql = 'SELECT title FROM feature';
-        $sql = 'SELECT * FROM feature WHERE id>=163';
+        $sql = 'SELECT * FROM feature WHERE id>=1';
 
         // use prepared statements, even if not strictly required is good practice
         $stmt = $dbh->prepare( $sql );
@@ -22,9 +22,6 @@
         // fetch the results into an array
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        //print_r($result);
-
-        header('Content-Type: application/json; Charset="UTF-8"');
         // convert to json
         $json = json_encode($result);
 
