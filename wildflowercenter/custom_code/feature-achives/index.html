@@ -2,27 +2,52 @@
 
 	<head>
 		<title>PHP MySQL API Consumed with AngularJS</title>
+		<base href="//wildflower.org">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-sanitize.js"></script>
-		<script src="./data.js"></script>
-		<!-- <script src="./data-adjust.js"></script> -->
+		<script src="http://localhost:8888/wildflower_2/wordpress/wp-content/themes/wildflowercenter/custom_code/feature-achives/data.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		
+		<style type="text/css">
+
+		.feature-article img {
+			float: left;
+		    margin: 2rem;
+		}
+
+		.feature-summary {
+			float: left;
+			width: 25rem;
+		}
+
+		</style>
 
 	</head>
 
 	<body>
-		<div ng-controller="getFeatures">
-
-			<div ng-repeat="feature in features">
-				<div>{{feature.id}}</div>
-				<div>{{feature.date}}</div>
-				<div>{{feature.title}}</div>
-				<div>{{feature.summary}}</div>
-				<full-article ng-if="features">
-					<div ng-bind-html="feature.content_full"></div>
-				</full-article>	
+		<div class="container-fluid">
+		  <div class="page-header">
+		    <h1>Feature Articles Archive</h1>      
+		    <p>An archive of articles published on wildflower.org from 2009-2015</p>
+		  </div>
+		<div class="row" ng-controller="getFeatures">
+			<div id="feature-{{feature.id}}" class="col-sm-4 feature-article" ng-repeat="feature in features">
+				<div class="row panel-body">
+					<img class="responsive" width="150" src="../_images/{{feature.image}}" alt="{{feature.title}} feature image">
+					<div class="feature-summary">
+						<h3>{{feature.title}}</h3>
+						<p>{{feature.date | date:'longDate'}}</p>
+						<p>{{feature.summary}}</p>
+						<!-- <full-article ng-if="features">
+							<div ng-bind-html="feature.content_full"></div>
+						</full-article>	 -->
+					</div>					
+				</div>
 			</div>
-
 		</div>
+	</div>
 	</body>
 </html>
