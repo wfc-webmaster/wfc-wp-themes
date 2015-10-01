@@ -6,12 +6,13 @@ News Page
 
 //Section Head
 
-.news-page {
+#news-page-top {
 	h1 {
 		display: table;
 		float: left;
 	}
 }
+
 
 .social-media-container {
  
@@ -19,14 +20,27 @@ News Page
     float: right;
     font-size: 1.2rem;
 
-	ul {
-    	display: inline-flex;
-    	margin: 1rem 0;
-	}
+    ul {
+        display: inline-flex;
+        margin: 1rem 0;
+    }
 
-	li {
-		margin-right: 0.5rem;
-	}
+    li {
+        margin-right: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #news-page-top {
+        h1 {
+            margin-bottom: 0;
+        }
+    }
+    
+    .social-media-container {
+        clear: both;
+        float: left;
+    }
 }
 
 //Events List
@@ -66,13 +80,6 @@ News Page
 
 }
 
-.sidebar-button a {
-	border: 1px solid #f0b252;
-    color: #f0b252;
-    font-weight: 600;
-    padding: 0.5rem;
-}
-
 //Twitter Feed
 
 .wfc-twitter-feed {
@@ -85,7 +92,6 @@ News Page
 //Wire Signup Form
 
 #wire-signup-container {
-	border: 1px solid $wfc-lightgray;
 	padding-top: 1rem;
 
 	img {
@@ -117,6 +123,13 @@ News Page
     input[type="submit"]:hover {
     	color: $wfc-white;
     }
+}
+
+//News Resources
+
+#news-resources-container {
+    font-weight: 600;
+    padding: 0.5rem 1rem;
 }
 
 //Magazine Section

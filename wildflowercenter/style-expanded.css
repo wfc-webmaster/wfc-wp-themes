@@ -81,17 +81,7 @@ Typography
 ==========
 */
 html {
-  font-size: 11px;
-}
-@media screen and (min-width: 600px) {
-  html {
-    font-size: 12px;
-  }
-}
-@media screen and (min-width: 800px) {
-  html {
-    font-size: 13px;
-  }
+  font-size: 14px;
 }
 @media screen and (min-width: 1180px) {
   html {
@@ -116,11 +106,6 @@ html {
 @media screen and (min-width: 2100px) {
   html {
     font-size: 18px;
-  }
-}
-@media screen and (min-width: 2400px) {
-  html {
-    font-size: 19px;
   }
 }
 
@@ -188,14 +173,23 @@ body {
   padding: 1rem 1.5rem 0;
 }
 
+.page-heading {
+  margin-top: 1rem;
+}
+
 @media screen and (max-width: 2134px) {
-  .loop {
-    margin-top: 4rem;
+  .page-heading {
+    margin-top: 3rem;
+  }
+}
+@media screen and (max-width: 1279px) {
+  .page-heading {
+    padding: 0 1rem;
   }
 }
 @media screen and (max-width: 1024px) {
-  .loop {
-    margin-top: 6rem;
+  .page-heading {
+    margin-top: 8rem;
   }
 }
 .block-type-content div.loop-navigation div.nav-previous a,
@@ -212,21 +206,10 @@ body {
   background-color: #ed6322;
 }
 
-/** Containers */
-.sidebar-container {
-  margin: 1.5rem 0 0 0;
-}
-
-/** Text */
-.sidebar-heading p {
-  font-size: 0.8rem;
-  margin: 0 0 0.5rem 0;
-}
-
 /*
-=======
-Buttons
-=======
+========
+Elements
+========
 */
 .button-link {
   height: 100%;
@@ -278,6 +261,37 @@ Buttons
   font-weight: 600;
   padding: 0.5rem;
   text-decoration: none;
+}
+.sidebar-button a {
+  border: 1px solid #f0b252;
+  color: #f0b252;
+  font-weight: 600;
+  padding: 0.5rem;
+}
+
+/** Text */
+.sidebar-heading p {
+  font-size: 0.8rem;
+  margin: 0 0 0.5rem 0;
+}
+
+/** Containers */
+.sidebar-container {
+  margin: 1.5rem 0 0 0;
+}
+.sidebar-container p {
+  font-size: 0.8rem;
+  margin: 0 0 0.5rem 0;
+}
+.sidebar-container a {
+  text-decoration: none;
+}
+.sidebar-container li {
+  font-size: 0.8rem;
+}
+
+.sidebar-inner {
+  border: 1px solid #dedede;
 }
 
 /*
@@ -799,7 +813,6 @@ WFC Logo
 #wfc-logo {
   background-color: #f0b252;
   display: inline-block;
-  margin-left: 5.5%;
   padding: 0.9rem 1.6rem;
   position: absolute;
   top: 0;
@@ -1383,7 +1396,7 @@ Pages
 News Page
 =========
 */
-.news-page h1 {
+#news-page-top h1 {
   display: table;
   float: left;
 }
@@ -1403,6 +1416,16 @@ News Page
   margin-right: 0.5rem;
 }
 
+@media screen and (max-width: 1024px) {
+  #news-page-top h1 {
+    margin-bottom: 0;
+  }
+
+  .social-media-container {
+    clear: both;
+    float: left;
+  }
+}
 .events-list-container {
   border: 1px solid #dedede;
 }
@@ -1432,20 +1455,12 @@ News Page
   text-align: center;
 }
 
-.sidebar-button a {
-  border: 1px solid #f0b252;
-  color: #f0b252;
-  font-weight: 600;
-  padding: 0.5rem;
-}
-
 .wfc-twitter-feed p {
   font-size: 0.8rem;
   margin: 0 0 0.5rem 0;
 }
 
 #wire-signup-container {
-  border: 1px solid #dedede;
   padding-top: 1rem;
 }
 #wire-signup-container img {
@@ -1472,6 +1487,11 @@ News Page
 }
 .sidebar-mc.footer-nav-mc input[type="submit"]:hover {
   color: #fff;
+}
+
+#news-resources-container {
+  font-weight: 600;
+  padding: 0.5rem 1rem;
 }
 
 .magazine-current-issue {
@@ -1820,9 +1840,6 @@ h2.tribe-events-page-title {
 Posts
 =====
 */
-div#block-bd95602e14f9daef .loop {
-  padding: 1rem 0 0 0;
-}
 div#block-bd95602e14f9daef article {
   border: 1px solid #dedede;
   padding: 0 1rem 0 0;
@@ -1844,6 +1861,40 @@ div#block-bd95602e14f9daef .more-link {
   width: 6rem;
 }
 
+@media screen and (min-width: 1280px) {
+  div#block-bd95602e14f9daef .loop {
+    padding: 1rem 0 0 0;
+  }
+}
+@media screen and (max-width: 1024px) {
+  div#block-bd95602e14f9daef {
+    margin-bottom: 0.8rem;
+  }
+  div#block-bd95602e14f9daef img {
+    width: 400px;
+  }
+  div#block-bd95602e14f9daef article {
+    border: none;
+  }
+  div#block-bd95602e14f9daef header {
+    padding-top: 0;
+  }
+}
+@media screen and (max-width: 899px) {
+  div#block-bd95602e14f9daef a.post-thumbnail-left {
+    float: none;
+    margin: 0 0 1rem 0;
+    padding-right: 0;
+    text-align: center;
+  }
+  div#block-bd95602e14f9daef img {
+    display: inline-block;
+    width: 100%;
+  }
+  div#block-bd95602e14f9daef article {
+    padding-right: 0;
+  }
+}
 .post-category {
   margin-bottom: .7rem;
 }
@@ -1868,9 +1919,6 @@ div#block-b4256042f27279fb {
   border-bottom: 1px solid #efefef;
   position: relative;
 }
-div#block-b4256042f27279fb .loop {
-  padding: 1rem 0;
-}
 div#block-b4256042f27279fb .entry-title {
   font-size: 1.3rem;
 }
@@ -1890,9 +1938,31 @@ div#block-b4256042f27279fb article {
   border: none;
 }
 
+@media screen and (min-width: 1280px) {
+  div#block-b4256042f27279fb .loop {
+    padding: 1rem 0;
+  }
+}
 @media screen and (max-width: 1279px) {
   div#block-b4256042f27279fb .more-link {
+    display: table;
     position: relative;
+  }
+
+  .block-type-content a.post-thumbnail-above-title {
+    float: left;
+    margin: 0 1.5rem 0 0;
+  }
+}
+@media screen and (max-width: 899px) {
+  .block-type-content a.post-thumbnail-above-title {
+    float: none;
+    margin: 0 0 1rem 0;
+    text-align: center;
+  }
+  .block-type-content a.post-thumbnail-above-title img {
+    display: inline-block;
+    width: 100%;
   }
 }
 div#block-b1f56057adcd0576 {

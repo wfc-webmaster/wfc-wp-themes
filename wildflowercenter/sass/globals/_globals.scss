@@ -6,15 +6,25 @@ body {
 	padding: 1rem 1.5rem 0;
 }
 
+.page-heading {
+    margin-top: 1rem;
+}
+
 @media screen and (max-width: 2134px) {
-	.loop {
-	    margin-top: 4rem;
+	.page-heading {
+	    margin-top: 3rem;
+	}
+}
+
+@media screen and (max-width: 1279px) {
+	.page-heading {
+		padding: 0 1rem;
 	}
 }
 
 @media screen and (max-width: 1024px) {
-	.loop {
-	    margin-top: 6rem;
+	.page-heading {
+	    margin-top: 8rem;
 	}
 }
 
@@ -32,20 +42,4 @@ body {
 .block-type-content div.loop-navigation div.nav-previous a:hover,
 .block-type-content div.loop-navigation div.nav-next a:hover {
 	background-color: $wfc-orange;
-}
-
-//Sidebars
-
-/** Containers */
-.sidebar-container {
-	margin: 1.5rem 0 0 0;
-}
-
-/** Text */
-.sidebar-heading {
-	p {
-    	font-size: 0.8rem;
-    	margin: 0 0 0.5rem 0;
-    }
-
 }

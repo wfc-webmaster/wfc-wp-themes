@@ -2,10 +2,6 @@
 
 div#block-bd95602e14f9daef {
 
-	.loop {
-		padding: 1rem 0 0 0;
-	}
-
 	article {
 	    border: 1px solid $wfc-lightgray;
 	    padding: 0 1rem 0 0;
@@ -29,6 +25,54 @@ div#block-bd95602e14f9daef {
 	    text-transform: capitalize;
 	    width: 6rem;
 	}
+}
+
+@media screen and (min-width: 1280px) {
+
+	div#block-bd95602e14f9daef {
+
+		.loop {
+			padding: 1rem 0 0 0;
+		}
+	}
+}
+
+@media screen and (max-width: 1024px) {
+
+	div#block-bd95602e14f9daef {
+		margin-bottom: 0.8rem;
+
+		img {
+			width: 400px;
+		}
+		article {
+	    	border: none;
+		}
+		header {
+			padding-top: 0;
+		}
+	}
+
+}
+
+@media screen and (max-width: 899px) {
+
+	div#block-bd95602e14f9daef {
+		a.post-thumbnail-left {
+			float: none;
+			margin: 0 0 1rem 0;
+			padding-right: 0;
+			text-align: center;
+		}
+		img {
+			display: inline-block;
+			width: 100%;
+		}
+		article {
+			padding-right: 0;
+		}
+	}	
+
 }
 
 .post-category {
@@ -59,11 +103,7 @@ div#block-b4256042f27279fb {
 	border-bottom: 1px solid $wfc-lightgray2;
 	position: relative;
 
-	.loop {
-		padding: 1rem 0;
-	}
-
-	 .entry-title {
+	.entry-title {
 	 	font-size: 1.3rem;
 	 }
 
@@ -85,15 +125,47 @@ div#block-b4256042f27279fb {
 	}
 }
 
+@media screen and (min-width: 1280px) {
+
+	div#block-b4256042f27279fb {
+
+		.loop {
+			padding: 1rem 0;
+		}
+	}
+}
+
 @media screen and (max-width: 1279px) {
 
 	div#block-b4256042f27279fb {
 
 		.more-link {
+			display: table;
 			position: relative;
 		}
 	}
 
+	.block-type-content a.post-thumbnail-above-title {
+	    float: left;
+	    margin: 0 1.5rem 0 0;
+	}
+}
+
+@media screen and (max-width: 899px) {
+
+	div#block-b4256042f27279fb {
+		
+	}
+	.block-type-content a.post-thumbnail-above-title {
+	    float: none;
+	    margin: 0 0 1rem 0;
+	    text-align: center;
+
+	    img {
+	    	display: inline-block;
+	    	width: 100%;
+	    }
+	}
 }
 
 //Press release list

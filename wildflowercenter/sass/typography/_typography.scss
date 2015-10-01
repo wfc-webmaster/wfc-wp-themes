@@ -1,14 +1,13 @@
 html{
-  @include responsive("font-size", 11px,
+  @include responsive("font-size", 14px,
     (
-       600px: 12px,
-       800px: 13px,
+       // 600px: 12px,
+       // 800px: 13px,
       1180px: 14px,
       1300px: 15px,
       1750px: 16px,
       1900px: 17px,
-      2100px: 18px,
-      2400px: 19px
+      2100px: 18px      
     )
   );
 }

@@ -26,7 +26,6 @@ Reset
 Variables
 =========
 */
-
 @import 'variables-site/_colors.scss';
 
 /*
@@ -46,12 +45,13 @@ Globals
 @import 'globals/_globals.scss';
 
 /*
-=======
-Buttons
-=======
+========
+Elements
+========
 */
-@import 'buttons/_buttons.scss';
+@import 'elements-site/_buttons.scss';
 @import 'mixins/_buttonstyles.scss';
+@import 'elements-site/_sidebars.scss';
 
 /*
 
