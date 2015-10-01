@@ -101,29 +101,34 @@
 				div.layout-selector-content ul ul {
 					display: none;
 				}
-					
-					div.layout-selector-content ul ul > li.layout-item span.layout {
+
+					div.layout-selector-content > ul ul > li.layout-item span.layout,
+					div.layout-selector-content > ul ul > li.layout-loading-children {
 						padding-left: 45px;
 					}
 
-						div.layout-selector-content ul ul ul > li.layout-item span.layout {
+						div.layout-selector-content > ul ul ul > li.layout-item span.layout,
+						div.layout-selector-content > ul ul ul > li.layout-loading-children {
 							padding-left: 70px;
 						}
 
-							div.layout-selector-content ul ul ul ul > li.layout-item span.layout {
+							div.layout-selector-content > ul ul ul ul > li.layout-item span.layout,
+							div.layout-selector-content > ul ul ul ul > li.layout-loading-children {
 								padding-left: 95px;
 							}
 
-								div.layout-selector-content ul ul ul ul ul > li.layout-item span.layout {
+								div.layout-selector-content > ul ul ul ul ul > li.layout-item span.layout,
+								div.layout-selector-content > ul ul ul ul ul > li.layout-loading-children {
 									padding-left: 120px;
 								}
 
-									div.layout-selector-content ul ul ul ul ul ul > li.layout-item span.layout {
+									div.layout-selector-content > ul ul ul ul ul ul > li.layout-item span.layout,
+									div.layout-selector-content > ul ul ul ul ul ul > li.layout-loading-children {
 										padding-left: 145px;
 									}
 
 				/* Style big boy layout */
-				div.layout-selector-content ul > li.layout-item:nth-child(even) > span.layout {
+				div.layout-selector-content ul > li:nth-child(even) > span.layout {
 					background: #F9F9F9;
 				}
 
@@ -382,6 +387,23 @@
 					cursor: default;
 				}
 			/* End Info Layout Item */
+
+			div.layout-selector-content li.layout-loading-children {
+				min-height: 18px;
+				line-height: 19px;
+				@include border-box;
+				padding: 10px 20px 10px 20px;
+				width: 100%;
+				color: #888;
+
+				span {
+					@include animation('spin 2000ms infinite linear');
+				}
+			}
+
+			div.layout-selector-content ul > li.layout-loading-children:nth-child(even) {
+				background: #f9f9f9;
+			}
 
 			div.layout-selector-content > ul { 
 				width: 100%;

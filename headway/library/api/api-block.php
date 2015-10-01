@@ -377,6 +377,7 @@ class HeadwayBlockOptionsAPI extends HeadwayVisualEditorPanelAPI {
 			'type' => 'select',
 			'name' => 'mirror-block',
 			'label' => 'Mirror Block',
+			'chosen' => true,
 			'default' => '',
 			'tooltip' => 'By using this option, you can tell a block to "mirror" another block and its content.  This option is useful if you are wanting to share a block&mdash;such as a header&mdash;across layouts on your site.  Select the block you wish to mirror the content from in the select box to the right.',
 			'options' => 'get_blocks_select_options_for_mirroring()',
@@ -758,36 +759,44 @@ class HeadwayBlockOptionsAPI extends HeadwayVisualEditorPanelAPI {
 			return $options;
 		
 		foreach ( $blocks as $block_id => $block ) {
-			
+
+			if ( $this->block['id'] == $block_id ) {
+				continue;
+			}
+
 			//If the block is mirrored, skip it
-			if ( HeadwayBlocksData::is_block_mirrored($block) )
+			if ( HeadwayBlocksData::is_block_mirrored( $block ) ) {
 				continue;
-			
+			}
+
 			/* Do not show block that's in a mirrored wrapper */
-			if ( HeadwayWrappersData::is_wrapper_mirrored(HeadwayWrappersData::get_wrapper(headway_get('wrapper_id', $block))) )
+			if ( HeadwayWrappersData::is_wrapper_mirrored( HeadwayWrappersData::get_wrapper( headway_get( 'wrapper_id', $block ) ) ) ) {
 				continue;
+			}
 
 			//Create the default name by using the block type and ID
-			$default_name = HeadwayBlocks::block_type_nice($block['type']);
-			
+			$default_name = HeadwayBlocks::block_type_nice( $block['type'] ) . ' Block';
+
 			//If we can't get a name for the layout, then things probably aren't looking good.  Just skip this block.
-			if ( !($layout_name = HeadwayLayout::get_name($block['layout'])) )
+			if ( ! ( $layout_name = HeadwayLayout::get_name( $block['layout'] ) ) ) {
 				continue;
+			}
 
 			//Make sure the block exists
-			if ( !HeadwayBlocksData::block_exists($block['id']) )
+			if ( ! HeadwayBlocksData::block_exists( $block['id'] ) ) {
 				continue;
+			}
 
-			$current_layout_suffix = ( $this->block['layout'] == $block['layout'] ) ? ' (Warning: Same Layout)' : null;
-			
-			//Get alias if it exists, otherwise use the default name
-			$options[$block['id']] = headway_get('alias', $block['settings'], $default_name) . ' &ndash; ' . $layout_name . $current_layout_suffix;  
+			$layout_name = HeadwayLayout::get_layout_parents_names( $block['layout'] ) . $layout_name;
+
+			if ( ! isset( $options[ $layout_name ] ) ) {
+				$options[ $layout_name ] = array();
+			}
+
+			$options[ $layout_name ][ $block['id'] ] = headway_get( 'alias', $block['settings'], $default_name );
 			
 		}
-		
-		//Remove the current block from the list
-		unset($options[$this->block['id']]);
-		
+
 		return $options;
 		
 	}

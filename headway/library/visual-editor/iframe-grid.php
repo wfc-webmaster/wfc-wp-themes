@@ -124,8 +124,18 @@ class HeadwayVisualEditorIframeGrid {
 	public static function show() {
 
 		//Prevent any type of caching on this page
+		header( 'cache-control: private, max-age=0, no-cache' );
+
 		if ( !defined('DONOTCACHEPAGE') ) {
 			define('DONOTCACHEPAGE', true);
+		}
+
+		if ( ! defined( 'DONOTCACHEDB' ) ) {
+			define( 'DONOTCACHEDB', true );
+		}
+
+		if ( ! defined( 'DONOTCACHCEOBJECT' ) ) {
+			define( 'DONOTCACHCEOBJECT', true );
 		}
 
 		if ( !defined('DONOTMINIFY') ) { 

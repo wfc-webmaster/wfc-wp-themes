@@ -59,7 +59,7 @@ var main_nav_learn = [
 
 var main_nav_work = [
 	'<div id="mobile-work" class="mobile-menu-container">',
-		'<div class="mobile-main-nav"><h3><a href="/">Work</a></h3></div>',
+		'<div class="mobile-main-nav"><h3><a href="/">Our Work</a></h3></div>',
 		'<div class="mobile-subnav"><ul class="mobile-subnav-list"><ul></div>',
 	'</div>'
 ].join('');

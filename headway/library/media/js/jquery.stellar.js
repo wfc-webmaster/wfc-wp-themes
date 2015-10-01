@@ -132,17 +132,91 @@
 			}
 		),
 
-		getBackgroundPosition = (supportsBackgroundPositionXY ?
-			function ($elem) {
-				return [
-					$elem.css('background-position-x'),
-					$elem.css('background-position-y')
-				];
-			} :
-			function ($elem) {
-				return $elem.css('background-position').split(' ');
-			}
-		),
+
+        getBackgroundImageSize = function ($elem, callback) {
+
+            if ( typeof $elem.data('stellar-backgroundSize') != 'undefined' ) {
+                return callback($elem.data('stellar-backgroundSize'));
+            }
+
+            if ( $elem.css('background-position').indexOf('%') != -1 ) {
+
+                var image = $('<img />').css({
+                    opacity: '0',
+                    position: 'fixed',
+                    zIndex: '0',
+                    pointerEvents: 'none'
+                }).appendTo('body');
+
+                image.attr('src', $elem.css('backgroundImage')
+                    .replace(/url\((['"])?(.*?)\1\)/gi, '$2')
+                    .split(',')[0]);
+
+                return image.load(function() {
+                    var bgSize = [image.width(), image.height()];
+
+                    $elem.data('stellar-backgroundSize', bgSize);
+                    callback(bgSize);
+
+                    image.remove();
+                });
+
+            } else {
+
+                $elem.data('stellar-backgroundSize', false);
+
+                return callback(false);
+
+            }
+
+        },
+
+		getBackgroundPosition = function ($elem, backgroundImageSize) {
+
+            var originalPos = $elem.css('background-position').split(' ');
+
+            /* If original position is percentage then convert it to pixels */
+            if ( backgroundImageSize ) {
+
+               var elementSize = [
+                    $elem.outerWidth(),
+                    $elem.outerHeight()
+                ];
+
+                var posX = originalPos[0];
+                var posY = originalPos[1];
+
+                if ( $elem.css('background-size') == 'cover' ) {
+                    var ratio = elementSize[0] / backgroundImageSize[0];
+
+                    backgroundImageSize[0] = elementSize[0];
+                    backgroundImageSize[1] = backgroundImageSize[1] * ratio;
+                }
+
+                if ( posX.indexOf('%') != -1 ) {
+                    var percentageX = parseInt(posX.replace('%', '')) / 100;
+
+                    posX = -((backgroundImageSize[0] - (elementSize[0])) * percentageX);
+                }
+
+                if ( posY.indexOf('%') != -1 ) {
+                    var percentageY = parseInt(posY.replace('%', '')) / 100;
+
+                    posY = -((backgroundImageSize[1] - (elementSize[1])) * percentageY);
+                }
+
+                return [
+                    posX,
+                    posY
+                ];
+
+            } else {
+
+                return originalPos;
+
+            }
+
+        },
 
 		requestAnimFrame = (
 		window.requestAnimationFrame ||
@@ -404,82 +478,90 @@
 			}
 
 			$backgroundElements.each(function () {
-				var $this = $(this),
-					backgroundPosition = getBackgroundPosition($this),
-					horizontalOffset,
-					verticalOffset,
-					positionLeft,
-					positionTop,
-					marginLeft,
-					marginTop,
-					offsetLeft,
-					offsetTop,
-					$offsetParent,
-					parentOffsetLeft = 0,
-					parentOffsetTop = 0,
-					tempParentOffsetLeft = 0,
-					tempParentOffsetTop = 0;
 
-				// Ensure this element isn't already part of another scrolling element
-				if ( !$this.data('stellar-backgroundIsActive') ) {
-					$this.data('stellar-backgroundIsActive', this);
-				} else if ( $this.data('stellar-backgroundIsActive') !== this ) {
-					return;
-				}
+                var $this = $(this);
 
-				// Save/restore the original top and left CSS values in case we destroy the instance
-				if ( !$this.data('stellar-backgroundStartingLeft') ) {
-					$this.data('stellar-backgroundStartingLeft', backgroundPosition[0]);
-					$this.data('stellar-backgroundStartingTop', backgroundPosition[1]);
-				} else {
-					setBackgroundPosition($this, $this.data('stellar-backgroundStartingLeft'), $this.data('stellar-backgroundStartingTop'));
-				}
+                getBackgroundImageSize($this, function(backgroundSize) {
 
-				// Catch-all for margin top/left properties (these evaluate to 'auto' in IE7 and IE8)
-				marginLeft = ($this.css('margin-left') === 'auto') ? 0 : parseInt($this.css('margin-left'), 10);
-				marginTop = ($this.css('margin-top') === 'auto') ? 0 : parseInt($this.css('margin-top'), 10);
+                    var backgroundPosition = getBackgroundPosition($this, backgroundSize),
+                        backgroundSize,
+                        horizontalOffset,
+                        verticalOffset,
+                        positionLeft,
+                        positionTop,
+                        marginLeft,
+                        marginTop,
+                        offsetLeft,
+                        offsetTop,
+                        $offsetParent,
+                        parentOffsetLeft = 0,
+                        parentOffsetTop = 0,
+                        tempParentOffsetLeft = 0,
+                        tempParentOffsetTop = 0;
 
-				offsetLeft = $this.offset().left - marginLeft - scrollLeft;
-				offsetTop = $this.offset().top - marginTop - scrollTop;
+                    // Ensure this element isn't already part of another scrolling element
+                    if ( !$this.data('stellar-backgroundIsActive') ) {
+                        $this.data('stellar-backgroundIsActive', this);
+                    } else if ( $this.data('stellar-backgroundIsActive') !== this ) {
+                        return;
+                    }
 
-				// Calculate the offset parent
-				$this.parents().each(function () {
-					var $this = $(this);
+                    // Save/restore the original top and left CSS values in case we destroy the instance
+                    if ( !$this.data('stellar-backgroundStartingLeft') ) {
+                        $this.data('stellar-backgroundStartingLeft', backgroundPosition[0]);
+                        $this.data('stellar-backgroundStartingTop', backgroundPosition[1]);
+                    } else {
+                        setBackgroundPosition($this, $this.data('stellar-backgroundStartingLeft'), $this.data('stellar-backgroundStartingTop'));
+                    }
 
-					if ( $this.data('stellar-offset-parent') === true ) {
-						parentOffsetLeft = tempParentOffsetLeft;
-						parentOffsetTop = tempParentOffsetTop;
-						$offsetParent = $this;
+                    // Catch-all for margin top/left properties (these evaluate to 'auto' in IE7 and IE8)
+                    marginLeft = ($this.css('margin-left') === 'auto') ? 0 : parseInt($this.css('margin-left'), 10);
+                    marginTop = ($this.css('margin-top') === 'auto') ? 0 : parseInt($this.css('margin-top'), 10);
 
-						return false;
-					} else {
-						tempParentOffsetLeft += $this.position().left;
-						tempParentOffsetTop += $this.position().top;
-					}
-				});
+                    offsetLeft = $this.offset().left - marginLeft - scrollLeft;
+                    offsetTop = $this.offset().top - marginTop - scrollTop;
 
-				// Detect the offsets
-				horizontalOffset = ($this.data('stellar-horizontal-offset') !== undefined ? $this.data('stellar-horizontal-offset') : ($offsetParent !== undefined && $offsetParent.data('stellar-horizontal-offset') !== undefined ? $offsetParent.data('stellar-horizontal-offset') : self.horizontalOffset));
-				verticalOffset = ($this.data('stellar-vertical-offset') !== undefined ? $this.data('stellar-vertical-offset') : ($offsetParent !== undefined && $offsetParent.data('stellar-vertical-offset') !== undefined ? $offsetParent.data('stellar-vertical-offset') : self.verticalOffset));
+                    // Calculate the offset parent
+                    $this.parents().each(function () {
+                        var $this = $(this);
 
-				self.backgrounds.push({
-					$element: $this,
-					$offsetParent: $offsetParent,
-					isFixed: $this.css('background-attachment') === 'fixed',
-					horizontalOffset: horizontalOffset,
-					verticalOffset: verticalOffset,
-					startingValueLeft: backgroundPosition[0],
-					startingValueTop: backgroundPosition[1],
-					startingBackgroundPositionLeft: (isNaN(parseInt(backgroundPosition[0], 10)) ? 0 : parseInt(backgroundPosition[0], 10)),
-					startingBackgroundPositionTop: (isNaN(parseInt(backgroundPosition[1], 10)) ? 0 : parseInt(backgroundPosition[1], 10)),
-					startingPositionLeft: $this.position().left,
-					startingPositionTop: $this.position().top,
-					startingOffsetLeft: offsetLeft,
-					startingOffsetTop: offsetTop,
-					parentOffsetLeft: parentOffsetLeft,
-					parentOffsetTop: parentOffsetTop,
-					stellarRatio: ($this.data('stellar-background-ratio') === undefined ? 1 : $this.data('stellar-background-ratio'))
-				});
+                        if ( $this.data('stellar-offset-parent') === true ) {
+                            parentOffsetLeft = tempParentOffsetLeft;
+                            parentOffsetTop = tempParentOffsetTop;
+                            $offsetParent = $this;
+
+                            return false;
+                        } else {
+                            tempParentOffsetLeft += $this.position().left;
+                            tempParentOffsetTop += $this.position().top;
+                        }
+                    });
+
+                    // Detect the offsets
+                    horizontalOffset = ($this.data('stellar-horizontal-offset') !== undefined ? $this.data('stellar-horizontal-offset') : ($offsetParent !== undefined && $offsetParent.data('stellar-horizontal-offset') !== undefined ? $offsetParent.data('stellar-horizontal-offset') : self.horizontalOffset));
+                    verticalOffset = ($this.data('stellar-vertical-offset') !== undefined ? $this.data('stellar-vertical-offset') : ($offsetParent !== undefined && $offsetParent.data('stellar-vertical-offset') !== undefined ? $offsetParent.data('stellar-vertical-offset') : self.verticalOffset));
+
+                    self.backgrounds.push({
+                        $element: $this,
+                        $offsetParent: $offsetParent,
+                        isFixed: $this.css('background-attachment') === 'fixed',
+                        horizontalOffset: horizontalOffset,
+                        verticalOffset: verticalOffset,
+                        startingValueLeft: backgroundPosition[0],
+                        startingValueTop: backgroundPosition[1],
+                        startingBackgroundPositionLeft: (isNaN(parseInt(backgroundPosition[0], 10)) ? 0 : parseInt(backgroundPosition[0], 10)),
+                        startingBackgroundPositionTop: (isNaN(parseInt(backgroundPosition[1], 10)) ? 0 : parseInt(backgroundPosition[1], 10)),
+                        startingPositionLeft: $this.position().left,
+                        startingPositionTop: $this.position().top,
+                        startingOffsetLeft: offsetLeft,
+                        startingOffsetTop: offsetTop,
+                        parentOffsetLeft: parentOffsetLeft,
+                        parentOffsetTop: parentOffsetTop,
+                        stellarRatio: ($this.data('stellar-background-ratio') === undefined ? 1 : $this.data('stellar-background-ratio'))
+                    });
+
+                });
+
 			});
 		},
 		_reset: function () {
@@ -618,10 +700,11 @@
 				background = this.backgrounds[i];
 
 				fixedRatioOffset = (background.isFixed ? 0 : 1);
-				bgLeft = (this.options.horizontalScrolling ? (scrollLeft + background.horizontalOffset - this.viewportOffsetLeft - background.startingOffsetLeft + background.parentOffsetLeft - background.startingBackgroundPositionLeft) * (fixedRatioOffset - background.stellarRatio) + 'px' : background.startingValueLeft);
-				bgTop = (this.options.verticalScrolling ? (scrollTop + background.verticalOffset - this.viewportOffsetTop - background.startingOffsetTop + background.parentOffsetTop - background.startingBackgroundPositionTop) * (fixedRatioOffset - background.stellarRatio) + 'px' : background.startingValueTop);
 
-				setBackgroundPosition(background.$element, 0, bgTop);
+				bgLeft = (this.options.horizontalScrolling ? ((scrollLeft + background.horizontalOffset - this.viewportOffsetLeft) * (fixedRatioOffset - background.stellarRatio) + background.startingBackgroundPositionLeft) + 'px' : background.startingValueLeft);
+				bgTop = (this.options.verticalScrolling ? ((scrollTop + background.verticalOffset - this.viewportOffsetTop) * (fixedRatioOffset - background.stellarRatio) + background.startingBackgroundPositionTop) + 'px' : background.startingValueTop);
+                
+				setBackgroundPosition(background.$element, bgLeft, bgTop);
 			}
 		},
 		_handleScrollEvent: function () {
@@ -697,7 +780,21 @@
 
 			});
 
+			var documentHeight = jQuery(document).height();
+			var documentHeightWatch = function() {
+
+			    if ( jQuery(document).height() != documentHeight ) {
+			        documentHeight = jQuery(document).height();
+
+			        $.stellar('refresh');
+			    }
+
+			    setTimeout(documentHeightWatch, 1000);
+
+			}
+
 			$.stellar();
+			documentHeightWatch();
 
 		});
 

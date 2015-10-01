@@ -98,10 +98,6 @@ function headway_do_upgrade_37($current_step = false) {
 			HeadwayMaintenance::output_status( 'Deleting old options...' );
 			headway_upgrade_37_rename_and_delete_old_options();
 
-			/* Clean up upgrade */
-			HeadwayMaintenance::output_status( 'Cleaning up...' );
-			headway_upgrade_37_cleanup();
-
 			break;
 
 
@@ -568,13 +564,27 @@ function headway_upgrade_37_setup_mirroring() {
 				if ( ! $mirror_block = headway_get( headway_get( 'mirror-block', $new_block_info ), $template_blocks ) )
 					continue;
 
-				if ( headway_get( 'type', $new_block_info ) != headway_get( 'type', $mirror_block ) )
-					continue;
-
-				if ( headway_get( 'id', $new_block_info ) == headway_get( 'id', $mirror_block ) )
-					continue;
-
 				$mirror_id = headway_get( 'id', $mirror_block );
+
+				if ( $mirrored_block_mirror_id = headway_get( 'mirror-block', $mirror_block ) ) {
+
+					if ( $mirrored_block_mirror = headway_get( $mirrored_block_mirror_id, $template_blocks ) ) {
+
+						if ( headway_get( 'type', $new_block_info ) == headway_get( 'type', $mirrored_block_mirror ) ) {
+							continue;
+						}
+
+					}
+
+				}
+
+				if ( headway_get( 'type', $new_block_info ) != headway_get( 'type', $mirror_block ) ) {
+					continue;
+				}
+
+				if ( headway_get( 'id', $new_block_info ) == headway_get( 'id', $mirror_block ) ) {
+					continue;
+				}
 
 				HeadwayBlocksData::update_block( $new_block_info['id'], array(
 					'mirror_id' => $mirror_id,
@@ -729,22 +739,5 @@ function headway_upgrade_37_rename_and_delete_old_options() {
 	$wpdb->query( "DELETE FROM $wpdb->options WHERE option_name LIKE 'headway%option_group_wrappers'" );
 	$wpdb->query( "DELETE FROM $wpdb->options WHERE option_name LIKE 'headway%option_group_blocks'" );
 	$wpdb->query( "DELETE FROM $wpdb->options WHERE option_name LIKE 'headway%option_group_block-actions'" );
-
-}
-
-
-function headway_upgrade_37_cleanup() {
-
-	global $wpdb;
-
-	$wpdb->query("UPDATE $wpdb->options SET autoload = 'no' WHERE option_name LIKE 'headway_%'");
-
-	$wpdb->update($wpdb->options, array(
-		'autoload' => 'yes'
-	), array(
-		'option_name' => 'headway_option_group_general'
-	));
-
-	$wpdb->query("UPDATE $wpdb->options SET autoload = 'yes' WHERE option_name LIKE 'headway_|template=" . HeadwayOption::$current_skin . "|%'");
 
 }

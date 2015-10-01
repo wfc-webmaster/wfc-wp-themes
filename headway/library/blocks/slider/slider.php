@@ -132,9 +132,9 @@ jQuery(window).load(function(){
 
 		  	/* Put in viewport div for sliders that only have 1 image and don't slide */
 		  	if ( count($images) === 1 )
-		  		echo '</div><!-- .flex-viewport -->';
+		  		echo '</div>';
 
-		echo '</div><!-- .flexslider -->';
+		echo '</div>';
 
 	}
 

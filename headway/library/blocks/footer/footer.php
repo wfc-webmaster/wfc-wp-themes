@@ -98,9 +98,9 @@ class HeadwayFooterBlock extends HeadwayBlockAPI {
 		
 		do_action('headway_footer_close');
 		
-		echo "\n" . '</div><!-- .footer -->';
+		echo "\n" . '</div>';
 		
-		echo "\n" . '</div><!-- .footer-container -->';
+		echo "\n" . '</div>';
 		
 		do_action('headway_after_footer');
 		

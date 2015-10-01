@@ -76,5 +76,22 @@ Plugins
 Headway Page Blocks
 ===================
 */
+//@import 'hw-blocks/_content-block-elements.scss';
 @import 'hw-blocks/_landing-page.scss';
 @import 'hw-blocks/_footer.scss';
+
+/*
+=====
+Pages
+=====
+*/
+@import 'pages/_news.scss';
+@import 'pages/_features-archives.scss';
+@import 'pages/_events.scss';
+
+/*
+=====
+Posts
+=====
+*/
+@import 'posts/_posts.scss'

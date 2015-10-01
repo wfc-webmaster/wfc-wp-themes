@@ -196,7 +196,7 @@ class HeadwayContentBlockDisplay {
 
 			}
 
-			echo "\n\n" . '</div><!-- .entry-row -->' . "\n\n";
+			echo "\n\n" . '</div>' . "\n\n";
 
 			$this->row_open = false;
 
@@ -231,7 +231,7 @@ class HeadwayContentBlockDisplay {
 				else 
 					$return .= apply_filters('headway_archive_title', __( 'Blog Archives', 'headway'));
 					
-			$return .= '</h1><!-- .archive-title -->';
+			$return .= '</h1>';
 						
 		}
 		
@@ -240,7 +240,7 @@ class HeadwayContentBlockDisplay {
 			
 			$return .= '<h1 class="archive-title category-title">';
 				$return .= apply_filters('headway_category_title', sprintf(__('Category Archives: %s', 'headway'), '<span>' . single_cat_title('', false) . '</span>'));
-			$return .= '</h1><!-- .archive-title -->';
+			$return .= '</h1>';
 			
 			$category_description = category_description();
 			if ( !empty($category_description) )
@@ -262,7 +262,7 @@ class HeadwayContentBlockDisplay {
 				else
 					$return .= sprintf(__( 'Author Archives: %s', 'headway'), '<span class="vcard">' . $author->display_name . '</span>');
 				
-			$return .= '</h1><!-- .archive-title -->';
+			$return .= '</h1>';
 			
 		}
 		
@@ -271,7 +271,7 @@ class HeadwayContentBlockDisplay {
 			
 			$return .= '<h1 class="archive-title search-title">';
 				$return .= apply_filters('headway_search_title', sprintf(__('Search Results for: %s', 'headway'), '<span>' . get_search_query() . '</span>'));
-			$return .= '</h1><!-- .archive-title -->';
+			$return .= '</h1>';
 			
 		}
 		
@@ -280,7 +280,7 @@ class HeadwayContentBlockDisplay {
 			
 			$return .= '<h1 class="archive-title search-title">';
 				$return .= apply_filters('headway_tag_title', sprintf(__('Tag Archives: %s', 'headway'), '<span>' . single_tag_title('', false) . '</span>'));
-			$return .= '</h1><!-- .archive-title -->';
+			$return .= '</h1>';
 
 			$tag_description = tag_description();
 			if ( !empty($tag_description) )
@@ -293,7 +293,7 @@ class HeadwayContentBlockDisplay {
 						
 			$return .= '<h1 class="archive-title post-type-archive-title">';
 				$return .= apply_filters('headway_post_type_archive_title', $queried_object->labels->name);
-			$return .= '</h1><!-- .archive-title -->';
+			$return .= '</h1>';
 			
 		}
 		
@@ -305,7 +305,7 @@ class HeadwayContentBlockDisplay {
 			
 			$return .= '<h1 class="archive-title taxonomy-archive-title">';
 				$return .= apply_filters('headway_taxonomy_archive_title', $taxonomy->labels->singular_name . ': <span>' . $term->name . '</span>');
-			$return .= '</h1><!-- .archive-title -->';	
+			$return .= '</h1>';
 
 			$term_description = term_description();
 			if ( !empty($term_description) )
@@ -428,10 +428,10 @@ class HeadwayContentBlockDisplay {
 					$entry_utility_below = $this->parse_meta($this->get_setting('entry-utility-below', 'Filed Under: %categories%'));
 
 					if ( $entry_meta_above )
-						$entry_meta_above = '<div class="entry-meta entry-meta-above">' . headway_parse_php($entry_meta_above) . '</div><!-- .entry-meta -->';
+						$entry_meta_above = '<div class="entry-meta entry-meta-above">' . headway_parse_php($entry_meta_above) . '</div>';
 					
 					if ( $entry_utility_below )
-						$entry_utility_below = '<footer class="entry-utility entry-utility-below entry-meta">' . headway_parse_php($entry_utility_below) . '</footer><!-- .entry-utility -->';
+						$entry_utility_below = '<footer class="entry-utility entry-utility-below entry-meta">' . headway_parse_php($entry_utility_below) . '</footer>';
 
 				} else {
 
@@ -519,7 +519,7 @@ class HeadwayContentBlockDisplay {
 
 					do_action('headway_entry_close', $args);			
 
-				echo '</article><!-- #post-' . $post_id . ' -->';
+				echo '</article>';
 
 				do_action('headway_after_entry', $args);
 				
@@ -591,7 +591,7 @@ class HeadwayContentBlockDisplay {
 
 				wp_link_pages(array( 'before' => '<div class="page-link">' . __( 'Pages:', 'headway' ), 'after' => '</div>' ));
 
-			echo '</div><!-- .entry-content -->';
+			echo '</div>';
 
 		} elseif ( $show_excerpts ) {
 
@@ -601,7 +601,7 @@ class HeadwayContentBlockDisplay {
 
 				the_excerpt();
 
-			echo '</div><!-- .entry-summary.entry-content -->';
+			echo '</div>';
 		}
 		
 		do_action('headway_after_entry_content', $args);
@@ -640,13 +640,13 @@ class HeadwayContentBlockDisplay {
 										
 					get_search_form(true);
 
-				echo '</div><!-- .entry-content -->';
+				echo '</div>';
 
 			do_action('headway_after_entry_content', $args);
 
 			do_action('headway_entry_close', $args);			
 
-			echo '</div><!-- #post-' . $post_id . ' -->';
+			echo '</div>';
 
 		do_action('headway_after_entry', $args);
 		
@@ -745,7 +745,7 @@ class HeadwayContentBlockDisplay {
 				
 			}
 		
-		echo '</div><!-- #nav-' . $position . ' -->';
+		echo '</div>';
 
 		
 	}
@@ -859,7 +859,7 @@ class HeadwayContentBlockDisplay {
 				next_post_link('%link', '%title <span class="meta-nav">&rarr;</span>', $this->get_setting('show-single-post-navigation-enable-tax'), ' ', $enable_tax);
 			echo '</div>';
 
-		echo '</div><!-- #nav-below -->';
+		echo '</div>';
 		
 		
 	}

@@ -63,13 +63,13 @@
 	
 		$iframe_url = add_query_arg(array(
 			've-iframe' => 'true',
-			've-layout' => HeadwayLayout::get_current(),
+			've-layout' => urlencode(HeadwayLayout::get_current()),
             've-layout-customized' => headway_get('customized', $current_layout_status, false) ? 'true' : 'false',
             've-iframe-mode' => HeadwayVisualEditor::get_current_mode(),
 			'rand' => rand(1, 999999)
 		), $layout_url);
 	
-		echo '<iframe id="content" class="content" src="' . $iframe_url . '" scrolling="yes"></iframe>';
+		echo '<iframe id="content" class="content" src="' . $iframe_url . '" scrolling="yes" sandbox="allow-same-origin allow-scripts"></iframe>';
 	
 		?>
 		

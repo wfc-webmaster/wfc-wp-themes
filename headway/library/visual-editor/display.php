@@ -39,7 +39,7 @@ class HeadwayVisualEditorDisplay {
 		//Enqueue Scripts
 		remove_all_actions('wp_print_scripts'); /* Removes bad plugin JS */
 
-		add_filter('clean_url', array(__CLASS__, 'require_js_attr' ), 10, 3 );
+		add_filter( 'script_loader_tag', array( __CLASS__, 'require_js_attr' ), 15, 3 );
 		add_action('headway_visual_editor_scripts', array(__CLASS__, 'require_js'));
 
 		//Localize Scripts
@@ -55,6 +55,8 @@ class HeadwayVisualEditorDisplay {
 		add_action('headway_visual_editor_menu_mode_buttons', array(__CLASS__, 'menu_mode_buttons'));
 
 		//Prevent any type of caching on this page
+		header( 'cache-control: private, max-age=0, no-cache' );
+
 		if ( !defined('DONOTCACHEPAGE') ) { 
 			define('DONOTCACHEPAGE', true);
 		}
@@ -91,21 +93,17 @@ class HeadwayVisualEditorDisplay {
 	}
 
 
-	public static function require_js_attr($good_protocol_url, $original_url, $_context) {
+	public static function require_js_attr( $tag, $handle, $src ) {
 
 		$script_folder = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? 'scripts-src' : 'scripts';
 
-		if ( false !== strpos( $original_url, 'require-and-jquery.js' ) ) {
+		if ( false !== strpos( $src, 'require-and-jquery.js' ) ) {
 
-			return $good_protocol_url . "' id='headway-editor' data-main='" . headway_url() . "/library/visual-editor/" . $script_folder . "/app.js";
-
-		} else if ( false !== strpos( $original_url, 'js' ) ) {
-
-			return $good_protocol_url . "' async='true";
+			return "<script type='text/javascript' id='headway-editor' src='{$src}' data-main='" . headway_url() . "/library/visual-editor/{$script_folder}/app.js'></script>";
 
 		}
 
-		return $good_protocol_url;
+		return str_replace( "></script>", " async='true'></script>", $tag );
 
 	}
 
@@ -157,7 +155,7 @@ class HeadwayVisualEditorDisplay {
 
 		wp_print_scripts();
 
-		echo "\n<!-- End Scripts -->\n";
+		echo "\n";
 
 	}
 
@@ -175,7 +173,7 @@ class HeadwayVisualEditorDisplay {
 
 		wp_print_styles();
 
-		echo "\n<!-- End Styles -->\n";
+		echo "\n";
 
 	}
 
@@ -286,7 +284,7 @@ class HeadwayVisualEditorDisplay {
 					echo '<div class="menu-mode-buttons">';
 						echo '<span class="menu-mode-button tooltip-bottom-right" id="toggle-inspector" title="' . esc_attr($tooltip) . '"></span>';
 						echo '<span class="menu-mode-button tooltip-bottom-right" id="open-live-css" title="Open Live CSS Editor"></span>';
-					echo '</div><!-- .menu-mode-buttons -->';
+					echo '</div>';
 
 				}
 
@@ -317,7 +315,7 @@ class HeadwayVisualEditorDisplay {
 
 				}
 
-		echo '</div><!-- div.block-type-selector -->' . "\n\n";
+		echo '</div>' . "\n\n";
 
 	}
 

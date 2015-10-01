@@ -222,7 +222,7 @@ class HeadwaySocialBlock extends HeadwayBlockAPI {
 		  	}
 	  
 	  	echo '</ul>';
-		echo '</div><!-- .social-icons-container -->';
+		echo '</div>';
 		
 	}
 

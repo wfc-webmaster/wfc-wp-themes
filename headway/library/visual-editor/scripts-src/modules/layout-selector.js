@@ -287,6 +287,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 				currentLayoutCustomized: ko.observable(Headway.currentLayoutCustomized),
 				pages: layoutSelector.mapArrayToLayoutModel(Headway.layouts.pages),
 				search: ko.observableArray([]),
+				searching: ko.observable(false),
 				shared: layoutSelector.mapArrayToLayoutModel(Headway.layouts.shared)
 			};
 
@@ -309,6 +310,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 
 			this.ajaxChildren = ko.observable(layout.ajaxChildren);
 
+			this.ajaxLoading = ko.observable(false);
 			this.ajaxLoaded = ko.observable(false);
 			this.ajaxShowMore = ko.observable(false);
 			this.ajaxLoadOffset = ko.observable(0);
@@ -333,9 +335,18 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 
 		},
 
-		loadLayouts: function(layoutData, layoutContext, loadingMore) {
+		loadLayouts: function(layoutData, layoutContext, $element, loadingMore) {
 
 			var loadingMore = loadingMore || false;
+
+			if ( layoutData.ajaxLoading() ) {
+				return false;
+			}
+
+			layoutData.ajaxLoading(true);
+
+			var $loadingIndicator = $('<li class="layout-item layout-loading-children"><span class="dashicons dashicons-update"></span> Loading...</li>');
+			$loadingIndicator.insertAfter($element.parent());
 
 			return $.ajax(Headway.ajaxURL, {
 				type   : 'POST',
@@ -349,6 +360,9 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 					mode    : Headway.mode
 				},
 				success: function (data, textStatus) {
+
+					$loadingIndicator.remove();
+					layoutData.ajaxLoading(false);
 
 					if ( (!_.isArray(data) || !data.length) && !loadingMore ) {
 						layoutContext.$data.ajaxChildren(false);
@@ -383,6 +397,8 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 
 		searchLayouts: function(query) {
 
+			Headway.viewModels.layoutSelector.searching(true);
+
 			return $.ajax(Headway.ajaxURL, {
 				type   : 'POST',
 				async  : true,
@@ -393,6 +409,8 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 					query  : query
 				},
 				success: function (data, textStatus) {
+
+					Headway.viewModels.layoutSelector.searching(false);
 
 					if ( !_.isArray(data) || !data.length ) {
 						return;
@@ -434,7 +452,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 
 			});
 
-			layoutSelectorSearchForm.on('submit', function(event) {
+			var layoutSelectorSearchFormSubmit = function (event) {
 
 				var query = $('#layout-search-input').val();
 
@@ -448,8 +466,11 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 
 				event.preventDefault();
 
-			});
+			};
 
+			$('#layout-search-submit').on('click', layoutSelectorSearchFormSubmit);
+			layoutSelectorSearchForm.on('submit', layoutSelectorSearchFormSubmit);
+			
 			/* Tabs */
             layoutSelectorEl.tabs();
 
@@ -798,7 +819,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 
 				if ( $(this).parent().hasClass('has-ajax-children') && !layoutContext.$data.ajaxLoaded() ) {
 
-					layoutSelector.loadLayouts(layoutData, layoutContext);
+					layoutSelector.loadLayouts(layoutData, layoutContext, $(this));
 
 				}
 
@@ -816,7 +837,7 @@ define(['jquery', 'knockout', 'underscore', 'jqueryUI'], function($, ko, _) {
 					.text('Load More...')
 					.attr('disabled', 'disabled');
 
-				$.when(layoutSelector.loadLayouts(layoutData, layoutContext, true)).done(function() {
+				$.when(layoutSelector.loadLayouts(layoutData, layoutContext, $(this), true)).done(function() {
 					$(self)
 						.text('Load More...')
 						.attr('disabled', '');

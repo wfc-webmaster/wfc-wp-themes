@@ -148,40 +148,6 @@ function headway_url() {
 
 
 /**
- * Starts the GZIP output buffer.
- *
- * @return bool
- **/
-function headway_gzip() {
-
-	//If zlib is not loaded, we can't gzip.
-	if ( !extension_loaded('zlib') )
-		return false;
-
-	//If zlib.output_compression is on, do not gzip
-	if ( ini_get('zlib.output_compression') == 1 )
-		return false;
-
-	//If a cache system is active then do not gzip
-	if ( defined('WP_CACHE') && WP_CACHE )
-		return false;
-
-	//Allow headway_gzip filter to cancel gzip compression.
-	if ( !$gzip = apply_filters('headway_gzip', HeadwayOption::get('enable-gzip', false, true)) )
-		return false;
-
-	//If gzip has already happened, then just return.
-	if ( in_array('ob_gzhandler', ob_list_handlers()) )
-		return;
-
-	ob_start('ob_gzhandler');
-	
-	return true;
-
-}
-
-
-/**
  * A simple function to retrieve a key/value pair from the $_GET array or any other user-specified array.  This will automatically return false if the key is not set.
  * 
  * @param string Key to retrieve

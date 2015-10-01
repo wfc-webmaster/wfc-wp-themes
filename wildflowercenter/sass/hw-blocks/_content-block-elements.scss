@@ -1,0 +1,95 @@
+ /* Content Block Elements */
+  /* More Link and Loop Navigation */
+  a.more-link { 
+    padding: 2px 6px;
+    white-space: nowrap;
+  }
+  
+  div.loop-navigation div.nav-previous a, div.loop-navigation div.nav-next a {
+    padding: 4px 8px;
+    white-space: nowrap;
+  }
+
+  /* Headings */
+  div.entry-content h1, div.entry-content h2 {
+    margin: 0 0 20px;
+  }
+  
+  div.entry-content h3, div.entry-content h4, div.entry-content h5, div.entry-content h6 {
+    margin: 0 0 15px;
+  }
+
+  /* Paragraphs */
+  div.entry-content p { 
+    margin: 0 0 15px; 
+  }
+  
+  /* Horizontal rules */
+  div.entry-content hr {
+    background-color: #ccc;
+    border: 0;
+    height: 1px;
+    margin: 0 0 15px;
+  }
+
+  /* Lists */
+  div.entry-content ul, div.entry-content ol {
+    padding: 0 0 0 40px;
+    margin: 15px 0;
+  }
+  
+  div.entry-content ul ul, div.entry-content ol ol { margin: 0; } /* Lists inside lists should not have the margin on them. */  
+
+    div.entry-content ul li { list-style: disc; }
+    div.entry-content ul ul li { list-style: circle; }
+    div.entry-content ul ul ul li { list-style: square; }
+    
+    div.entry-content ol li { list-style: decimal; }
+    div.entry-content ol ol li { list-style: lower-alpha; }
+    div.entry-content ol ol ol li { list-style: lower-roman; }
+
+  /* Images */
+  .align-left,.alignleft {
+    float: left;
+    margin: 0 7px 0 0; }
+
+  .align-right,.alignright {
+    float: right;
+    margin: 0 0 0 7px; }
+
+  .aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    clear: both; }
+
+  img.border {
+    padding: 1px;
+    border: 1px solid #ddd; }
+
+  img.no-border {
+    padding: 0;
+    border: none; }
+
+  img.wp-smiley { border: none; }
+
+  .wp-caption {
+    padding: 5px;
+    border: 1px solid #eee;
+    background: #fcfcfc;
+    margin-top: 15px;
+    margin-bottom: 15px; }
+
+    .wp-caption img {
+      border: 1px solid #ddd;
+      margin: 0 auto;
+      display: block;
+      padding: 0; }
+
+    .wp-caption img.wp-smiley { border: none; }
+
+    .wp-caption p {
+      text-align: center;
+      color: #555;
+      margin: 5px 0 0;
+      font-style: italic; }

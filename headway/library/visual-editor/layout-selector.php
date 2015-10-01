@@ -40,20 +40,18 @@ class HeadwayLayoutSelector {
 
 	public static function get_basic_pages() {
 
-		global $sitepress;
-
 		$pages = array();
 
 		/* Index & Front Page */
+		$pages['index'] = array();
+
 		if ( get_option( 'show_on_front' ) == 'page' ) {
 
 			$pages['front_page'] = array();
 
 		}
 
-		$pages['index'] = array();
-
-		/* WPML Compatibility for index and front page */
+		/* WPML Compatibility for index, front page, and 404 */
 		if ( function_exists( 'icl_get_languages' ) ) {
 
 			if ( isset( $pages['front_page'] ) ) {
@@ -69,7 +67,7 @@ class HeadwayLayoutSelector {
 				}
 
 				$pages['index']['children'][ 'index' . HeadwayLayout::$sep . 'wpml_' . $language_id ] = array();
-
+				$pages['four04']['children'][ 'four04' . HeadwayLayout::$sep . 'wpml_' . $language_id ] = array();
 			}
 
 		}

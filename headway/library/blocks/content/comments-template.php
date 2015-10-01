@@ -37,7 +37,7 @@ echo '<div id="comments">';
 					'format' => 'html5'
 				))); 
 
-			echo '</ol><!-- .commentlist -->';
+			echo '</ol>';
 
 			echo '<div class="comments-navigation">';
 				echo '<div class="alignleft">';
@@ -69,4 +69,4 @@ echo '<div id="comments">';
 
 	}
 
-echo '</div><!-- #comments -->';
+echo '</div>';

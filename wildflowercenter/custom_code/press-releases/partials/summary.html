@@ -1,0 +1,28 @@
+<section class="summary-page">
+	<div id="archive-search">
+		<label>Search: <input class="search-archives" placeholder="Search past press releases" size="45" ng-model="searchPressReleases" autofocus></label>
+		<label>Sort by: 
+			<select class="archive-sort" ng-model="orderPressReleases">
+				<option value="id">Date</option>
+				<option value="name">Title</option>
+			</select>
+		</label>
+		<label>Ascending
+			<input type="radio" ng-model="direction" name="direction">
+		</label>
+		<label>Descending
+			<input type="radio" ng-model="direction" name="direction" value="reverse">
+		</label>	
+	</div>
+	<div id="pressrelease-{{pressrelease.id}}" class="archive-summary-container" ng-repeat="pressrelease in pressreleases | filter:searchPressReleases | orderBy:orderPressReleases:direction">
+	<a href="http://localhost:8888/wildflower_2/wordpress/news/press-releases-archives/#/fullarticles/{{pressreleases.indexOf(pressrelease)}}">
+		<div class="row panel-body">
+			<div class="pressrelease-summary">
+				<h3>{{pressrelease.name}}</h3>
+				<p>{{pressrelease.datereleased | date:'longDate'}}</p>
+				<p ng-bind-html="pressrelease.summary"></p>
+			</div>					
+		</div>
+	</a>
+	</div>
+</section>

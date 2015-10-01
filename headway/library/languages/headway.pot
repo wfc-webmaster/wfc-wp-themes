@@ -2,9 +2,9 @@
 # This file is distributed under the Terms of Service.
 msgid ""
 msgstr ""
-"Project-Id-Version: Headway Base 3.8.2\n"
+"Project-Id-Version: Headway Base 3.8.3\n"
 "Report-Msgid-Bugs-To: http://support.headwaythemes.com\n"
-"POT-Creation-Date: 2015-05-13 21:24:43+00:00\n"
+"POT-Creation-Date: 2015-07-08 03:55:54+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -282,11 +282,11 @@ msgstr ""
 msgid "&laquo; Previous Page"
 msgstr ""
 
-#: library/common/functions.php:735
+#: library/common/functions.php:701
 msgid "Type to search, then press enter"
 msgstr ""
 
-#: library/common/functions.php:763 library/common/functions.php:765
+#: library/common/functions.php:729 library/common/functions.php:731
 msgid "Search"
 msgstr ""
 

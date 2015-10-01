@@ -7,27 +7,22 @@ class HeadwayCompiler {
 
 	public static function init() {
 
-		add_action('headway_visual_editor_save', array(__CLASS__, 'flush_cache'));
-		add_action('headway_visual_editor_reset_layout', array(__CLASS__, 'flush_cache'));
-		add_action('headway_visual_editor_delete_template', array(__CLASS__, 'flush_cache'));
-		add_action('headway_visual_editor_assign_template', array(__CLASS__, 'flush_cache'));
-		add_action('headway_visual_editor_unassign_template', array(__CLASS__, 'flush_cache'));
+		add_action('after_setup_theme', array(__CLASS__, 'maybe_flush_cache'));
 
-		add_action('publish_post', array(__CLASS__, 'flush_cache'));
-		add_action('edit_post', array(__CLASS__, 'flush_cache'));
-		add_action('delete_post', array(__CLASS__, 'flush_cache'));
+		add_action('headway_visual_editor_save', array(__CLASS__, 'signal_flush_cache'));
+		add_action('headway_visual_editor_reset_layout', array(__CLASS__, 'signal_flush_cache'));
+		add_action('headway_visual_editor_delete_template', array(__CLASS__, 'signal_flush_cache'));
+		add_action('headway_visual_editor_assign_template', array(__CLASS__, 'signal_flush_cache'));
+		add_action('headway_visual_editor_unassign_template', array(__CLASS__, 'signal_flush_cache'));
 
-		add_action('headway_switch_skin', array(__CLASS__, 'flush_cache'));
+		add_action('headway_switch_skin', array(__CLASS__, 'signal_flush_cache'));
+		add_action('switch_theme', array(__CLASS__, 'signal_flush_cache'));
 
-		add_action('activate_plugin', array(__CLASS__, 'flush_cache_hard'));
-		add_action('deactivate_plugin', array(__CLASS__, 'flush_cache_hard'));
-		add_action('switch_theme', array(__CLASS__, 'flush_cache_hard'));
+		add_action('headway_db_upgrade', array(__CLASS__, 'signal_flush_cache'));
+		add_action('headway_activation', array(__CLASS__, 'signal_flush_cache'));
+		add_action('headway_global_reset', array(__CLASS__, 'signal_flush_cache'));
 
-		add_action('headway_db_upgrade', array(__CLASS__, 'flush_cache_hard'));
-		add_action('headway_activation', array(__CLASS__, 'flush_cache_hard'));
-		add_action('headway_global_reset', array(__CLASS__, 'flush_cache_hard'));
-
-		add_action('headway_snapshot_rollback', array(__CLASS__, 'flush_cache_hard'));
+		add_action('headway_snapshot_rollback', array(__CLASS__, 'signal_flush_cache'));
 
 	}
 
@@ -51,7 +46,6 @@ class HeadwayCompiler {
 			'dependencies' => array(),
 			'footer-js' => true,
 			'enqueue' => true,
-			'require-hard-flush' => false,
 			'iframe-cache' => false,
 			'output-inline' => false
 		);
@@ -182,8 +176,9 @@ class HeadwayCompiler {
 					'rand' => rand()
 				);
 
-				if ( HeadwayRoute::is_visual_editor_iframe() )
+				if ( HeadwayRoute::is_visual_editor_iframe() ) {
 					$query_args['visual-editor-open'] = 'true';
+				}
 
 				if ( HeadwayRoute::is_visual_editor_iframe() && headway_get('ve-preview') )
 					$query_args['ve-preview'] = 'true';
@@ -223,12 +218,9 @@ class HeadwayCompiler {
 		//If existing cache file exists, delete it.		
 		self::delete_cache_file($cache[$file]['filename']);
 
-		//If the file is set to only clear on a hard flush, then add that to the filename
-		$hard_cache_suffix = $cache[$file]['require-hard-flush'] ? '-hard-cache' : null;
-		
 		//MD5 the contents that way we can check for differences down the road
 		$cache[$file]['hash'] = md5($content);
-		$cache[$file]['filename'] = $file . '-' . substr($cache[$file]['hash'], 0, 7) . $hard_cache_suffix . '.' . $cache[$file]['format'];
+		$cache[$file]['filename'] = $file . '-' . substr($cache[$file]['hash'], 0, 7) . '.' . $cache[$file]['format'];
 
 		//Build file
 		$file_handle = @fopen(HEADWAY_CACHE_DIR . '/' . $cache[$file]['filename'], 'w');
@@ -258,8 +250,6 @@ class HeadwayCompiler {
 		if ( !$file )
 			return false;
 
-		headway_gzip();
-		
 		$cache = get_transient('hw_compiler_template_' . HeadwayOption::$current_skin);
 
 		//File does not exist
@@ -460,35 +450,17 @@ class HeadwayCompiler {
 		return true;
 		
 	}
-	
-	
+
+
 	/**
 	 * @return bool
-	 **/
-	public static function flush_cache($hard = false) {
+	 */
+	public static function flush_cache() {
 		
 		if ( self::can_cache() ) {
 			
-			if ( $hard ) {
+			delete_transient('hw_compiler_template_' . HeadwayOption::$current_skin);
 
-				delete_transient('hw_compiler_template_' . HeadwayOption::$current_skin);
-
-			} else {
-
-				$cache = get_transient('hw_compiler_template_' . HeadwayOption::$current_skin);
-
-				if ( is_array($cache) ) {
-
-					foreach ( $cache as $cached_file_id => $cached_file )
-						if ( !headway_get('require-hard-flush', $cached_file, false) )
-							unset($cache[$cached_file_id]);
-
-				}
-
-				set_transient('hw_compiler_template_' . HeadwayOption::$current_skin, $cache);
-
-			}
-			
 			$no_delete = array(
 				'..',
 				'.'
@@ -497,8 +469,8 @@ class HeadwayCompiler {
 			if ( $handle = opendir(HEADWAY_CACHE_DIR) ) {
 			
 			    while (false !== ($file = readdir($handle)) ) {
-		       		
-					if ( in_array($file, $no_delete) || (strpos($file, 'hard-cache') !== false && !$hard) )
+
+					if ( in_array($file, $no_delete) )
 						continue;
 					
 					@unlink(HEADWAY_CACHE_DIR . '/' . $file);
@@ -510,24 +482,35 @@ class HeadwayCompiler {
 			}
 			
 		}
-		
-		self::flush_plugin_caches();
 
 		wp_cache_flush();
 
 		do_action('headway_flush_cache');
 
+		delete_transient('headway_signal_flush_cache');
+
+	}
+
+
+	public static function signal_flush_cache() {
+
+		self::flush_plugin_caches();
+
+		return set_transient('headway_signal_flush_cache', true);
+
 	}
 
 
-	public static function flush_cache_hard() {
+	public static function maybe_flush_cache() {
 
-		self::flush_cache( true );
+		if ( get_transient('headway_signal_flush_cache') ) {
+			return self::flush_cache();
+		}
 
-		do_action( 'headway_flush_cache_hard' );
+		return false;
 
 	}
-	
+
 	
 	/**
 	 * @param string
@@ -543,7 +526,7 @@ class HeadwayCompiler {
 		return @unlink(HEADWAY_CACHE_DIR . '/' . $filename);
 		
 	}
-	
+
 	
 	/**
 	 * Check if W3 Total Cache or if WP Super Cache are running.
@@ -554,7 +537,10 @@ class HeadwayCompiler {
 		
 		if ( class_exists('W3_Plugin_TotalCache') )
 			return 'W3 Total Cache';
-		
+
+		elseif ( function_exists( 'rocket_clean_domain' ) )
+			return 'WP Rocket';
+
 		elseif ( function_exists('prune_super_cache'))
 			return 'WP Super Cache';
 
@@ -579,7 +565,7 @@ class HeadwayCompiler {
 	 * @return void
 	 **/
 	public static function flush_plugin_caches() {
-		
+
 		if ( function_exists('prune_super_cache') ) {
 			
 			global $cache_path;
@@ -591,14 +577,18 @@ class HeadwayCompiler {
 		if ( class_exists('W3_Plugin_TotalCache') ) {
 			
 			if ( function_exists('w3_instance') )
-				$w3_plugin_totalcache =& w3_instance('W3_Plugin_TotalCache');
+				$w3_plugin_totalcache = w3_instance('W3_Plugin_TotalCache');
 			elseif ( is_callable(array('W3_Plugin_TotalCache', 'instance')) )
-				$w3_plugin_totalcache =& W3_Plugin_TotalCache::instance();
+				$w3_plugin_totalcache = W3_Plugin_TotalCache::instance();
 
 			if ( method_exists($w3_plugin_totalcache, 'flush') )
 				$w3_plugin_totalcache->flush();
 			elseif ( method_exists($w3_plugin_totalcache, 'flush_all') )
 				$w3_plugin_totalcache->flush_all();
+
+			if ( function_exists('w3tc_flush_all') ) {
+				w3tc_flush_all();
+			}
 
 			/* Flush varnish */
 			if ( function_exists('w3tc_varnish_flush') )
@@ -621,6 +611,10 @@ class HeadwayCompiler {
 			if ( method_exists( 'GD_System_Plugin_Cache_Purge', 'do_ban_cache' ) )
 				GD_System_Plugin_Cache_Purge::do_ban_cache();
 
+		}
+
+		if ( function_exists('rocket_clean_domain') ) {
+			rocket_clean_domain();
 		}
 
 		if ( isset( $GLOBALS['quick_cache'] ) && method_exists($GLOBALS['quick_cache'], 'auto_clear_cache') ) {

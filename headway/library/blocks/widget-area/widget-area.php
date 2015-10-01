@@ -27,7 +27,7 @@ class HeadwayWidgetAreaBlock extends HeadwayBlockAPI {
 			'name'			 =>   $widget_area_name,
 			'id' 			 =>   'widget-area-' . $block['id'],
 			'before_widget'  =>   '<li id="%1$s" class="widget %2$s">' . "\n",
-			'after_widget'   =>   '</li><!-- .widget -->' . "\n",
+			'after_widget'   =>   '</li>' . "\n",
 			'before_title'   =>   '<h3 class="widget-title"><span class="widget-inner">',
 			'after_title'    =>   '</span></h3>' . "\n",
 		);
@@ -149,7 +149,7 @@ class HeadwayWidgetAreaBlock extends HeadwayBlockAPI {
 							array(
 								'widget_id' => 1,// woocommerce fix
 								'before_widget' => '<li class="widget ' . $widget_obj->widget_options['classname'] . '">' . "\n",
-								'after_widget' => '</li><!-- .widget -->' . "\n",
+								'after_widget' => '</li>' . "\n",
 								'before_title' => '<h3 class="widget-title"><span class="widget-inner">',
 								'after_title' => '</span></h3>' . "\n",
 							)

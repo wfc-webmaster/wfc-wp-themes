@@ -1,4 +1,4 @@
-define(['jquery', 'helper.ace', 'deps/colorpicker', 'util.image-uploader'], function($, aceHelper) {
+define(['jquery', 'helper.ace', 'deps/chosen.jquery', 'deps/colorpicker', 'util.image-uploader'], function($, aceHelper, chosen) {
 
 	handleInputTogglesInContainer = function(container) {
 
@@ -967,6 +967,26 @@ define(['jquery', 'helper.ace', 'deps/colorpicker', 'util.image-uploader'], func
 
 					});
 					
+				});
+
+			/* Chosen Selects */
+				$('.select-chosen select', context).chosen({
+					width: '200px'
+				});
+
+				$('.select-chosen select', context).on('chosen:showing_dropdown', function(evt, params) {
+
+					var $drop = $(params.chosen.dropdown);
+					var dropRect = $drop.get(0).getBoundingClientRect();
+					var diff = $(window).height() - dropRect.bottom;
+
+					if ( diff < 0 ) {
+
+						$drop.css('height', '-=' + (Math.abs(diff) + 10));
+						$drop.find('.chosen-results').css('height', '-=' + (Math.abs(diff) + 10));
+
+					}
+
 				});
 
 			/* Repeaters */

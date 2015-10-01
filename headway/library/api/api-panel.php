@@ -223,7 +223,7 @@ abstract class HeadwayVisualEditorPanelAPI {
 		
 		//Fix up inputs
 		$input = $this->parse_function_args($input);
-		
+
 		if ( !isset($input['name']) || !isset($input['type']) )
 			return;
 		
@@ -277,7 +277,7 @@ abstract class HeadwayVisualEditorPanelAPI {
 		/* If it's a repeater then handle it before it's handled as an input */
 			if ( $input['type'] == 'repeater' )
 				return $this->repeater($input);
-			
+
 		/* Handle regular input */				
 			if ( method_exists($this, 'input_' . str_replace('-', '_', $input['type'])) ) {
 
@@ -503,23 +503,38 @@ abstract class HeadwayVisualEditorPanelAPI {
 	
 	
 	public function input_select($input) {
-				
+
 		echo '
 			<div class="input-left">
 				<label>' . $input['label'] . '</label>
 			</div>
 		';
 		
-				
-		echo '<div class="input-right">';
+		$chosen_class = ( headway_get('chosen', $input) ) ? ' select-chosen' : '';
+
+		echo '<div class="input-right' . $chosen_class . '">';
 			
 			echo '<div class="select-container"><select ' . $input['attributes'] . '>';
 
-			foreach($input['options'] as $value => $text) {
-				
-				$selected = ( $input['value'] == $value ) ? ' selected' : null;
-						
-				echo '<option value="' . $value . '"' . $selected . '>' . $text . '</option>';
+			foreach( $input['options'] as $value => $text ) {
+
+				if ( is_array($text) ) {
+
+					echo '<optgroup label="' . $value . '">';
+
+					foreach ( $text as $optgrop_option_value => $optgrop_option_text ) {
+
+						self::input_select_output_option( $optgrop_option_value, $optgrop_option_text, $input['value'] );
+
+					}
+
+					echo '</optgroup>';
+
+				} else {
+
+					self::input_select_output_option($value, $text, $input['value']);
+
+				}
 				
 			}
 
@@ -527,6 +542,15 @@ abstract class HeadwayVisualEditorPanelAPI {
 
 		echo '</div>';
 										
+	}
+
+
+	private static function input_select_output_option($value, $text, $input_value) {
+
+		$selected = ( $input_value == $value ) ? ' selected' : null;
+
+		echo '<option value="' . $value . '"' . $selected . '>' . $text . '</option>';
+
 	}
 	
 	

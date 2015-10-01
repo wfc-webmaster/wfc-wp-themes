@@ -323,6 +323,10 @@ class HeadwayLayout {
 
 			$current_layout[] = 'four04';
 
+			if ( method_exists( $sitepress, 'get_current_language' ) ) {
+				$current_layout[] = 'four04' . self::$sep . 'wpml_' . $sitepress->get_current_language();
+			}
+
 		}		
 		
 		//I think we're finally done.
@@ -516,7 +520,67 @@ class HeadwayLayout {
 		return false;
 				
 	}
-	
+
+
+	public static function get_layout_parents_names($layout) {
+
+		$layout_id_fragments = explode( HeadwayLayout::$sep, $layout );
+
+		$name_prefix = '';
+
+		if ( count( $layout_id_fragments ) > 1 ) {
+
+			$top_level_names = array(
+				'front_page' => 'Front Page',
+				'index' => 'Blog Index',
+				'single' => 'Single',
+				'archive' => 'Archive',
+				'four04' => '404 Layout'
+			);
+
+			$name_prefix = strtr( $layout_id_fragments[0], $top_level_names ) . ' &rsaquo; ';
+
+			if ( $layout_id_fragments[0] == 'archive' ) {
+
+				$taxonomy_slug = false;
+
+				if ( $layout_id_fragments[1] == 'taxonomy' ) {
+
+					if ( count( $layout_id_fragments ) >= 3 ) {
+						$name_prefix .= 'Taxonomy &rsaquo; ';
+
+						if ( count( $layout_id_fragments ) >= 4 ) {
+							$taxonomy_slug = $layout_id_fragments[2];
+						}
+					}
+
+				} else {
+					$taxonomy_slug = $layout_id_fragments[1];
+				}
+
+				if ( $taxonomy_slug ) {
+
+					$taxonomy_object = get_taxonomy( $taxonomy_slug );
+
+					$name_prefix .= $taxonomy_object->labels->singular_name . ' &rsaquo; ';
+
+				}
+
+			} else if ( $layout_id_fragments[0] == 'single' ) {
+
+				$post_type_object = get_post_type_object( $layout_id_fragments[1] );
+
+				$name_prefix .= $post_type_object->labels->singular_name . ' &rsaquo; ';
+
+			}
+
+		}
+
+		return $name_prefix;
+
+	}
+
+
 	
 	/**
 	 * Gets the status of the layout.  This will tell if it's customized, using a template, or none of the previous mentioned.
@@ -530,15 +594,10 @@ class HeadwayLayout {
 
 		/* Get the customized transient */
 			$transient_id_customized_layouts = 'hw_customized_layouts_template_' . HeadwayOption::$current_skin;
+			$customized_layouts = get_transient( $transient_id_customized_layouts );
 
-			if ( !$customized_layouts = get_transient($transient_id_customized_layouts) ) {
-
-				global $wpdb;
-
-				$customized_layouts = array_unique($wpdb->get_col($wpdb->prepare("SELECT layout FROM $wpdb->hw_blocks WHERE template = '%s'", HeadwayOption::$current_skin)));
-
-				set_transient($transient_id_customized_layouts, $customized_layouts);
-
+			if ( !is_array($customized_layouts) ) {
+				$customized_layouts = self::set_layout_status_customized_transient();
 			}
 
 		/* Get the templates status transient */
@@ -546,24 +605,7 @@ class HeadwayLayout {
 			$layouts_with_templates = get_transient($transient_id_layouts_with_templates);
 
 			if ( !is_array($layouts_with_templates) ) {
-
-				global $wpdb;
-
-				$templated_layouts_hw_meta = $wpdb->get_results($wpdb->prepare("SELECT layout, meta_value FROM $wpdb->hw_layout_meta WHERE meta_key = '%s' AND meta_value <> '' AND template = '%s'", 'template', HeadwayOption::$current_skin));
-				$templated_layouts_wp_meta = $wpdb->get_results($wpdb->prepare("SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = '%s' AND meta_value <> ''", '_hw_|template=' . HeadwayOption::$current_skin . '|_template'));
-
-				$layouts_with_templates = array();
-
-				foreach ( array_merge($templated_layouts_hw_meta, $templated_layouts_wp_meta) as $templated_layout ) {
-
-					$template_id = isset($templated_layout->layout) ? $templated_layout->layout : $templated_layout->post_id;
-
-					$layouts_with_templates[$template_id] = $templated_layout->meta_value;
-
-				}
-
-				set_transient($transient_id_layouts_with_templates, $layouts_with_templates);
-
+				$layouts_with_templates = self::set_layout_status_templates_transient();
 			}
 
 		$customized = ( in_array($layout, $customized_layouts) ) ? true : false;
@@ -609,6 +651,47 @@ class HeadwayLayout {
 
 		return $status;
 		
+	}
+
+
+	public static function set_layout_status_customized_transient() {
+
+		$transient_id_customized_layouts = 'hw_customized_layouts_template_' . HeadwayOption::$current_skin;
+
+		global $wpdb;
+
+		$customized_layouts = array_unique( $wpdb->get_col( $wpdb->prepare( "SELECT layout FROM $wpdb->hw_blocks WHERE template = '%s'", HeadwayOption::$current_skin ) ) );
+
+		set_transient( $transient_id_customized_layouts, $customized_layouts );
+
+		return $customized_layouts;
+
+	}
+
+
+	public static function set_layout_status_templates_transient() {
+
+		$transient_id_layouts_with_templates = 'hw_layouts_with_templates_template_' . HeadwayOption::$current_skin;
+
+		global $wpdb;
+
+		$templated_layouts_hw_meta = $wpdb->get_results( $wpdb->prepare( "SELECT layout, meta_value FROM $wpdb->hw_layout_meta WHERE meta_key = '%s' AND meta_value <> '' AND template = '%s'", 'template', HeadwayOption::$current_skin ) );
+		$templated_layouts_wp_meta = $wpdb->get_results( $wpdb->prepare( "SELECT post_id, meta_value FROM $wpdb->postmeta WHERE meta_key = '%s' AND meta_value <> ''", '_hw_|template=' . HeadwayOption::$current_skin . '|_template' ) );
+
+		$layouts_with_templates = array();
+
+		foreach ( array_merge( $templated_layouts_hw_meta, $templated_layouts_wp_meta ) as $templated_layout ) {
+
+			$template_id = isset( $templated_layout->layout ) ? $templated_layout->layout : $templated_layout->post_id;
+
+			$layouts_with_templates[ $template_id ] = $templated_layout->meta_value;
+
+		}
+
+		set_transient( $transient_id_layouts_with_templates, $layouts_with_templates );
+
+		return $layouts_with_templates;
+
 	}
 
 

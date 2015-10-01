@@ -209,6 +209,7 @@ div#ve-loading-overlay {
 	from {
 		-webkit-transform: rotate(0deg);
 	}
+
 	to {
 		-webkit-transform: rotate(360deg);
 	}
@@ -218,6 +219,7 @@ div#ve-loading-overlay {
 	from {
 		-moz-transform: rotate(0deg);
 	}
+
 	to {
 		-moz-transform: rotate(360deg);
 	}
@@ -227,6 +229,7 @@ div#ve-loading-overlay {
 	from {
 		-ms-transform: rotate(0deg);
 	}
+
 	to {
 		-ms-transform: rotate(360deg);
 	}
@@ -236,6 +239,7 @@ div#ve-loading-overlay {
 	from {
 		-webkit-transform: rotate(0deg);
 	}
+
 	to {
 		-webkit-transform: rotate(-360deg);
 	}
@@ -245,6 +249,7 @@ div#ve-loading-overlay {
 	from {
 		-moz-transform: rotate(0deg);
 	}
+
 	to {
 		-moz-transform: rotate(-360deg);
 	}
@@ -254,6 +259,7 @@ div#ve-loading-overlay {
 	from {
 		-ms-transform: rotate(0deg);
 	}
+
 	to {
 		-ms-transform: rotate(-360deg);
 	}
@@ -539,6 +545,7 @@ div#ve-loading-overlay {
 	from {
 		-webkit-transform: rotate(0deg);
 	}
+
 	to {
 		-webkit-transform: rotate(360deg);
 	}
@@ -548,6 +555,7 @@ div#ve-loading-overlay {
 	from {
 		-moz-transform: rotate(0deg);
 	}
+
 	to {
 		-moz-transform: rotate(360deg);
 	}
@@ -557,6 +565,7 @@ div#ve-loading-overlay {
 	from {
 		-ms-transform: rotate(0deg);
 	}
+
 	to {
 		-ms-transform: rotate(360deg);
 	}
@@ -566,6 +575,7 @@ div#ve-loading-overlay {
 	from {
 		-webkit-transform: rotate(0deg);
 	}
+
 	to {
 		-webkit-transform: rotate(-360deg);
 	}
@@ -575,6 +585,7 @@ div#ve-loading-overlay {
 	from {
 		-moz-transform: rotate(0deg);
 	}
+
 	to {
 		-moz-transform: rotate(-360deg);
 	}
@@ -584,6 +595,7 @@ div#ve-loading-overlay {
 	from {
 		-ms-transform: rotate(0deg);
 	}
+
 	to {
 		-ms-transform: rotate(-360deg);
 	}
@@ -1211,7 +1223,6 @@ body {
 body.hide-guides .grid-guides {
 	opacity: 0 !important;
 }
-
 body.hide-guides .block {
 	outline: none;
 }
@@ -1549,9 +1560,9 @@ div.add-wrapper-buttons div.add-wrapper-button-fixed {
 	background: #000000;
 	text-align: center;
 	opacity: 0.5;
-	-webkit-transition: "opacity 100ms linear";
-	-moz-transition: "opacity 100ms linear";
-	transition: "opacity 100ms linear";
+	-webkit-transition: opacity 100ms linear;
+	-moz-transition: opacity 100ms linear;
+	transition: opacity 100ms linear;
 }
 div.add-wrapper-buttons div.add-wrapper-button-fixed:hover {
 	opacity: 0.9;
@@ -1729,7 +1740,6 @@ div#whitewrap {
 .block-mirrored .block-content-cover span.block-type-and-id {
 	background: #008FD5;
 }
-
 .block-mirrored .block-content-cover svg .x-line {
 	stroke: #008FD5;
 }
@@ -1739,7 +1749,6 @@ div#whitewrap {
 .block-type-unknown .block-content-cover span.block-type-and-id {
 	background: #FF0000;
 }
-
 .block-error .block-content-cover svg .x-line,
 .block-type-unknown .block-content-cover svg .x-line {
 	stroke: #FF0000;

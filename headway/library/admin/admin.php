@@ -405,19 +405,19 @@ class HeadwayAdmin {
 				);
 			break;
 			
-			case 'visual-editor':
-				$parent_menu = array(
-					'id' => 'visual-editor',
-					'name' => 'Visual Editor',
-					'callback' => array('HeadwayAdminPages', 'visual_editor')
-				);
-			break;
-			
 			case 'options':
 				$parent_menu = array(
 					'id' => 'options',
 					'name' => 'Options',
 					'callback' => array('HeadwayAdminPages', 'options')
+				);
+			break;
+			
+			default:
+				$parent_menu = array(
+					'id' => 'visual-editor',
+					'name' => 'Visual Editor',
+					'callback' => array( 'HeadwayAdminPages', 'visual_editor' )
 				);
 			break;
 			

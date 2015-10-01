@@ -89,6 +89,8 @@
 	  background-color: $wfc-darkgray;
 	  border-color: $wfc-white;
 	  border-radius: 0;
+	  border-style: solid;
+	  border-width: 2px;
 	  color: $wfc-white;
 	  font-size: inherit;
 	  width: 100%;
@@ -102,9 +104,10 @@
 	}
 	input[type="submit"] {
 		background-color: $wfc-lightorange;
-		border-radius: 0;
+		border: none;
+		cursor: pointer;
 		font-size: inherit;
-		padding: 0 0.75rem;
+		padding: 0.25rem 0.75rem;
 		width: auto;
 		-moz-appearance: none;
 		-webkit-appearance: none;

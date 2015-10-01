@@ -39,18 +39,22 @@
 
 						<span class="edit button button-blue layout-selector-button">Edit</span>
 						<span class="revert button layout-selector-button tooltip" title="Resetting a layout will remove all of its blocks&lt;br /&gt;so it inherits the blocks of a parent layout.">Reset</span>
-					</span><!-- .layout -->
+					</span>
 
-					<ul data-bind="template: {name: 'layout-page-template', foreach: children()}">
-					</ul>
+					<ul data-bind="template: {name: 'layout-page-template', foreach: children()}"></ul>
 
 					<span class="load-more-layouts button layout-selector-button" data-bind="visible: typeof ajaxShowMore != 'undefined' && ajaxShowMore()">Load More...</span>
 				</li>
 			</script>
 
 			<div id="layout-selector-pages" class="layout-selector-content">
-				<ul data-bind="visible: search().length, template: {name: 'layout-page-template', foreach:search()}" id="layout-selector-pages-search-results"></ul>
-				<ul data-bind="visible: !search().length, template: {name: 'layout-page-template', foreach:pages()}" id="layout-selector-pages-content"></ul>
+				<div class="cog-container" data-bind="visible: searching()">
+					<div class="cog-bottom-left"></div>
+					<div class="cog-top-right"></div>
+				</div>
+
+				<ul data-bind="visible: search().length && !searching(), template: {name: 'layout-page-template', foreach:search()}" id="layout-selector-pages-search-results"></ul>
+				<ul data-bind="visible: !search().length && !searching(), template: {name: 'layout-page-template', foreach:pages()}" id="layout-selector-pages-content"></ul>
 			</div><!-- div#layout-selector-pages -->
 
 			<div id="layout-search-input-container" class="layout-selector-bottom-input">

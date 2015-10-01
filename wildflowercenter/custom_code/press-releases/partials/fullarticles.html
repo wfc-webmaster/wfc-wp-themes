@@ -1,0 +1,8 @@
+<section class="full-article-page">
+	<div ng-model="pressreleases">
+		<h2>{{pressreleases[whichItem].name}}</h2>
+		<p>{{pressreleases[whichItem].datereleased | date:'longDate'}}</p>
+		<div ng-bind-html="pressreleases[whichItem].description"></div>		
+	</div>
+	<div class="back-to-archive orange-button">&laquo; Back To Archives<a href="http://localhost:8888/wildflower_2/wordpress/news/press-releases-archives"><span class="button-link"></span></a></div>
+</section>

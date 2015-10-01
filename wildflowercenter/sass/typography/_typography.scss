@@ -21,6 +21,12 @@ body {
 	font-size: ms(0); 
 }
 
+h6 {
+  font-size: ms(0);
+  font-weight: 900;
+  line-height: 100%;
+}
+
 h5 { 
 	font-size: ms(1); 
 }
@@ -30,16 +36,22 @@ h4 {
 }
 
 h3 { 
-	font-size: ms(3); 
+	font-size: ms(3);
+  font-weight: 100;
+  line-height: 120%;
+  margin: 1.5rem 0 1rem; 
 }
 
 h2 { 
-	font-size: ms(4); 
+	font-size: ms(4);
+  font-weight: 900; 
 }
 
 h1 { 
 	font-size: ms(5);
-  font-weight: 600; 
+  font-weight: 900;
+  line-height: 110%;
+  margin: 0.5rem 0 1rem;
 }
 
 address {
@@ -49,4 +61,8 @@ address {
 
 em {
   font-style: italic;
+}
+
+p {
+  margin: 0.5rem 0 1rem 0;
 }

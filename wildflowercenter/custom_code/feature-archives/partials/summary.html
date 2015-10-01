@@ -1,0 +1,29 @@
+<section class="summary-page">
+	<div id="archive-search">
+		<label>Search: <input class="search-archives" placeholder="Search past articles" size="45" ng-model="searchFeatures" autofocus></label>
+		<label>Sort by: 
+			<select class="archive-sort" ng-model="orderFeatures">
+				<option value="date">Date</option>
+				<option value="title">Title</option>
+			</select>
+		</label>
+		<label>Ascending
+			<input type="radio" ng-model="direction" name="direction" checked>
+		</label>
+		<label>Descending
+			<input type="radio" ng-model="direction" name="direction" value="reverse">
+		</label>	
+	</div>
+	<div id="feature-{{feature.id}}" class="archive-summary-container" ng-repeat="feature in features | filter:searchFeatures | orderBy:orderFeatures:direction">
+	<a href="http://localhost:8888/wildflower_2/wordpress/news/features-archives/#/fullarticles/{{features.indexOf(feature)}}">
+		<div class="row panel-body">
+			<div class="feature-summary">
+				<img width="150" ng-src="../_images/{{feature.image}}" alt="{{feature.title}} feature image">
+				<h3>{{feature.title}}</h3>
+				<p>{{feature.date | date:'longDate'}}</p>
+				<p ng-bind-html="feature.summary"></p>
+			</div>					
+		</div>
+	</a>
+	</div>
+</section>

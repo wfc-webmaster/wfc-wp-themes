@@ -1,13 +1,24 @@
-var app = angular.module("featureArchive", ['ngSanitize']);
+var featureArchive = angular.module('featureArchive', [
+	'ngRoute',
+	'featureControllers'
+]);
 
-app.controller("getFeatures", function($scope, $http, $timeout){
-	$http.get('http://localhost:8888/wildflower_2/wordpress/wp-content/themes/wildflowercenter/custom_code/feature-achives/api.php').success(function(data) {
-            // here the data from the api is assigned to a variable named users
-        $scope.features = data;
-    });
-});
+featureArchive.config(['$routeProvider', function($routeProvider) {
+	$routeProvider.
+	when('/summary', {
+		templateUrl: 'http://localhost:8888/wildflower_2/wordpress/wp-content/themes/wildflowercenter/custom_code/feature-archives/partials/summary.html',
+		controller: 'SummaryController'
+	}).
+	when('/fullarticles/:itemId', {
+		templateUrl: 'http://localhost:8888/wildflower_2/wordpress/wp-content/themes/wildflowercenter/custom_code/feature-archives/partials/fullarticles.html',
+		controller: 'FullArticleController'
+	}).
+	otherwise({
+		redirectTo: '/summary'
+	});
+}]);
 
-app.directive('fullArticle', function($compile) {
+featureArchive.directive('fullArticle', function($compile) {
 	return {
 		restrict: 'E',
 		link: function($scope, element, attr) {

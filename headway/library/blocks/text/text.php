@@ -22,7 +22,7 @@ class HeadwayTextBlock extends HeadwayBlockAPI {
 				echo do_shortcode(stripslashes($content));
 			else
 				echo '<p>There is no content to display.</p>';
-		echo '</div><!-- .entry-content -->';
+		echo '</div>';
 		
 	}
 

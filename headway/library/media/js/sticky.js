@@ -72,7 +72,8 @@
 						position: "",
 						top: "",
 						width: "",
-						bottom: ""
+						bottom: "",
+                        zIndex: ""
 					}).removeClass(sticky_class);
 					restore = true;
 				}
@@ -130,7 +131,7 @@
 							}).trigger("sticky_kit:unbottom");
 						}
 					}
-					if ( scroll < top ) {
+					if ( scroll <= top ) {
 						fixed = false;
 						offset = offset_top;
 						if ( manual_spacer == null ) {
@@ -142,7 +143,8 @@
 						css = {
 							position: "",
 							width: "",
-							top: ""
+							top: "",
+                            zIndex: ""
 						};
 						elm.css(css).removeClass(sticky_class).trigger("sticky_kit:unstick");
 					}
@@ -167,7 +169,8 @@
 						css = {
 							position: "fixed",
 							top: offset,
-							left: elm.offset().left
+							left: elm.offset().left,
+                            zIndex: 10
 						};
 						css.width = elm.css("box-sizing") === "border-box" ? elm.outerWidth() + "px" : elm.width() + "px";
 						elm.css(css).addClass(sticky_class);

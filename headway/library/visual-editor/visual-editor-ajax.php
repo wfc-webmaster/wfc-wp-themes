@@ -26,16 +26,7 @@ class HeadwayVisualEditorAJAX {
 
 			do_action('headway_switch_skin');
 
-			/* Turn autoload off for Headway options then back on for the current template options as well as the headway_option_group_general option */
-			$wpdb->query( "UPDATE $wpdb->options SET autoload = 'no' WHERE option_name LIKE 'headway_%'" );
-
-			$wpdb->update( $wpdb->options, array(
-				'autoload' => 'yes'
-			), array(
-				'option_name' => 'headway_option_group_general'
-			) );
-
-			$wpdb->query( "UPDATE $wpdb->options SET autoload = 'yes' WHERE option_name LIKE 'headway_|template=" . headway_post( 'skin' ) . "|%'" );
+			Headway::set_autoload( headway_post( 'skin' ) );
 
 			echo 'success';
 			
@@ -80,7 +71,7 @@ class HeadwayVisualEditorAJAX {
 		if ( empty($blank_skin_name) )
 			return;
 
-		$original_skin_id = strtolower(str_replace(' ', '-', $blank_skin_name));
+		$original_skin_id = substr(strtolower(str_replace(' ', '-', $blank_skin_name)), 0, 12);
 
 		$skin_id = $original_skin_id;
 		$skin_name = $blank_skin_name;

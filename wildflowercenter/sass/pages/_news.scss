@@ -1,0 +1,159 @@
+/*
+=========
+News Page
+=========
+*/
+
+//Section Head
+
+.news-page {
+	h1 {
+		display: table;
+		float: left;
+	}
+}
+
+.social-media-container {
+ 
+    display: table;
+    float: right;
+    font-size: 1.2rem;
+
+	ul {
+    	display: inline-flex;
+    	margin: 1rem 0;
+	}
+
+	li {
+		margin-right: 0.5rem;
+	}
+}
+
+//Events List
+
+.events-list-container {
+    border: 1px solid $wfc-lightgray;
+    
+    
+    p {
+    	font-size: 0.8rem;
+    	margin: 0 0 0.5rem 0;
+    }
+}
+
+.events-heading {
+    background-color: $wfc-lightyellow;
+    border-bottom: 1px solid $wfc-lightgray;
+    padding: 1rem 0 0.5rem 1rem;
+
+}
+
+.upcoming-events-list {
+	padding: 1rem;
+
+	a {
+		text-decoration: none;
+	}
+
+	p {
+		margin-bottom: 1rem;
+	}
+}
+
+#events-all {
+	margin: 0.5rem 0;
+    text-align: center;
+
+}
+
+.sidebar-button a {
+	border: 1px solid #f0b252;
+    color: #f0b252;
+    font-weight: 600;
+    padding: 0.5rem;
+}
+
+//Twitter Feed
+
+.wfc-twitter-feed {
+	p {
+    	font-size: 0.8rem;
+    	margin: 0 0 0.5rem 0;
+    }
+}
+
+//Wire Signup Form
+
+#wire-signup-container {
+	border: 1px solid $wfc-lightgray;
+	padding-top: 1rem;
+
+	img {
+	    width: 100%;
+	}
+}
+
+#wire-signup {
+	padding: 1rem;
+}
+
+.sidebar-mc {
+	label {
+		font-size: 0.8rem;
+	}
+
+	input {
+	    font-size: 0.7rem;
+	    margin-bottom: 0.5rem;
+	    margin-left: 0.25rem;
+	    padding: 0.2rem;
+	    width: 10rem;
+	}
+}
+
+.sidebar-mc.footer-nav-mc {
+    margin: 0.6rem 0 0 0;
+
+    input[type="submit"]:hover {
+    	color: $wfc-white;
+    }
+}
+
+//Magazine Section
+
+.magazine-current-issue {
+	border-bottom: 1px solid $wfc-lightgray2;
+    display: table;
+    padding-bottom: 1.75rem;
+    margin: 2rem 1rem 0 0;
+
+    img {
+    	float: left;
+    	margin-right: 1rem;
+    }
+
+    p:last-of-type {
+    	margin-bottom: 1.5rem;
+    }
+}
+
+.magazine-recent-issues {
+    display: table;
+    float: left;
+    margin: 1rem 1.5rem 1.5rem 0;
+    padding: 1rem;
+    text-align: center;
+
+    h6 {
+    	font-weight: 600;
+    	line-height: 120%;
+    }
+
+    a {
+    	text-decoration: none;
+    }
+}
+
+.magazine-recent-issues:nth-of-type(2) {
+	padding-left: 0;
+}

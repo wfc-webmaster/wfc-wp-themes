@@ -4,3 +4,6 @@ tmp
 .sass-cache
 *.css.map
 api.php
+conn.php
+*.sublime-project
+*.sublime-workspace

@@ -501,19 +501,6 @@
 						)
 					),
 					'description' => 'To leverage browser caching, Headway can tell WordPress to not put query variables on static assets such as CSS and JavaScript files.'
-				),
-
-				array(
-					'type' => 'checkbox',
-					'label' => '<code>gzip</code> Compression',
-					'checkboxes' => array(
-						array(
-							'id' => 'enable-gzip',
-							'label' => 'Enable <code>gzip</code> Compression',
-							'checked' => HeadwayOption::get('enable-gzip', false, true)
-						)
-					),
-					'description' => 'By default, gzip compression is on.  <code>gzip</code> compression will greatly reduce the amount of time it takes to load your website.  However, there may be special circumstances where it is necessary to disable it.'
 				)
 			);
 		

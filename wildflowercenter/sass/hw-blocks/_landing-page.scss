@@ -1,4 +1,18 @@
 /*
+=============
+Block Globals
+=============
+*/
+
+#wrapper-wb955789e0bd18ef,
+#wrapper-wxn55b2a37cad902,
+#wrapper-wm65591a6abc65d9 {
+	p {
+		margin: initial;
+	}
+}
+
+/*
 =========
 WFC Logo
 =========
@@ -38,6 +52,7 @@ WFC Logo
 Visit Block
 ===========
 */
+
 
 .wrapper-visit {
 	background-color: $wfc-green;
@@ -283,11 +298,16 @@ NPIN Block
 
 	button {
 		background: none;
+		border: none;
+		vertical-align: middle;
 
 		img {
 			vertical-align: bottom;
 			width: 2rem;
 		}
+	}
+	button:hover {
+		cursor: pointer;
 	}
 }
 

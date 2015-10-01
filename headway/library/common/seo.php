@@ -103,7 +103,7 @@ class HeadwaySEO {
 			$meta .= "\n" . '<meta name="robots" content="' . implode(',', $robot_settings) . '" />';		
 
 		if ( strlen($meta) !== 0 )
-			echo "\n\n" . '<!-- Headway SEO Juice -->' . $meta . "\n";
+			echo "\n\n" . '<!-- Headway SEO -->' . $meta . "\n";
 
 		do_action('headway_seo_meta');
 		

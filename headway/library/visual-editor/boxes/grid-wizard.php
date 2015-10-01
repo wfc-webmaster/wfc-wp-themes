@@ -349,57 +349,7 @@ class HeadwayGridWizardBox extends HeadwayVisualEditorBoxAPI {
 
 		foreach ( $customized_layouts as $id ) {
 			
-			$layout_id_fragments = explode(HeadwayLayout::$sep, $id);
-
-			$name_prefix = '';
-
-			if ( count($layout_id_fragments) > 1 ) {
-
-				$top_level_names = array(
-					'front_page' => 'Front Page',
-					'index' => 'Blog Index',
-					'single' => 'Single',
-					'archive' => 'Archive',
-					'four04' => '404 Layout'
-				);
-
-				$name_prefix = strtr($layout_id_fragments[0], $top_level_names) . ' &rsaquo; ';
-
-				if ( $layout_id_fragments[0] == 'archive' ) {
-
-					$taxonomy_slug = false;
-
-					if ( $layout_id_fragments[1] == 'taxonomy' ) {
-
-						if ( count( $layout_id_fragments ) >= 3 ) {
-							$name_prefix .= 'Taxonomy &rsaquo; ';
-
-							if ( count( $layout_id_fragments ) >= 4 ) {
-								$taxonomy_slug = $layout_id_fragments[2];
-							}
-						}
-
-					} else {
-						$taxonomy_slug = $layout_id_fragments[1];
-					}
-
-					if ( $taxonomy_slug ) {
-
-						$taxonomy_object = get_taxonomy( $taxonomy_slug );
-
-						$name_prefix .= $taxonomy_object->labels->singular_name . ' &rsaquo; ';
-
-					}
-
-				} else if ( $layout_id_fragments[0] == 'single' ) {
-
-					$post_type_object = get_post_type_object( $layout_id_fragments[1] );
-
-					$name_prefix .= $post_type_object->labels->singular_name . ' &rsaquo; ';
-
-				}
-
-			}
+			$name_prefix = HeadwayLayout::get_layout_parents_names($id);
 
 			$return .= '<option value="' . $id . '">' . $name_prefix . HeadwayLayout::get_name($id) . '</option>';
 

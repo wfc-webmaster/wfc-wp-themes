@@ -209,7 +209,7 @@ class HeadwayListingBlockDisplay {
 				echo $post_title_link;	
 
 
-			echo '</li><!-- #post-' . $post_id . ' -->';
+			echo '</li>';
 	}
 	
 	/**

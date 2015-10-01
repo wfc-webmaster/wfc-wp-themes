@@ -8,7 +8,8 @@ class HeadwayMaintenance {
 		'3.6.1',
 		'3.7',
 		'3.7.1',
-		'3.8'
+		'3.8',
+		'3.8.2'
 	);
 
 	/**
@@ -20,11 +21,18 @@ class HeadwayMaintenance {
 		$headway_settings = get_option('headway', array('version' => 0));
 		$db_version = $headway_settings['version'];
 
-		if ( get_transient('headway_upgrading') == 'upgrading' ) {
-			return false;
+		if ( get_option('headway_upgrading') == 'upgrading' ) {
+
+			if ( !is_admin() ) {
+				return wp_die('Website upgrade in progress. Please check back again soon!');
+			} else {
+				return false;
+			}
+
 		}
 
 		self::setup_upgrade_environment();
+		HeadwayMaintenance::output_status('Current DB version is ' . $db_version);
 
 		if ( $db_version == HEADWAY_VERSION ) {
 			return false;
@@ -34,7 +42,6 @@ class HeadwayMaintenance {
 		if ( !in_array(HEADWAY_VERSION, self::$available_upgrades) ) {
 			self::$available_upgrades[] = HEADWAY_VERSION;
 		}
-
 
 		if ( !$version_to_upgrade ) {
 
@@ -79,8 +86,17 @@ class HeadwayMaintenance {
 
 	public static function setup_upgrade_environment() {
 
+		global $wpdb;
+
 		@ignore_user_abort( true );
 		@set_time_limit( 0 );
+
+		if ( function_exists('apc_clear_cache') ) {
+			apc_clear_cache();
+		}
+
+		$wpdb->flush();
+		$wpdb->query("SET SESSION query_cache_type=0;");
 
 		/* Attempt to raise memory limit to max */
 		@ini_set( 'memory_limit', apply_filters( 'headway_memory_limit', WP_MAX_MEMORY_LIMIT ) );
@@ -90,8 +106,16 @@ class HeadwayMaintenance {
 
 	public static function output_status( $text ) {
 
-		error_log('Headway Upgrade Status: ' . $text);
+		if ( function_exists('getmypid') ) {
 
+			if ( $pid = @getmypid() ) {
+				error_log('Headway Upgrade Status (PID = ' . $pid . '): ' . $text);
+				return true;
+			}
+
+		}
+
+		error_log('Headway Upgrade Status: ' . $text);
 		return true;
 
 	}
@@ -99,7 +123,7 @@ class HeadwayMaintenance {
 
 	public static function start_upgrade($version) {
 
-		set_transient( 'headway_upgrading', 'upgrading', 15 );
+		update_option( 'headway_upgrading', 'upgrading' );
 
 		self::output_status('Currently Upgrading to ' . $version );
 
@@ -113,10 +137,14 @@ class HeadwayMaintenance {
 		$headway_settings['version'] = $version;
 
 		update_option( 'headway', $headway_settings );
-		delete_transient( 'headway_upgrading' );
+		delete_option( 'headway_upgrading' );
+
+		HeadwayMaintenance::output_status( 'Setting DB version to ' . $version );
 
 		/* Flush caches */
 		do_action( 'headway_db_upgrade' );
+
+		Headway::set_autoload();
 
 		/* Run next upgrade if available */
 		$index_of_current_version = array_search($version, self::$available_upgrades);

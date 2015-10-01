@@ -674,12 +674,12 @@ class HeadwayBlocks {
 					do_action('headway_block_content_close', $block);
 					do_action('headway_block_content_close_' . $block['id'], $block);
 
-				echo "\n" . '</div><!-- .block-content -->' . "\n";
+				echo "\n" . '</div>' . "\n";
 
 				do_action('headway_block_close', $block);
 				do_action('headway_block_close_' . $block['id'], $block);
 
-			echo "\n" . '</' . $block_tag . '><!-- #block-' . $block_id_for_id_attr . ' -->' . "\n";
+			echo "\n" . '</' . $block_tag . '>' . "\n";
 
 			do_action('headway_after_block', $block);
 			do_action('headway_after_block_' . $block['id'], $block);
@@ -705,9 +705,9 @@ class HeadwayBlocks {
 
 					}
 
-				echo '</div><!-- .block-content-fade -->' . "\n";
+				echo '</div>' . "\n";
 
-			echo '</' . $block_tag . '><!-- #block-' . $block_id_for_id_attr . ' -->' . "\n";
+			echo '</' . $block_tag . '>' . "\n";
 
 		}
 

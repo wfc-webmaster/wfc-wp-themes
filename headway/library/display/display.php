@@ -20,6 +20,8 @@ class HeadwayDisplay {
 
 		if ( HeadwayRoute::is_visual_editor_iframe() ) {
 
+			header( 'cache-control: private, max-age=0, no-cache' );
+
 			Headway::load('visual-editor', 'VisualEditor');
             Headway::load('visual-editor/dummy-content', 'IframeDummyContent');
 
@@ -84,7 +86,7 @@ class HeadwayDisplay {
 			global $template;
 
 			/* Replace backslashes with forward slashes for Windows compatibility */
-			if ( strpos(str_replace('\\', '/', $template), '/wp-content/plugins/') !== false || !$template )
+			if ( strpos(str_replace('\\', '/', $template), WP_PLUGIN_DIR) !== false || !$template )
 				return true;
 
 			return false;
@@ -256,7 +258,7 @@ class HeadwayDisplay {
 	
 	public static function body_open() {	
 			
-		echo "\n" . '</head><!-- End <head> -->' . "\n\n";
+		echo "\n" . '</head>' . "\n\n";
 		
 		echo '<body '; body_class(); echo ' itemscope itemtype="http://schema.org/WebPage">' . "\n\n";
 
@@ -277,7 +279,7 @@ class HeadwayDisplay {
 		
 		do_action('headway_whitewrap_close');
 
-		echo '</div><!-- #whitewrap -->' . "\n";
+		echo '</div>' . "\n";
 		
 		do_action('headway_body_close');
 		

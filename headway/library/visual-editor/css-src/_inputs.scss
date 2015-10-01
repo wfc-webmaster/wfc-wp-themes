@@ -285,6 +285,11 @@ div.sub-tabs-content .redactor-box {
 		left: 0;
 		right: 0;
 		bottom: 0;
+		@include allow-highlight;
+
+		* {
+			@include allow-highlight;
+		}
 	}
 }
 

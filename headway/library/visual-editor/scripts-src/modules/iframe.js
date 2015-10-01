@@ -34,7 +34,7 @@ define(['jquery', 'deps/itstylesheet', 'util.saving', 'util.usability', 'util.to
 		/* Build the URL */
 			iframeURL = url;
 			iframeURL = updateQueryStringParameter(iframeURL, 've-iframe', 'true');
-			iframeURL = updateQueryStringParameter(iframeURL, 've-layout', Headway.viewModels.layoutSelector.currentLayout());
+			iframeURL = updateQueryStringParameter(iframeURL, 've-layout', encodeURIComponent(Headway.viewModels.layoutSelector.currentLayout()));
             iframeURL = updateQueryStringParameter(iframeURL, 've-layout-customized', Headway.viewModels.layoutSelector.currentLayoutCustomized());
             iframeURL = updateQueryStringParameter(iframeURL, 've-iframe-mode', Headway.mode);
 			iframeURL = updateQueryStringParameter(iframeURL, 'rand', Math.floor(Math.random() * 100000001));

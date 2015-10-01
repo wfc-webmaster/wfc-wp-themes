@@ -206,6 +206,7 @@ div#ve-loading-overlay {
 	from {
 		-webkit-transform: rotate(0deg);
 	}
+
 	to {
 		-webkit-transform: rotate(360deg);
 	}
@@ -215,6 +216,7 @@ div#ve-loading-overlay {
 	from {
 		-moz-transform: rotate(0deg);
 	}
+
 	to {
 		-moz-transform: rotate(360deg);
 	}
@@ -224,6 +226,7 @@ div#ve-loading-overlay {
 	from {
 		-ms-transform: rotate(0deg);
 	}
+
 	to {
 		-ms-transform: rotate(360deg);
 	}
@@ -233,6 +236,7 @@ div#ve-loading-overlay {
 	from {
 		-webkit-transform: rotate(0deg);
 	}
+
 	to {
 		-webkit-transform: rotate(-360deg);
 	}
@@ -242,6 +246,7 @@ div#ve-loading-overlay {
 	from {
 		-moz-transform: rotate(0deg);
 	}
+
 	to {
 		-moz-transform: rotate(-360deg);
 	}
@@ -251,6 +256,7 @@ div#ve-loading-overlay {
 	from {
 		-ms-transform: rotate(0deg);
 	}
+
 	to {
 		-ms-transform: rotate(-360deg);
 	}

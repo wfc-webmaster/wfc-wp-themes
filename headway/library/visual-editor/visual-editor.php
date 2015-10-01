@@ -38,6 +38,16 @@ class HeadwayVisualEditor {
 		if ( HeadwayOption::get('debug-mode') )
 			add_action('wp_ajax_nopriv_headway_visual_editor', array(__CLASS__, 'ajax'));
 
+		//Cache rejection
+		global $cache_rejected_uri;
+
+		if ( ! is_array( $cache_rejected_uri ) ) {
+			$cache_rejected_uri = array();
+		}
+
+		$cache_rejected_uri[] = 'visual\-editor\=true';
+		$cache_rejected_uri[] = 've\-iframe\=true';
+
 		//Iframe handling
 		add_action('headway_body_close', array(__CLASS__, 'iframe_load_flag'));
 		add_action('headway_grid_iframe_footer', array(__CLASS__, 'iframe_load_flag'));
@@ -49,7 +59,15 @@ class HeadwayVisualEditor {
 	
 	
 	public static function ajax() {
-				
+
+		if ( ! defined( 'DONOTCACHEDB' ) ) {
+			define( 'DONOTCACHEDB', true );
+		}
+
+		if ( ! defined( 'DONOTCACHCEOBJECT' ) ) {
+			define( 'DONOTCACHCEOBJECT', true );
+		}
+
 		Headway::load('visual-editor/display', 'VisualEditorDisplay');
 		Headway::load('visual-editor/visual-editor-ajax');
 		
@@ -531,6 +549,9 @@ class HeadwayVisualEditor {
 
 			}
 			/* End Design Editor Inputs */
+
+			/* Set autoload */
+			Headway::set_autoload();
 
 			//This hook is used by cache flushing, plugins, etc.  Do not fire on preview save because it'll flush preview options
 			if ( !headway_get('ve-preview') )

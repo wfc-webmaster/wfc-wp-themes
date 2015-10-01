@@ -104,11 +104,11 @@
 	],
 
 	"nav_work_links" : [
-			{ "Work link 1"		: "http://example1.com" },
-			{ "Work link 2" 	: "http://example2.com" },
-			{ "Work link 3"  	: "http://example3.com" },
-			{ "Work link 4"  	: "http://example4.com" },
-			{ "Work link 5"  	: "http://example5.com" }
+			{ "Our Work link 1"		: "http://example1.com" },
+			{ "Our Work link 2" 	: "http://example2.com" },
+			{ "Our Work link 3"  	: "http://example3.com" },
+			{ "Our Work link 4"  	: "http://example4.com" },
+			{ "Our Work link 5"  	: "http://example5.com" }
 	],
 
 	"nav_news_pics" : [

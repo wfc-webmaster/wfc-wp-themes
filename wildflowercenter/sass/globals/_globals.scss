@@ -33,3 +33,19 @@ body {
 .block-type-content div.loop-navigation div.nav-next a:hover {
 	background-color: $wfc-orange;
 }
+
+//Sidebars
+
+/** Containers */
+.sidebar-container {
+	margin: 1.5rem 0 0 0;
+}
+
+/** Text */
+.sidebar-heading {
+	p {
+    	font-size: 0.8rem;
+    	margin: 0 0 0.5rem 0;
+    }
+
+}

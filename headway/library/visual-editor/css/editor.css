@@ -433,8 +433,8 @@ body * {
 
 input,
 textarea {
-	-webkit-user-select: text !important;
-	user-select: text !important;
+	-webkit-user-select: auto !important;
+	user-select: all !important;
 }
 
 /* For some reason these two selection declarations cannot be grouped using a comma, so they are separate. */
@@ -687,9 +687,9 @@ span.delete-file {
 	width: 15px;
 	cursor: pointer;
 	color: rgba(0, 0, 0, 0.6);
-	-webkit-transition: "color 100ms linear";
-	-moz-transition: "color 100ms linear";
-	transition: "color 100ms linear";
+	-webkit-transition: color 100ms linear;
+	-moz-transition: color 100ms linear;
+	transition: color 100ms linear;
 }
 
 span.delete-image:before,
@@ -908,16 +908,13 @@ ul#modes li#mode-design a:before {
 	font-family: "dashicons";
 	content: "\f321";
 }
-
 #menu-right ul.top-menu-nav li#menu-link-tools > span::before {
 	content: "\22";
 }
-
 #menu-right ul.top-menu-nav li#menu-link-admin > span::before {
 	font-family: "dashicons";
 	content: "\f120";
 }
-
 #menu-right ul.top-menu-nav li#menu-link-view-site a::before {
 	font-family: "dashicons";
 	content: "\f102";
@@ -1004,9 +1001,9 @@ div#menu-right {
 	display: block;
 	width: 76px;
 	margin-right: -76px;
-	-webkit-transition: "margin-right 300ms";
-	-moz-transition: "margin-right 300ms";
-	transition: "margin-right 300ms";
+	-webkit-transition: margin-right 300ms;
+	-moz-transition: margin-right 300ms;
+	transition: margin-right 300ms;
 }
 
 body.allow-saving .save-button-container {
@@ -1032,9 +1029,9 @@ span.save-button {
 /* Save Button */
 span#save-button {
 	z-index: 2;
-	-webkit-transition: "box-shadow 300ms linear";
-	-moz-transition: "box-shadow 300ms linear";
-	transition: "box-shadow 300ms linear";
+	-webkit-transition: box-shadow 300ms linear;
+	-moz-transition: box-shadow 300ms linear;
+	transition: box-shadow 300ms linear;
 }
 
 span#save-button:not(.active):hover {
@@ -1046,18 +1043,20 @@ span#save-button:not(.active):hover {
 
 span#save-button:active,
 span#save-button.active {
-	-webkit-animation: "saveButtonGlow 1250ms infinite linear";
-	-moz-animation: "saveButtonGlow 1250ms infinite linear";
-	animation: "saveButtonGlow 1250ms infinite linear";
+	-webkit-animation: saveButtonGlow 1250ms infinite linear;
+	-moz-animation: saveButtonGlow 1250ms infinite linear;
+	animation: saveButtonGlow 1250ms infinite linear;
 }
 
 @-webkit-keyframes saveButtonGlow {
 	from {
 		-webkit-box-shadow: inset 0 0 0 #7DD1E2;
 	}
+
 	50% {
 		-webkit-box-shadow: inset 0 0 15px #7DD1E2;
 	}
+
 	to {
 		-webkit-box-shadow: inset 0 0 0 #7DD1E2;
 	}
@@ -1067,9 +1066,11 @@ span#save-button.active {
 	from {
 		-moz-box-shadow: inset 0 0 0 #7DD1E2;
 	}
+
 	50% {
 		-moz-box-shadow: inset 0 0 15px #7DD1E2;
 	}
+
 	to {
 		-moz-box-shadow: inset 0 0 0 #7DD1E2;
 	}
@@ -1079,9 +1080,11 @@ span#save-button.active {
 	from {
 		box-shadow: inset 0 0 0 #7DD1E2;
 	}
+
 	50% {
 		box-shadow: inset 0 0 15px #7DD1E2;
 	}
+
 	to {
 		box-shadow: inset 0 0 0 #7DD1E2;
 	}
@@ -1214,7 +1217,6 @@ div#panel {
 body.panel-empty div#panel {
 	display: none !important;
 }
-
 body.panel-empty div#iframe-container {
 	bottom: 0 !important;
 }
@@ -1308,9 +1310,9 @@ ul#panel-top li span.close {
 	height: 10px;
 	cursor: pointer;
 	color: rgba(255, 255, 255, 0.5);
-	-webkit-transition: "color 100ms linear";
-	-moz-transition: "color 100ms linear";
-	transition: "color 100ms linear";
+	-webkit-transition: color 100ms linear;
+	-moz-transition: color 100ms linear;
+	transition: color 100ms linear;
 }
 
 ul#panel-top li span.close:before {
@@ -1482,9 +1484,9 @@ div.sub-tabs-content div.tooltip-button {
 	float: left;
 	margin: 4px 2px 0 4px;
 	color: #383838;
-	-webkit-transition: "color 150ms linear";
-	-moz-transition: "color 150ms linear";
-	transition: "color 150ms linear";
+	-webkit-transition: color 150ms linear;
+	-moz-transition: color 150ms linear;
+	transition: color 150ms linear;
 }
 
 div.sub-tabs-content div.tooltip-button:before {
@@ -1628,9 +1630,9 @@ div.box-top span.box-close {
 	display: block;
 	cursor: pointer;
 	opacity: 0.35;
-	-webkit-transition: "color 150ms linear";
-	-moz-transition: "color 150ms linear";
-	transition: "color 150ms linear";
+	-webkit-transition: color 150ms linear;
+	-moz-transition: color 150ms linear;
+	transition: color 150ms linear;
 	margin: 0 -10px 0 0;
 	color: #555555;
 	font-family: "headway-ve";
@@ -1712,7 +1714,6 @@ div#box-snapshots span.button-blue,
 div#box-snapshots .spinner {
 	float: left;
 }
-
 div#box-snapshots #snapshots-list {
 	clear: both;
 	float: left;
@@ -1723,7 +1724,6 @@ div#box-snapshots #snapshots-list {
 	padding: 10px 15px 15px;
 	-webkit-mask: -webkit-linear-gradient(top, transparent, black 25px);
 }
-
 div#box-snapshots #snapshots-list > li {
 	border-top: 1px solid #EEEEEE;
 	width: 100%;
@@ -1914,9 +1914,9 @@ div#box-grid-wizard span.layout-preset {
 	cursor: pointer;
 	width: 105px;
 	height: 105px;
-	-webkit-transition: "opacity 0.075s linear";
-	-moz-transition: "opacity 0.075s linear";
-	transition: "opacity 0.075s linear";
+	-webkit-transition: opacity 0.075s linear;
+	-moz-transition: opacity 0.075s linear;
+	transition: opacity 0.075s linear;
 }
 
 div#box-grid-wizard span.layout-preset-selected,
@@ -2046,9 +2046,9 @@ div.notification span.close {
 	position: absolute;
 	top: 11px;
 	right: 10px;
-	-webkit-transition: "color 50ms linear";
-	-moz-transition: "color 50ms linear";
-	transition: "color 50ms linear";
+	-webkit-transition: color 50ms linear;
+	-moz-transition: color 50ms linear;
+	transition: color 50ms linear;
 }
 
 div.notification span.close:before {
@@ -2159,9 +2159,9 @@ div.notification-success {
 .qtip-tour .qtip-titlebar .qtip-icon .ui-icon-close {
 	color: rgba(255, 255, 255, 0.6);
 	text-indent: -9999px;
-	-webkit-transition: "color 150ms linear";
-	-moz-transition: "color 150ms linear";
-	transition: "color 150ms linear";
+	-webkit-transition: color 150ms linear;
+	-moz-transition: color 150ms linear;
+	transition: color 150ms linear;
 }
 
 .qtip-tour .qtip-titlebar .qtip-icon .ui-icon-close:before {
@@ -2556,28 +2556,33 @@ div.layout-selector-content ul ul {
 	display: none;
 }
 
-div.layout-selector-content ul ul > li.layout-item span.layout {
+div.layout-selector-content > ul ul > li.layout-item span.layout,
+div.layout-selector-content > ul ul > li.layout-loading-children {
 	padding-left: 45px;
 }
 
-div.layout-selector-content ul ul ul > li.layout-item span.layout {
+div.layout-selector-content > ul ul ul > li.layout-item span.layout,
+div.layout-selector-content > ul ul ul > li.layout-loading-children {
 	padding-left: 70px;
 }
 
-div.layout-selector-content ul ul ul ul > li.layout-item span.layout {
+div.layout-selector-content > ul ul ul ul > li.layout-item span.layout,
+div.layout-selector-content > ul ul ul ul > li.layout-loading-children {
 	padding-left: 95px;
 }
 
-div.layout-selector-content ul ul ul ul ul > li.layout-item span.layout {
+div.layout-selector-content > ul ul ul ul ul > li.layout-item span.layout,
+div.layout-selector-content > ul ul ul ul ul > li.layout-loading-children {
 	padding-left: 120px;
 }
 
-div.layout-selector-content ul ul ul ul ul ul > li.layout-item span.layout {
+div.layout-selector-content > ul ul ul ul ul ul > li.layout-item span.layout,
+div.layout-selector-content > ul ul ul ul ul ul > li.layout-loading-children {
 	padding-left: 145px;
 }
 
 /* Style big boy layout */
-div.layout-selector-content ul > li.layout-item:nth-child(even) > span.layout {
+div.layout-selector-content ul > li:nth-child(even) > span.layout {
 	background: #F9F9F9;
 }
 
@@ -2632,9 +2637,9 @@ div.layout-selector-content li.layout-item span.layout-template span.delete-temp
 	margin: 1px 0 -3px 6px;
 	color: rgba(0, 0, 0, 0.35);
 	float: left;
-	-webkit-transition: "color 100ms linear";
-	-moz-transition: "color 100ms linear";
-	transition: "color 100ms linear";
+	-webkit-transition: color 100ms linear;
+	-moz-transition: color 100ms linear;
+	transition: color 100ms linear;
 }
 
 div.layout-selector-content li.layout-item span.layout-template span.delete-template:before {
@@ -2861,6 +2866,26 @@ div.layout-selector-content li.info-layout-item span.layout strong:hover {
 }
 
 /* End Info Layout Item */
+div.layout-selector-content li.layout-loading-children {
+	min-height: 18px;
+	line-height: 19px;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 10px 20px 10px 20px;
+	width: 100%;
+	color: #888888;
+}
+div.layout-selector-content li.layout-loading-children span {
+	-webkit-animation: spin 2000ms infinite linear;
+	-moz-animation: spin 2000ms infinite linear;
+	animation: spin 2000ms infinite linear;
+}
+
+div.layout-selector-content ul > li.layout-loading-children:nth-child(even) {
+	background: #F9F9F9;
+}
+
 div.layout-selector-content > ul {
 	width: 100%;
 	margin: 0;
@@ -3666,7 +3691,7 @@ body.redactor-editor_wym {
 	box-shadow: none;
 	color: #CCCCCC;
 	font-size: 13px;
-	font-family: Menlo, Monaco, monospace, sans-serif;
+	font-family: Menlo, Monaco, monospace, sans-serif !important;
 	resize: none;
 }
 
@@ -3707,24 +3732,6 @@ body.redactor-editor_wym {
 }
 
 /*
-	Resize
-*/
-.redactor-resize {
-	background: #F4F4F4;
-	padding: 4px 0 3px 0;
-	cursor: move;
-	border: 1px solid #E3E3E3;
-	border-top: none;
-}
-
-.redactor-resize div {
-	width: 30px;
-	margin: auto;
-	border-top: 1px solid #BBBBBB;
-	border-bottom: 1px solid #FFFFFF;
-}
-
-/*
 	Fullscreen
 */
 body .redactor-box-fullscreen {
@@ -3737,8 +3744,12 @@ body .redactor-box-fullscreen {
 /*
 	Utils
 */
-.body-redactor-hidden {
-	overflow: hidden;
+.redactor-scrollbar-measure {
+	position: absolute;
+	top: -9999px;
+	width: 50px;
+	height: 50px;
+	overflow: scroll;
 }
 
 /*
@@ -3749,10 +3760,11 @@ body .redactor-box-fullscreen {
 	overflow: auto;
 	margin: 0 !important;
 	padding: 20px;
+	min-height: 80px;
 	outline: none;
 	white-space: normal;
 	border: 1px solid #EEEEEE;
-	font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;
+	font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif !important;
 	font-size: 14px;
 	line-height: 1.6em;
 }
@@ -3768,23 +3780,15 @@ body .redactor-box-fullscreen {
 /*
 	Placeholder
 */
-.redactor-placeholder {
-	position: relative;
-}
-
 .redactor-placeholder:after {
 	position: absolute;
 	top: 20px;
 	left: 20px;
 	content: attr(placeholder);
+	display: block;
+	/* For Firefox */
 	color: #999999 !important;
 	font-weight: normal !important;
-}
-
-/* Placeholder in linebreaks mode */
-.redactor-linebreaks.redactor-placeholder:after {
-	top: 20px;
-	left: 20px;
 }
 
 /*
@@ -3890,6 +3894,11 @@ body .redactor-box-fullscreen {
 	outline: none;
 	background-color: transparent !important;
 	cursor: default;
+}
+
+.redactor-toolbar li a.redactor-button-focus {
+	color: #FFFFFF;
+	background: #000000;
 }
 
 /*
@@ -4061,7 +4070,7 @@ body .redactor-box-fullscreen {
 	color: #FFFFFF;
 	padding: 5px 8px;
 	line-height: 1;
-	font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;
+	font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif !important;
 	font-size: 12px;
 	border-radius: 2px;
 }
@@ -4080,7 +4089,7 @@ body .redactor-box-fullscreen {
 	background-color: #FFFFFF;
 	box-shadow: 0 1px 7px rgba(0, 0, 0, 0.25);
 	font-size: 14px;
-	font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;
+	font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif !important;
 	line-height: 1.6em;
 }
 
@@ -4100,6 +4109,26 @@ body .redactor-box-fullscreen {
 	background-color: #1F78D8;
 	color: #FFFFFF !important;
 	text-decoration: none;
+}
+
+.redactor-dropdown a.selected {
+	background-color: #000000;
+	color: #FFFFFF;
+}
+
+.redactor-dropdown a.redactor-dropdown-link-inactive,
+.redactor-dropdown a.redactor-dropdown-link-inactive:hover {
+	background: none;
+	cursor: default;
+	color: #000000 !important;
+	filter: alpha(opacity=40);
+	-moz-opacity: 0.4;
+	opacity: 0.4;
+}
+
+.redactor-dropdown a.redactor-dropdown-link-selected {
+	color: #FFFFFF;
+	background: #000000;
 }
 
 /*
@@ -4146,7 +4175,7 @@ body .redactor-box-fullscreen {
 */
 .redactor-link-tooltip {
 	position: absolute;
-	z-index: 49999;
+	z-index: 99;
 	padding: 10px;
 	line-height: 1;
 	display: inline-block;
@@ -4157,7 +4186,7 @@ body .redactor-box-fullscreen {
 .redactor-link-tooltip,
 .redactor-link-tooltip a {
 	font-size: 12px;
-	font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;
+	font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif !important;
 }
 
 .redactor-link-tooltip a {
@@ -4224,6 +4253,7 @@ body .redactor-box-fullscreen {
 	from {
 		background-position: 40px 0;
 	}
+
 	to {
 		background-position: 0 0;
 	}
@@ -4233,6 +4263,7 @@ body .redactor-box-fullscreen {
 	from {
 		background-position: 40px 0;
 	}
+
 	to {
 		background-position: 0 0;
 	}
@@ -4242,6 +4273,7 @@ body .redactor-box-fullscreen {
 	from {
 		background-position: 40px 0;
 	}
+
 	to {
 		background-position: 0 0;
 	}
@@ -4275,6 +4307,7 @@ body .redactor-box-fullscreen {
 }
 
 #redactor-modal {
+	outline: 0;
 	position: relative;
 	margin: auto;
 	margin-bottom: 20px;
@@ -4282,7 +4315,7 @@ body .redactor-box-fullscreen {
 	background: #FFFFFF;
 	color: #000000;
 	font-size: 14px !important;
-	font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;
+	font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif !important;
 	box-shadow: 0 1px 70px rgba(0, 0, 0, 0.5);
 }
 
@@ -4330,7 +4363,7 @@ body .redactor-box-fullscreen {
 	color: #333333;
 	width: 100%;
 	font-size: 14px;
-	font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;
+	font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif !important;
 	-moz-transition: border 0.3s ease-in;
 	transition: border 0.3s ease-in;
 }
@@ -4433,6 +4466,11 @@ body .redactor-box-fullscreen {
 	font-size: 30px;
 	font-weight: 300;
 	cursor: pointer;
+	-webkit-appearance: none;
+	padding: 0;
+	border: 0;
+	background: 0;
+	outline: none;
 }
 
 #redactor-modal-close:hover {
@@ -4452,7 +4490,7 @@ body .redactor-box-fullscreen {
 	text-decoration: none;
 	font-weight: normal;
 	font-size: 12px;
-	font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;
+	font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif !important;
 	line-height: 1;
 	cursor: pointer;
 }
@@ -4530,195 +4568,6 @@ body .redactor-box-fullscreen {
 	font-size: 16px;
 	line-height: 23px;
 	font-weight: bold;
-}
-
-/*
-	##############################################
-
-	 CONTENT STYLES
-
-	##############################################
-*/
-.redactor-editor code,
-.redactor-editor pre {
-	font-family: Menlo, Monaco, monospace, sans-serif;
-}
-
-.redactor-editor div,
-.redactor-editor p,
-.redactor-editor ul,
-.redactor-editor ol,
-.redactor-editor table,
-.redactor-editor dl,
-.redactor-editor blockquote,
-.redactor-editor pre {
-	font-size: 14px;
-	line-height: 1.6em;
-}
-
-.redactor-editor a {
-	color: #1155CC;
-	text-decoration: underline;
-}
-
-.redactor-editor object,
-.redactor-editor embed,
-.redactor-editor video,
-.redactor-editor img {
-	max-width: 100%;
-	width: auto;
-}
-
-.redactor-editor video,
-.redactor-editor img {
-	height: auto;
-}
-
-.redactor-editor div,
-.redactor-editor p,
-.redactor-editor ul,
-.redactor-editor ol,
-.redactor-editor table,
-.redactor-editor dl,
-.redactor-editor figure,
-.redactor-editor blockquote,
-.redactor-editor pre {
-	margin: 0;
-	margin-bottom: 15px;
-	border: none;
-	background: none;
-	box-shadow: none;
-}
-
-.redactor-editor iframe,
-.redactor-editor object,
-.redactor-editor hr {
-	margin-bottom: 15px;
-}
-
-.redactor-editor blockquote {
-	margin-left: 1.6em !important;
-	padding-left: 0;
-	color: #777777;
-	font-style: italic;
-}
-
-.redactor-editor ul,
-.redactor-editor ol {
-	padding-left: 2em;
-}
-
-.redactor-editor ul ul,
-.redactor-editor ol ol,
-.redactor-editor ul ol,
-.redactor-editor ol ul {
-	margin: 2px;
-	padding: 0;
-	padding-left: 2em;
-	border: none;
-}
-
-.redactor-editor ol ol li {
-	list-style-type: lower-alpha;
-}
-
-.redactor-editor ol ol ol li {
-	list-style-type: lower-roman;
-}
-
-.redactor-editor dl dt {
-	font-weight: bold;
-}
-
-.redactor-editor dd {
-	margin-left: 1em;
-}
-
-.redactor-editor table {
-	border-collapse: collapse;
-	font-size: 1em;
-	width: 100%;
-}
-
-.redactor-editor table td,
-.redactor-editor table th {
-	padding: 5px;
-	border: 1px solid #DDDDDD;
-	vertical-align: top;
-}
-
-.redactor-editor table thead td,
-.redactor-editor table th {
-	font-weight: bold;
-	border-bottom-color: #888888;
-}
-
-.redactor-editor code {
-	background-color: #D8D7D7;
-}
-
-.redactor-editor pre {
-	overflow: auto;
-	padding: 1em;
-	border: 1px solid #DDDDDD;
-	border-radius: 3px;
-	background: #F8F8F8;
-	white-space: pre;
-	font-size: 90%;
-}
-
-.redactor-editor hr {
-	display: block;
-	height: 1px;
-	border: 0;
-	border-top: 1px solid #CCCCCC;
-}
-
-.redactor-editor h1,
-.redactor-editor h2,
-.redactor-editor h3,
-.redactor-editor h4,
-.redactor-editor h5,
-.redactor-editor h6 {
-	font-weight: bold;
-	color: #000000;
-	padding: 0;
-	background: none;
-	text-rendering: optimizeLegibility;
-	margin: 0 0 0.5em 0;
-}
-
-.redactor-editor h1,
-.redactor-editor h2,
-.redactor-editor h3,
-.redactor-editor h4 {
-	line-height: 1.3;
-}
-
-.redactor-editor h1 {
-	font-size: 36px;
-}
-
-.redactor-editor h2 {
-	font-size: 24px;
-	margin-bottom: 0.7em;
-}
-
-.redactor-editor h3 {
-	font-size: 21px;
-}
-
-.redactor-editor h4 {
-	font-size: 18px;
-}
-
-.redactor-editor h5 {
-	font-size: 16px;
-}
-
-.redactor-editor h6 {
-	font-size: 12px;
-	text-transform: uppercase;
 }
 
 /* All inputs */
@@ -4935,9 +4784,9 @@ span.pencil-icon {
 	width: 12px;
 	height: 14px;
 	cursor: pointer;
-	-webkit-transition: "color 150ms linear";
-	-moz-transition: "color 150ms linear";
-	transition: "color 150ms linear";
+	-webkit-transition: color 150ms linear;
+	-moz-transition: color 150ms linear;
+	transition: color 150ms linear;
 	margin: 5px 8px 0 2px;
 }
 
@@ -5049,6 +4898,12 @@ div.sub-tabs-content .redactor-box .redactor-editor {
 	left: 0;
 	right: 0;
 	bottom: 0;
+	-webkit-user-select: auto !important;
+	user-select: all !important;
+}
+div.sub-tabs-content .redactor-box .redactor-editor * {
+	-webkit-user-select: auto !important;
+	user-select: all !important;
 }
 
 /* Checkbox */
@@ -5556,9 +5411,9 @@ div.property-font-family-select form.fonts-search select {
 
 .font-browser .webfonts-list ul li span {
 	opacity: 0.2;
-	-webkit-transition: "opacity 100ms linear";
-	-moz-transition: "opacity 100ms linear";
-	transition: "opacity 100ms linear";
+	-webkit-transition: opacity 100ms linear;
+	-moz-transition: opacity 100ms linear;
+	transition: opacity 100ms linear;
 }
 
 .font-browser .fonts-list ul li span.font-family {
@@ -5605,9 +5460,9 @@ div.property-font-family-select form.fonts-search select {
 	line-height: 16px;
 	font-size: 17px;
 	color: #DDDDDD;
-	-webkit-animation: "spin 2000ms infinite linear";
-	-moz-animation: "spin 2000ms infinite linear";
-	animation: "spin 2000ms infinite linear";
+	-webkit-animation: spin 2000ms infinite linear;
+	-moz-animation: spin 2000ms infinite linear;
+	animation: spin 2000ms infinite linear;
 }
 
 .font-browser .fonts-list ul li:hover {
@@ -5684,7 +5539,6 @@ div.property-font-family-select form.fonts-search select {
 	position: absolute;
 	right: 3px;
 }
-
 .property-font-family-select .font-browser {
 	display: none;
 	position: fixed;
@@ -5696,12 +5550,10 @@ div.property-font-family-select form.fonts-search select {
 	/* Stay above panel resize handle */
 	margin: 0 0 10px;
 }
-
 .property-font-family-select .property-fonts.property {
 	min-width: 70px;
 	padding-right: 18px;
 }
-
 .property-font-family-select .font-name {
 	color: #999999;
 	float: right;
@@ -5792,9 +5644,9 @@ div.property-font-family-select form.fonts-search select {
 	display: block;
 	cursor: pointer;
 	color: #DDDDDD;
-	-webkit-transition: "color 150ms linear";
-	-moz-transition: "color 150ms linear";
-	transition: "color 150ms linear";
+	-webkit-transition: color 150ms linear;
+	-moz-transition: color 150ms linear;
+	transition: color 150ms linear;
 }
 
 .font-preview-overlay .close-preview:before {
@@ -6318,31 +6170,31 @@ input.color.error {
 #css3colorpicker-div.mode-h #css3colorpicker-div-2dGradient:after,
 #css3colorpicker-div.mode-s #css3colorpicker-div-2dGradient,
 #css3colorpicker-div.mode-v #css3colorpicker-div-1dGradient {
-	background: -moz-linear-gradient(top, transparent 0%, black 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, transparent), color-stop(100%, black));
-	background: -webkit-linear-gradient(top, transparent 0%, black 100%);
-	background: -o-linear-gradient(top, transparent 0%, black 100%);
-	background: -ms-linear-gradient(top, transparent 0%, black 100%);
-	background: linear-gradient(top, transparent 0%, black 100%);
+	background: -moz-linear-gradient(top, transparent 0%, #000000 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, transparent), color-stop(100%, #000000));
+	background: -webkit-linear-gradient(top, transparent 0%, #000000 100%);
+	background: -o-linear-gradient(top, transparent 0%, #000000 100%);
+	background: -ms-linear-gradient(top, transparent 0%, #000000 100%);
+	background: linear-gradient(top, transparent 0%, #000000 100%);
 }
 
 #css3colorpicker-div.mode-v #css3colorpicker-div-2dColor:after,
 #css3colorpicker-div.mode-s #css3colorpicker-div-1dColor:after {
-	background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(100%, white));
-	background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 100%);
-	background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 100%);
-	background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 100%);
-	background: linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 100%);
+	background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(100%, #FFFFFF));
+	background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
+	background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
+	background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
+	background: linear-gradient(top, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
 }
 
 #css3colorpicker-div.mode-h #css3colorpicker-div-2dGradient {
-	background: -moz-linear-gradient(left, white 0%, rgba(255, 255, 255, 0) 100%);
-	background: -webkit-gradient(linear, left top, right top, color-stop(0%, white), color-stop(100%, rgba(255, 255, 255, 0)));
-	background: -webkit-linear-gradient(left, white 0%, rgba(255, 255, 255, 0) 100%);
-	background: -o-linear-gradient(left, white 0%, rgba(255, 255, 255, 0) 100%);
-	background: -ms-linear-gradient(left, white 0%, rgba(255, 255, 255, 0) 100%);
-	background: linear-gradient(left, white 0%, rgba(255, 255, 255, 0) 100%);
+	background: -moz-linear-gradient(left, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%, #FFFFFF), color-stop(100%, rgba(255, 255, 255, 0)));
+	background: -webkit-linear-gradient(left, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+	background: -o-linear-gradient(left, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+	background: -ms-linear-gradient(left, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+	background: linear-gradient(left, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
 }
 
 #css3colorpicker-div.mode-s #css3colorpicker-div-2dColor,
@@ -6443,26 +6295,23 @@ input.color.error {
 /* Side Panel Structure */
 body.visual-editor-mode-design div#panel {
 	right: 290px !important;
-	-webkit-transition: "right 100ms linear";
-	-moz-transition: "right 100ms linear";
-	transition: "right 100ms linear";
+	-webkit-transition: right 100ms linear;
+	-moz-transition: right 100ms linear;
+	transition: right 100ms linear;
 }
-
 body.visual-editor-mode-design div#iframe-container {
 	right: 290px !important;
-	-webkit-transition: "right 100ms linear";
-	-moz-transition: "right 100ms linear";
-	transition: "right 100ms linear";
+	-webkit-transition: right 100ms linear;
+	-moz-transition: right 100ms linear;
+	transition: right 100ms linear;
 }
 
 body.visual-editor-mode-design.side-panel-hidden div#panel {
 	right: 0 !important;
 }
-
 body.visual-editor-mode-design.side-panel-hidden div#iframe-container {
 	right: 0 !important;
 }
-
 body.visual-editor-mode-design.side-panel-hidden div#side-panel-container {
 	right: -290px;
 }
@@ -6478,9 +6327,9 @@ div#side-panel-container {
 	-webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 12px 0 rgba(0, 0, 0, 0.12);
 	box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 12px 0 rgba(0, 0, 0, 0.12);
 	width: 290px;
-	-webkit-transition: "right 100ms linear";
-	-moz-transition: "right 100ms linear";
-	transition: "right 100ms linear";
+	-webkit-transition: right 100ms linear;
+	-moz-transition: right 100ms linear;
+	transition: right 100ms linear;
 }
 div#side-panel-container div#side-panel {
 	height: 100%;
@@ -6517,7 +6366,6 @@ div#side-panel-container div#side-panel.side-panel-loaded div#side-panel-bottom 
 body.design-editor-element-selected div#side-panel-container div#side-panel div#side-panel-top {
 	height: 45%;
 }
-
 body.design-editor-element-selected div#side-panel-container div#side-panel div#side-panel-bottom {
 	display: block;
 }
@@ -7384,9 +7232,9 @@ ul.design-editor-box-content > li span.uncustomize-property {
 	float: right;
 	-webkit-user-select: none;
 	user-select: none;
-	-webkit-transition: "color 100ms linear";
-	-moz-transition: "color 100ms linear";
-	transition: "color 100ms linear";
+	-webkit-transition: color 100ms linear;
+	-moz-transition: color 100ms linear;
+	transition: color 100ms linear;
 }
 ul.design-editor-box-content > li span.uncustomize-property:hover {
 	color: rgba(0, 0, 0, 0.8);
@@ -7595,9 +7443,9 @@ div.box-model-inputs-container div.box-model-inputs > li div.property span.uncus
 	transform: rotateY(180deg);
 	-webkit-user-select: none;
 	user-select: none;
-	-webkit-transition: "color 100ms linear";
-	-moz-transition: "color 100ms linear";
-	transition: "color 100ms linear";
+	-webkit-transition: color 100ms linear;
+	-moz-transition: color 100ms linear;
+	transition: color 100ms linear;
 	z-index: 5;
 }
 div.box-model-inputs-container div.box-model-inputs > li div.property span.uncustomize-property:hover {

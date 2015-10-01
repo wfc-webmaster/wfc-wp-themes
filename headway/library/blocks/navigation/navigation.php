@@ -126,7 +126,7 @@ class HeadwayNavigationBlock extends HeadwayBlockAPI {
 					
 				}
 		
-		echo '</div><!-- .' . $nav_classes . ' -->';
+		echo '</div>';
 		
 	}
 	

@@ -26,7 +26,7 @@ class Headway {
 				
 		/* Define simple constants */
 		define('THEME_FRAMEWORK', 'headway');
-		define('HEADWAY_VERSION', '3.8.2');
+		define('HEADWAY_VERSION', '3.8.3');
 
 		/* Define directories */
 		define('HEADWAY_DIR', headway_change_to_unix_path(TEMPLATEPATH));
@@ -67,6 +67,8 @@ class Headway {
 			
 		if ( !is_dir(HEADWAY_CACHE_DIR) )
 			wp_mkdir_p(HEADWAY_CACHE_DIR);
+
+		self::add_index_files_to_uploads();
 		
 		/* Load locale */
 		load_theme_textdomain('headway', headway_change_to_unix_path(HEADWAY_LIBRARY_DIR . '/languages'));
@@ -80,11 +82,35 @@ class Headway {
 		add_action('after_setup_theme', array(__CLASS__, 'maybe_db_upgrade'));
 		add_action('after_setup_theme', array(__CLASS__, 'initiate_updater'));
 
-		/* Gzip */
-		add_action('wp', 'headway_gzip');
-								
 	}
-	
+
+
+	public static function add_index_files_to_uploads() {
+
+		$content = '<?php' . "\n" .
+		'/* Disallow directory browsing */';
+
+		$uploads_index = trailingslashit( HEADWAY_UPLOADS_DIR ) . 'index.php';
+		$cache_index = trailingslashit( HEADWAY_CACHE_DIR ) . 'index.php';
+
+		if ( ! is_file( $uploads_index  ) ) {
+
+			$file_handle = @fopen( $uploads_index, 'w' );
+			@fwrite( $file_handle, $content );
+			@chmod( $uploads_index, 0644 );
+
+		}
+
+		if ( ! is_file( $cache_index ) ) {
+
+			$file_handle = @fopen( $cache_index, 'w' );
+			@fwrite( $file_handle, $content );
+			@chmod( $cache_index, 0644 );
+
+		}
+
+	}
+
 	
 	/**
 	 * Loads all of the required core classes and initiates them.
@@ -209,6 +235,8 @@ class Headway {
 	 **/
 	public static function maybe_db_upgrade() {
 
+		global $wpdb;
+
 		$headway_settings = get_option('headway', array('version' => 0));
 		$db_version = $headway_settings['version'];
 
@@ -258,9 +286,12 @@ class Headway {
 
 		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 
-		$charset_collate = 'DEFAULT CHARACTER SET ' . $wpdb->charset;
+		$charset_collate = '';
 
-		if ( ! empty($wpdb->collate ) ) {
+		if ( ! empty( $wpdb->charset ) ) {
+			$charset_collate = "DEFAULT CHARACTER SET $wpdb->charset";
+		}
+		if ( ! empty( $wpdb->collate ) ) {
 			$charset_collate .= " COLLATE $wpdb->collate";
 		}
 
@@ -338,7 +369,32 @@ class Headway {
 		}
 
 	}
-	
+
+
+	public static function set_autoload($template = null) {
+
+		global $wpdb;
+
+		if ( !$template ) {
+			$template = HeadwayOption::$current_skin;
+		}
+
+		$wpdb->query( "UPDATE $wpdb->options SET autoload = 'no' WHERE option_name LIKE 'headway_%'" );
+
+		$wpdb->update( $wpdb->options, array(
+			'autoload' => 'yes'
+		), array(
+			'option_name' => 'headway_option_group_general'
+		) );
+
+		$wpdb->update( $wpdb->options, array(
+			'autoload' => 'yes'
+		), array(
+			'option_name' => 'headway_|template=' . $template . '|_option_group_general'
+		) );
+
+	}
+
 
 	/**
 	 * Initiate the HeadwayUpdaterAPI class for Headway itself.

@@ -169,7 +169,7 @@ class HeadwayBreadcrumbsBlock extends HeadwayBlockAPI {
 
 						}
 
-					echo '</span><!-- .breadcrumb -->';
+					echo '</span>';
 
 					$breadcrumbs_loop_counter++;
 					

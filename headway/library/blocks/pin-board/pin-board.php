@@ -41,7 +41,7 @@ if ( !class_exists('HeadwayPinBoardCoreBlock') ) {
 				'ajaxURL' => admin_url('admin-ajax.php'),
 				'isArchive' => is_archive(),
 				'isSearch' => is_search(),
-				'wpQueryVars' => (is_archive() && is_search()) ? json_encode($wp_query->query_vars) : json_encode(array())
+				'wpQueryVars' => json_encode($wp_query->query_vars)
 			));
 
 		}
@@ -261,10 +261,10 @@ if ( !class_exists('HeadwayPinBoardCoreBlock') ) {
 				$wp_query = new WP_Query($query_args);
 				/* End Query Setup */
 
-				echo '<div class="pin-board" data-pin-board-ajax-paged="' . headway_get('paged', $query_args, 1) . '" data-pin-board-mode="' . parent::get_setting( $block, 'mode', 'default' ) . '">';
+				echo '<div class="pin-board" data-pin-board-ajax-paged="' . headway_get('paged', $query_args, 1) . '" data-pin-board-mode="' . parent::get_setting( $block, 'mode', 'default' ) . '">' . "\n";
 
-					echo '<div class="pin-board-gutter-sizer"></div>';
-					echo '<div class="pin-board-column-sizer"></div>';
+					echo '<div class="pin-board-gutter-sizer"></div>' . "\n";
+					echo '<div class="pin-board-column-sizer"></div>' . "\n\n";
 
 				while ( $wp_query->have_posts() ) {
 
@@ -279,7 +279,7 @@ if ( !class_exists('HeadwayPinBoardCoreBlock') ) {
 					$pin_classes = get_post_class();
 					$pin_classes[] = has_post_thumbnail() ? 'pin-board-pin-has-image' : 'pin-board-pin-no-image';
 
-					echo '<div class="pin-board-pin ' . implode(' ', $pin_classes) . '">';
+					echo '<div class="pin-board-pin ' . implode(' ', $pin_classes) . '">' . "\n";
 
 						/* Titles above */
 							if ( $show_titles && $titles_position == 'above') {
@@ -290,7 +290,7 @@ if ( !class_exists('HeadwayPinBoardCoreBlock') ) {
 								} else {
 									echo get_the_title();
 								}
-								echo '</h3>';
+								echo '</h3>' . "\n";
 
 							}
 						/* End Titles below */
@@ -321,28 +321,28 @@ if ( !class_exists('HeadwayPinBoardCoreBlock') ) {
 
 								do_action('headway_before_pin_thumbnail');
 
-								echo '<div class="pin-board-pin-thumbnail">';
+								echo '<div class="pin-board-pin-thumbnail">' . "\n";
 
 									if ( $image_click_action == 'post' ) {
 
 										echo '<a href="' . get_permalink() . '" class="post-thumbnail" title="' . $title_for_attribute . '">';
 											echo '<img src="' . esc_url($thumbnail_url) . '" alt="' . $title_for_attribute . '" />';
-										echo '</a><!-- .post-thumbnail -->';
+										echo '</a>' . "\n";
 
 									} elseif ($image_click_action == 'popup') {
 
 										echo '<a href="' . esc_url($full_image_url) . '" class="thickbox post-thumbnail" rel="pinboard-'.$block['id'].'" title="' . $title_for_attribute . '">';
 											echo '<img src="' . esc_url($thumbnail_url) . '" alt="' . $title_for_attribute . '" />';
-										echo '</a><!-- .post-thumbnail -->';
+										echo '</a>' . "\n";
 
 									} else {
 
-										echo '<a class="post-thumbnail"><img src="' . esc_url($thumbnail_url) . '" alt="' . $title_for_attribute . '" /></a>';
+										echo '<a class="post-thumbnail"><img src="' . esc_url($thumbnail_url) . '" alt="' . $title_for_attribute . '" /></a>' . "\n";
 
 									}
 									if ( $show_pinterest_button || $show_twitter_button || $show_facebook_button ) {
 
-										echo '<div class="pin-board-pin-thumbnail-social">';
+										echo '<div class="pin-board-pin-thumbnail-social">' . "\n";
 
 											if ( $show_facebook_button )
 												self::facebook_button(get_permalink(), $facebook_button_verb);
@@ -359,18 +359,18 @@ if ( !class_exists('HeadwayPinBoardCoreBlock') ) {
 
 											}
 
-										echo '</div><!-- .pin-board-pin-thumbnail-social -->';
+										echo '</div>' . "\n";
 
 									}
 
-								echo '</div><!-- .pin-board-pin-thumbnail -->';
+								echo '</div>' . "\n\n";
 
 								do_action('headway_after_pin_thumbnail');
 
 							}
 						/* End Thumbnail */
 
-						echo '<div class="below-thumb">';
+						echo '<div class="below-thumb">' . "\n";
 
 						/* Titles below */
 							if ( $show_titles && $titles_position == 'below') {
@@ -381,7 +381,7 @@ if ( !class_exists('HeadwayPinBoardCoreBlock') ) {
 								} else {
 									echo get_the_title();
 								}
-								echo '</h3>';
+								echo '</h3>' . "\n";
 
 							}
 						/* End Titles below */
@@ -393,7 +393,7 @@ if ( !class_exists('HeadwayPinBoardCoreBlock') ) {
 
 								do_action('headway_before_pin_meta');
 
-								echo '<div class="entry-meta">';
+								echo '<div class="entry-meta">' . "\n";
 
 									if ( $show_datetime ) {
 										echo '<span class="entry-date published" title="' . get_the_time('c') . '">' . ($datetime_verb ? $datetime_verb . ' ' : '') . self::relative_time($relative_times) . '</span> ';
@@ -407,7 +407,7 @@ if ( !class_exists('HeadwayPinBoardCoreBlock') ) {
 										echo '<div class="entry-categories">' . get_the_category_list(', ') . '</div>';
 									}
 
-								echo '</div><!-- .entry-meta -->';
+								echo '</div>' . "\n";
 
 								do_action('headway_after_pin_meta');
 
@@ -419,7 +419,7 @@ if ( !class_exists('HeadwayPinBoardCoreBlock') ) {
 
 								if ( ($show_text_when_no_image && !has_post_thumbnail()) || ($content_to_show && !$show_text_when_no_image)) {
 
-									echo '<div class="pin-board-pin-text entry-content">';
+									echo '<div class="pin-board-pin-text entry-content">' . "\n";
 
 									if ($content_to_show == 'excerpt') {
 											add_filter('excerpt_more', array(__CLASS__, 'excerpt_more'));
@@ -429,7 +429,7 @@ if ( !class_exists('HeadwayPinBoardCoreBlock') ) {
 										the_content();
 									}
 
-									echo '</div><!-- .pin-board-pin-text -->';
+									echo '</div>' . "\n";
 
 								}
 
@@ -441,7 +441,7 @@ if ( !class_exists('HeadwayPinBoardCoreBlock') ) {
 						/* Backup social buttons if no image is present */
 							if ( (!has_post_thumbnail() || !$show_images) && ($show_twitter_button || $show_facebook_button) ) {
 
-								echo '<div class="pin-board-pin-social">';
+								echo '<div class="pin-board-pin-social">' . "\n";
 
 									if ( $show_twitter_button )
 										self::twitter_button(get_permalink(), $title_for_attribute, $twitter_username, $twitter_hashtag);
@@ -449,17 +449,17 @@ if ( !class_exists('HeadwayPinBoardCoreBlock') ) {
 									if ( $show_facebook_button )
 										self::facebook_button(get_permalink(), $facebook_button_verb);
 
-								echo '</div><!-- .pin-board-pin-social -->';
+								echo '</div>' . "\n";
 
 							}
 						/* End backup social buttons */
 
-						echo '</div>';
+						echo '</div>' . "\n";
 
-					echo '</div><!-- .pin-board-pin -->';
+					echo '</div>' . "\n\n";
 				} // End while loop
 
-			echo '</div><!-- .pin-board -->';
+				echo '</div>' . "\n";
 
 			if ( parent::get_setting($block, 'paginate', true) || $infinite_scroll ) {
 
@@ -601,7 +601,7 @@ if ( !class_exists('HeadwayPinBoardCoreBlock') ) {
 
 				echo '<span class="nav-previous">';
 					echo get_previous_posts_link( '&larr; Previous' );
-				echo '</span><!-- .previous -->';
+				echo '</span>';
 
 				echo paginate_links( array(
 					'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
@@ -613,18 +613,18 @@ if ( !class_exists('HeadwayPinBoardCoreBlock') ) {
 
 				echo '<span class="nav-next">';
 					echo get_next_posts_link( 'Next &rarr;', $query->max_num_pages );
-				echo '</span><!-- .next -->';
+				echo '</span>';
 
 			} else {
 
 
 				echo '<span class="nav-next">';
 					echo get_next_posts_link( '&larr; Older', $query->max_num_pages );
-				echo '</span><!-- .next -->';
+				echo '</span>';
 
 				echo '<span class="nav-previous">';
 					echo get_previous_posts_link( 'Newer &rarr;' );
-				echo '</span><!-- .previous -->';
+				echo '</span>';
 
 			}
 

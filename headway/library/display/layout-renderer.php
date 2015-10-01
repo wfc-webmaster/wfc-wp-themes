@@ -110,7 +110,7 @@ class HeadwayLayoutRenderer {
 					
 					do_action('headway_wrapper_close');
 				
-				echo '</div><!-- .wrapper -->' . "\n\n";
+				echo '</div>' . "\n\n";
 				
 				do_action('headway_after_wrapper');
 			/* End displaying wrapper */
@@ -142,11 +142,11 @@ class HeadwayLayoutRenderer {
 										
 					}
 			
-				echo '</div><!-- .entry-content -->';
+				echo '</div>';
 			
-			echo '</div><!-- .block-type-content -->';
+			echo '</div>';
 				
-		echo '</div><!-- .wrapper -->';
+		echo '</div>';
 		
 		return false;
 		

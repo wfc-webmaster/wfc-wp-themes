@@ -30,6 +30,10 @@ ul#menu-main-nav {
   li:hover {
 		background-color: $wfc-green;
   }
+
+  p {
+    margin: initial;
+  }
 }
 
 .nav-responsive-touch {
@@ -129,7 +133,7 @@ ul#menu-main-nav {
 
   form input {
     margin-right: 1rem;
-    width: 18rem;
+    width: 17rem;
   }
 
   input#header_search_field {
