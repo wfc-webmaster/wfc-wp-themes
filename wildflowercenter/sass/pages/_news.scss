@@ -47,12 +47,7 @@ News Page
 
 .events-list-container {
     border: 1px solid $wfc-lightgray;
-    
-    
-    p {
-    	font-size: 0.8rem;
-    	margin: 0 0 0.5rem 0;
-    }
+    max-width: 37rem;
 }
 
 .events-heading {
@@ -82,17 +77,12 @@ News Page
 
 //Twitter Feed
 
-.wfc-twitter-feed {
-	p {
-    	font-size: 0.8rem;
-    	margin: 0 0 0.5rem 0;
-    }
-}
 
 //Wire Signup Form
 
 #wire-signup-container {
-	padding-top: 1rem;
+	max-width: 37rem;
+    padding-top: 1rem;
 
 	img {
 	    width: 100%;
@@ -129,7 +119,15 @@ News Page
 
 #news-resources-container {
     font-weight: 600;
-    padding: 0.5rem 1rem;
+    max-width: 37rem;
+
+    ul {
+        padding: 0.5rem 1rem;
+    }
+}
+
+div#wrapper-wrx5602e14f9a41a div.grid-container section.row:last-of-type {
+    margin: 0 0 2rem;
 }
 
 //Magazine Section
@@ -150,6 +148,20 @@ News Page
     }
 }
 
+@media screen and (max-width: 900px) {
+
+    .magazine-current-issue {
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .magazine-current-issue img {
+        float: none;
+    }
+}
+
 .magazine-recent-issues {
     display: table;
     float: left;
@@ -158,15 +170,54 @@ News Page
     text-align: center;
 
     h6 {
-    	font-weight: 600;
-    	line-height: 120%;
+        font-weight: 600;
+        line-height: 120%;
     }
 
     a {
-    	text-decoration: none;
+        text-decoration: none;
+    }
+}
+
+@media screen and (max-width: 864px) {
+    
+    .magazine-recent-issues:nth-of-type(4) {
+        clear: left;
+        padding-left: 0;
+    }
+}
+
+
+@media screen and (max-width: 585px) {
+    
+    .magazine-recent-issues {
+        margin-right: 0;
+        padding: 0;
+        text-align: center;
+        width: 100%;
+
+        img {
+            width: initial;
+        }
+    }
+
+
+    .magazine-recent-issues:nth-of-type(3) {
+        clear: left;
     }
 }
 
 .magazine-recent-issues:nth-of-type(2) {
 	padding-left: 0;
+}
+
+@media screen and (max-width: 1279px) {
+    
+    div#block-b7h56096800b5f2d {
+        padding: 0 1.5rem;
+    }
+
+    .mobile-padding {
+        padding: 0 1.5rem;
+    }
 }
