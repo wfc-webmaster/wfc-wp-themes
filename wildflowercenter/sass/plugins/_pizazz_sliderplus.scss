@@ -19,19 +19,34 @@ div#block-bez558b23a77c556 .pzsp-content-rightorbottom {
 
 @media screen and (max-width: 768px) {
     div#block-bez558b23a77c556 .pzsp-content-rightorbottom {
-        bottom: 25% !important;
+        bottom: 5% !important;
+    }
+
+}
+
+@media screen and (max-width: 415px) {
+    div#block-bez558b23a77c556 .pzsp-content-rightorbottom {
+        bottom: 15% !important;
+    }
+
+}
+
+@media screen and (max-width: 320px) {
+    div#block-bez558b23a77c556 .pzsp-content-rightorbottom {
+        bottom: 8% !important;
     }
 
 }
 
 //Sets the text on footer feature slider to the top
 div#block-bei5591a71621877 .pzsp-content-leftortop {
-    top: 10% !important;
+    //top: 10% !important;
 }
 
 div#footerImage-text {
     background-color: rgba(0, 0, 0, 0.5);
-    display: inline-block;
+    display: table;
+    margin: 0 auto;
     padding: 1.5em 3em;
 
     a {
@@ -53,6 +68,25 @@ div#footerImage-text {
     div#footerImage-text {
         padding: 1.2em 3em 0.3em;
     }
+}
+
+@media screen and (max-width: 505px) {
+
+    div#footerImage-text {
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 351px) {
+
+    div#footerImage-text {
+        padding: 0.5rem 0 0 1rem;
+        
+        p {
+            margin: 1.5rem 0 1.5rem;
+        }
+    }
+
 }
 
 .cycle-slideshow img.callout-arrow {

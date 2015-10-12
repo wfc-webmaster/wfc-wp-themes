@@ -130,7 +130,7 @@ h4 {
 
 h3 {
   font-size: 1.728rem;
-  font-weight: 100;
+  font-weight: 600;
   line-height: 120%;
   margin: 1.5rem 0 1rem;
 }
@@ -633,7 +633,7 @@ Styles for WFC Cards widget
   margin: 0 auto;
   max-width: 1280px;
   overflow: auto;
-  width: 55rem;
+  width: 53rem;
 }
 
 .landing-card-top > .block-content ul {
@@ -651,6 +651,11 @@ li.wfc-cards:nth-child(3) {
   clear: left;
 }
 
+@media screen and (max-width: 338px) {
+  li.wfc-cards {
+    margin: 2rem 0 !important;
+  }
+}
 @media screen and (max-width: 659px) {
   .landing-cards > .block-content ul {
     max-width: 425px;
@@ -669,7 +674,7 @@ li.wfc-cards:nth-child(3) {
   .wfc-cards-container {
     height: 31rem;
     margin: 0 auto;
-    width: 22rem;
+    width: 20rem;
   }
 
   li.wfc-cards {
@@ -689,7 +694,7 @@ li.wfc-callout {
 .wfc-callout-container {
   max-width: 590px;
   padding: 4rem 0 0 3rem;
-  width: 30rem;
+  width: 25rem;
 }
 .wfc-callout-container h1 {
   font-size: 2.48832em;
@@ -723,7 +728,7 @@ li.wfc-callout {
 } */
 @media screen and (max-width: 659px) {
   .wfc-callout-container {
-    padding: 0 3rem 0 0;
+    padding: 0 3rem 0 1rem;
     width: auto;
   }
   .wfc-callout-container p {
@@ -759,16 +764,23 @@ div#block-bez558b23a77c556 .pzsp-content-rightorbottom {
 
 @media screen and (max-width: 768px) {
   div#block-bez558b23a77c556 .pzsp-content-rightorbottom {
-    bottom: 25% !important;
+    bottom: 5% !important;
   }
 }
-div#block-bei5591a71621877 .pzsp-content-leftortop {
-  top: 10% !important;
+@media screen and (max-width: 415px) {
+  div#block-bez558b23a77c556 .pzsp-content-rightorbottom {
+    bottom: 15% !important;
+  }
 }
-
+@media screen and (max-width: 320px) {
+  div#block-bez558b23a77c556 .pzsp-content-rightorbottom {
+    bottom: 8% !important;
+  }
+}
 div#footerImage-text {
   background-color: rgba(0, 0, 0, 0.5);
-  display: inline-block;
+  display: table;
+  margin: 0 auto;
   padding: 1.5em 3em;
 }
 div#footerImage-text a {
@@ -785,6 +797,19 @@ div#footerImage-text p {
 @media screen and (max-width: 736px) {
   div#footerImage-text {
     padding: 1.2em 3em 0.3em;
+  }
+}
+@media screen and (max-width: 505px) {
+  div#footerImage-text {
+    height: 100%;
+  }
+}
+@media screen and (max-width: 351px) {
+  div#footerImage-text {
+    padding: 0.5rem 0 0 1rem;
+  }
+  div#footerImage-text p {
+    margin: 1.5rem 0 1.5rem;
   }
 }
 .cycle-slideshow img.callout-arrow {
@@ -868,7 +893,7 @@ Visit Block
   float: left;
   min-height: 12rem;
   padding: 1rem 0 1rem 1.35rem;
-  width: 17rem;
+  width: 16rem;
 }
 #visit-hours p:first-of-type,
 #visit-prices p:first-of-type,
@@ -952,7 +977,7 @@ Visit Block
     height: 10rem;
     min-width: 0;
     padding: 1rem 0 1rem 1.35rem;
-    width: 17rem;
+    width: 16rem;
   }
 
   #visit-hours {
@@ -966,7 +991,7 @@ Visit Block
     border-bottom: 1px solid #759f4d;
   }
 }
-@media screen and (max-width: 404px) {
+@media screen and (max-width: 486px) {
   #visit-hours,
   #visit-prices,
   #visit-directions {
@@ -1043,15 +1068,15 @@ NPIN Block
 #npin-search-form {
   background-color: rgba(0, 0, 0, 0.45);
   color: #fff;
-  display: inline-block;
-  margin-top: 4rem;
+  display: block;
+  margin: 4rem auto 0;
   padding: 3rem;
   text-align: left;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-  width: 35rem;
+  max-width: 35rem;
 }
 #npin-search-form h1 {
-  line-height: 160%;
+  line-height: 115%;
 }
 #npin-search-form h3 {
   line-height: 140%;
@@ -1064,7 +1089,8 @@ NPIN Block
 #form-npin-simple input[type="text"] {
   height: 3rem;
   margin: 2rem 0;
-  width: 29rem;
+  max-width: 29rem;
+  width: 85%;
 }
 #form-npin-simple input[placeholder] {
   font-size: 1.2rem;
@@ -1083,28 +1109,38 @@ NPIN Block
   cursor: pointer;
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 570px) {
   #npin-search-wrapper {
     padding-top: 43rem;
   }
 
+  #npin-search-form-wrapper {
+    height: 100%;
+  }
+
   #npin-search-form {
-    padding: 2rem;
-    width: 26rem;
+    height: 100%;
+    margin-top: 0;
+    padding: 3rem 3rem;
   }
 
   #form-npin-simple input[type="text"] {
-    margin: 2rem 0;
-    width: 22rem;
+    width: 70%;
   }
   #form-npin-simple input[placeholder] {
     font-size: 1rem;
   }
   #form-npin-simple button {
+    margin-left: 0.8rem;
     padding: 0;
   }
   #form-npin-simple img {
     width: 65%;
+  }
+}
+@media screen and (max-width: 573px) {
+  #npin-search-form {
+    padding: 3rem 1.5rem;
   }
 }
 /*
@@ -1177,13 +1213,13 @@ Widgets Block
 #footer-nav-3,
 #footer-nav-4,
 #footer-nav-5 {
-  margin-left: 1.7rem;
+  margin-left: 0.5rem;
   width: 8rem;
 }
 
 #footer-nav-6 {
   margin-left: 1.7rem;
-  width: 14rem;
+  width: 10rem;
 }
 
 .footer-nav-mc {
@@ -1224,6 +1260,10 @@ Widgets Block
 }
 
 @media screen and (max-width: 953px) {
+  .footer-nav-section ul li {
+    padding-top: 0.25rem;
+  }
+
   #footer-nav-1 {
     display: table;
     float: none;
@@ -1232,7 +1272,7 @@ Widgets Block
   }
   #footer-nav-1 img {
     float: left;
-    width: 12rem;
+    width: 10rem;
   }
   #footer-nav-1 address {
     float: left;
@@ -1261,7 +1301,7 @@ Widgets Block
 
   #footer-nav-3,
   #footer-nav-5 {
-    margin-left: 6rem;
+    margin-left: 4rem;
   }
 }
 #footer-copyright-container {
@@ -1317,7 +1357,7 @@ Widgets Block
   }
 
   #footer-social-media {
-    width: 22rem;
+    width: 17rem;
   }
 }
 @media screen and (max-width: 715px) {
@@ -1364,11 +1404,7 @@ Widgets Block
 
 @media screen and (max-width: 953px) {
   #footer-ut-wrap {
-    width: auto;
-  }
-
-  #footer-ut-logo {
-    margin-right: 28rem;
+    width: 100%;
   }
 }
 @media screen and (max-width: 715px) {

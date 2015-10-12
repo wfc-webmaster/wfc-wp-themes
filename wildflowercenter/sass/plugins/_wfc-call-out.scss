@@ -5,7 +5,7 @@ li.wfc-callout {
 .wfc-callout-container {
     max-width: 590px;
     padding: 4rem 0 0 3rem;
-    width: 30rem;
+    width: 25rem;
 
     h1 {
         font-size: ms(5, 1em, $minor-third);
@@ -45,7 +45,7 @@ li.wfc-callout {
 @media screen and (max-width: 659px) {
 
 	.wfc-callout-container {
-		padding: 0 3rem 0 0;
+		padding: 0 3rem 0 1rem;
         width: auto;
 
         p {

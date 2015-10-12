@@ -66,13 +66,13 @@
 #footer-nav-3,
 #footer-nav-4,
 #footer-nav-5 {
-	margin-left: 1.7rem;
+	margin-left: 0.5rem;
 	width: 8rem;
 }
 
 #footer-nav-6 {
 	margin-left: 1.7rem;
-	width: 14rem;
+	width: 10rem;
 }
 
 // MailChimp sign-up form
@@ -118,7 +118,10 @@
 }
 
 @media screen and (max-width: 953px) {
-	
+	.footer-nav-section ul li {
+		padding-top: 0.25rem;
+	}
+
 	#footer-nav-1 {
 	  display: table;
 	  float: none;
@@ -127,7 +130,7 @@
 
 	  img {
 	  	float: left;
-	  	width: 12rem;
+	  	width: 10rem;
 	  }
 
 	  address {
@@ -158,7 +161,7 @@
 	}
 	#footer-nav-3,
 	#footer-nav-5 {
-		margin-left: 6rem;
+		margin-left: 4rem;
 	}
 }
 
@@ -221,7 +224,7 @@
 		width: auto;
 	}
 	#footer-social-media {
-		width: 22rem;
+		width: 17rem;
 	}
 
 }
@@ -275,13 +278,8 @@
 @media screen and (max-width: 953px) {
 
 	#footer-ut-wrap {
-		width: auto;
-	}
-
-	#footer-ut-logo {
-		margin-right: 28rem;
-	}
-	
+		width: 100%;
+	}	
 }
 
 @media screen and (max-width: 715px) {

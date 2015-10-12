@@ -80,7 +80,7 @@ Visit Block
     float: left;
     min-height: 12rem;
     padding: 1rem 0 1rem 1.35rem;
-    width: 17rem;
+    width: 16rem;
 
     p:first-of-type {
 	  font-weight: bold;
@@ -166,7 +166,7 @@ Visit Block
 	  height: 10rem;
 	  min-width: 0;
 	  padding: 1rem 0 1rem 1.35rem;
-	  width: 17rem;
+	  width: 16rem;
 	 }
 
 	 #visit-hours {
@@ -181,7 +181,7 @@ Visit Block
 	 }
 }
 
-@media screen and (max-width: 404px) {
+@media screen and (max-width: 486px) {
 		#visit-hours, 
 		#visit-prices, 
 		#visit-directions {
@@ -263,15 +263,15 @@ NPIN Block
 #npin-search-form {
 	background-color: rgba(0,0,0,0.45);
 	color: $wfc-white;
-	display: inline-block;
-	margin-top: 4rem;
+	display: block;
+	margin: 4rem auto 0;
 	padding: 3rem;
 	text-align: left;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-	width: 35rem;
+	max-width: 35rem; 
 
 	h1 {
-		line-height: 160%;
+		line-height: 115%;
 	}
 
 	h3 {
@@ -288,7 +288,8 @@ NPIN Block
 	input[type="text"] {
 		height: 3rem;
 	    margin: 2rem 0;
-	    width: 29rem;
+	    max-width: 29rem;
+	    width: 85%;
 	}
 
 	input[placeholder] {
@@ -311,20 +312,26 @@ NPIN Block
 	}
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 570px) {
 	#npin-search-wrapper {
 		padding-top: 43rem;
 	}
 
+	#npin-search-form-wrapper {
+		height: 100%;
+	}
+
 	#npin-search-form {
-		padding: 2rem;
-		width: 26rem;
+		height: 100%;
+		margin-top: 0;
+		padding: 3rem 3rem;
+		
 	}
 
 	#form-npin-simple {
 		input[type="text"] {
-			margin: 2rem 0;
-			width: 22rem;
+			//margin: 0;
+			width: 70%;
 		}
 
 		input[placeholder] {
@@ -332,6 +339,7 @@ NPIN Block
 		}
 
 		button {
+			margin-left: 0.8rem;
 			padding: 0;
 		}
 
@@ -339,6 +347,12 @@ NPIN Block
 			width: 65%;
 		}
 	}
+}
+
+@media screen and (max-width: 573px) {
+	#npin-search-form {
+			padding: 3rem 1.5rem;		
+		}
 }
 
 /*
