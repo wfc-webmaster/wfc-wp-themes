@@ -1,3 +1,14 @@
+//Posts Displayed On The News Page
+
+//Post Meta
+
+.block-type-content div.entry-meta {
+    color: $wfc-gray;
+    font-size: 0.8rem;
+    line-height: 135%;
+    margin-top: 0.5rem;
+}
+
 //Featured Post
 
 div#block-bd95602e14f9daef {
@@ -189,8 +200,14 @@ div#block-b1f56057adcd0576 {
 		font-style: italic;
 	}
 
+	.more-link:hover {
+		text-decoration: underline;
+	}
+
 	.more-link::after {
 		content: " >";
+		display: inline-block;
+		padding-left: 0.5rem;
 	}
 
 }
@@ -234,3 +251,24 @@ div.entry-summary.entry-content {
 			padding: 0 1.5rem;
 		}
 	}
+
+//Single Posts
+
+#block-bcx561c1fb443d1b {
+
+	.loop {
+	    padding: 0;
+	}
+	.post-category {
+		display: none;
+	}
+}
+
+
+
+
+
+
+
+
+

@@ -2,12 +2,30 @@ body {
 	background-color: $wfc-white;
 }
 
+// a {
+// 	color: $wfc-lightorange;
+// 	text-decoration: none;
+
+// 	:hover {
+// 		text-decoration: underline;
+// 	}
+// }
+
 .loop {
 	padding: 1rem 1.5rem 0;
 }
 
 .page-heading {
     margin-top: 1rem;
+}
+
+.block-type-breadcrumbs p.breadcrumbs {
+    border: 1px solid $wfc-lightgray;
+    display: inline-block;
+    font-size: 0.75rem;
+    margin: 0;
+    padding: 0.5rem 0.8rem;
+    word-spacing: 0.25rem;
 }
 
 @media screen and (max-width: 2134px) {

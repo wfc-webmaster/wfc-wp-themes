@@ -178,6 +178,15 @@ body {
   margin-top: 1rem;
 }
 
+.block-type-breadcrumbs p.breadcrumbs {
+  border: 1px solid #dedede;
+  display: inline-block;
+  font-size: 0.75rem;
+  margin: 0;
+  padding: 0.5rem 0.8rem;
+  word-spacing: 0.25rem;
+}
+
 @media screen and (max-width: 2134px) {
   .page-heading {
     margin-top: 3rem;
@@ -257,16 +266,14 @@ Elements
 }
 
 .sidebar-button {
-  border: 1px solid #f0b252;
-  color: #f0b252;
-  font-weight: 600;
+  background-color: #f0b252;
+  color: #ffffff;
   padding: 0.5rem;
   text-decoration: none;
 }
 .sidebar-button a {
-  border: 1px solid #f0b252;
-  color: #f0b252;
-  font-weight: 600;
+  background-color: #f0b252;
+  color: #ffffff;
   padding: 0.5rem;
 }
 
@@ -1163,9 +1170,8 @@ Widgets Block
 #footer-about-wfc {
   line-height: 160%;
   margin: 0 auto;
-  max-width: 1280px;
+  max-width: 66rem;
   padding: 1.8rem 0;
-  width: 80%;
 }
 
 #footer-nav-container {
@@ -1918,6 +1924,13 @@ h2.tribe-events-page-title {
 Posts
 =====
 */
+.block-type-content div.entry-meta {
+  color: #4d4d4d;
+  font-size: 0.8rem;
+  line-height: 135%;
+  margin-top: 0.5rem;
+}
+
 div#block-bd95602e14f9daef article {
   border: 1px solid #dedede;
   padding: 0 1rem 0 0;
@@ -2059,8 +2072,13 @@ div#block-b1f56057adcd0576 .more-link {
   color: #f0b252;
   font-style: italic;
 }
+div#block-b1f56057adcd0576 .more-link:hover {
+  text-decoration: underline;
+}
 div#block-b1f56057adcd0576 .more-link::after {
   content: " >";
+  display: inline-block;
+  padding-left: 0.5rem;
 }
 
 div#block-b1f56057adcd0576 > div.block-content > div.loop > article:first-child {
@@ -2095,4 +2113,10 @@ div.entry-summary.entry-content {
   div#block-b1f56057adcd0576 {
     padding: 0 1.5rem;
   }
+}
+#block-bcx561c1fb443d1b .loop {
+  padding: 0;
+}
+#block-bcx561c1fb443d1b .post-category {
+  display: none;
 }
