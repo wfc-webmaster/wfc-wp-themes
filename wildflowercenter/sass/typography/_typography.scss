@@ -66,3 +66,16 @@ em {
 p {
   margin: 0.5rem 0 1rem 0;
 }
+
+a {
+   color: $wfc-lightorange;
+   text-decoration: none;
+
+   .fa {
+    color: $wfc-gray; 
+   }
+}
+
+ a:hover {
+   text-decoration: underline;
+ }

@@ -36,6 +36,10 @@ div#block-bd95602e14f9daef {
 	    text-transform: capitalize;
 	    width: 6rem;
 	}
+
+	.more-link:hover {
+		text-decoration: underline;
+	}
 }
 
 @media screen and (min-width: 1280px) {
@@ -90,7 +94,8 @@ div#block-bd95602e14f9daef {
     margin-bottom: .7rem;
 
 	> ul li a {
-	    font-size: .8rem;
+		color: inherit;
+	    font-size: 0.8rem;
 	    text-decoration: none;
 	    text-transform: uppercase;
 	    font-weight: 900;
@@ -129,6 +134,10 @@ div#block-b4256042f27279fb {
 	    text-align: center;
 	    text-transform: capitalize;
 	    width: 6rem;
+	}
+
+	.more-link:hover {
+		text-decoration: underline;
 	}
 
 	article {
@@ -262,7 +271,14 @@ div.entry-summary.entry-content {
 	.post-category {
 		display: none;
 	}
+	figure.wp-caption {
+		margin: 1.5rem 0;
+	}
+	figure.wp-caption:first-of-type {
+		margin: 0;
+	}
 }
+
 
 
 

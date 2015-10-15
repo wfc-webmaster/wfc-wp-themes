@@ -2,15 +2,6 @@ body {
 	background-color: $wfc-white;
 }
 
-// a {
-// 	color: $wfc-lightorange;
-// 	text-decoration: none;
-
-// 	:hover {
-// 		text-decoration: underline;
-// 	}
-// }
-
 .loop {
 	padding: 1rem 1.5rem 0;
 }
@@ -19,14 +10,6 @@ body {
     margin-top: 1rem;
 }
 
-.block-type-breadcrumbs p.breadcrumbs {
-    border: 1px solid $wfc-lightgray;
-    display: inline-block;
-    font-size: 0.75rem;
-    margin: 0;
-    padding: 0.5rem 0.8rem;
-    word-spacing: 0.25rem;
-}
 
 @media screen and (max-width: 2134px) {
 	.page-heading {
@@ -46,6 +29,64 @@ body {
 	}
 }
 
+//Breadcrumbs
+.block-type-breadcrumbs p.breadcrumbs {
+    border: 1px solid $wfc-lightgray;
+    display: inline-block;
+    font-size: 0.75rem;
+    margin: 0;
+    padding: 0.5rem 0.8rem;
+}
+
+p.breadcrumbs span.sep {
+    margin: 0 0.3rem;
+}
+
+//Sharebar
+ul#post-sharebar {
+
+	li {
+	    display: inline-block;
+	    font-size: 0.85rem;
+	    margin-right: 1.5rem;
+	}
+	
+	li:last-child {
+	    margin-right: 0;
+	}
+
+	i {
+		color: $wfc-lightorange;
+	}
+
+	i.fa-google-plus {
+		font-weight: 600;
+	}
+
+	a {
+		color: inherit;
+	}
+}
+
+.sharebar-icons {
+    margin-right: 0.4rem;
+}
+
+.post-sharebar-wrapper {
+    border-top: 1px dashed #dedede;
+    border-bottom: 1px dashed #dedede;
+    display: inline-block;
+    margin-top: 1.4rem;
+    padding: 0.65rem;
+    text-align: center;
+}
+
+//Captions
+figcaption.wp-caption-text {
+	color: inherit;
+	font-size: 0.85rem;
+	font-style: italic;
+}
 
 //Page navigation at bottom
 .block-type-content div.loop-navigation div.nav-previous a,

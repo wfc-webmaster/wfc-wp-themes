@@ -113,6 +113,7 @@
 	}
 	input[type="submit"]:hover {
 		color: inherit;
+		text-decoration: underline;
 	}
 }
 
@@ -210,6 +211,10 @@
 
 	ul li:last-of-type {
 		margin-right: 0;
+	}
+
+	ul li a .fa {
+		color: $wfc-white;
 	}
 }
 
