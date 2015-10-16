@@ -36,6 +36,11 @@ ul#menu-main-nav {
   }
 }
 
+//Corrects color on search icon
+li#menu-item-1791 a .fa {
+    color: $wfc-white;
+}
+
 .nav-responsive-touch {
     border-color: #B3B3B3;
     border-style: solid;
@@ -291,6 +296,26 @@ Mobile Navigation (The Hamburger, yum!)
   }
 }
 
+//Page navigation at bottom of single post pages
+.block-type-content div.loop-navigation div.nav-previous a,
+.block-type-content div.loop-navigation div.nav-next a {
+  background-color: transparent;
+  border: 1px solid $wfc-lightorange;
+  border-radius: 0;
+  color: $wfc-lightorange;
+  font-size: ms(0, 0.8em);
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+}
 
+.block-type-content div.loop-navigation div.nav-previous a:hover,
+.block-type-content div.loop-navigation div.nav-next a:hover {
+  background-color: transparent;
+  border: 1px solid $wfc-lightorange;
+  text-decoration: underline;
+}
 
-
+div#post-nav-callout {
+    text-align: center;
+    margin-bottom: 0.8rem;
+}

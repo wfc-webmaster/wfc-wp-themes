@@ -10,6 +10,10 @@ body {
     margin-top: 1rem;
 }
 
+.block img, .wp-caption {
+    max-width: 100%;
+    height: auto;
+}
 
 @media screen and (max-width: 2134px) {
 	.page-heading {
@@ -40,6 +44,12 @@ body {
 
 p.breadcrumbs span.sep {
     margin: 0 0.3rem;
+}
+
+@media screen and (max-width: 1279px) {
+	#block-bqh561ecc9868fa9 {
+		padding: 0 1rem;
+	}	
 }
 
 //Sharebar
@@ -75,7 +85,6 @@ ul#post-sharebar {
 .post-sharebar-wrapper {
     border-top: 1px dashed #dedede;
     border-bottom: 1px dashed #dedede;
-    display: inline-block;
     margin-top: 1.4rem;
     padding: 0.65rem;
     text-align: center;
@@ -86,19 +95,4 @@ figcaption.wp-caption-text {
 	color: inherit;
 	font-size: 0.85rem;
 	font-style: italic;
-}
-
-//Page navigation at bottom
-.block-type-content div.loop-navigation div.nav-previous a,
-.block-type-content div.loop-navigation div.nav-next a {
-	background-color: $wfc-orange;
-	border-radius: 0;
-	color: $wfc-white;
-	font-size: ms(0, 0.8em);
-	padding: 0.5rem 1rem;
-}
-
-.block-type-content div.loop-navigation div.nav-previous a:hover,
-.block-type-content div.loop-navigation div.nav-next a:hover {
-	background-color: $wfc-orange;
 }

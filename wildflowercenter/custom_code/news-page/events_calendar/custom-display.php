@@ -1,5 +1,5 @@
-<div id="news-events-container" class="events-list-container">
-    <div class="events-heading">
+<div id="news-events-container" class="sidebar-list-container sidebar-container">
+    <div class="sidebar-list-heading">
         <h6>Upcoming Events</h6>
         <p><em>What's happening at the Wildflower Center</em></p>
     </div>
@@ -49,6 +49,6 @@
         // the_content();
     }
     ?>
-    <div id="events-all"><a href="../events">View All Events</a></div>
+    <div id="events-all"><a class="sidebar-button" href="../events">View All Events</a></div>
     </div>
 </div>

@@ -41,6 +41,12 @@ function add_sharebar_to_posts() {
 add_action('headway_before_entry_content', 'add_sharebar_to_posts');
 add_action('headway_after_entry_content', 'add_sharebar_to_posts');
 
+function insert_post_nav_script() {
+	if (is_single() ) {
+		echo '<script type="text/javascript" src="http://localhost:8888/wildflower_2/wordpress/wp-content/themes/wildflowercenter/js/postNav.min.js"></script>';
+	}
+}
 
+add_action('wp_footer', 'insert_post_nav_script');
 
 ?>
