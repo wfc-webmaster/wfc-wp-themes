@@ -4,45 +4,6 @@ News Page
 =========
 */
 
-//Section Head
-
-#news-page-top {
-	h1 {
-		display: table;
-		float: left;
-	}
-}
-
-
-.social-media-container {
- 
-    display: table;
-    float: right;
-    font-size: 1.2rem;
-
-    ul {
-        display: inline-flex;
-        margin: 1rem 0;
-    }
-
-    li {
-        margin-right: 0.5rem;
-    }
-}
-
-@media screen and (max-width: 1024px) {
-    #news-page-top {
-        h1 {
-            margin-bottom: 0;
-        }
-    }
-    
-    .social-media-container {
-        clear: both;
-        float: left;
-    }
-}
-
 //Magazine Section
 
 .magazine-current-issue {
@@ -132,10 +93,6 @@ News Page
 @media screen and (max-width: 1279px) {
     
     div#block-b7h56096800b5f2d {
-        padding: 0 1.5rem;
-    }
-
-    .mobile-padding {
         padding: 0 1.5rem;
     }
 }

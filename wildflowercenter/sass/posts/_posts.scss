@@ -97,7 +97,6 @@ div#block-bd95602e14f9daef {
 .post-categories li a {
 		color: inherit;
 	    font-size: 0.7rem;
-	    text-decoration: none;
 	    text-transform: uppercase;
 	    font-weight: 900;
 }
@@ -186,6 +185,19 @@ div#block-b4256042f27279fb {
 	    	width: 100%;
 	    }
 	}
+}
+
+@media screen and (max-width: 900px) {
+
+	.block-type-content .type-post {
+	    padding: 0;
+	}
+
+	div#block-bd95602e14f9daef, 
+	div#block-bd95602e14f9daef article {
+    	margin-bottom: 0;
+	}
+
 }
 
 //Press release list
@@ -279,11 +291,12 @@ div.entry-summary.entry-content {
 	}
 }
 
-@media screen and (max-width: 1279px) {
-	#block-bcx561c1fb443d1b {
-		padding-left: 1rem;
+@media screen and (max-width: 900px) {
+	#wrapper-w69561c1fb440403 .row-3 .column {
+	    width: 100%;
 	}
 }
+
 
 //Single Posts sidebar
 
@@ -316,5 +329,10 @@ li.feature-list-item:last-of-type {
     margin-bottom: 0;
 }
 
+@media screen and (max-width: 900px) {
 
+	#featured-posts-wrapper.sidebar-container.mobile-sidebar {
+		margin-top: 0;
+	}
 
+}

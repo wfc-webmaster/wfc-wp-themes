@@ -3,11 +3,19 @@ body {
 }
 
 .loop {
-	padding: 1rem 1.5rem 0;
+	padding: 1rem 0 0;
 }
+
+//Section Head
 
 .page-heading {
     margin-top: 1rem;
+
+	h1 {
+		display: table;
+		float: left;
+        font-size: 1.9rem;
+	}
 }
 
 .block img, .wp-caption {
@@ -21,15 +29,61 @@ body {
 	}
 }
 
-@media screen and (max-width: 1279px) {
-	.page-heading {
-		padding: 0 1rem;
-	}
-}
-
 @media screen and (max-width: 1024px) {
 	.page-heading {
 	    margin-top: 8rem;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	.page-heading-mobile {
+	    border-bottom: 1px solid $wfc-lightgray;
+	    display: inline-block;
+	    padding-bottom: 1rem;
+	    width: 100%;
+	}
+}
+
+//Social media buttons at top of page
+.social-media-container {
+ 
+    display: table;
+    float: right;
+    font-size: 1.2rem;
+
+    ul {
+        display: inline-flex;
+        margin: 1rem 0;
+    }
+
+    li {
+        margin-right: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #news-page-top {
+        h1 {
+            margin-bottom: 0;
+        }
+    }
+    
+    .social-media-container {
+        clear: both;
+        float: left;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .social-media-container {
+        display: none;
+    }
+}
+
+//Padding class for mobile screens
+@media screen and (max-width: 1180px) {
+	.mobile-padding {
+		padding: 0 1.5rem;
 	}
 }
 
@@ -44,12 +98,6 @@ body {
 
 p.breadcrumbs span.sep {
     margin: 0 0.3rem;
-}
-
-@media screen and (max-width: 1279px) {
-	#block-bqh561ecc9868fa9 {
-		padding: 0 1rem;
-	}	
 }
 
 //Sharebar
@@ -89,6 +137,16 @@ ul#post-sharebar {
     padding: 0.65rem;
     text-align: center;
 }
+
+@media screen and (max-width: 535px) {
+    .social-media-name {
+    	display: none;
+    }
+    ul#post-sharebar i {
+    	font-size: 1.25rem;
+    }
+}
+
 
 //Captions
 figcaption.wp-caption-text {
