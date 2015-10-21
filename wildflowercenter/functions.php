@@ -21,7 +21,8 @@ function insert_tumblr_script() {
 }
 
 function add_sharebar_to_posts() {
-	if ( is_single() && !is_single('0') ) {		
+	//if ( is_single() && !is_single('0') ) {		
+	if ( is_singular('post') ) {		
 		add_action('wp_footer', 'insert_tumblr_script');
 	?>
 	<div class="post-sharebar-wrapper">
@@ -42,7 +43,8 @@ add_action('headway_before_entry_content', 'add_sharebar_to_posts');
 add_action('headway_after_entry_content', 'add_sharebar_to_posts');
 
 function insert_post_nav_script() {
-	if (is_single() && !is_single('0') ) {
+	//if (is_single() && !is_single('0') ) {
+	if (is_singular('post') ) {
 		echo '<script type="text/javascript" src="http://localhost:8888/wildflower_2/wordpress/wp-content/themes/wildflowercenter/js/postNav.min.js"></script>';
 	}
 }
