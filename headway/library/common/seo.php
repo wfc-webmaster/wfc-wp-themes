@@ -18,7 +18,14 @@ class HeadwaySEO {
 		
 	}
 	
-	
+
+	public static function is_disabled() {
+
+		return apply_filters('headway_seo_disabled', self::plugin_active());
+
+	}
+
+
 	public static function plugin_active() {
 	
 		if ( defined('WPSEO_VERSION') )
@@ -40,7 +47,7 @@ class HeadwaySEO {
 		if ( is_feed() )
 			return null;
 				
-		if ( self::plugin_active() )
+		if ( self::is_disabled() )
 			return $title;
 		
 		$seo_templates_query = HeadwayOption::get('seo-templates', 'general', self::output_layouts_and_defaults());
@@ -67,7 +74,7 @@ class HeadwaySEO {
 	
 	public static function output_meta() {
 		
-		if ( self::plugin_active() ) 
+		if ( self::is_disabled() )
 			return false;
 
 		$meta = '';

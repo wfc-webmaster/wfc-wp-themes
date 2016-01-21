@@ -155,8 +155,17 @@ class HeadwayBlocksData {
 					$instances_to_delete[$element_id] = $element_id . '-block-' . $block_id;
 
 			/* Delete the instances now */
-				foreach ( $instances_to_delete as $element_id => $instance_id )
-					HeadwayElementsData::delete_special_element_properties('blocks', $element_id, 'instance', $instance_id);
+				$batch_data = array();
+
+				foreach ( $instances_to_delete as $element_id => $instance_id ) {
+					$batch_data[] = array(
+						'element_id' => $element_id,
+						'special_element_type' => 'instance',
+						'special_element_meta' => $instance_id
+					);
+				}
+
+				HeadwayElementsData::batch_delete_special_element_properties($batch_data);
 
 		}
 	

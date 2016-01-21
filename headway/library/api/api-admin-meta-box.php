@@ -221,6 +221,10 @@ abstract class HeadwayAdminMetaBoxAPI {
 				$global = $input == 'template' ? false : true;
 				
 				HeadwayLayoutOption::set($post_ID, $input, $value, $global, $group);
+
+				if ( $input == 'template' ) {
+					HeadwayLayout::clear_status_transient();
+				}
 				
 			}
 		

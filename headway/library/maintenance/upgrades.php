@@ -9,7 +9,8 @@ class HeadwayMaintenance {
 		'3.7',
 		'3.7.1',
 		'3.8',
-		'3.8.2'
+		'3.8.2',
+		'3.8.6'
 	);
 
 	/**
@@ -157,6 +158,7 @@ class HeadwayMaintenance {
 
 		} else {
 
+			Headway::mysql_dbdelta();
 			HeadwayElementsData::merge_core_default_design_data();
 
 			if ( current_user_can('manage_options') ) {

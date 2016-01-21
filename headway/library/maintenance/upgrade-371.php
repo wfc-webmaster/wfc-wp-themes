@@ -28,18 +28,4 @@ function headway_do_upgrade_371() {
 
 	}
 
-	/* Alter MySQL charset and collate */
-	$charset = 'utf8';
-
-	if ( ! empty($wpdb->collate ) ) {
-		$collate = $wpdb->collate;
-	} else {
-		$collate = 'utf8_general_ci';
-	}
-
-	$wpdb->query("ALTER TABLE $wpdb->hw_blocks CONVERT TO CHARACTER SET $charset COLLATE $collate;");
-	$wpdb->query("ALTER TABLE $wpdb->hw_wrappers CONVERT TO CHARACTER SET $charset COLLATE $collate;");
-	$wpdb->query("ALTER TABLE $wpdb->hw_layout_meta CONVERT TO CHARACTER SET $charset COLLATE $collate;");
-	$wpdb->query("ALTER TABLE $wpdb->hw_snapshots CONVERT TO CHARACTER SET $charset COLLATE $collate;");
-
 }

@@ -196,6 +196,32 @@ class HeadwayElementsData {
 	}
 
 
+	public static function batch_set_special_element_properties($batch_data) {
+
+		$all_properties = HeadwaySkinOption::get('properties', 'design', array());
+
+		foreach ( $batch_data as $element_data ) {
+
+			/* Insure array exists for element that property is being set for */
+			if (!isset($all_properties[$element_data['element_id']]) || !is_array($all_properties[$element_data['element_id']]))
+				$all_properties[$element_data['element_id']] = array('special-element-' . $element_data['special_element_type'] => array(
+					$element_data['special_element_meta'] => array()
+				));
+
+			/* Set the property */
+			if ($element_data['value'] == 'null')
+				$element_data['value'] = null;
+
+			$all_properties[$element_data['element_id']]['special-element-' . $element_data['special_element_type']][$element_data['special_element_meta']][$element_data['property_id']] = $element_data['value'];
+
+		}
+
+		/* Send it back to DB */
+		return HeadwaySkinOption::set('properties', $all_properties, 'design');
+
+	}
+
+
 		public static function delete_special_element_property($element_group = null, $element_id, $special_element_type, $special_element_meta, $property_id) {
 
 			$all_properties = HeadwaySkinOption::get('properties', 'design', array());
@@ -218,6 +244,21 @@ class HeadwayElementsData {
 					unset($all_properties[$element_id]['special-element-' . $special_element_type][$special_element_meta]);
 
 			/* Send it back to DB */
+			return HeadwaySkinOption::set('properties', $all_properties, 'design');
+
+		}
+
+
+		public static function batch_delete_special_element_properties($batch_data) {
+
+			$all_properties = HeadwaySkinOption::get('properties', 'design', array());
+
+			foreach ( $batch_data as $element_data ) {
+
+				if (isset($all_properties[$element_data['element_id']]['special-element-' . $element_data['special_element_type']][$element_data['special_element_meta']]))
+					unset($all_properties[$element_data['element_id']]['special-element-' . $element_data['special_element_type']][$element_data['special_element_meta']]);
+			}
+
 			return HeadwaySkinOption::set('properties', $all_properties, 'design');
 
 		}

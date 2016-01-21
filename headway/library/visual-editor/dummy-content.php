@@ -39,11 +39,17 @@ HTML;
 
         global $wp_query;
 
+        if ( !empty($wp_query->posts) ) {
+            return false;
+        }
+
         $layout_fragments = explode(HeadwayLayout::$sep, HeadwayLayout::get_current());
 
         if ( count($layout_fragments) > 2 ) {
             return false;
         }
+
+        add_filter('old_slug_redirect_url', '__return_false', 12);
 
         switch ( $layout_fragments[0] ) {
 

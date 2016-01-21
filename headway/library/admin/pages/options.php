@@ -152,7 +152,7 @@
 		<div class="big-tab" id="tab-seo-content">
 										
 			<?php
-			if ( HeadwaySEO::plugin_active() ) {
+			if ( HeadwaySEO::is_disabled() ) {
 
 				switch ( HeadwaySEO::plugin_active() ) {
 
@@ -163,6 +163,10 @@
 					case 'wpseo':
 						echo '<div class="alert alert-yellow"><p>Headway has detected that you are using Yoast\'s WordPress SEO plugin.  In order to reduce conflicts and save resources, Headway\'s SEO functionality has been disabled.</p></div>';
 					break;
+
+					default:
+						echo '<div class="alert alert-yellow"><p>Headway\'s SEO functionality is disabled.</p></div>';
+						break;
 
 				}
 
@@ -449,19 +453,6 @@
 						)
 					),
 					'description' => 'If you ever feel that the tooltips are too invasive in the visual editor, you can disable them here.  Tooltips are the black speech bubbles that appear to assist you when you are not sure what an option is or how it works.'
-				),
-				
-				array(
-					'type' => 'checkbox',
-					'label' => 'Grid Safe Mode',
-					'checkboxes' => array(
-						array(
-							'id' => 'grid-safe-mode',
-							'label' => 'Enable Grid Safe Mode',
-							'checked' => HeadwayOption::get('grid-safe-mode', false, false)
-						)
-					),
-					'description' => 'Under certain circumstances the Visual Editor may not load due to problematic HTML, JavaScript, or CSS in a block or multiple blocks.  Enable Grid Safe Mode if you are unable to access the Visual Editor.'
 				)
 			);
 		

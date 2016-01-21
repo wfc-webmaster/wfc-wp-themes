@@ -257,6 +257,7 @@
 
 			$.each(HWStickyWrappers, function (selector, options) {
 
+				options['bottoming'] = false;
 				options['offset_top'] = typeof options['offset_top'] != 'undefined' ? wpAdminBarOffset + parseInt(options['offset_top']) : wpAdminBarOffset;
 				options['offset_top'] -= parseInt($(selector).css('marginTop').replace('px', ''));
 				

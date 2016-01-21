@@ -1,13 +1,29 @@
 <?php 
 
+//Enable jQuery
 wp_enqueue_script('jquery');
 remove_filter( 'the_content', 'wpautop' );
 
+//Remove default Headway styling
 function remove_content_styling() {
   remove_theme_support('headway-content-styling-css');
 }
 add_action('headway_setup_child_theme', 'remove_content_styling');
 
+//Register menus menu
+function register_my_menus() {
+	register_nav_menus(
+		array(
+			'wfc-main-nav' => __( 'WFC Main Nav' ),
+			'wfc-sub-nav' => __( 'WFC Sub Nav' ),
+			'wfc-main-nav-mobile' => __( 'WFC Main Nav - Mobile' ),
+			'wfc-sub-nav-mobile' => __( 'WFC Sub Nav - Mobile' )
+		)
+	);
+}
+add_action( 'init', 'register_my_menus' );
+
+//Add categories above titles
 function add_categories_above_title() {
 	?>
 	<div class="post-category"><?php the_category(); ?></div>
@@ -16,6 +32,7 @@ function add_categories_above_title() {
 
 add_action('headway_before_entry_title', 'add_categories_above_title');
 
+//Add social media share bar to single posts
 function insert_tumblr_script() {
 	echo '<script type="text/javascript" src="http://platform.tumblr.com/v1/share.js"></script>';
 }

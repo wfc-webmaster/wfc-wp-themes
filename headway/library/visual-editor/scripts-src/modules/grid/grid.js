@@ -11,8 +11,8 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 		options: {
 			useIndependentGrid: false,
 			columns: Headway.defaultGridColumnCount,
-			columnWidth: Headway.defaultGridColumnWidth,
-			gutterWidth: Headway.defaultGridGutterWidth,
+			columnWidth: Headway.globalGridColumnWidth,
+			gutterWidth: Headway.globalGridGutterWidth,
 			yGridInterval: 5,
 			minBlockHeight: 10,
 			selectedBlocksContainerClass: 'selected-blocks-container',
@@ -29,16 +29,11 @@ define(['jquery', 'helper.history', 'helper.data'], function($, history) {
 			this.document = $(this.iframe).contents();
 
 			/* Populate Grid Options from the Wrapper Settings.  This is primarily used for generating the CSS for the Grid so the right ratios and percentages can be made */
-				this.options.useIndependentGrid = this.wrapper.data('wrapper-settings')['use-independent-grid'];
+			this.options.useIndependentGrid = this.wrapper.data('wrapper-settings')['use-independent-grid'];
 
-				if ( this.wrapper.data('wrapper-settings')['columns'] )
-					this.options.columns = this.wrapper.data('wrapper-settings')['columns'];
-
-				if ( this.wrapper.data('wrapper-settings')['column-width'] )
-					this.options.columnWidth = this.wrapper.data('wrapper-settings')['column-width'];
-
-				if ( this.wrapper.data('wrapper-settings')['gutter-width'] )
-					this.options.gutterWidth = this.wrapper.data('wrapper-settings')['gutter-width'];
+			this.options.columns = this.wrapper.data('wrapper-settings')['columns'] ? this.wrapper.data('wrapper-settings')['columns'] : Headway.defaultGridColumnCount;
+			this.options.columnWidth = this.wrapper.data('wrapper-settings')['column-width'] ? this.wrapper.data('wrapper-settings')['column-width'] : Headway.globalGridColumnWidth;
+			this.options.gutterWidth = this.wrapper.data('wrapper-settings')['gutter-width'] ? this.wrapper.data('wrapper-settings')['gutter-width'] : Headway.globalGridGutterWidth;
 
 			this.addColumnGuides();
 

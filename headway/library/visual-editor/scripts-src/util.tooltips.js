@@ -8,6 +8,7 @@ define(['jquery', 'qtip'], function($) {
 		if ( Headway.disableTooltips == 1 || Headway.touch ) {
 			
 			$('div.tooltip-button').hide();
+			$('*').removeAttr('title');
 			
 			return false;
 			

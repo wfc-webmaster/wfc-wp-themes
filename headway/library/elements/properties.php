@@ -674,7 +674,7 @@ class HeadwayElementProperties {
 			foreach ( $properties as $property_id => $value ) {
 			
 				//If the value is an empty string, false, or null, don't attempt to put anything.
-				if ( (!isset($value) || $value === '' || $value === false || $value === null || $value === 'null') && ($value !== '0' && $value !== 0) )
+				if ( (!isset($value) || $value === '' || $value === false || $value === null || $value === 'null' || $value === 'DELETE') && ($value !== '0' && $value !== 0) )
 					continue;
 			
 				//Look up the property to figure out how to handle it

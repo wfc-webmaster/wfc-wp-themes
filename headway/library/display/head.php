@@ -8,9 +8,13 @@ class HeadwayHead {
 		
 		if ( !HeadwayRoute::is_display() )
 			return false;
-		
-		add_filter('wp_title', array('HeadwaySEO', 'output_title'));
-		
+
+		if ( function_exists('wp_get_document_title') ) {
+			add_filter('pre_get_document_title', array('HeadwaySEO', 'output_title'));
+		} else {
+			add_filter('wp_title', array('HeadwaySEO', 'output_title'));
+		}
+
 		//Remove actions
 		remove_action('wp_head', 'wp_print_styles', 8);
 		remove_action('wp_head', 'wp_print_head_scripts', 9);

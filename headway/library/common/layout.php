@@ -562,7 +562,11 @@ class HeadwayLayout {
 
 					$taxonomy_object = get_taxonomy( $taxonomy_slug );
 
-					$name_prefix .= $taxonomy_object->labels->singular_name . ' &rsaquo; ';
+					if ( $taxonomy_object ) {
+						$name_prefix .= $taxonomy_object->labels->singular_name . ' &rsaquo; ';
+					} else {
+						$name_prefix .= $taxonomy_slug  . ' (Invalid Taxonomy) &rsaquo; ';
+					}
 
 				}
 

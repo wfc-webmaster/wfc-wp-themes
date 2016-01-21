@@ -1176,7 +1176,26 @@ class HeadwayContentBlockOptions extends HeadwayBlockOptionsAPI {
 			return;
 			
 		}
-		
+
+		if ( class_exists('SWP_Query') ) {
+
+			$this->inputs['display']['swp-heading'] = array(
+					'name'  => 'swp-heading',
+					'type'  => 'heading',
+					'label' => 'SearchWP'
+			);
+
+			$this->inputs['display']['swp-engine'] = array(
+				'type'    => 'select',
+				'name'    => 'swp-engine',
+				'label'   => 'SearchWP Engine',
+				'options' => 'get_swp_engines()',
+				'tooltip' => 'If you wish to display the results of a supplemented SearchWP engine, please select the engine here.',
+				'default' => ''
+			);
+
+		}
+
 		$this->inputs['meta']['date-format']['options'] = array(
 			'wordpress-default' => 'WordPress Default',
 			'F j, Y' => date('F j, Y'),
@@ -1297,8 +1316,37 @@ class HeadwayContentBlockOptions extends HeadwayBlockOptionsAPI {
 		return get_post_stati();
 		
 	}
-	
-	
+
+
+	function get_swp_engines() {
+
+		$options = array('&ndash; Select an Engine &ndash;');
+
+		if ( !function_exists('SWP') ) {
+			return $options;
+		}
+
+		$searchwp = SWP();
+
+		if ( !is_array( $searchwp->settings['engines']) ) {
+			return $options;
+		}
+
+		foreach ( $searchwp->settings['engines'] as $engine => $engine_settings ) {
+
+			if ( empty( $engine_settings['searchwp_engine_label'] ) ) {
+				continue;
+			}
+
+			$options[$engine] = $engine_settings['searchwp_engine_label'];
+
+		}
+
+		return $options;
+
+	}
+
+
 	function get_loopbuddy_queries() {
 		
 		$loopbuddy_options = get_option('pluginbuddy_loopbuddy');
@@ -1316,7 +1364,7 @@ class HeadwayContentBlockOptions extends HeadwayBlockOptionsAPI {
 		return $queries;
 		
 	}
-	
+
 	
 	function get_loopbuddy_layouts() {
 		

@@ -375,7 +375,39 @@ function headway_upgrade_37_upgrade_blocks_and_layout_options() {
 
 					$block['template'] = $template;
 
-					$wrapper = headway_get( HeadwayWrappers::format_wrapper_id( headway_get('wrapper', $block) ), headway_get($template, $upgraded_wrappers, array()) );
+					$original_wrapper_id = headway_get('wrapper', $block, 'default');
+
+					$wrapper = headway_get( HeadwayWrappers::format_wrapper_id( $original_wrapper_id ), headway_get($template, $upgraded_wrappers, array()) );
+
+					if ( !$wrapper ) {
+
+						$default_wrapper = HeadwayWrappersData::add_wrapper(HeadwayLayout::format_old_id( $template_layout_id ), array(
+							'columns' => HeadwayWrappers::$default_columns,
+							'column-width' => HeadwayWrappers::$default_column_width,
+							'gutter-width' => HeadwayWrappers::$default_gutter_width,
+							'use-independent-grid' => false,
+							'fluid' => false,
+							'fluid-grid' => false,
+							'position' => 1,
+							'template' => $template
+						));
+
+						$upgraded_wrappers = get_option('hw_37_upgrade_wrappers', array());
+
+						if ( empty($upgraded_wrappers[$template]) || !is_array($upgraded_wrappers[$template]) ) {
+							$upgraded_wrappers[$template] = array();
+						}
+
+						$upgraded_wrappers[$template]['default'] = array(
+							'id'             => $default_wrapper,
+							'mirror-wrapper' => headway_get('mirror-wrapper', $default_wrapper)
+						);
+
+						update_option('hw_37_upgrade_wrappers', $upgraded_wrappers);
+
+						$wrapper = $upgraded_wrappers[$template]['default'];
+
+					}
 
 					if ( !isset($wrapper['id']) )
 						$wrapper = $wrapper[0];

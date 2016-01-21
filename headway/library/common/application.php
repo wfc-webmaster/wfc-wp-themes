@@ -26,7 +26,7 @@ class Headway {
 				
 		/* Define simple constants */
 		define('THEME_FRAMEWORK', 'headway');
-		define('HEADWAY_VERSION', '3.8.3');
+		define('HEADWAY_VERSION', '3.8.6');
 
 		/* Define directories */
 		define('HEADWAY_DIR', headway_change_to_unix_path(TEMPLATEPATH));
@@ -258,8 +258,13 @@ class Headway {
 			}
 			
 		/* If the version in the database is already up to date, then there are no upgrade functions to be ran. */
-		if ( version_compare($db_version, HEADWAY_VERSION, '>=') )
+		if ( version_compare($db_version, HEADWAY_VERSION, '>=') ) {
+			if ( get_option('headway_upgrading') ) {
+				delete_option('headway_upgrading');
+			}
+
 			return false;
+		}
 
 		Headway::load('maintenance/upgrades');
 

@@ -40,17 +40,31 @@ class HeadwaySearchBlock extends HeadwayBlockAPI {
 
 	function content($block) {
 
-		$search_query = get_search_query();
+		$swp_engine = $this->get_setting( $block, 'swp-engine' );
+
+		if ( $swp_engine && function_exists('SWP') ) {
+
+			$search_query = isset( $_REQUEST[ 'swpquery_' . $swp_engine ] ) ? sanitize_text_field( $_REQUEST[ 'swpquery_' . $swp_engine ] ) : '';
+			$action = get_permalink();
+			$input_name = 'swpquery_' . $swp_engine;
+
+		} else {
+			$search_query = get_search_query();
+			$action = home_url( '/' );
+			$input_name = 's';
+
+		}
 
 		$button_hidden_class = parent::get_setting( $block, 'show-button', true ) ? 'search-button-visible' : 'search-button-hidden';
 
-		echo '<form method="get" id="searchform-' . $block['id'] . '" class="search-form ' . $button_hidden_class . '" action="' . esc_url(home_url('/')) . '">' . "\n";
+		echo '<form method="get" id="searchform-' . $block['id'] . '" class="search-form ' . $button_hidden_class . '" action="' . esc_html( $action ) . '">' . "\n";
 
 			if ( parent::get_setting( $block, 'show-button', true ) ) {
 				echo '<input type="submit" class="submit" name="submit" id="searchsubmit-' . $block['id'] . '" value="' . esc_attr( parent::get_setting( $block, 'search-button', 'Search' ) ) . '" />' . "\n";
 			}
 
-			printf('<div><input id="search-' . $block['id'] . '" class="field" type="text" name="s" value="%1$s" placeholder="%2$s" /></div>' . "\n",
+			printf('<div><input id="search-' . $block['id'] . '" class="field" type="text" name="%1$s" value="%2$s" placeholder="%3$s" /></div>' . "\n",
+				$input_name,
 				$search_query ? esc_attr($search_query) : '',
 				esc_attr(parent::get_setting($block, 'search-placeholder', 'Enter search term and hit enter.'))
 			);
@@ -102,5 +116,51 @@ class HeadwaySearchBlockOptions extends HeadwayBlockOptionsAPI {
 			)
 		)
 	);
+
+	public function modify_arguments( $args ) {
+
+		if ( class_exists( 'SWP_Query' ) ) {
+
+			$this->inputs['general']['swp-engine'] = array(
+					'type'    => 'select',
+					'name'    => 'swp-engine',
+					'label'   => 'SearchWP Engine',
+					'options' => 'get_swp_engines()',
+					'tooltip' => 'If you wish to display the results of a supplemented SearchWP engine, please select the engine here.',
+					'default' => ''
+			);
+
+		}
+
+	}
+
+	function get_swp_engines() {
+
+		$options = array( '&ndash; Select an Engine &ndash;' );
+
+		if ( ! function_exists( 'SWP' ) ) {
+			return $options;
+		}
+
+		$searchwp = SWP();
+
+		if ( ! is_array( $searchwp->settings['engines'] ) ) {
+			return $options;
+		}
+
+		foreach ( $searchwp->settings['engines'] as $engine => $engine_settings ) {
+
+			if ( empty( $engine_settings['searchwp_engine_label'] ) ) {
+				continue;
+			}
+
+			$options[ $engine ] = $engine_settings['searchwp_engine_label'];
+
+		}
+
+		return $options;
+
+	}
+
 
 }

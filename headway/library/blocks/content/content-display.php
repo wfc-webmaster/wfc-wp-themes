@@ -122,30 +122,67 @@ class HeadwayContentBlockDisplay {
 			
 			if ($this->get_setting('show-entry', true) || $this->get_setting('comments-visibility') != "hide" ) {
 
-				echo '<div class="loop">';	
+				echo '<div class="loop">';
 
-				if ( !$this->query->have_posts() && is_search() && $this->get_setting('mode', 'default') == 'default') {
-					
-					
+				if ( is_a( $this->query, 'SWP_Query' ) ) {
+
+					$swp_engine = $this->get_setting( 'swp-engine' );
+					$swp_search  = isset( $_REQUEST[ 'swpquery_' . $swp_engine ] ) ? sanitize_text_field( $_REQUEST[ 'swpquery_' . $swp_engine ] ) : '';
+
+					$have_posts = ! empty( $swp_search ) && ! empty( $this->query->posts );
+
+				} else if ( is_a($this->query, 'WP_Query') ) {
+
+					$have_posts = $this->query->have_posts();
+
+				} else {
+
+					$have_posts = false;
+
+				}
+
+				if ( !$have_posts && ( is_a( $this->query, 'SWP_Query' ) || ( is_search() && $this->get_setting( 'mode', 'default' ) == 'default' ) ) ) {
 
 					echo '<div class="entry-content">';
 						echo apply_filters('headway_search_no_results', __('<p>Sorry, there was no content that matched your search.</p>', 'headway'));
 					echo '</div>';
-				
 					
 				}
-			
-				while ( $this->query->have_posts() ) {
-				
-					$this->query->the_post();
-					
-					$this->count++;
 
-					$this->possible_row_open();
-		
-					$this->display_entry(array('count' => $this->count));
+				if ( is_a( $this->query, 'SWP_Query' ) ) {
 
-					$this->possible_row_close();
+					foreach ( $this->query->posts as $swp_post ) {
+
+						setup_postdata($swp_post);
+						$GLOBALS['post'] = $swp_post;
+
+						$this->count ++;
+
+						$this->possible_row_open();
+
+						$this->display_entry( array( 'count' => $this->count ) );
+
+						$this->possible_row_close();
+
+					}
+
+					wp_reset_postdata();
+
+				} else {
+
+					while ( $this->query->have_posts() ) {
+
+						$this->query->the_post();
+
+						$this->count ++;
+
+						$this->possible_row_open();
+
+						$this->display_entry( array( 'count' => $this->count ) );
+
+						$this->possible_row_close();
+
+					}
 				
 				}
 									
@@ -205,15 +242,33 @@ class HeadwayContentBlockDisplay {
 	
 	function show_query_title() {
 
-		/* Stop this function if it's a custom query, index, front page, or singular. */
-		if (( $this->get_setting('mode', 'default') != 'default' || is_home() || is_front_page() || is_singular() || get_post_type() == 'forum' )  || (is_archive() && !$this->get_setting('show-archive-title', true)))
+
+		if ( is_a( $this->query, 'SWP_Query' ) ) {
+
+			$searchwp = SWP();
+
+			$swp_engine = $this->get_setting( 'swp-engine' );
+			$swp_engine_info = $searchwp->settings['engines'][$swp_engine];
+			$swp_search = isset( $_REQUEST[ 'swpquery_' . $swp_engine ] ) ? sanitize_text_field( $_REQUEST[ 'swpquery_' . $swp_engine ] ) : '';
+
+			$return = '<h1 class="archive-title search-title">';
+			$return .= apply_filters( 'headway_search_title', sprintf( __( $swp_engine_info['searchwp_engine_label'] . ' Results for: %s', 'headway' ), '<span>' . $swp_search . '</span>' ) );
+			$return .= '</h1>';
+
+			echo apply_filters( 'headway_query_title', $return );
 			return;
-			
+
+		}
+
+		/* Stop this function if it's a custom query, index, front page, or singular. */
+		if (( $this->get_setting('mode', 'default') != 'default' || is_home() || is_front_page() || is_singular() || get_post_type() == 'forum' )  || (is_archive() && !$this->get_setting('show-archive-title', true))) {
+			return;
+		}
+
 		$queried_object = get_queried_object();
 			
-		$return = '';	
+		$return = '';
 
-				
 		/* Date Archives */
 		if ( is_date() ) {
 		
@@ -274,7 +329,7 @@ class HeadwayContentBlockDisplay {
 			$return .= '</h1>';
 			
 		}
-		
+
 		/* Tag Archives */
 		else if ( is_tag() ) {
 			
@@ -319,7 +374,27 @@ class HeadwayContentBlockDisplay {
 	
 	
 	function setup_query() {
-				
+
+		if ( $this->get_setting( 'swp-engine' ) && class_exists( 'SWP_Query' ) ) {
+
+			/* Setup Query Options */
+			$swp_query_options = array(
+				'engine' => $this->get_setting( 'swp-engine' )
+			);
+
+			$swp_engine = $swp_query_options['engine'];
+
+			$swp_query_options['page'] = isset( $_REQUEST[ 'swppg_' . $swp_engine ] ) ? absint( $_REQUEST[ 'swppg_' . $swp_engine ] ) : 1;
+			$swp_query_options['s']    = isset( $_REQUEST[ 'swpquery_' . $swp_engine ] ) ? sanitize_text_field( $_REQUEST[ 'swpquery_' . $swp_engine ] ) : '';
+
+			if ( $swp_query_options['s'] ) {
+				$this->query = new SWP_Query( $swp_query_options );
+
+				return;
+			}
+
+		}
+
 		if ( $this->get_setting('mode', 'default') == 'default' ) {
 
 			if ( headway_post( 'wpQueryVars' ) && is_array( headway_post( 'wpQueryVars' ) ) ) {
@@ -390,10 +465,9 @@ class HeadwayContentBlockDisplay {
 				}
 
 			} //End else conditional for either page fetching or custom query filters
-			
-			//Initiate query instance
+
 			$this->query = new WP_Query($query_options);
-			
+
 		}
 		
 	}
@@ -409,7 +483,7 @@ class HeadwayContentBlockDisplay {
 		);
 		
 		$args = array_merge($defaults, $args);
-		
+
 		if ( $this->get_setting('show-entry', true) ) {
 
 			/* Setup generic variables */
@@ -458,7 +532,7 @@ class HeadwayContentBlockDisplay {
 					$title_tag = 'h2';
 				
 				/* If the post is singular or the post type is a page being displayed through content fetching, don't put a link in the title. */
-				if (( is_singular() && $this->get_setting('mode', 'default') != 'custom-query' ) || !$this->get_setting('link-titles', true))
+				if ( ( ( is_singular() && $this->get_setting('mode', 'default') != 'custom-query' ) || !$this->get_setting('link-titles', true) ) && !is_a( $this->query, 'SWP_Query' ) )
 					$post_title_link = $post_title;	
 				else
 					$post_title_link = '<a href="' . $post_permalink . '" title="' . $post_title_tooltip . '" rel="bookmark">' . $post_title . '</a>';	
@@ -557,7 +631,7 @@ class HeadwayContentBlockDisplay {
 				
 				$show_excerpts = true;
 			
-			} elseif ( is_search() || $this->paged > 1 ) {
+			} elseif ( is_a( $this->query, 'SWP_Query' ) || is_search() || $this->paged > 1 ) {
 				
 				$show_excerpts = true;
 				
@@ -731,7 +805,19 @@ class HeadwayContentBlockDisplay {
 		echo '<div id="nav-' . $position . '" class="loop-navigation loop-utility loop-utility-' . $position . '" itemscope itemtype="http://schema.org/SiteNavigationElement">';
 			
 			/* If wp_pagenavi() plugin is activated, just use it. */
-			if ( function_exists('wp_pagenavi') ) {
+			if ( is_a($this->query, 'SWP_Query') ) {
+
+				$swp_engine = $this->get_setting('swp-engine');
+
+				$swp_pagination = paginate_links( array(
+						'format'  => '?swppg_' . $swp_engine . '=%#%',
+						'current' => isset( $_REQUEST[ 'swppg_' . $swp_engine ] ) ? absint( $_REQUEST[ 'swppg_' . $swp_engine ] ) : 1,
+						'total'   => $this->query->max_num_pages
+				) );
+
+				echo $swp_pagination;
+
+			} else if ( function_exists('wp_pagenavi') ) {
 				
 				wp_pagenavi();
 				

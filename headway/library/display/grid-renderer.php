@@ -47,12 +47,12 @@ class HeadwayGridRenderer {
 	
 		private function uasort_blocks_by_top_to_left($a, $b) {
 			
-			if ( is_array($a) && is_string(reset($a)) )
-				$a = reset($a);
+			if ( is_array($a) && is_string(array_chunk($a, 1, 1)) )
+				$a = array_chunk($a, 1, 1);
 				
-			if ( is_array($b) && is_string(reset($b)) )
-				$b = reset($b);
-				
+			if ( is_array($b) && is_string(array_chunk($b, 1, 1)) )
+				$b = array_chunk($b, 1, 1);
+
 			if ( is_string($a) )
 				$a = $this->blocks[$a];
 				

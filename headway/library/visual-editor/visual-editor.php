@@ -489,6 +489,8 @@ class HeadwayVisualEditor {
 					if ( !is_array($element_data) )
 						continue;
 
+					$batch_special_element_data = array();
+
 					//Dispatch depending on type of element data
 					foreach ( $element_data as $element_data_node => $element_data_node_data ) {
 
@@ -532,17 +534,26 @@ class HeadwayVisualEditor {
 
 								//Set the special element properties now
 								foreach ( $special_element_properties as $special_element_property => $special_element_property_value ) {
-									HeadwayElementsData::set_special_element_property(null, $element_id, $special_element_type, $special_element, $special_element_property, $special_element_property_value);
+									$batch_special_element_data[] = array(
+										'element_id' => $element_id,
+										'special_element_type' => $special_element_type,
+										'special_element_meta' => $special_element,
+										'property_id' => $special_element_property,
+										'value' => $special_element_property_value
+									);
 
 									if ( headway_get('js-property', $design_editor_properties[$special_element_property] ) ) {
 										HeadwayElementsData::set_js_property($element_id . '||' . $special_element_type . '||' . $special_element, $special_element_property, $special_element_property_value);
 									}
 								}
+
 							}
 
 						}
 
 					}
+
+					HeadwayElementsData::batch_set_special_element_properties($batch_special_element_data);
 
 				}
 				/* End loop */

@@ -196,6 +196,7 @@ class HeadwayWrapperOptions extends HeadwayVisualEditorPanelAPI {
 		'config' => array(
 			'mirror-wrapper' => array(
 				'type' => 'select',
+				'chosen' => true,
 				'name' => 'mirror-wrapper',
 				'label' => 'Mirror Blocks From Another Wrapper',
 				'default' => '',
@@ -410,6 +411,9 @@ class HeadwayWrapperOptions extends HeadwayVisualEditorPanelAPI {
 			if ( HeadwayWrappersData::is_wrapper_mirrored($wrapper) )
 				continue;
 
+			if ( isset($this->wrapper['id']) && $this->wrapper['id'] && $wrapper_id == $this->wrapper['id'] )
+				continue;
+
 			$current_layout_suffix = ( $this->wrapper['layout'] == $wrapper['layout'] ) ? ' (Warning: Same Layout)' : null;
 			$wrapper_alias = headway_get('alias', $wrapper['settings']) ? ' &ndash; ' . headway_get('alias', $wrapper['settings']) : null;
 
@@ -422,10 +426,14 @@ class HeadwayWrapperOptions extends HeadwayVisualEditorPanelAPI {
 			if ( headway_fix_data_type($wrapper['settings']['fluid-grid']) )
 				$wrapper_info[] = 'Fluid Grid';
 
-			$wrapper_info_str = $wrapper_info ? ' (' . implode( ', ', $wrapper_info ) . ')' : '';
+			$wrapper_info_str = $wrapper_info ? ' &ndash; (' . implode( ', ', $wrapper_info ) . ')' : '';
+
+			if ( ! isset( $options[ $layout_name ] ) ) {
+				$options[ $layout_name ] = array();
+			}
 			
 			//Get alias if it exists, otherwise use the default name
-			$options[$wrapper_id] = 'Wrapper' . $wrapper_alias . ' &ndash; ' . $layout_name . $wrapper_info_str  . $current_layout_suffix;
+			$options[$layout_name][$wrapper_id] = 'Wrapper' . $wrapper_alias . $wrapper_info_str  . $current_layout_suffix;
 			
 		}
 

@@ -1,14 +1,14 @@
-# Copyright (C) 2015 Headway Themes
+# Copyright (C) 2016 Headway Themes
 # This file is distributed under the Terms of Service.
 msgid ""
 msgstr ""
-"Project-Id-Version: Headway Base 3.8.3\n"
+"Project-Id-Version: Headway Base 3.8.6\n"
 "Report-Msgid-Bugs-To: http://support.headwaythemes.com\n"
-"POT-Creation-Date: 2015-07-08 03:55:54+00:00\n"
+"POT-Creation-Date: 2016-01-15 23:57:37+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Headway Themes\n"
 "Language-Team: Headway Themes\n"
 "X-Generator: grunt-wp-i18n 0.4.9\n"
@@ -159,90 +159,90 @@ msgid ""
 "comments."
 msgstr ""
 
-#: library/blocks/content/content-display.php:132
+#: library/blocks/content/content-display.php:147
 #: library/blocks/listings/content-display.php:69
 msgid "<p>Sorry, there was no content that matched your search.</p>"
 msgstr ""
 
-#: library/blocks/content/content-display.php:223
+#: library/blocks/content/content-display.php:278
 msgid "Daily Archives: %s"
 msgstr ""
 
-#: library/blocks/content/content-display.php:226
+#: library/blocks/content/content-display.php:281
 msgid "Monthly Archives: %s"
 msgstr ""
 
-#: library/blocks/content/content-display.php:229
+#: library/blocks/content/content-display.php:284
 msgid "Yearly Archives: %s"
 msgstr ""
 
-#: library/blocks/content/content-display.php:232
+#: library/blocks/content/content-display.php:287
 msgid "Blog Archives"
 msgstr ""
 
-#: library/blocks/content/content-display.php:242
+#: library/blocks/content/content-display.php:297
 msgid "Category Archives: %s"
 msgstr ""
 
-#: library/blocks/content/content-display.php:260
-#: library/blocks/content/content-display.php:263
+#: library/blocks/content/content-display.php:315
+#: library/blocks/content/content-display.php:318
 msgid "Author Archives: %s"
 msgstr ""
 
-#: library/blocks/content/content-display.php:273
+#: library/blocks/content/content-display.php:328
 msgid "Search Results for: %s"
 msgstr ""
 
-#: library/blocks/content/content-display.php:282
+#: library/blocks/content/content-display.php:337
 msgid "Tag Archives: %s"
 msgstr ""
 
-#: library/blocks/content/content-display.php:450
+#: library/blocks/content/content-display.php:524
 #: library/blocks/listings/content-display.php:200
 msgid "%s"
 msgstr ""
 
-#: library/blocks/content/content-display.php:592
+#: library/blocks/content/content-display.php:666
 msgid "Pages:"
 msgstr ""
 
-#: library/blocks/content/content-display.php:629
+#: library/blocks/content/content-display.php:703
 msgid "Whoops!  Page Not Found"
 msgstr ""
 
-#: library/blocks/content/content-display.php:637
+#: library/blocks/content/content-display.php:711
 msgid ""
 "<p>Don't fret, you didn't do anything wrong.  It appears that the page you "
 "are looking for does not exist or has been moved elsewhere.</p>"
 msgstr ""
 
-#: library/blocks/content/content-display.php:639
+#: library/blocks/content/content-display.php:713
 msgid ""
 "<p>If you keep ending up here, please head back to our <a "
 "href=\"%s\">homepage</a> or try the search form below.</p>"
 msgstr ""
 
-#: library/blocks/content/content-display.php:714
+#: library/blocks/content/content-display.php:788
 msgid "Discard Reply"
 msgstr ""
 
-#: library/blocks/content/content-display.php:740
+#: library/blocks/content/content-display.php:826
 msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
 msgstr ""
 
-#: library/blocks/content/content-display.php:741
+#: library/blocks/content/content-display.php:827
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#: library/blocks/content/content-display.php:924
+#: library/blocks/content/content-display.php:1010
 msgid "%s &ndash; Comments"
 msgstr ""
 
-#: library/blocks/content/content-display.php:933
+#: library/blocks/content/content-display.php:1019
 msgid "Respond to %s"
 msgstr ""
 
-#: library/blocks/content/content-display.php:940
+#: library/blocks/content/content-display.php:1026
 msgid "View all posts by %s"
 msgstr ""
 

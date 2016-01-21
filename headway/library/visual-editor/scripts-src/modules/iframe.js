@@ -220,10 +220,6 @@ define(['jquery', 'deps/itstylesheet', 'util.saving', 'util.usability', 'util.to
 						'</div>' +
 					'</div>');
 
-
-					console.log(Headway.viewModels.layoutSelector.currentLayoutTemplate());
-
-
 					$iframeNotice.appendTo($('#iframe-container'));
 
 					$iframeNotice.on('click', '#iframe-notice-unassign-shared-layout', function () {

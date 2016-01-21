@@ -118,8 +118,9 @@ class HeadwayMetaBoxPostThumbnail extends HeadwayAdminMetaBoxAPI {
 }
 
 
-if ( !HeadwaySEO::plugin_active() )
+if ( !HeadwaySEO::is_disabled() )
 	headway_register_admin_meta_box('HeadwayMetaBoxSEO');
+
 class HeadwayMetaBoxSEO extends HeadwayAdminMetaBoxAPI {
 	
 	protected $id = 'seo';
