@@ -14,8 +14,14 @@ add_action('headway_setup_child_theme', 'remove_content_styling');
 function register_my_menus() {
 	register_nav_menus(
 		array(
+			'wfc-action-nav' => __('WFC Action Nav'),
 			'wfc-main-nav' => __( 'WFC Main Nav' ),
-			'wfc-sub-nav' => __( 'WFC Sub Nav' ),
+			'wfc-sub-nav-visit' => __( 'WFC Sub Nav - Visit' ),
+			'wfc-sub-nav-plants' => __( 'WFC Sub Nav - Plants' ),
+			'wfc-sub-nav-learn' => __( 'WFC Sub Nav - Learn' ),
+			'wfc-sub-nav-work' => __( 'WFC Sub Nav - Our Work' ),
+			'wfc-sub-nav-news' => __( 'WFC Sub Nav - News' ),
+			'wfc-action-nav-mobile' => __('WFC Action Nav - Mobile'),
 			'wfc-main-nav-mobile' => __( 'WFC Main Nav - Mobile' ),
 			'wfc-sub-nav-mobile' => __( 'WFC Sub Nav - Mobile' )
 		)

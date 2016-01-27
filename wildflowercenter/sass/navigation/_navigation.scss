@@ -340,32 +340,46 @@ div#post-nav-callout {
   padding: 0.35rem 0;
 }
 
+.nav-main.nav-wrapper {
+  padding: 0.35rem 0 0 0;
+}
+
 .nav-wrapper:last-child {
   background-color: $wfc-white;
 }
 
 #header-search {
   margin-left: auto;
-  padding-right: 2rem;
+  padding: 0.15rem 2rem 0 0;
 
   input {
       border: 2px solid #fff;
       background-color: transparent;
       color: #fff;
+      display: block;
       font-size: 0.7rem;
       padding: 0.25rem 0.5rem;
+  }
+
+  input:focus {
+    outline: none;
   }
   
 }
 
-#menu-navigation-sub,
+#donate-button {
+  display: inline-flex;
+  padding-right: 2rem;
+}
+
+#menu-navigation-action-nav,
 #menu-navigation-main {
   li {
     display: inline-block;
   }
 }
 
-#menu-navigation-sub {
+#menu-navigation-action-nav {
   padding-left: 2rem;
   font-size: 0.8rem;
 
@@ -382,14 +396,30 @@ div#post-nav-callout {
 #menu-navigation-main {
   font-size: 1rem;
   font-weight: 900;
+  margin: 2rem 0 0 0;
   text-transform: uppercase;
 
-  a {
-    color: $wfc-darkgray2;
-  }
 
   li {
+    height: 4.5rem;
     padding-left: 1.5rem;
+
+    a {
+      color: $wfc-darkgray2;
+      position: relative;
+    }
+
+    a:before {
+        content: '';
+        border-color: transparent transparent $wfc-lightgreen transparent;
+        border-width: 0px 0.75rem 0.65rem 0.75rem;
+        border-style: solid;
+        display: none;
+        left: 50%;
+        margin-left: -0.75rem;
+        position: absolute;
+        top: 3.7rem;
+    }
   }
 }
 
@@ -416,4 +446,67 @@ div#post-nav-callout {
       padding-right: 2rem;
   }
 
+}
+
+// SUB-NAVIGATION
+
+#block-b7q56a906c3d19c4 {
+  display: none;
+}
+
+// #header-nav-sub-visit,
+// #header-nav-sub-plants,
+// #header-nav-sub-learn,
+// #header-nav-sub-work,
+// #header-nav-sub-news {
+//   display: none !important;
+// }
+
+.hide-nav {
+  display: none !important;
+}
+
+.nav-sub-wrap {
+    background-color: $wfc-lightgreen;
+    border-top: 1px solid $wfc-darkgreen;
+    //display: none !important;
+    justify-content: center;
+    width: 100%;
+    
+    .menu a {
+      color: inherit;
+    }
+}
+
+.nav-sub-items {
+  flex: 0 0 65rem;
+  max-width: 100%;
+
+  ul {
+      flex: 1 0 0;
+      padding: 1rem;
+
+      li {
+          border-bottom: 1px solid #000;
+          display: inline-block;
+          margin-left: 1rem;
+          padding: 1rem 0 1rem 0;
+          width: 14rem;
+      }
+  }
+}
+
+.sub-nav-img {
+    background-color: $wfc-white;
+    border: 1px solid $wfc-darkgreen;    
+    flex: 1 0 0;
+    margin: 1rem 0;
+    padding: 0 1rem 0 0;
+
+    img {
+        display: block;
+        float: left;
+        max-width: 16rem;
+        margin: 0 1rem 0 0;        
+    }
 }

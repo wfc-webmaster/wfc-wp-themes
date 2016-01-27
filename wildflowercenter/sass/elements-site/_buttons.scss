@@ -1,3 +1,8 @@
+button:hover {
+    cursor: pointer;
+    text-decoration: underline; 
+}
+
 //Class for <span> tag that allows entire <div> to be clickable button
 .button-link {
     height: 100%;
@@ -27,10 +32,13 @@
 
 .orange-button {
     background-color: $wfc-orange;
-    display: inline-block;
-    font-weight: 900;
+    border: none;
+    color: $wfc-white;
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
     letter-spacing: 0.03em;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 1rem;
     position: relative;
     text-transform: uppercase;
 
