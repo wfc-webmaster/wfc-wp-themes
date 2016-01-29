@@ -888,7 +888,7 @@ div#post-nav-callout {
 }
 #menu-navigation-main li {
   height: 4.5rem;
-  padding-left: 1.5rem;
+  margin-left: 1.5rem;
 }
 #menu-navigation-main li a {
   color: #555555;
@@ -904,6 +904,9 @@ div#post-nav-callout {
   margin-left: -0.75rem;
   position: absolute;
   top: 3.7rem;
+}
+#menu-navigation-main li a.show-arrow:before {
+  display: block;
 }
 
 .nav-positioning {
@@ -938,9 +941,14 @@ div#post-nav-callout {
   display: none !important;
 }
 
+.hide-nav.active {
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
 .nav-sub-wrap {
   background-color: #c1d580;
-  border-top: 1px solid #356033;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;

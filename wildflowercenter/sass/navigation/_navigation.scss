@@ -402,7 +402,7 @@ div#post-nav-callout {
 
   li {
     height: 4.5rem;
-    padding-left: 1.5rem;
+    margin-left: 1.5rem;
 
     a {
       color: $wfc-darkgray2;
@@ -419,6 +419,9 @@ div#post-nav-callout {
         margin-left: -0.75rem;
         position: absolute;
         top: 3.7rem;
+    }
+    a.show-arrow:before {
+        display: block;
     }
   }
 }
@@ -466,10 +469,12 @@ div#post-nav-callout {
   display: none !important;
 }
 
+.hide-nav.active {
+  display: flex !important;
+}
+
 .nav-sub-wrap {
-    background-color: $wfc-lightgreen;
-    border-top: 1px solid $wfc-darkgreen;
-    //display: none !important;
+    background-color: $wfc-lightgreen;    
     justify-content: center;
     width: 100%;
     
