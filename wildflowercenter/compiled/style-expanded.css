@@ -113,6 +113,10 @@ html {
   }
 }
 
+.wf-loading {
+  visibility: hidden;
+}
+
 body {
   font-family: open-sans, sans-serif;
   font-size: 1rem;
@@ -798,6 +802,10 @@ div#post-nav-callout {
   margin-bottom: 0.8rem;
 }
 
+#wrapper-wvg56a13a340c838 {
+  position: relative;
+}
+
 #header-wrap {
   align-items: center;
 }
@@ -887,6 +895,7 @@ div#post-nav-callout {
 }
 #menu-navigation-main li a.show-arrow:before {
   display: block;
+  opacity: 1;
 }
 
 .nav-positioning {
@@ -910,7 +919,10 @@ div#post-nav-callout {
 }
 
 #block-b7q56a906c3d19c4 {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
   display: none;
+  position: absolute;
+  z-index: 9999;
 }
 
 .hide-nav {

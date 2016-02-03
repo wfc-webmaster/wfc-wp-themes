@@ -323,6 +323,10 @@ div#post-nav-callout {
 
 // NEW NAVIGATION - JAN 2016
 
+#wrapper-wvg56a13a340c838 {
+    position: relative;
+}
+
 #header-wrap {
   align-items: center;
 }
@@ -422,7 +426,8 @@ div#post-nav-callout {
     }
     a.show-arrow:before {
         display: block;
-    }
+        opacity: 1;
+    }    
   }
 }
 
@@ -454,16 +459,11 @@ div#post-nav-callout {
 // SUB-NAVIGATION
 
 #block-b7q56a906c3d19c4 {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);    
   display: none;
+  position: absolute;
+  z-index: 9999;
 }
-
-// #header-nav-sub-visit,
-// #header-nav-sub-plants,
-// #header-nav-sub-learn,
-// #header-nav-sub-work,
-// #header-nav-sub-news {
-//   display: none !important;
-// }
 
 .hide-nav {
   display: none !important;
@@ -474,7 +474,7 @@ div#post-nav-callout {
 }
 
 .nav-sub-wrap {
-    background-color: $wfc-lightgreen;    
+    background-color: $wfc-lightgreen;
     justify-content: center;
     width: 100%;
     

@@ -12,6 +12,11 @@ html{
   );
 }
 
+//Prevents flash of unstyled text (Adobe typekit class)
+.wf-loading {
+  visibility: hidden;
+}
+
 $ms-base: 1rem;
 $ms-ratio: $minor-third;  // 1.2
 
