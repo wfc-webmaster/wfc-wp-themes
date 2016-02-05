@@ -29,6 +29,25 @@ function register_my_menus() {
 }
 add_action( 'init', 'register_my_menus' );
 
+//Add search function to mobile nav
+function add_search_box($items, $args) {
+
+	if ($args->theme_location == 'wfc-main-nav-mobile') {
+	
+        /*ob_start();
+        get_search_form();
+        $searchform = ob_get_contents();
+        ob_end_clean();*/
+
+        $search_args = 'Search Wildflower Center';
+
+        $items .= '<li id="mobile-search" class="menu-item menu-item-type-post_type menu-item-object-page">' . headway_get_search_form($search_args) . '</li>';
+    }
+    return $items;
+	
+}
+add_filter('wp_nav_menu_items','add_search_box', 10, 2);
+
 //Add categories above titles
 function add_categories_above_title() {
 	?>

@@ -1,6 +1,6 @@
 <div id="header-wrap" class="flex-container-row">
 	<div id="header-nav-wrap" class="flex-container-row">
-		<div class="nav-wrapper flex-container-row">
+		<div id="header-nav-action-wrap" class="nav-wrapper flex-container-row">
 			<div id="header-nav-action" class="nav-positioning flex-container-row">
 				<?php 
 					$action_args = array(
@@ -33,7 +33,32 @@
 							);
 						wp_nav_menu($main_args);
 					?>
+				</div>
+				<div id="mobile-menu-btn">
+					<div id="menu-btn">
+						<div id="open-menu"<i class="fa fa-bars"></i></div>
+					</div>
 				</div>				
+			</div>
+			<div id="mobile-menu-overlay">
+				<!-- Creates a custom nav displayed on mobile devices -->
+				<div id="mobile-nav" class="flex-container-row">
+					<?php
+					$mobile_action_args = array(
+						'theme_location' => 'wfc-action-nav-mobile',
+						'container' => false,
+						);
+
+					$mobile_args = array( 
+						'theme_location' => 'wfc-main-nav-mobile',
+						'menu_class' => 'nav-menu flex-container-row',
+						'container' => false,
+						'items_wrap' => 
+							'<li id="nav-menu-close" class="menu-item menu-item-type-post_type menu-item-object-page"><div id="close-x"><i class="fa fa-times"></i></div></li><li id="nav-menu-title" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="' . get_home_url() . '">Wildflower Center</a></li>' . wp_nav_menu($mobile_action_args) . '%3$s'
+						);
+					wp_nav_menu($mobile_args);						
+					?>
+				</div>
 			</div>
 		</div>
 	</div>

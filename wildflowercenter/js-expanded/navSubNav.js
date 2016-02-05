@@ -5,7 +5,7 @@ jQuery(document).ready(function($) {
 	var navPlants = document.getElementById('menu-item-1918');
 	var navLearn = document.getElementById('menu-item-1917');
 	var navOurWork = document.getElementById('menu-item-1916');
-	var navNews = document.getElementById('menu-item-1878');
+	var navNews = document.getElementById('menu-item-1948');
 
 	var mainNavArr = [navVisit, navPlants, navLearn, navOurWork, navNews];
 
@@ -41,7 +41,7 @@ jQuery(document).ready(function($) {
 		timer = setTimeout(function() {
 			$(subNavBlock).css('display', '');
 			hideNavArrow();
-		}, 300);
+		}, 500);
 	}		
 			
 	// Hide sub-nav block
