@@ -44,45 +44,12 @@ Styles for WFC Cards widget
     padding: 0.5em 0;
 }
 
-.landing-cards > .block-content ul {
-    margin: 0 auto;
-    max-width: 1280px;
-    overflow: auto;
-    width: 53rem;
-}
-
 .landing-card-top > .block-content ul {
     text-align: left;
 }
 
-li.wfc-cards {
-    float: left;
-    margin: 2rem 1rem !important;
-    padding: 0 !important;
-    width: auto !important;
-}
-
-li.wfc-cards:nth-child(3) {
-    clear: left;
-}
-
 @media screen and (max-width: 338px) {
     
-//     li.wfc-cards:nth-child(2) {
-//         clear: left;
-//     }
-//     li.wfc-cards:nth-child(3) {
-//         clear: none;
-//     }
-//     .landing-cards > .block-content {
-//         text-align: center;
-//     }
-
-//     .landing-cards > .block-content ul {
-//         max-width: 700px;
-//         text-align: center;
-//     }
-
     li.wfc-cards {
         margin: 2rem 0 !important;
     }

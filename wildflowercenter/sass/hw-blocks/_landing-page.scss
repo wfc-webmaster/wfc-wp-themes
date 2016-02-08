@@ -364,3 +364,55 @@ Widgets Block
 .landing-widgets {
 	background-color: $wfc-white;
 }
+
+.landing-cards {
+	.block-content {
+	    display: flex;
+	    flex-flow: row wrap;
+	    justify-content: center;
+	    padding: 0 2rem;
+	    width: auto;
+	}
+
+	ul.widget-area {
+	    display: flex;
+	    flex: 0 0 51rem;
+	    flex-flow: row wrap;
+	    justify-content: space-between;
+	    margin: 2rem 0 0 0;
+	    max-width: 100%;
+	}
+
+	li.widget {
+	    margin: 0 0 2rem 0;
+	}
+
+	li.wfc-callout {
+		display: flex;
+		flex-flow: column wrap;
+		flex: 0 0 30rem;
+		justify-content: center;
+		order: 2;
+	}
+
+	li.widget.wfc-cards {
+		flex: 0 0 10rem;
+	}
+
+	li.widget.wfc-cards:nth-child(2) {
+		order: 1;
+	}
+
+	li.widget.wfc-cards:nth-child(3) {
+		order: 3;
+	}
+
+	li.widget.wfc-cards:nth-child(4) {
+		order: 4;
+	}
+
+	li.widget.wfc-cards:nth-child(5) {
+		order: 5;
+	}
+
+}

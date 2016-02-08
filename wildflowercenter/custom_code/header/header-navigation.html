@@ -23,7 +23,7 @@
 		<div class="nav-main nav-wrapper flex-container-row">
 			<div id="header-nav-main-wrap" class="nav-positioning flex-container-row">
 				<div id="header-logo">
-					<img src="http://localhost:8888/wildflower_2/wordpress/wp-content/uploads/2016/01/2015_LBJWFC_LOGO_endorsed_LTgreenSectra.svg">
+					<a href="<?php echo get_home_url(); ?>"><img src="http://localhost:8888/wildflower_2/wordpress/wp-content/uploads/2016/01/2015_LBJWFC_LOGO_endorsed_LTgreenSectra.svg"></a>
 				</div>				
 				<div id="header-nav-main">
 					<?php 
@@ -47,6 +47,7 @@
 					$mobile_action_args = array(
 						'theme_location' => 'wfc-action-nav-mobile',
 						'container' => false,
+						'menu_class' => 'flex-container-row'
 						);
 
 					$mobile_args = array( 

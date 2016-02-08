@@ -806,8 +806,25 @@ Navigation
   text-transform: none;
 }
 #mobile-nav #menu-navigation-action-nav-mobile {
+  border-bottom: 1px solid #fff;
   flex: 0 0 30rem;
+  justify-content: space-between;
   max-width: 100%;
+  order: 1;
+  text-align: center;
+}
+#mobile-nav #menu-navigation-action-nav-mobile li {
+  border: none;
+  flex: 0 0 25%;
+  margin: 0 0 1rem 0;
+}
+#mobile-nav #menu-navigation-action-nav-mobile li a {
+  font-size: 1rem;
+  line-height: 130%;
+  padding: 0;
+}
+#mobile-nav #menu-navigation-action-nav-mobile li a .fa {
+  margin: 1.5rem 0 0.6rem 0;
 }
 #mobile-nav li#mobile-social-icons {
   border: none;
@@ -854,6 +871,16 @@ Navigation
   padding: 0 1rem;
 }
 
+@media screen and (max-width: 374px) {
+  #mobile-nav #menu-navigation-action-nav-mobile li {
+    flex: 0 0 50%;
+  }
+}
+@media screen and (min-width: 868px) {
+  #mobile-nav li, #mobile-nav #menu-navigation-action-nav-mobile {
+    flex: 0 0 40rem;
+  }
+}
 /*
 =======
 Plugins
@@ -904,26 +931,8 @@ Styles for WFC Cards widget
   padding: 0.5em 0;
 }
 
-.landing-cards > .block-content ul {
-  margin: 0 auto;
-  max-width: 1280px;
-  overflow: auto;
-  width: 53rem;
-}
-
 .landing-card-top > .block-content ul {
   text-align: left;
-}
-
-li.wfc-cards {
-  float: left;
-  margin: 2rem 1rem !important;
-  padding: 0 !important;
-  width: auto !important;
-}
-
-li.wfc-cards:nth-child(3) {
-  clear: left;
 }
 
 @media screen and (max-width: 338px) {
@@ -967,9 +976,7 @@ li.wfc-callout {
 }
 
 .wfc-callout-container {
-  max-width: 590px;
-  padding: 4rem 0 0 3rem;
-  width: 25rem;
+  flex: 0 0 auto;
 }
 .wfc-callout-container h1 {
   font-size: 2.48832em;
@@ -1425,6 +1432,47 @@ Widgets Block
 */
 .landing-widgets {
   background-color: #fff;
+}
+
+.landing-cards .block-content {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 0 2rem;
+  width: auto;
+}
+.landing-cards ul.widget-area {
+  display: flex;
+  flex: 0 0 51rem;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 2rem 0 0 0;
+  max-width: 100%;
+}
+.landing-cards li.widget {
+  margin: 0 0 2rem 0;
+}
+.landing-cards li.wfc-callout {
+  display: flex;
+  flex-flow: column wrap;
+  flex: 0 0 30rem;
+  justify-content: center;
+  order: 2;
+}
+.landing-cards li.widget.wfc-cards {
+  flex: 0 0 10rem;
+}
+.landing-cards li.widget.wfc-cards:nth-child(2) {
+  order: 1;
+}
+.landing-cards li.widget.wfc-cards:nth-child(3) {
+  order: 3;
+}
+.landing-cards li.widget.wfc-cards:nth-child(4) {
+  order: 4;
+}
+.landing-cards li.widget.wfc-cards:nth-child(5) {
+  order: 5;
 }
 
 .footer-block {
