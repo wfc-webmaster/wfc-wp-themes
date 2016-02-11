@@ -1,0 +1,122 @@
+<div id="landing-events-container" class="sidebar-container">
+    <div id="todays-events-wrap">
+        <div id="todays-events-heading" class="landing-events-list-heading">
+            <h6>Today's Events</h6>
+            <p><em>Events for <?php echo date('F j, Y'); ?> at the Wildflower Center</em></p>
+            <hr>
+        </div>
+        <div id="landing-events-list" class="events-list">
+            <?php 
+            // Ensure the global $post variable is in scope
+
+            global $post;
+
+            $todays_events = tribe_get_events(
+                array(
+                    'posts_per_page' => 5,
+                    'start_date' => current_time( 'Y-m-d' ),
+                    'end_date' => current_time( 'Y-m-d 23:59' ),
+                    'tag' => 'kids'
+                    )
+                );        
+
+            // The result set may be empty
+
+            if (empty($todays_events)) {
+                echo 'Sorry, nothing found.';
+            }
+             
+            // Loop through the events: set up each one as the current post then use template tags to display the title and content
+
+            foreach ($todays_events as $post) {
+                setup_postdata($post);            
+                             
+                ?>
+                <a href="<?php echo tribe_get_event_link(); ?>">
+                <?php
+                the_title('<h6>', '</h6>');
+                ?>
+                </a>
+                <?php
+                // Display hours of event
+                echo '<p><em>' . tribe_get_start_time() . ' &mdash; ' . tribe_get_end_time() . '</em></p>';
+                ?>
+                <hr class="list-division">
+                <?php
+                // the_content();
+            }
+            ?>
+
+        </div>
+    </div>
+
+    <div id="upcoming-events-heading" class="landing-events-list-heading">
+        <h6>Upcoming Events</h6>
+        <p><em>Plan ahead for these Wildflower Center events</em></p>
+        <hr>
+    </div>
+    <div id="landing-events-list" class="events-list">
+
+    <?php 
+     
+    // Retrieve the next 5 upcoming events
+
+    $events = tribe_get_events( 
+        array(
+            'posts_per_page' => 5,
+            'start_date' => new DateTime(),
+            'tax_query'=> array(
+                        array(
+                            'taxonomy' => 'tribe_events_cat',
+                            'field' => 'slug',
+                            'terms' => ['classes-programs', 'art-exhibit', 'kids']
+                        )
+                    )
+        ) 
+    );
+
+    // The result set may be empty
+
+    if (empty($events)) {
+        echo 'No upcoming events at this time.';
+    }
+     
+    // Loop through the events: set up each one as the current post then use template tags to display the title and content
+
+    foreach ($events as $post) {
+        setup_postdata($post);
+
+        $event_start_date = strtotime(tribe_get_start_date($event = null, $display_time = true, $date_format = 'Y-m-d', $timezone = null));
+        $event_end_date = strtotime(tribe_get_end_date($event = null, $display_time = true, $date_format = 'Y-m-d', $timezone = null));
+        $todays_date = strtotime(current_time( 'Y-m-d' ));
+        $next_day_date = strtotime(tribe_get_next_day_date());
+        $multiday_event = tribe_event_is_multiday();
+        
+        // Hide multiday events if today's date is event's end date
+        if (tribe_event_is_multiday($post->ID) && ($todays_date === $event_end_date)) {
+            continue;
+        }
+             
+        ?>
+        <a href="<?php echo tribe_get_event_link(); ?>">
+        <?php
+            the_title('<h6>', '</h6>');
+        ?>
+        </a>
+        <?php
+            // If event is multiday, show next day's date
+            if ($multiday_event && ($todays_date < $event_end_date)) {
+                echo '<p><em>' . date('F d', $next_day_date) . '</em></p>';
+            } else {
+                // Display upcoming event's start date
+                echo '<p><em>' . tribe_get_start_date($event = null, $display_time = false, $date_format = '', $timezone = null) . '</em></p>';
+            }
+        ?>
+        <hr class="list-division">
+        <?php
+        // the_content();
+    }
+    ?>
+    <div id="events-all"><a class="sidebar-button" href="../events">View All Events</a></div>
+    </div>
+</div>

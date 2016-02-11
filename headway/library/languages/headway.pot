@@ -2,9 +2,9 @@
 # This file is distributed under the Terms of Service.
 msgid ""
 msgstr ""
-"Project-Id-Version: Headway Base 3.8.6\n"
+"Project-Id-Version: Headway Base 3.8.7\n"
 "Report-Msgid-Bugs-To: http://support.headwaythemes.com\n"
-"POT-Creation-Date: 2016-01-15 23:57:37+00:00\n"
+"POT-Creation-Date: 2016-01-23 00:37:41+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"

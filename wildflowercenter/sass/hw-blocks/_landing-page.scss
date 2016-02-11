@@ -206,11 +206,39 @@ Visit Block
 		}
 }
 
-/*
-===================
-Visit Gardens Block
-===================
-*/
+// Events List
+
+.landing-events-list-heading {
+	padding: 0 1rem;
+
+	h6 {
+		text-transform: uppercase;
+	}
+
+	hr {
+		border: 0;
+		border-top: 1px solid $wfc-lightgray;
+		border-bottom: none;
+		height: 0;
+	}
+}
+
+.events-list {
+
+	hr {
+		border: 0;
+		border-top: 1px solid $wfc-lightgray2;
+		border-bottom: none;
+		height: 0;
+	}
+}
+
+
+// Visit Gardens Block
+
+#wrapper-waq5578873511c88 {
+	display: none;
+}
 
 .landing-gardens {
 	background-color: $wfc-white;
@@ -369,9 +397,11 @@ Widgets Block
 	.block-content {
 	    display: flex;
 	    flex-flow: row wrap;
+	    float: none;
 	    justify-content: center;
+	    max-width: 100%;
 	    padding: 0 2rem;
-	    width: auto;
+	    width: initial;
 	}
 
 	ul.widget-area {
@@ -415,4 +445,47 @@ Widgets Block
 		order: 5;
 	}
 
+}
+
+@media screen and (max-width: 767px) {
+	.landing-cards {
+
+		ul.widget-area {
+			justify-content: center;
+		}
+		
+		li.wfc-callout {
+			align-items: center;
+			flex: 0 0 100%;
+			order: 1;
+
+			.wfc-callout-container {
+				//width: 30rem;
+			}
+		}
+
+		li.widget.wfc-cards {
+			flex: 0 0 20rem;
+		}
+
+		li.widget.wfc-cards:nth-child(2) {
+			order: 2;
+		}
+
+		li.widget.wfc-cards:nth-child(3) {
+			order: 3;
+		}
+
+		li.widget.wfc-cards:nth-child(4) {
+			order: 4;
+		}
+
+		li.widget.wfc-cards:nth-child(5) {
+			order: 5;
+		}
+
+		.wfc-cards-container {
+			margin: 0 auto;
+		}
+	}
 }

@@ -26,7 +26,7 @@ class Headway {
 				
 		/* Define simple constants */
 		define('THEME_FRAMEWORK', 'headway');
-		define('HEADWAY_VERSION', '3.8.6');
+		define('HEADWAY_VERSION', '3.8.7');
 
 		/* Define directories */
 		define('HEADWAY_DIR', headway_change_to_unix_path(TEMPLATEPATH));

@@ -908,13 +908,16 @@ ul#modes li#mode-design a:before {
 	font-family: "dashicons";
 	content: "\f321";
 }
+
 #menu-right ul.top-menu-nav li#menu-link-tools > span::before {
 	content: "\22";
 }
+
 #menu-right ul.top-menu-nav li#menu-link-admin > span::before {
 	font-family: "dashicons";
 	content: "\f120";
 }
+
 #menu-right ul.top-menu-nav li#menu-link-view-site a::before {
 	font-family: "dashicons";
 	content: "\f102";
@@ -1052,11 +1055,9 @@ span#save-button.active {
 	from {
 		-webkit-box-shadow: inset 0 0 0 #7DD1E2;
 	}
-
 	50% {
 		-webkit-box-shadow: inset 0 0 15px #7DD1E2;
 	}
-
 	to {
 		-webkit-box-shadow: inset 0 0 0 #7DD1E2;
 	}
@@ -1066,11 +1067,9 @@ span#save-button.active {
 	from {
 		-moz-box-shadow: inset 0 0 0 #7DD1E2;
 	}
-
 	50% {
 		-moz-box-shadow: inset 0 0 15px #7DD1E2;
 	}
-
 	to {
 		-moz-box-shadow: inset 0 0 0 #7DD1E2;
 	}
@@ -1080,11 +1079,9 @@ span#save-button.active {
 	from {
 		box-shadow: inset 0 0 0 #7DD1E2;
 	}
-
 	50% {
 		box-shadow: inset 0 0 15px #7DD1E2;
 	}
-
 	to {
 		box-shadow: inset 0 0 0 #7DD1E2;
 	}
@@ -1217,6 +1214,7 @@ div#panel {
 body.panel-empty div#panel {
 	display: none !important;
 }
+
 body.panel-empty div#iframe-container {
 	bottom: 0 !important;
 }
@@ -1714,6 +1712,7 @@ div#box-snapshots span.button-blue,
 div#box-snapshots .spinner {
 	float: left;
 }
+
 div#box-snapshots #snapshots-list {
 	clear: both;
 	float: left;
@@ -1724,6 +1723,7 @@ div#box-snapshots #snapshots-list {
 	padding: 10px 15px 15px;
 	-webkit-mask: -webkit-linear-gradient(top, transparent, black 25px);
 }
+
 div#box-snapshots #snapshots-list > li {
 	border-top: 1px solid #EEEEEE;
 	width: 100%;
@@ -4253,7 +4253,6 @@ body .redactor-box-fullscreen {
 	from {
 		background-position: 40px 0;
 	}
-
 	to {
 		background-position: 0 0;
 	}
@@ -4263,7 +4262,6 @@ body .redactor-box-fullscreen {
 	from {
 		background-position: 40px 0;
 	}
-
 	to {
 		background-position: 0 0;
 	}
@@ -4273,7 +4271,6 @@ body .redactor-box-fullscreen {
 	from {
 		background-position: 40px 0;
 	}
-
 	to {
 		background-position: 0 0;
 	}
@@ -5539,6 +5536,7 @@ div.property-font-family-select form.fonts-search select {
 	position: absolute;
 	right: 3px;
 }
+
 .property-font-family-select .font-browser {
 	display: none;
 	position: fixed;
@@ -5550,10 +5548,12 @@ div.property-font-family-select form.fonts-search select {
 	/* Stay above panel resize handle */
 	margin: 0 0 10px;
 }
+
 .property-font-family-select .property-fonts.property {
 	min-width: 70px;
 	padding-right: 18px;
 }
+
 .property-font-family-select .font-name {
 	color: #999999;
 	float: right;
@@ -6170,31 +6170,31 @@ input.color.error {
 #css3colorpicker-div.mode-h #css3colorpicker-div-2dGradient:after,
 #css3colorpicker-div.mode-s #css3colorpicker-div-2dGradient,
 #css3colorpicker-div.mode-v #css3colorpicker-div-1dGradient {
-	background: -moz-linear-gradient(top, transparent 0%, #000000 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, transparent), color-stop(100%, #000000));
-	background: -webkit-linear-gradient(top, transparent 0%, #000000 100%);
-	background: -o-linear-gradient(top, transparent 0%, #000000 100%);
-	background: -ms-linear-gradient(top, transparent 0%, #000000 100%);
-	background: linear-gradient(top, transparent 0%, #000000 100%);
+	background: -moz-linear-gradient(top, transparent 0%, black 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, transparent), color-stop(100%, black));
+	background: -webkit-linear-gradient(top, transparent 0%, black 100%);
+	background: -o-linear-gradient(top, transparent 0%, black 100%);
+	background: -ms-linear-gradient(top, transparent 0%, black 100%);
+	background: linear-gradient(top, transparent 0%, black 100%);
 }
 
 #css3colorpicker-div.mode-v #css3colorpicker-div-2dColor:after,
 #css3colorpicker-div.mode-s #css3colorpicker-div-1dColor:after {
-	background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(100%, #FFFFFF));
-	background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
-	background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
-	background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
-	background: linear-gradient(top, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
+	background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(100%, white));
+	background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 100%);
+	background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 100%);
+	background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 100%);
+	background: linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 100%);
 }
 
 #css3colorpicker-div.mode-h #css3colorpicker-div-2dGradient {
-	background: -moz-linear-gradient(left, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
-	background: -webkit-gradient(linear, left top, right top, color-stop(0%, #FFFFFF), color-stop(100%, rgba(255, 255, 255, 0)));
-	background: -webkit-linear-gradient(left, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
-	background: -o-linear-gradient(left, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
-	background: -ms-linear-gradient(left, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
-	background: linear-gradient(left, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+	background: -moz-linear-gradient(left, white 0%, rgba(255, 255, 255, 0) 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%, white), color-stop(100%, rgba(255, 255, 255, 0)));
+	background: -webkit-linear-gradient(left, white 0%, rgba(255, 255, 255, 0) 100%);
+	background: -o-linear-gradient(left, white 0%, rgba(255, 255, 255, 0) 100%);
+	background: -ms-linear-gradient(left, white 0%, rgba(255, 255, 255, 0) 100%);
+	background: linear-gradient(left, white 0%, rgba(255, 255, 255, 0) 100%);
 }
 
 #css3colorpicker-div.mode-s #css3colorpicker-div-2dColor,
@@ -6299,6 +6299,7 @@ body.visual-editor-mode-design div#panel {
 	-moz-transition: right 100ms linear;
 	transition: right 100ms linear;
 }
+
 body.visual-editor-mode-design div#iframe-container {
 	right: 290px !important;
 	-webkit-transition: right 100ms linear;
@@ -6309,9 +6310,11 @@ body.visual-editor-mode-design div#iframe-container {
 body.visual-editor-mode-design.side-panel-hidden div#panel {
 	right: 0 !important;
 }
+
 body.visual-editor-mode-design.side-panel-hidden div#iframe-container {
 	right: 0 !important;
 }
+
 body.visual-editor-mode-design.side-panel-hidden div#side-panel-container {
 	right: -290px;
 }
@@ -6366,6 +6369,7 @@ div#side-panel-container div#side-panel.side-panel-loaded div#side-panel-bottom 
 body.design-editor-element-selected div#side-panel-container div#side-panel div#side-panel-top {
 	height: 45%;
 }
+
 body.design-editor-element-selected div#side-panel-container div#side-panel div#side-panel-bottom {
 	display: block;
 }

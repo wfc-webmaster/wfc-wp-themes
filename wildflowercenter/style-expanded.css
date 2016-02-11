@@ -442,16 +442,16 @@ button:hover {
   margin-bottom: 0.5rem;
 }
 
-.upcoming-events-list {
+.events-list {
   padding: 1rem;
 }
-.upcoming-events-list a > h6 {
+.events-list a > h6 {
   color: #4d4d4d;
 }
-.upcoming-events-list a:hover > h6 {
+.events-list a:hover > h6 {
   text-decoration: underline;
 }
-.upcoming-events-list p {
+.events-list p {
   margin-bottom: 1rem;
 }
 
@@ -1009,40 +1009,11 @@ Styles for WFC Cards widget
   text-align: left;
 }
 
-@media screen and (max-width: 338px) {
-  li.wfc-cards {
-    margin: 2rem 0 !important;
-  }
-}
-@media screen and (max-width: 659px) {
-  .landing-cards > .block-content ul {
-    max-width: 425px;
-    width: 36rem;
-  }
-
-  li.wfc-cards:nth-child(3) {
-    clear: none;
-  }
-}
-@media screen and (max-width: 389px) {
-  .landing-cards > .block-content ul {
-    width: auto;
-  }
-
-  .wfc-cards-container {
-    height: 31rem;
-    margin: 0 auto;
-    width: 20rem;
-  }
-
-  li.wfc-cards {
-    float: none;
-  }
-}
 .wfc-cards-text a {
   color: #ed6322;
   font-style: italic;
   text-decoration: none;
+  text-transform: capitalize;
 }
 
 li.wfc-callout {
@@ -1373,11 +1344,30 @@ Visit Block
     width: auto;
   }
 }
-/*
-===================
-Visit Gardens Block
-===================
-*/
+.landing-events-list-heading {
+  padding: 0 1rem;
+}
+.landing-events-list-heading h6 {
+  text-transform: uppercase;
+}
+.landing-events-list-heading hr {
+  border: 0;
+  border-top: 1px solid #dedede;
+  border-bottom: none;
+  height: 0;
+}
+
+.events-list hr {
+  border: 0;
+  border-top: 1px solid #efefef;
+  border-bottom: none;
+  height: 0;
+}
+
+#wrapper-waq5578873511c88 {
+  display: none;
+}
+
 .landing-gardens {
   background-color: #fff;
 }
@@ -1517,11 +1507,13 @@ Widgets Block
   -webkit-flex-flow: row wrap;
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
+  float: none;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
+  max-width: 100%;
   padding: 0 2rem;
-  width: auto;
+  width: initial;
 }
 .landing-cards ul.widget-area {
   display: -webkit-flex;
@@ -1585,6 +1577,52 @@ Widgets Block
           order: 5;
 }
 
+@media screen and (max-width: 767px) {
+  .landing-cards ul.widget-area {
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .landing-cards li.wfc-callout {
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+    -webkit-order: 1;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+  .landing-cards li.widget.wfc-cards {
+    -webkit-flex: 0 0 20rem;
+        -ms-flex: 0 0 20rem;
+            flex: 0 0 20rem;
+  }
+  .landing-cards li.widget.wfc-cards:nth-child(2) {
+    -webkit-order: 2;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  .landing-cards li.widget.wfc-cards:nth-child(3) {
+    -webkit-order: 3;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+  .landing-cards li.widget.wfc-cards:nth-child(4) {
+    -webkit-order: 4;
+        -ms-flex-order: 4;
+            order: 4;
+  }
+  .landing-cards li.widget.wfc-cards:nth-child(5) {
+    -webkit-order: 5;
+        -ms-flex-order: 5;
+            order: 5;
+  }
+  .landing-cards .wfc-cards-container {
+    margin: 0 auto;
+  }
+}
 .footer-block {
   background-color: #232a2f;
 }
