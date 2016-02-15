@@ -8,7 +8,7 @@
 
 /** Containers */
 .sidebar-container {
-	margin: 1.5rem 0 0 0;
+	margin: 2.5rem 0 0 0;
 
 	p  {
 	    font-size: 0.8rem;
@@ -43,27 +43,7 @@
 }
 
 //Events List
-.events-list {
-	padding: 1rem;
 
-	a > h6 {
-        color: $wfc-gray;
-    }
-
-    a:hover > h6 {
-        text-decoration: underline;
-    }
-
-	p {
-		margin-bottom: 1rem;
-	}
-}
-
-#events-all {
-	margin: 0.5rem 0;
-    text-align: center;
-
-}
 
 //Twitter Feed
 

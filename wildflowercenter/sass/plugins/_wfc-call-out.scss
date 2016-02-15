@@ -27,24 +27,9 @@ li.wfc-callout {
     }
 }
 
-/* @media screen and (max-width: 989px) {
-
-	li.wfc-callout {
-    	display: block;
-    	text-align: left;
-	}
-
-    .wfc-callout-container p {
-     margin-top: 1.6em;
-    }
-
-} */
-
 @media screen and (max-width: 659px) {
 
-	.wfc-callout-container {
-		padding: 0 3rem 0 1rem;
-        width: auto;
+	.wfc-callout-container {		
 
         p {
            margin-top: 1.5em; 

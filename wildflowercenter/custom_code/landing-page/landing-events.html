@@ -16,14 +16,27 @@
                     'posts_per_page' => 5,
                     'start_date' => current_time( 'Y-m-d' ),
                     'end_date' => current_time( 'Y-m-d 23:59' ),
-                    'tag' => 'kids'
+                    'tag' => 'front-page',
+                    'tax_query'=> array(
+                                array(
+                                    'taxonomy' => 'tribe_events_cat',
+                                    'field' => 'slug',
+                                    'terms' => ['classes-programs', 'kids']
+                                )
+                            )
                     )
                 );        
 
             // The result set may be empty
 
-            if (empty($todays_events)) {
-                echo 'Sorry, nothing found.';
+            if (empty($todays_events)) {                
+                ?>
+                    <script>
+                    jQuery(document).ready(function($) {
+                        $('#todays-events-wrap').hide();
+                    });
+                    </script>
+                <?php
             }
              
             // Loop through the events: set up each one as the current post then use template tags to display the title and content
@@ -65,11 +78,12 @@
         array(
             'posts_per_page' => 5,
             'start_date' => new DateTime(),
+            'tag' => 'front-page',
             'tax_query'=> array(
                         array(
                             'taxonomy' => 'tribe_events_cat',
                             'field' => 'slug',
-                            'terms' => ['classes-programs', 'art-exhibit', 'kids']
+                            'terms' => ['classes-programs', 'kids']
                         )
                     )
         ) 
@@ -117,6 +131,6 @@
         // the_content();
     }
     ?>
-    <div id="events-all"><a class="sidebar-button" href="../events">View All Events</a></div>
+    <div id="events-all"><a href="../events"><button class="sidebar-button">View All Events</button></a></div>
     </div>
 </div>

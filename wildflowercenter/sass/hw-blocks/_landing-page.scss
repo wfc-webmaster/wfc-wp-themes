@@ -47,45 +47,12 @@ WFC Logo
 	}
 }
 
-/*
-===========
-Visit Block
-===========
-*/
-
+// Visit Block
 
 .wrapper-visit {
 	background-color: $wfc-green;
 	border-top: 0.6rem solid $wfc-darkgreen;
 	color: $wfc-white;
-}
-
-.visit-block {
-	line-height: 160%;
-}
-
-#visit-info {
-	display: table;
-	margin: 0 auto;
-}
-
-#visit-container {
-	display: table;
-	margin: 0 auto;
-}
-
-#visit-hours,
-#visit-prices,
-#visit-directions {
-    float: left;
-    min-height: 12rem;
-    padding: 1rem 0 1rem 1.35rem;
-    width: 16rem;
-
-    p:first-of-type {
-	  font-weight: bold;
-	  margin-bottom: 0.4rem;
-	}
 
 	a {
 		color: inherit;
@@ -95,121 +62,137 @@ Visit Block
 	}
 }
 
+#visit-container {
+    justify-content: space-around;
+
+    h6 {
+    	padding: 0 0 0.25rem 0;
+    }
+}
+
+.visit-section {
+	flex: 1 0 auto;
+	padding: 1rem 2rem;
+}
+
 #visit-prices {
 	border-left: 1px solid $wfc-bordergreen;
 	border-right: 1px solid $wfc-bordergreen;
-	//padding-left: 1.5rem;
-}
+	flex: 2 0 auto;
 
-#wfc-hours {
-	margin: 0 0 1.2rem;
-}
+	h6 {
+		flex: 0 0 100%;
+	}
 
-#visit-guest-type,
-#visit-price-amount {
-  float: left;
-}
-
-#visit-guest-type {
-	width: 75%;
-}
-
-#visit-price-amount {
-	width: 25%;
+	#visit-price-amount {
+		margin-left: auto;
+	}
 }
 
 #visit-action-bar {
-	border-top: 1px solid $wfc-bordergreen;
-	clear: both;
-	float: left;
-	padding: 0.65rem 1.35rem;
-	min-width: 51rem;
-}	
-
-#visit-action-bar p {
- 	display: inline-block;
+    border-top: 1px solid $wfc-bordergreen;
+    justify-content: space-around;
 }
 
-#visit-membership {
-	margin-left: 3.25rem;
-} 
-
-@media screen and (max-width: 800px) {
-
-	#visit-action-bar p {
-	  float: left;
+@media screen and (max-width: 833px) {
+	#visit-container {
+		justify-content: center;
 	}
 
-	#visit-membership {
-	  float: left;
-	  clear: both;
-	  margin-left: 0;
-	  margin-top: 0.9rem;
-	  margin-bottom: 0.9rem;
+	.visit-section {
+		padding: 1.2rem 2.25rem;
+		width: 20rem;
+		max-width: 20rem;
 	}
 
-}
-
-@media screen and (max-width: 662px) {
-	#visit-container{
-		display: block;
+	#visit-prices {
+		border-right: none;
+		flex: 0 0 auto;
+		padding-left: 4rem;
 	}
 
 	#visit-directions {
-	  clear: left;
+		border-top: 1px solid $wfc-bordergreen;
 	}
 
 	#visit-action-bar {
-	  border-left: 1px solid $wfc-bordergreen;
-	  border-top: none;
-	  clear: none;
-	  height: 10rem;
-	  min-width: 0;
-	  padding: 1rem 0 1rem 1.35rem;
-	  width: 16rem;
-	 }
-
-	 #visit-hours {
-	 	border-right: 1px solid $wfc-bordergreen;
-	 	border-bottom: 1px solid $wfc-bordergreen;
-	 }
-
-	 #visit-prices {
-	 	border-left: none;
-	 	border-right: none;
-	 	border-bottom: 1px solid $wfc-bordergreen;
-	 }
+		border-left: 1px solid $wfc-bordergreen;
+		justify-content: flex-start;
+		padding-left: 4rem;
+	}
 }
 
-@media screen and (max-width: 486px) {
-		#visit-hours, 
-		#visit-prices, 
-		#visit-directions {
-			min-height: 10rem;
-			width: 100%;
-		}
+@media screen and (max-width: 767px) {
+	.visit-section {		
+		max-width: 100%;
+		padding: 1.2rem 0;
+		width: 100%;
+	}
 
-		#visit-hours {
-			border-right: none;
-		}
+	#visit-prices, #visit-action-bar {
+		border-left: none;
+		padding-left: 0;
+	}
 
-		#visit-hours {
-			border-right: none;
-		}
+	#visit-prices {
+		justify-content: center;
+	}
 
-		#visit-action-bar {
-			border-left: none;
-			border-top: 1px solid $wfc-bordergreen;
-			height: auto;
-			padding: 1rem;
-			width: auto;
+	#visit-hours {
+		border-bottom: 1px solid $wfc-bordergreen;
+	}
+
+	#visit-action-bar {
+		button {
+			margin: 1rem 0 0 0;
 		}
+	}
+
 }
+
 
 // Events List
 
-.landing-events-list-heading {
-	padding: 0 1rem;
+.events-list {
+	padding: 0.35rem 0 1.75rem;
+
+	a > h6 {
+        color: $wfc-gray;
+    }
+
+    a:hover > h6 {
+        text-decoration: underline;
+    }
+
+	p {
+		margin-bottom: 1rem;
+	}
+	hr {
+		border: 0;
+		border-top: 1px solid $wfc-lightgray2;
+		border-bottom: none;
+		height: 0;
+		padding-bottom: 0.4rem;
+	}
+
+	hr:last-child {
+		padding-bottom: 0;
+	}
+}
+
+#events-all {
+	button {
+	    margin: 1rem auto;
+	}
+}
+
+.events-programs-widget {
+	ul.widget-area {
+		padding: 2rem 0 0;
+	}
+}
+
+.landing-events-list-heading {	
 
 	h6 {
 		text-transform: uppercase;
@@ -220,18 +203,17 @@ Visit Block
 		border-top: 1px solid $wfc-lightgray;
 		border-bottom: none;
 		height: 0;
+		margin: 0;
+		padding-bottom: 0.4rem;
 	}
 }
 
-.events-list {
-
-	hr {
-		border: 0;
-		border-top: 1px solid $wfc-lightgray2;
-		border-bottom: none;
-		height: 0;
+@media screen and (max-width: 600px) {
+	.sidebar-container {
+		margin: 1rem 0 0 0;
 	}
 }
+
 
 
 // Visit Gardens Block
@@ -261,42 +243,45 @@ Visit Block
 	}
 }
 
-/*
-==========
-NPIN Block
-==========
-*/
+// NPIN Block
 
 .landing-npin {
 	background-color: $wfc-white;
 }
 
-#npin-search-wrapper {
-	background-image: url('//utw10069.utweb.utexas.edu/wp-content/uploads/2015/07/BL_IMG000092_light.jpg');
-	background-repeat: no-repeat;
-    background-size: cover;
-    height: 0;
-    padding-top: 39rem;
+#npin-search-wrapper {	
     position: relative;
-    width: 100%;
+
+    #npin-search-background { 
+    	display: block;
+    	max-width: initial;
+	}    
 }
 
 #npin-search-form-wrapper {
-    position: absolute;
-    text-align: center;
+	left: 0;
+	height: 100%;
+	justify-content: center;
+    position: absolute;    
     top: 0;
     width: 100%;
 }
 
+#npin-search-padding {
+	align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    width: 100%;
+}
+
 #npin-search-form {
-	background-color: rgba(0,0,0,0.45);
+	background-color: rgba(0,0,0,0.6);
 	color: $wfc-white;
-	display: block;
-	margin: 4rem auto 0;
-	padding: 3rem;
-	text-align: left;
+	flex: 0 1 35rem;
+	height: 27rem;
+	max-width: 100%; 
+	padding: 3rem;	
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-	max-width: 35rem; 
 
 	h1 {
 		line-height: 115%;
@@ -313,81 +298,44 @@ NPIN Block
 }
 
 #form-npin-simple {
+	text-align: right;
+
+	input {
+		width: 100%;
+	}
+
 	input[type="text"] {
 		height: 3rem;
-	    margin: 2rem 0;
-	    max-width: 29rem;
-	    width: 85%;
+	    margin: 2rem 0 1rem;
+	    // max-width: 100%;
+	    // width: 100%;
 	}
 
 	input[placeholder] {
-		font-size: 1.2rem;
+		box-sizing: border-box;
+		font-size: 1rem;
 		padding-left: 1rem;
 	}
 
 	button {
-		background: none;
-		border: none;
-		vertical-align: middle;
-
-		img {
-			vertical-align: bottom;
-			width: 2rem;
-		}
-	}
-	button:hover {
-		cursor: pointer;
-	}
+		display: inline-block;
+		margin: 0 0 2rem;
+	}	
 }
 
-@media screen and (max-width: 570px) {
-	#npin-search-wrapper {
-		padding-top: 43rem;
-	}
-
-	#npin-search-form-wrapper {
-		height: 100%;
+@media screen and (max-width: 630px) {
+	#npin-search-padding {
+		align-items: inherit;
+		padding: 0;
 	}
 
 	#npin-search-form {
-		height: 100%;
-		margin-top: 0;
-		padding: 3rem 3rem;
-		
-	}
-
-	#form-npin-simple {
-		input[type="text"] {
-			//margin: 0;
-			width: 70%;
-		}
-
-		input[placeholder] {
-			font-size: 1rem;
-		}
-
-		button {
-			margin-left: 0.8rem;
-			padding: 0;
-		}
-
-		img {
-			width: 65%;
-		}
-	}
+		height: auto;
+		padding: 2rem;
+	}		
 }
 
-@media screen and (max-width: 573px) {
-	#npin-search-form {
-			padding: 3rem 1.5rem;		
-		}
-}
-
-/*
-=============
-Widgets Block
-=============
-*/
+// Our Work Widgets Block
 
 .landing-widgets {
 	background-color: $wfc-white;
@@ -399,8 +347,7 @@ Widgets Block
 	    flex-flow: row wrap;
 	    float: none;
 	    justify-content: center;
-	    max-width: 100%;
-	    padding: 0 2rem;
+	    max-width: 100%;	    
 	    width: initial;
 	}
 
@@ -421,7 +368,7 @@ Widgets Block
 		display: flex;
 		flex-flow: column wrap;
 		flex: 0 0 30rem;
-		justify-content: center;
+		justify-content: flex-start;
 		order: 2;
 	}
 

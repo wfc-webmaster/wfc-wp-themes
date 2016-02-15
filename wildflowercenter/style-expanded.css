@@ -276,7 +276,7 @@ body {
 }
 @media screen and (max-width: 1180px) {
   .mobile-padding {
-    padding: 0 1.5rem;
+    padding: 0 2rem;
   }
 }
 .block-type-breadcrumbs p.breadcrumbs {
@@ -395,14 +395,19 @@ button:hover {
 
 .sidebar-button {
   background-color: #f0b252;
+  border: none;
   color: #ffffff;
-  padding: 0.5rem;
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 0.7rem 1rem;
   text-decoration: none;
+  text-transform: uppercase;
 }
 .sidebar-button a {
-  background-color: #f0b252;
-  color: #ffffff;
-  padding: 0.5rem;
+  color: inherit;
+  text-decoration: none;
 }
 
 /** Text */
@@ -413,7 +418,7 @@ button:hover {
 
 /** Containers */
 .sidebar-container {
-  margin: 1.5rem 0 0 0;
+  margin: 2.5rem 0 0 0;
 }
 .sidebar-container p {
   font-size: 0.8rem;
@@ -440,24 +445,6 @@ button:hover {
 }
 .sidebar-list-heading h6 {
   margin-bottom: 0.5rem;
-}
-
-.events-list {
-  padding: 1rem;
-}
-.events-list a > h6 {
-  color: #4d4d4d;
-}
-.events-list a:hover > h6 {
-  text-decoration: underline;
-}
-.events-list p {
-  margin-bottom: 1rem;
-}
-
-#events-all {
-  margin: 0.5rem 0;
-  text-align: center;
 }
 
 #wire-signup-container {
@@ -523,7 +510,6 @@ Navigation
   -webkit-flex: 0 0 100%;
       -ms-flex: 0 0 100%;
           flex: 0 0 100%;
-  background-color: lightblue;
   width: 100%;
 }
 
@@ -792,6 +778,14 @@ Navigation
   div#block-bez558b23a77c556 {
     margin-top: 86px;
   }
+
+  .nav-wrapper {
+    background-color: transparent;
+  }
+
+  .nav-wrapper:last-child {
+    background-color: rgba(255, 255, 255, 0.88);
+  }
 }
 #mobile-nav {
   color: #fff;
@@ -1043,23 +1037,7 @@ li.wfc-callout {
   text-decoration: none;
 }
 
-/* @media screen and (max-width: 989px) {
-
-	li.wfc-callout {
-    	display: block;
-    	text-align: left;
-	}
-
-    .wfc-callout-container p {
-     margin-top: 1.6em;
-    }
-
-} */
 @media screen and (max-width: 659px) {
-  .wfc-callout-container {
-    padding: 0 3rem 0 1rem;
-    width: auto;
-  }
   .wfc-callout-container p {
     margin-top: 1.5em;
   }
@@ -1191,162 +1169,147 @@ WFC Logo
     width: 9rem;
   }
 }
-/*
-===========
-Visit Block
-===========
-*/
 .wrapper-visit {
   background-color: #7ec23b;
   border-top: 0.6rem solid #356033;
   color: #fff;
 }
-
-.visit-block {
-  line-height: 160%;
-}
-
-#visit-info {
-  display: table;
-  margin: 0 auto;
-}
-
-#visit-container {
-  display: table;
-  margin: 0 auto;
-}
-
-#visit-hours,
-#visit-prices,
-#visit-directions {
-  float: left;
-  min-height: 12rem;
-  padding: 1rem 0 1rem 1.35rem;
-  width: 16rem;
-}
-#visit-hours p:first-of-type,
-#visit-prices p:first-of-type,
-#visit-directions p:first-of-type {
-  font-weight: bold;
-  margin-bottom: 0.4rem;
-}
-#visit-hours a,
-#visit-prices a,
-#visit-directions a {
+.wrapper-visit a {
   color: inherit;
   font-weight: bold;
   letter-spacing: 0.02rem;
   text-decoration: none;
 }
 
+#visit-container {
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+}
+#visit-container h6 {
+  padding: 0 0 0.25rem 0;
+}
+
+.visit-section {
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  padding: 1rem 2rem;
+}
+
 #visit-prices {
   border-left: 1px solid #759f4d;
   border-right: 1px solid #759f4d;
+  -webkit-flex: 2 0 auto;
+      -ms-flex: 2 0 auto;
+          flex: 2 0 auto;
 }
-
-#wfc-hours {
-  margin: 0 0 1.2rem;
+#visit-prices h6 {
+  -webkit-flex: 0 0 100%;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
 }
-
-#visit-guest-type,
-#visit-price-amount {
-  float: left;
-}
-
-#visit-guest-type {
-  width: 75%;
-}
-
-#visit-price-amount {
-  width: 25%;
+#visit-prices #visit-price-amount {
+  margin-left: auto;
 }
 
 #visit-action-bar {
   border-top: 1px solid #759f4d;
-  clear: both;
-  float: left;
-  padding: 0.65rem 1.35rem;
-  min-width: 51rem;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
 }
 
-#visit-action-bar p {
-  display: inline-block;
-}
-
-#visit-membership {
-  margin-left: 3.25rem;
-}
-
-@media screen and (max-width: 800px) {
-  #visit-action-bar p {
-    float: left;
-  }
-
-  #visit-membership {
-    float: left;
-    clear: both;
-    margin-left: 0;
-    margin-top: 0.9rem;
-    margin-bottom: 0.9rem;
-  }
-}
-@media screen and (max-width: 662px) {
+@media screen and (max-width: 833px) {
   #visit-container {
-    display: block;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+
+  .visit-section {
+    padding: 1.2rem 2.25rem;
+    width: 20rem;
+    max-width: 20rem;
+  }
+
+  #visit-prices {
+    border-right: none;
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    padding-left: 4rem;
   }
 
   #visit-directions {
-    clear: left;
+    border-top: 1px solid #759f4d;
   }
 
   #visit-action-bar {
     border-left: 1px solid #759f4d;
-    border-top: none;
-    clear: none;
-    height: 10rem;
-    min-width: 0;
-    padding: 1rem 0 1rem 1.35rem;
-    width: 16rem;
-  }
-
-  #visit-hours {
-    border-right: 1px solid #759f4d;
-    border-bottom: 1px solid #759f4d;
-  }
-
-  #visit-prices {
-    border-left: none;
-    border-right: none;
-    border-bottom: 1px solid #759f4d;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    padding-left: 4rem;
   }
 }
-@media screen and (max-width: 486px) {
-  #visit-hours,
-  #visit-prices,
-  #visit-directions {
-    min-height: 10rem;
+@media screen and (max-width: 767px) {
+  .visit-section {
+    max-width: 100%;
+    padding: 1.2rem 0;
     width: 100%;
   }
 
-  #visit-hours {
-    border-right: none;
-  }
-
-  #visit-hours {
-    border-right: none;
-  }
-
-  #visit-action-bar {
+  #visit-prices, #visit-action-bar {
     border-left: none;
-    border-top: 1px solid #759f4d;
-    height: auto;
-    padding: 1rem;
-    width: auto;
+    padding-left: 0;
+  }
+
+  #visit-prices {
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+
+  #visit-hours {
+    border-bottom: 1px solid #759f4d;
+  }
+
+  #visit-action-bar button {
+    margin: 1rem 0 0 0;
   }
 }
-.landing-events-list-heading {
-  padding: 0 1rem;
+.events-list {
+  padding: 0.35rem 0 1.75rem;
 }
+.events-list a > h6 {
+  color: #4d4d4d;
+}
+.events-list a:hover > h6 {
+  text-decoration: underline;
+}
+.events-list p {
+  margin-bottom: 1rem;
+}
+.events-list hr {
+  border: 0;
+  border-top: 1px solid #efefef;
+  border-bottom: none;
+  height: 0;
+  padding-bottom: 0.4rem;
+}
+.events-list hr:last-child {
+  padding-bottom: 0;
+}
+
+#events-all button {
+  margin: 1rem auto;
+}
+
+.events-programs-widget ul.widget-area {
+  padding: 2rem 0 0;
+}
+
 .landing-events-list-heading h6 {
   text-transform: uppercase;
 }
@@ -1355,15 +1318,15 @@ Visit Block
   border-top: 1px solid #dedede;
   border-bottom: none;
   height: 0;
+  margin: 0;
+  padding-bottom: 0.4rem;
 }
 
-.events-list hr {
-  border: 0;
-  border-top: 1px solid #efefef;
-  border-bottom: none;
-  height: 0;
+@media screen and (max-width: 600px) {
+  .sidebar-container {
+    margin: 1rem 0 0 0;
+  }
 }
-
 #wrapper-waq5578873511c88 {
   display: none;
 }
@@ -1387,41 +1350,50 @@ Visit Block
     width: initial;
   }
 }
-/*
-==========
-NPIN Block
-==========
-*/
 .landing-npin {
   background-color: #fff;
 }
 
 #npin-search-wrapper {
-  background-image: url("//utw10069.utweb.utexas.edu/wp-content/uploads/2015/07/BL_IMG000092_light.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 0;
-  padding-top: 39rem;
   position: relative;
-  width: 100%;
+}
+#npin-search-wrapper #npin-search-background {
+  display: block;
+  max-width: initial;
 }
 
 #npin-search-form-wrapper {
+  left: 0;
+  height: 100%;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   position: absolute;
-  text-align: center;
   top: 0;
   width: 100%;
 }
 
+#npin-search-padding {
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 2rem;
+  width: 100%;
+}
+
 #npin-search-form {
-  background-color: rgba(0, 0, 0, 0.45);
+  background-color: rgba(0, 0, 0, 0.6);
   color: #fff;
-  display: block;
-  margin: 4rem auto 0;
+  -webkit-flex: 0 1 35rem;
+      -ms-flex: 0 1 35rem;
+          flex: 0 1 35rem;
+  height: 27rem;
+  max-width: 100%;
   padding: 3rem;
-  text-align: left;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-  max-width: 35rem;
 }
 #npin-search-form h1 {
   line-height: 115%;
@@ -1434,68 +1406,39 @@ NPIN Block
   text-decoration: none;
 }
 
+#form-npin-simple {
+  text-align: right;
+}
+#form-npin-simple input {
+  width: 100%;
+}
 #form-npin-simple input[type="text"] {
   height: 3rem;
-  margin: 2rem 0;
-  max-width: 29rem;
-  width: 85%;
+  margin: 2rem 0 1rem;
 }
 #form-npin-simple input[placeholder] {
-  font-size: 1.2rem;
+  box-sizing: border-box;
+  font-size: 1rem;
   padding-left: 1rem;
 }
 #form-npin-simple button {
-  background: none;
-  border: none;
-  vertical-align: middle;
-}
-#form-npin-simple button img {
-  vertical-align: bottom;
-  width: 2rem;
-}
-#form-npin-simple button:hover {
-  cursor: pointer;
+  display: inline-block;
+  margin: 0 0 2rem;
 }
 
-@media screen and (max-width: 570px) {
-  #npin-search-wrapper {
-    padding-top: 43rem;
-  }
-
-  #npin-search-form-wrapper {
-    height: 100%;
-  }
-
-  #npin-search-form {
-    height: 100%;
-    margin-top: 0;
-    padding: 3rem 3rem;
-  }
-
-  #form-npin-simple input[type="text"] {
-    width: 70%;
-  }
-  #form-npin-simple input[placeholder] {
-    font-size: 1rem;
-  }
-  #form-npin-simple button {
-    margin-left: 0.8rem;
+@media screen and (max-width: 630px) {
+  #npin-search-padding {
+    -webkit-align-items: inherit;
+        -ms-flex-align: inherit;
+            align-items: inherit;
     padding: 0;
   }
-  #form-npin-simple img {
-    width: 65%;
-  }
-}
-@media screen and (max-width: 573px) {
+
   #npin-search-form {
-    padding: 3rem 1.5rem;
+    height: auto;
+    padding: 2rem;
   }
 }
-/*
-=============
-Widgets Block
-=============
-*/
 .landing-widgets {
   background-color: #fff;
 }
@@ -1512,7 +1455,6 @@ Widgets Block
       -ms-flex-pack: center;
           justify-content: center;
   max-width: 100%;
-  padding: 0 2rem;
   width: initial;
 }
 .landing-cards ul.widget-area {
@@ -1544,9 +1486,9 @@ Widgets Block
   -webkit-flex: 0 0 30rem;
       -ms-flex: 0 0 30rem;
           flex: 0 0 30rem;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-order: 2;
       -ms-flex-order: 2;
           order: 2;

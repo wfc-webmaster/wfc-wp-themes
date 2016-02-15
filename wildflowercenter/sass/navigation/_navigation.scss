@@ -9,8 +9,7 @@
 }
 
 #header-nav-wrap {
-    flex: 0 0 100%;
-    background-color: lightblue;
+    flex: 0 0 100%;    
     width: 100%;
 }
 
@@ -287,6 +286,14 @@
     
     div#block-bez558b23a77c556 {  
       margin-top: 86px;
+    }
+
+    .nav-wrapper {
+      background-color: transparent;
+    }
+
+    .nav-wrapper:last-child {
+      background-color: rgba(255, 255, 255, 0.88);
     }
 }
 
