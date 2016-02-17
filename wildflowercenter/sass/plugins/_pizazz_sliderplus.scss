@@ -38,56 +38,70 @@ div#block-bez558b23a77c556 .pzsp-content-rightorbottom {
 
 }
 
-//Sets the text on footer feature slider to the top
-div#block-bei5591a71621877 .pzsp-content-leftortop {
-    //top: 10% !important;
-}
+// Set text on footer to center
 
-div#footerImage-text {
-    background-color: rgba(0, 0, 0, 0.5);
-    display: table;
-    margin: 0 auto;
-    padding: 1.5em 3em;
+#block-bei5591a71621877 .is-text {
+    height: 100%; 
 
-    a {
-        color: #fff;
-        text-decoration: none;
+    .pzsp-entry-body {
+        align-items: center;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
     }
 
-    h1 {
-        margin-bottom: 0.5rem;
-    }
+    #footerImage-text {
+        background-color: rgba(0, 0, 0, 0.6);
+        box-sizing: border-box; 
+        flex: 0 1 35rem;
+        padding: 3rem;
 
-    p {
-        margin: 2.5rem 0 1.5rem;
-    }
-}
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
 
-@media screen and (max-width: 736px) {
+        h1 {
+            margin-bottom: 0.5rem;
+        }
 
-    div#footerImage-text {
-        padding: 1.2em 3em 0.3em;
-    }
-}
+        h3 {
+            font-size: 1.2rem;
+        }
 
-@media screen and (max-width: 505px) {
-
-    div#footerImage-text {
-        height: 100%;
-    }
-}
-
-@media screen and (max-width: 351px) {
-
-    div#footerImage-text {
-        padding: 0.5rem 0 0 1rem;
-        
         p {
-            margin: 1.5rem 0 1.5rem;
+            line-height: 170%;
+            margin: 2.5rem 0 1.5rem;
         }
     }
-
 }
+
+
+// @media screen and (max-width: 736px) {
+
+//     div#footerImage-text {
+//         padding: 1.2em 3em 0.3em;
+//     }
+// }
+
+// @media screen and (max-width: 505px) {
+
+//     div#footerImage-text {
+//         height: 100%;
+//     }
+// }
+
+// @media screen and (max-width: 351px) {
+
+//     div#footerImage-text {
+//         padding: 0.5rem 0 0 1rem;
+        
+//         p {
+//             margin: 1.5rem 0 1.5rem;
+//         }
+//     }
+
+// }
 
 .cycle-slideshow img.callout-arrow {
     width: 1.38rem;

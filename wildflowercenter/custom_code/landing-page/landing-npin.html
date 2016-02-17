@@ -8,13 +8,14 @@
 		    	<h3>Search the Native Plant Data Base for horticultural and botanical information on thousands of native plant species.</h3>
 		    	<!-- Begin Search Form -->
 
-		    	<form id="form-npin-simple">
-		    		<input type="text" name="npin-simple-search" placeholder="Enter Common/Scientific Plant Name">
-		    		<button class="sidebar-button" type="submit">Search</button>
+		    	<form id="form-npin-simple" action="https://wildflower.org/plants/search.php">
+		    		<input id="search_field2" name="search_field" type="text" name="npin-simple-search" placeholder="Enter Common/Scientific Plant Name">
+		    		<input type="hidden" name="newsearch" value="true">
+		    		<button class="sidebar-button" type="submit" value="go">Search</button>
 		    	</form>
 
 		    	<!-- End Search Form -->
-		    	<p><a href="/">Conduct Advanced Search<br />
+		    	<p><a href="https://www.wildflower.org/plants/">Conduct Advanced Search<br />
 		    		<img class="callout-arrow" src="wp-content/uploads/2015/07/link-arrow-02.svg"></a>
 		    	</p>
 		    </div>
