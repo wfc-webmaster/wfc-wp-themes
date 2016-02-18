@@ -1,6 +1,6 @@
-<div id="footer-nav-container">
-	<div id="footer-nav-wrap">
-		<div id="footer-nav-1" class="footer-nav-section">
+<div id="footer-nav-container" class="flex-container-row">
+	<div id="footer-nav-wrap" class="flex-container-row">
+		<div id="footer-nav-1" class="footer-nav-section flex-container-row">
 			<img src="http://localhost:8888/wildflower_2/wordpress/wp-content/uploads/2015/07/WFC-logo-01.svg">
 			<address>
 				4801 La Crosse Ave.<br />
@@ -10,35 +10,33 @@
 		</div>
 		<div id="footer-nav-2" class="footer-nav-section">
 			<p>VISIT</p>
-			<ul>
-				<li><a href="/">Hours</a></li>
-				<li><a href="/">Directions</a></li>
-				<li><a href="/">Calendar</a></li>
-				<li><a href="/">Exhibits</a></li>
-				<li><a href="/">Café</a></li>
-				<li><a href="/">Accessibility</a></li>
-			</ul>
+			<?php 
+				$main_args = array(
+					'theme_location' => 'wfc-footer-visit',
+					'container' => false 
+					);
+				wp_nav_menu($main_args);
+			?>			
 		</div>
 		<div id="footer-nav-3" class="footer-nav-section">
 			<p>SHORTCUTS</p>
-			<ul>
-				<li><a href="/">Contact Us</a></li>
-				<li><a href="/">Membership</a></li>
-				<li><a href="/">Weddings</a></li>
-				<li><a href="/">Private Events</a></li>
-				<li><a href="/">Find Plants</a></li>
-				<li><a href="/">Donate</a></li>
-			</ul>
+			<?php 
+				$main_args = array(
+					'theme_location' => 'wfc-footer-shortcuts',
+					'container' => false 
+					);
+				wp_nav_menu($main_args);
+			?>
 		</div>
 		<div id="footer-nav-4" class="footer-nav-section">
 			<p>NEWS</p>
-			<ul>
-				<li><a href="/">Feature Stories</a></li>
-				<li><a href="/">Press Releases</a></li>
-				<li><a href="/">Media Requests</a></li>
-				<li><a href="/">What’s In Bloom?</a></li>
-				<li><a href="/">Contact Us</a></li>
-			</ul>
+			<?php 
+				$main_args = array(
+					'theme_location' => 'wfc-footer-news',
+					'container' => false 
+					);
+				wp_nav_menu($main_args);
+			?>
 		</div>
 		<div id="footer-nav-5" class="footer-nav-section">
 			<p>OUR MISSION</p>
@@ -52,7 +50,7 @@
 				<form action="//wildflower.us9.list-manage.com/subscribe/post?u=166c542c1c0dea75743e4846b&amp;id=81d95db225" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 				    <div id="mc_embed_signup_scroll">
 						<div class="mc-field-group footer-nav-mc">
-							<label for="mce-EMAIL">Email </label>
+							<label for="mce-EMAIL"><strong>Email:</strong></label><br />
 							<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
 						</div>
 						<!-- <div class="mc-field-group footer-nav-mc">

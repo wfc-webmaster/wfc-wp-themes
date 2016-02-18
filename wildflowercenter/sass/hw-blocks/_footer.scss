@@ -2,91 +2,151 @@
 	background-color: $wfc-darkgray;
 }
 
-//Footer Section (Mirrored)
+// FOOTER SECTION (MIRRORED)
 div#whitewrap div.wrapper-mirroring-wm65591a6abc65d9 {
     margin-top: 2rem;
 }
 
-//Section - About WFC 
+// SECTION - ABOUT WFC 
 
-#block-bo555788f728a8fa {
-    background-color: $wfc-lighttan;
+#block-b1g56c5e8830f91c {
+    height: 100%;
+
+#footer-about-us {	
+	
+	.landing-overlay-img {
+	    height: inherit;
+	}
+}     
+
+    #footerImage-text {        
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        h1 {
+            margin-bottom: 0.5rem;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+        }
+
+        p {
+            line-height: 170%;
+            margin: 2.5rem 0 1.5rem;
+        }
+    }
 }
 
-#footer-about-wfc {
-    line-height: 160%;
-    margin: 0 auto;
-    max-width: 66rem;
-    padding: 1.8rem 1.5rem;
+@media screen and (max-width: 630px) {
+	#footer-about-us {
+		height: 30rem;
+	}
 }
 
-//Section - Navigation
+@media screen and (min-width: 631px) {
+	#footer-about-us {
+		height: 45rem;
+	}
+}
+
+@media screen and (min-width: 2305px) {
+	#footer-about-us {
+		height: auto;
+	}
+}
+
+// NAVIGATION SECTION
 
 #footer-nav-container {
+	box-sizing: border-box;
 	color: $wfc-white;
-	display: table;
 	font-size: ms(0, 0.85em);
+	justify-content: center;
 	line-height: 150%;
-	margin: 0 auto;
-	max-width: 1280px;
-	padding: 1.8rem 0rem;
-	width: 90%;
+	max-width: 100%;
+	padding: 1.8rem 2rem;
+	width: 100%;
 
 	a {
 		color: inherit;
 		text-decoration: none;
 	}
-}
 
-#footer-nav-wrap {
-  display: table;
-  margin: 0 auto;
-}
+	#footer-nav-wrap {
+	  flex: 0 0 68rem;
+	  justify-content: space-around;
+	  max-width: 100%;
+		
+		#footer-nav-1,
+		#footer-nav-6 {		
+			flex-grow: 2;
 
-.footer-nav-section {
-	display: inline-block;
-	float: left;
+			address {
+		    	line-height: 150%;
+		    	margin: 0;
+			}
+			img {
+				margin-bottom: 1rem;
+		    	width: 9rem;
+			}
+		}
 
-	p:first-of-type {
-		font-weight: bold;
-		margin-bottom: 0.5rem;
+		.footer-nav-section {		
+			flex: 1 1 5rem;
+			margin: 0 0 0 1rem;
+			padding: 0 0.5rem 1rem;
+
+			p:first-of-type {
+				font-weight: bold;
+				margin-bottom: 0.5rem;
+			}
+		}
 	}
 }
 
-#footer-nav-1 {
-	width: 11rem;
+@media screen and (max-width: 949px) {
+	#footer-nav-container {
 
-	address {
-    	line-height: 150%;
-    	margin: 0;
+		#footer-nav-wrap {
+			flex: 0 0 100%;
+			justify-content: space-around;
+
+			#footer-nav-1,
+			#footer-nav-6 {
+				flex-grow: 0;
+			}
+
+			#footer-nav-1 {
+				align-items: center;
+				flex: 0 0 100%;
+				justify-content: center;
+
+				img {
+					margin-right: 1rem;
+				}
+			}
+
+			// .footer-nav-section {		
+			// 	flex: 0 0 20rem;
+			// 	margin: 0 0 1rem 0;
+			// }
+
+		}
 	}
-	img {
-		margin-bottom: 1rem;
-    	width: 9rem;
-	}
 }
 
-#footer-nav-2,
-#footer-nav-3,
-#footer-nav-4,
-#footer-nav-5 {
-	margin-left: 0.5rem;
-	width: 8rem;
-}
-
-#footer-nav-6 {
-	margin-left: 1.7rem;
-	width: 10rem;
-}
-
-// MailChimp sign-up form
+// MAILCHIMP SIGN-UP FORM
 
 .footer-nav-mc {
-  margin: .6rem 0;
+  margin: 0.6rem 0;
 
 	label {
 	  display: inline-block;
-	  width: 4.75rem;
+	  margin-bottom: 0.2rem;	  
 	}
 
  	input {
@@ -97,7 +157,8 @@ div#whitewrap div.wrapper-mirroring-wm65591a6abc65d9 {
 	  border-width: 2px;
 	  color: $wfc-white;
 	  font-size: inherit;
-	  width: 100%;
+	  padding: 0.2rem;
+	  width: auto;
 	}
 
 	input:focus {
@@ -105,6 +166,7 @@ div#whitewrap div.wrapper-mirroring-wm65591a6abc65d9 {
 		border-color: inherit;
 		color: inherit;
 		font-size: inherit;
+		outline: none;
 	}
 	input[type="submit"] {
 		background-color: $wfc-lightorange;
@@ -122,55 +184,7 @@ div#whitewrap div.wrapper-mirroring-wm65591a6abc65d9 {
 	}
 }
 
-@media screen and (max-width: 953px) {
-	.footer-nav-section ul li {
-		padding-top: 0.25rem;
-	}
-
-	#footer-nav-1 {
-	  display: table;
-	  float: none;
-	  margin: 0 auto;
-	  width: auto;
-
-	  img {
-	  	float: left;
-	  	width: 10rem;
-	  }
-
-	  address {
-		float: left;
-  		margin: 1rem 0 0 2rem;
-	  }
-	}
-
-	#footer-nav-2 {
-	  	clear: left;
-	  	margin-left: 0;
-	}
-
-	#footer-nav-2,
-	#footer-nav-3,
-	#footer-nav-4,
-	#footer-nav-5,
-	#footer-nav-6 {
-		margin-top: 2.5rem;
-	}
-}
-
-@media screen and (max-width: 715px) {
-	#footer-nav-4,
-	#footer-nav-6 {
-		clear: left;
-		margin-left: 0;
-	}
-	#footer-nav-3,
-	#footer-nav-5 {
-		margin-left: 4rem;
-	}
-}
-
-//Section - Copyright & Social Media
+// COPYRIGHT & SOCIAL MEDIA SECTION
 
 #footer-copyright-container {
 	color: $wfc-white;
@@ -248,7 +262,7 @@ div#whitewrap div.wrapper-mirroring-wm65591a6abc65d9 {
 	}
 }
 
-//Section - UT Logo
+// UT LOGO SECTION
 
 .footer-ut-logo {
     background-color: $wfc-gray;

@@ -161,6 +161,10 @@ address {
   margin: 0 0 1.2rem;
 }
 
+strong {
+  font-weight: 600;
+}
+
 em {
   font-style: italic;
 }
@@ -632,7 +636,7 @@ Navigation
 }
 
 #block-b7q56a906c3d19c4 {
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.35);
   display: none;
   position: absolute;
   z-index: 9999;
@@ -1085,46 +1089,6 @@ div#block-bez558b23a77c556 .pzsp-content-rightorbottom {
     bottom: 8% !important;
   }
 }
-#block-bei5591a71621877 .is-text {
-  height: 100%;
-}
-#block-bei5591a71621877 .is-text .pzsp-entry-body {
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: row wrap;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-#block-bei5591a71621877 .is-text #footerImage-text {
-  background-color: rgba(0, 0, 0, 0.6);
-  box-sizing: border-box;
-  -webkit-flex: 0 1 35rem;
-      -ms-flex: 0 1 35rem;
-          flex: 0 1 35rem;
-  padding: 3rem;
-}
-#block-bei5591a71621877 .is-text #footerImage-text a {
-  color: #fff;
-  text-decoration: none;
-}
-#block-bei5591a71621877 .is-text #footerImage-text h1 {
-  margin-bottom: 0.5rem;
-}
-#block-bei5591a71621877 .is-text #footerImage-text h3 {
-  font-size: 1.2rem;
-}
-#block-bei5591a71621877 .is-text #footerImage-text p {
-  line-height: 170%;
-  margin: 2.5rem 0 1.5rem;
-}
-
 .cycle-slideshow img.callout-arrow {
   width: 1.38rem;
 }
@@ -1134,22 +1098,12 @@ div#block-bez558b23a77c556 .pzsp-content-rightorbottom {
 Headway Page Blocks
 ===================
 */
-/*
-=============
-Block Globals
-=============
-*/
 #wrapper-wb955789e0bd18ef p,
 #wrapper-wxn55b2a37cad902 p,
 #wrapper-wm65591a6abc65d9 p {
   margin: initial;
 }
 
-/*
-=========
-WFC Logo
-=========
-*/
 #wfc-logo {
   background-color: #f0b252;
   display: inline-block;
@@ -1360,12 +1314,12 @@ WFC Logo
   background-color: #fff;
 }
 
-#npin-search-wrapper {
+.landing-overlay-wrapper {
   position: relative;
 }
-#npin-search-wrapper #npin-search-background {
+.landing-overlay-wrapper .landing-overlay-img {
   display: block;
-  max-width: initial;
+  max-width: initial !important;
 }
 
 #npin-search-form-wrapper {
@@ -1390,24 +1344,23 @@ WFC Logo
   width: 100%;
 }
 
-#npin-search-form {
+.landing-overlay {
   background-color: rgba(0, 0, 0, 0.6);
   color: #fff;
   -webkit-flex: 0 1 35rem;
       -ms-flex: 0 1 35rem;
           flex: 0 1 35rem;
-  height: 27rem;
   max-width: 100%;
   padding: 3rem;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
-#npin-search-form h1 {
+.landing-overlay h1 {
   line-height: 115%;
 }
-#npin-search-form h3 {
+.landing-overlay h3 {
   line-height: 140%;
 }
-#npin-search-form a {
+.landing-overlay a {
   color: inherit;
   text-decoration: none;
 }
@@ -1579,77 +1532,131 @@ div#whitewrap div.wrapper-mirroring-wm65591a6abc65d9 {
   margin-top: 2rem;
 }
 
-#block-bo555788f728a8fa {
-  background-color: #e9d8c8;
+#block-b1g56c5e8830f91c {
+  height: 100%;
 }
-
-#footer-about-wfc {
-  line-height: 160%;
-  margin: 0 auto;
-  max-width: 66rem;
-  padding: 1.8rem 1.5rem;
+#block-b1g56c5e8830f91c #footer-about-us .landing-overlay-img {
+  height: inherit;
 }
-
-#footer-nav-container {
+#block-b1g56c5e8830f91c #footerImage-text a {
   color: #fff;
-  display: table;
+  text-decoration: none;
+}
+#block-b1g56c5e8830f91c #footerImage-text h1 {
+  margin-bottom: 0.5rem;
+}
+#block-b1g56c5e8830f91c #footerImage-text h3 {
+  font-size: 1.2rem;
+}
+#block-b1g56c5e8830f91c #footerImage-text p {
+  line-height: 170%;
+  margin: 2.5rem 0 1.5rem;
+}
+
+@media screen and (max-width: 630px) {
+  #footer-about-us {
+    height: 30rem;
+  }
+}
+@media screen and (min-width: 631px) {
+  #footer-about-us {
+    height: 45rem;
+  }
+}
+@media screen and (min-width: 2305px) {
+  #footer-about-us {
+    height: auto;
+  }
+}
+#footer-nav-container {
+  box-sizing: border-box;
+  color: #fff;
   font-size: 0.85em;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   line-height: 150%;
-  margin: 0 auto;
-  max-width: 1280px;
-  padding: 1.8rem 0rem;
-  width: 90%;
+  max-width: 100%;
+  padding: 1.8rem 2rem;
+  width: 100%;
 }
 #footer-nav-container a {
   color: inherit;
   text-decoration: none;
 }
-
-#footer-nav-wrap {
-  display: table;
-  margin: 0 auto;
+#footer-nav-container #footer-nav-wrap {
+  -webkit-flex: 0 0 68rem;
+      -ms-flex: 0 0 68rem;
+          flex: 0 0 68rem;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  max-width: 100%;
 }
-
-.footer-nav-section {
-  display: inline-block;
-  float: left;
+#footer-nav-container #footer-nav-wrap #footer-nav-1,
+#footer-nav-container #footer-nav-wrap #footer-nav-6 {
+  -webkit-flex-grow: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
 }
-.footer-nav-section p:first-of-type {
+#footer-nav-container #footer-nav-wrap #footer-nav-1 address,
+#footer-nav-container #footer-nav-wrap #footer-nav-6 address {
+  line-height: 150%;
+  margin: 0;
+}
+#footer-nav-container #footer-nav-wrap #footer-nav-1 img,
+#footer-nav-container #footer-nav-wrap #footer-nav-6 img {
+  margin-bottom: 1rem;
+  width: 9rem;
+}
+#footer-nav-container #footer-nav-wrap .footer-nav-section {
+  -webkit-flex: 1 1 5rem;
+      -ms-flex: 1 1 5rem;
+          flex: 1 1 5rem;
+  margin: 0 0 0 1rem;
+  padding: 0 0.5rem 1rem;
+}
+#footer-nav-container #footer-nav-wrap .footer-nav-section p:first-of-type {
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
 
-#footer-nav-1 {
-  width: 11rem;
+@media screen and (max-width: 949px) {
+  #footer-nav-container #footer-nav-wrap {
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+  }
+  #footer-nav-container #footer-nav-wrap #footer-nav-1,
+  #footer-nav-container #footer-nav-wrap #footer-nav-6 {
+    -webkit-flex-grow: 0;
+        -ms-flex-positive: 0;
+            flex-grow: 0;
+  }
+  #footer-nav-container #footer-nav-wrap #footer-nav-1 {
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #footer-nav-container #footer-nav-wrap #footer-nav-1 img {
+    margin-right: 1rem;
+  }
 }
-#footer-nav-1 address {
-  line-height: 150%;
-  margin: 0;
-}
-#footer-nav-1 img {
-  margin-bottom: 1rem;
-  width: 9rem;
-}
-
-#footer-nav-2,
-#footer-nav-3,
-#footer-nav-4,
-#footer-nav-5 {
-  margin-left: 0.5rem;
-  width: 8rem;
-}
-
-#footer-nav-6 {
-  margin-left: 1.7rem;
-  width: 10rem;
-}
-
 .footer-nav-mc {
-  margin: .6rem 0;
+  margin: 0.6rem 0;
 }
 .footer-nav-mc label {
   display: inline-block;
-  width: 4.75rem;
+  margin-bottom: 0.2rem;
 }
 .footer-nav-mc input {
   background-color: #232a2f;
@@ -1659,13 +1666,15 @@ div#whitewrap div.wrapper-mirroring-wm65591a6abc65d9 {
   border-width: 2px;
   color: #fff;
   font-size: inherit;
-  width: 100%;
+  padding: 0.2rem;
+  width: auto;
 }
 .footer-nav-mc input:focus {
   background-color: inherit;
   border-color: inherit;
   color: inherit;
   font-size: inherit;
+  outline: none;
 }
 .footer-nav-mc input[type="submit"] {
   background-color: #f0b252;
@@ -1682,51 +1691,6 @@ div#whitewrap div.wrapper-mirroring-wm65591a6abc65d9 {
   text-decoration: underline;
 }
 
-@media screen and (max-width: 953px) {
-  .footer-nav-section ul li {
-    padding-top: 0.25rem;
-  }
-
-  #footer-nav-1 {
-    display: table;
-    float: none;
-    margin: 0 auto;
-    width: auto;
-  }
-  #footer-nav-1 img {
-    float: left;
-    width: 10rem;
-  }
-  #footer-nav-1 address {
-    float: left;
-    margin: 1rem 0 0 2rem;
-  }
-
-  #footer-nav-2 {
-    clear: left;
-    margin-left: 0;
-  }
-
-  #footer-nav-2,
-  #footer-nav-3,
-  #footer-nav-4,
-  #footer-nav-5,
-  #footer-nav-6 {
-    margin-top: 2.5rem;
-  }
-}
-@media screen and (max-width: 715px) {
-  #footer-nav-4,
-  #footer-nav-6 {
-    clear: left;
-    margin-left: 0;
-  }
-
-  #footer-nav-3,
-  #footer-nav-5 {
-    margin-left: 4rem;
-  }
-}
 #footer-copyright-container {
   color: #fff;
   display: table;

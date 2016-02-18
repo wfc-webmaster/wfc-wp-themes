@@ -23,7 +23,10 @@ function register_my_menus() {
 			'wfc-sub-nav-news' => __( 'WFC Sub Nav - News' ),
 			'wfc-action-nav-mobile' => __('WFC Action Nav - Mobile'),
 			'wfc-main-nav-mobile' => __( 'WFC Main Nav - Mobile' ),
-			'wfc-sub-nav-mobile' => __( 'WFC Sub Nav - Mobile' )
+			'wfc-sub-nav-mobile' => __( 'WFC Sub Nav - Mobile' ),
+			'wfc-footer-visit' => __( 'WFC Footer Nav - Visit' ),
+			'wfc-footer-news' => __( 'WFC Footer Nav - News' ),
+			'wfc-footer-shortcuts' => __( 'WFC Footer Nav - Shortcuts' )
 		)
 	);
 }
