@@ -660,7 +660,17 @@ Navigation
   width: 100%;
 }
 .nav-sub-wrap .menu a {
+  box-sizing: border-box;
   color: inherit;
+  display: block;
+  height: 100%;
+  padding: 0.75rem 0 0.75rem 0.5rem;
+  width: 100%;
+}
+.nav-sub-wrap .menu a:hover {
+  background-color: #acbd72;
+  color: #fff;
+  text-decoration: none !important;
 }
 
 .nav-sub-items {
@@ -676,10 +686,9 @@ Navigation
   padding: 1rem;
 }
 .nav-sub-items ul li {
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #fff;
   display: inline-block;
-  margin-left: 1rem;
-  padding: 1rem 0 1rem 0;
+  margin: 0 0 0 1rem;
   width: 14rem;
 }
 
@@ -824,7 +833,7 @@ Navigation
 #mobile-nav li a .fa {
   color: #fff;
   font-size: 1.4rem;
-  margin: 0 0.5rem 0 0;
+  margin: 0 1.2rem 0 0;
 }
 #mobile-nav li#nav-menu-close {
   border: none;
@@ -856,9 +865,9 @@ Navigation
   -webkit-flex: 0 0 30rem;
       -ms-flex: 0 0 30rem;
           flex: 0 0 30rem;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
   max-width: 100%;
   -webkit-order: 1;
       -ms-flex-order: 1;
@@ -867,9 +876,9 @@ Navigation
 }
 #mobile-nav #menu-navigation-action-nav-mobile li {
   border: none;
-  -webkit-flex: 0 0 25%;
-      -ms-flex: 0 0 25%;
-          flex: 0 0 25%;
+  -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
   margin: 0 0 1rem 0;
 }
 #mobile-nav #menu-navigation-action-nav-mobile li a {
@@ -1238,9 +1247,6 @@ Headway Page Blocks
   #visit-action-bar button {
     margin: 1rem 0 0 0;
   }
-}
-.events-list {
-  padding: 0.35rem 0 1.75rem;
 }
 .events-list a > h6 {
   color: #4d4d4d;
@@ -1640,15 +1646,58 @@ div#whitewrap div.wrapper-mirroring-wm65591a6abc65d9 {
     -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center;
-    -webkit-flex: 0 0 100%;
-        -ms-flex: 0 0 100%;
-            flex: 0 0 100%;
+    -webkit-flex: 0 1 100%;
+        -ms-flex: 0 1 100%;
+            flex: 0 1 100%;
     -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center;
+    margin: 0;
   }
   #footer-nav-container #footer-nav-wrap #footer-nav-1 img {
-    margin-right: 1rem;
+    margin-right: 2rem;
+  }
+}
+@media screen and (max-width: 749px) {
+  #footer-nav-container #footer-nav-wrap {
+    -webkit-flex: 0 0 30rem;
+        -ms-flex: 0 0 30rem;
+            flex: 0 0 30rem;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    overflow: hidden;
+  }
+  #footer-nav-container #footer-nav-wrap #footer-nav-1 {
+    margin: 0 0 1rem 0;
+  }
+  #footer-nav-container #footer-nav-wrap #footer-nav-6 {
+    border: none;
+  }
+  #footer-nav-container #footer-nav-wrap #footer-nav-6 .footer-nav-mc input#mce-EMAIL {
+    width: 14rem;
+  }
+  #footer-nav-container #footer-nav-wrap .footer-nav-section {
+    border-bottom: 1px solid #fff;
+    -webkit-flex: 0 0 45%;
+        -ms-flex: 0 0 45%;
+            flex: 0 0 45%;
+    margin: 0 0 1rem 0;
+  }
+}
+@media screen and (max-width: 335px) {
+  #footer-nav-container #footer-nav-wrap {
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  #footer-nav-container #footer-nav-wrap .footer-nav-section {
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
   }
 }
 .footer-nav-mc {
@@ -1692,13 +1741,16 @@ div#whitewrap div.wrapper-mirroring-wm65591a6abc65d9 {
 }
 
 #footer-copyright-container {
+  box-sizing: border-box;
   color: #fff;
-  display: table;
   font-size: 0.85em;
-  margin: 0 auto 0.7rem;
-  max-width: 1280px;
-  padding: 0.5rem 0;
-  width: 90%;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 0.5rem 2rem;
+  width: 100%;
 }
 #footer-copyright-container a {
   color: inherit;
@@ -1707,22 +1759,33 @@ div#whitewrap div.wrapper-mirroring-wm65591a6abc65d9 {
 
 #footer-copyright-wrap {
   border-top: 1px solid #fff;
-  display: table;
-  margin: 0 auto;
+  -webkit-flex: 0 0 68rem;
+      -ms-flex: 0 0 68rem;
+          flex: 0 0 68rem;
+  max-width: 100%;
   padding-top: 0.7rem;
 }
 
-#footer-copyright {
-  display: inline-block;
-  float: left;
-  width: 41rem;
+.copyright-items {
+  -webkit-flex: 0 1 auto;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+}
+
+#footer-copyright ul {
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+#footer-copyright ul li {
+  line-height: 150%;
+  margin-right: 0.5rem;
 }
 
 #footer-social-media {
-  float: right;
   font-size: 1.4rem;
+  margin-left: auto;
   text-align: right;
-  width: 25rem;
 }
 #footer-social-media ul {
   display: -webkit-inline-flex;
@@ -1739,25 +1802,22 @@ div#whitewrap div.wrapper-mirroring-wm65591a6abc65d9 {
   color: #fff;
 }
 
-#pzsp-footerImagePhone .pzsp-entry-body {
-  text-align: left;
+@media screen and (max-width: 674px) {
+  #footer-copyright ul {
+    display: block;
+  }
 }
-
-@media screen and (max-width: 953px) {
-  #footer-copyright {
-    width: auto;
+@media screen and (max-width: 494px) {
+  .copyright-items {
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+    max-width: 100%;
   }
 
   #footer-social-media {
-    width: 17rem;
-  }
-}
-@media screen and (max-width: 715px) {
-  #footer-social-media {
-    clear: left;
-    float: left;
-    margin-top: 0.6rem;
-    width: auto;
+    margin: 1rem 0;
+    text-align: left;
   }
 }
 .footer-ut-logo {
@@ -1819,319 +1879,6 @@ div#whitewrap div.wrapper-mirroring-wm65591a6abc65d9 {
 Pages
 =====
 */
-/*
-=========
-News Page
-=========
-*/
-.magazine-current-issue {
-  border-bottom: 1px solid #efefef;
-  display: table;
-  padding-bottom: 1.75rem;
-  margin: 2rem 1rem 0 0;
-}
-.magazine-current-issue img {
-  float: left;
-  margin-right: 1rem;
-}
-.magazine-current-issue p:last-of-type {
-  margin-bottom: 1.5rem;
-}
-
-@media screen and (max-width: 900px) {
-  .magazine-current-issue {
-    margin-right: 0;
-  }
-}
-@media screen and (max-width: 600px) {
-  .magazine-current-issue img {
-    float: none;
-  }
-}
-.magazine-recent-issues {
-  display: table;
-  float: left;
-  margin: 1rem 1.5rem 1.5rem 0;
-  padding: 1rem;
-  text-align: center;
-}
-.magazine-recent-issues h6 {
-  font-weight: 600;
-  line-height: 120%;
-}
-.magazine-recent-issues a {
-  color: inherit;
-  text-decoration: none;
-}
-.magazine-recent-issues a:hover {
-  text-decoration: underline;
-}
-
-@media screen and (max-width: 864px) {
-  .magazine-recent-issues:nth-of-type(4) {
-    clear: left;
-    padding-left: 0;
-  }
-}
-@media screen and (max-width: 585px) {
-  .magazine-recent-issues {
-    margin-right: 0;
-    padding: 0;
-    text-align: center;
-    width: 100%;
-  }
-  .magazine-recent-issues img {
-    width: initial;
-  }
-
-  .magazine-recent-issues:nth-of-type(3) {
-    clear: left;
-  }
-}
-.magazine-recent-issues:nth-of-type(2) {
-  padding-left: 0;
-}
-
-@media screen and (max-width: 1279px) {
-  div#block-b7h56096800b5f2d {
-    padding: 0 1.5rem;
-  }
-}
-/*
-================================
-Feature Archives :: Summary Page
-================================
-*/
-#archive-container {
-  display: table;
-  padding: 0 1rem 0 0;
-}
-
-#archive-search {
-  margin-top: 1.75rem;
-}
-
-.archive-summary-container {
-  border: 1px solid #dedede;
-  float: left;
-  height: 22rem;
-  margin: 2rem 2rem 0 0;
-  padding: 1rem 1.5rem;
-  width: 27rem;
-}
-
-.archive-summary-container:nth-child(odd) {
-  margin-right: 0;
-}
-
-div.feature-summary h3 {
-  margin: 1rem 0 0.35rem;
-}
-
-input.search-archives {
-  border: 1px solid #dedede;
-  font-family: inherit;
-  font-size: 0.85rem;
-  height: 1.2rem;
-  padding: 0.25rem;
-  margin: 0 1rem 0 0.4rem;
-}
-
-select.archive-sort {
-  color: #4d4d4d;
-  border: 1px solid #dedede;
-  font-size: .9rem;
-  margin: 0 1rem 0 0.4rem;
-  width: 5.5rem;
-}
-
-#archive-search label:nth-child(3) {
-  margin-right: 0.6rem;
-}
-
-@media screen and (max-width: 861px) {
-  section.summary-page {
-    padding-right: 2rem;
-  }
-
-  .archive-summary-container {
-    margin-right: 0;
-    width: 100%;
-  }
-}
-@media screen and (max-width: 669px) {
-  #archive-search label {
-    float: left;
-  }
-  #archive-search label:nth-child(2) {
-    clear: left;
-    margin-top: 1rem;
-  }
-  #archive-search label:nth-child(3), #archive-search label:last-child {
-    margin-top: 1rem;
-  }
-}
-@media screen and (max-width: 669px) {
-  #archive-search label:nth-child(3) {
-    clear: left;
-  }
-}
-/*
-=====================================
-Feature Archives :: Full Article Page
-=====================================
-*/
-section.full-article-page {
-  margin-top: 2.5rem;
-}
-
-.back-to-archive {
-  color: #fff;
-  font-weight: 600;
-}
-
-/*
-=========================================
-SPECIAL STYLE RULES FOR ARCHIVED FEATURES
-=========================================
-*/
-.img-with-caption-wrap {
-  /*background: none repeat scroll 0 0 #f5f5f5;*/
-  border: 1px solid #dedede;
-  display: table;
-  margin: 1.5rem auto;
-  padding: 1.3rem;
-}
-.img-with-caption-wrap p {
-  max-width: 700px;
-}
-
-.img-with-caption {
-  height: auto;
-  margin-bottom: 0.4rem;
-  max-width: 700px;
-  width: 100%;
-}
-
-/*
-====================================
-STYLE RULES FOR "TOP 10" FEATURE 141
-====================================
-*/
-.feature-wrapper {
-  clear: both;
-  display: inline-block;
-  margin-top: 2rem;
-}
-
-/*.feature-wrapper.top-plant {
-    border: 1px solid #e5e5e5;
-    padding: 1rem 0rem 1rem 1rem;
-    width: 690px;
-}*/
-.feature-wrapper:last-of-type {
-  margin-bottom: 20px;
-}
-
-.side-image {
-  float: left;
-}
-
-.side-image > h5 {
-  margin-top: 0.2rem;
-}
-
-.feature-text {
-  float: left;
-  margin-top: 2rem;
-  max-width: 50rem;
-  padding-left: 1rem;
-}
-
-.feature-text h3 {
-  margin: 0;
-}
-
-/*
-============================================
-STYLE RULES FOR "EARLY BLOOMERS" FEATURE 145
-============================================
-*/
-div.feature-text h5 {
-  margin-top: 0.2rem;
-}
-
-.feature-text.early-bloomers {
-  margin-top: 0;
-  padding-left: 2rem;
-}
-
-.no-bullets {
-  list-style: none;
-}
-
-/*
-========================================
-STYLE RULES FOR "DRY GARDEN" FEATURE 160
-========================================
-*/
-.img-with-caption-wrap.feature-160 {
-  margin: 1rem 1.5rem;
-  width: 300px;
-}
-
-.img-with-caption-wrap.feature-160 {
-  float: right;
-  margin: 1rem 0 1rem 2rem;
-  width: 300px;
-}
-
-.img-with-caption-wrap.feature-160:last-of-type {
-  float: left;
-  margin: 1rem 2rem 1rem 0rem;
-}
-
-/*
-========================================
-STYLE RULES FOR "SUCCULENT" FEATURE 162
-========================================
-*/
-#feature-162-1.img-with-caption-wrap:nth-of-type(1) {
-  border: medium none;
-  margin: 0;
-}
-
-.img-with-caption-wrap.feature-162 {
-  clear: left;
-  float: left;
-  margin: 2rem 1.5rem 0 0;
-  width: 270px;
-}
-
-.img-with-caption-wrap.feature-162:nth-of-type(2) {
-  margin-top: 0.75rem;
-}
-
-/*
-========================================
-STYLE RULES FOR "SUCCULENT" FEATURE 164
-========================================
-*/
-.img-with-caption-wrap.feature-164 {
-  clear: left;
-  float: left;
-  margin: 2rem 1.5rem 0 0;
-  width: 270px;
-}
-
-.img-with-caption-wrap.feature-164:nth-of-type(2) {
-  margin-top: 0.75rem;
-}
-
-.img-with-caption-wrap.feature-164:nth-of-type(3) {
-  margin-bottom: 1.25rem;
-}
-
 .tribe-events-before-html {
   margin-bottom: 2rem;
 }

@@ -47,8 +47,8 @@ class HeadwayBlocks {
 		add_action('init', array(__CLASS__, 'setup_block_actions'), 10);
 
 		add_action('init', array(__CLASS__, 'run_block_init_actions'), 11);
-		add_action('wp_head', array(__CLASS__, 'run_block_enqueue_actions'));
-		add_action('wp_head', array(__CLASS__, 'enqueue_block_dynamic_js_file'));
+		add_action('wp_head', array(__CLASS__, 'run_block_enqueue_actions'), 5);
+		add_action('wp_head', array(__CLASS__, 'enqueue_block_dynamic_js_file'), 5);
 		/* End block-specific actions */
 
 		add_action('headway_register_elements_instances', array(__CLASS__, 'register_block_element_instances'), 11);

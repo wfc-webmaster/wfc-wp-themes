@@ -31,6 +31,7 @@ class HeadwayGridRenderer {
 
 	public function __construct($blocks, $wrapper) {
 
+		$this->blocks_unsorted = $blocks;
 		$this->blocks = $blocks;
 		$this->wrapper = $wrapper;
 
@@ -57,10 +58,10 @@ class HeadwayGridRenderer {
 				$b = $b_chunk[0][0];
 
 			if ( is_string($a) )
-				$a = $this->blocks[$a];
+				$a = $this->blocks_unsorted[$a];
 				
 			if ( is_string($b) )
-				$b = $this->blocks[$b];
+				$b = $this->blocks_unsorted[$b];
 				
 			$a_top = $a['position']['top'];
 			$a_left = $a['position']['left'];

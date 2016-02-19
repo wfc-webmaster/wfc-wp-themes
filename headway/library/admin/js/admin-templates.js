@@ -144,9 +144,6 @@ jQuery(document).ready(function($) {
 
 			$('#upload-skin input[type="file"]').on('change', function(event) {
 
-				if ( event.target.files[0].name.split('.').slice(-1)[0] != 'json' )
-					return alert("Invalid template.\n\nPlease make sure that you have unzipped the Headway Template.  You should be uploading a .json file.");
-
 				var skinFile = $(this).get(0).files[0];
 
 				if ( skinFile && typeof skinFile.name != 'undefined' && typeof skinFile.type != 'undefined' ) {
@@ -156,35 +153,46 @@ jQuery(document).ready(function($) {
 					skinReader.onload = function(e) {
 
 						var skinJSON = e.target.result;
-						var skin = JSON.parse(skinJSON);
 
-						/* Check to be sure that the JSON file is a layout */
+						try {
+
+							var skin = JSON.parse(skinJSON);
+
+							/* Check to be sure that the JSON file is a layout */
 							if ( skin['data-type'] != 'skin' )
 								return alert('Cannot load template.  Please insure that the file is a valid Headway Template.');
 
-						/* Deactivate install template button */
+							/* Deactivate install template button */
 							$('#install-template').attr('disabled', 'true');
 
-						showNotification({
-							id: 'installing-skin',
-							message: 'Installing Template: ' + skin['name'],
-							closeTimer: false,
-							closable: false
-						});
+							showNotification({
+								id: 'installing-skin',
+								message: 'Installing Template: ' + skin['name'],
+								closeTimer: false,
+								closable: false
+							});
 
-						Headway.viewModels.templates.templates.push({
-							description: null,
-							name: 'Installing ' + skin['name'] + '...',
-							installing: true,
-							id: null,
-							author: null,
-							active: false,
-							version: null
-						});
+							Headway.viewModels.templates.templates.push({
+								description: null,
+								name: 'Installing ' + skin['name'] + '...',
+								installing: true,
+								id: null,
+								author: null,
+								active: false,
+								version: null
+							});
 
-						installSkin(skin);
+							installSkin(skin);
+
+						} catch ( e ) {
+
+							return alert('Cannot load template.  Please insure that the file is a valid Headway Template.');
+
+						}
 
 					}
+
+					$('#upload-skin input[type="file"]').val('');
 
 					skinReader.readAsText(skinFile);
 
