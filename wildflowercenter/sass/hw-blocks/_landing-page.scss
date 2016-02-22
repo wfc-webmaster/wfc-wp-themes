@@ -245,8 +245,15 @@
 
     .landing-overlay-img { 
     	display: block;
-    	max-width: initial !important;
+    	height: 41rem;
+    	max-width: none;
 	}    
+}
+
+@media only screen and (max-width: 1024px) {
+	.landing-overlay-img {
+		max-width: none !important;
+	}
 }
 
 #npin-search-form-wrapper {
@@ -357,13 +364,14 @@
 	li.wfc-callout {
 		display: flex;
 		flex-flow: column wrap;
-		flex: 0 0 30rem;
+		flex: 0 1 auto;
 		justify-content: flex-start;
 		order: 2;
+		max-width: 30rem;
 	}
 
 	li.widget.wfc-cards {
-		flex: 0 0 10rem;
+		flex: 0 0 auto;
 	}
 
 	li.widget.wfc-cards:nth-child(2) {

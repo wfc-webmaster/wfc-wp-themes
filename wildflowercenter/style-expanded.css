@@ -1325,9 +1325,15 @@ Headway Page Blocks
 }
 .landing-overlay-wrapper .landing-overlay-img {
   display: block;
-  max-width: initial !important;
+  height: 41rem;
+  max-width: none;
 }
 
+@media only screen and (max-width: 1024px) {
+  .landing-overlay-img {
+    max-width: none !important;
+  }
+}
 #npin-search-form-wrapper {
   left: 0;
   height: 100%;
@@ -1448,20 +1454,21 @@ Headway Page Blocks
   -webkit-flex-flow: column wrap;
       -ms-flex-flow: column wrap;
           flex-flow: column wrap;
-  -webkit-flex: 0 0 30rem;
-      -ms-flex: 0 0 30rem;
-          flex: 0 0 30rem;
+  -webkit-flex: 0 1 auto;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
   -webkit-justify-content: flex-start;
       -ms-flex-pack: start;
           justify-content: flex-start;
   -webkit-order: 2;
       -ms-flex-order: 2;
           order: 2;
+  max-width: 30rem;
 }
 .landing-cards li.widget.wfc-cards {
-  -webkit-flex: 0 0 10rem;
-      -ms-flex: 0 0 10rem;
-          flex: 0 0 10rem;
+  -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
 }
 .landing-cards li.widget.wfc-cards:nth-child(2) {
   -webkit-order: 1;
