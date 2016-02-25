@@ -96,4 +96,160 @@ function insert_post_nav_script() {
 
 add_action('wp_footer', 'insert_post_nav_script');
 
+//Sets up basic variables to manage hours display
+function wfc_date_vars() {
+	$today = date('M j');
+	$currentYear = date("Y");
+	$interval = new DateInterval('P1D');
+	$date_vars_array = array(
+			$today,
+			$currentYear,
+			$interval
+		);
+	return $date_vars_array;
+} 
+
+//Sets dates for annually closed days
+function wfc_closed_dates() {
+	$date_vars = wfc_date_vars();
+	$MLK_day = date('M j', strtotime("third Monday of Jan $date_vars[1]"));
+	$july_fourth = date('M j', strtotime("Jul 4"));
+	$thanksgiving = date('M j', strtotime("fourth Thursday of Nov $date_vars[1]"));
+	$black_friday = date('M j', strtotime("fourth Friday of Nov $date_vars[1]"));
+	$wfc_closed_dates_array = array(
+			$MLK_day,
+			$july_fourth,
+			$thanksgiving,
+			$black_friday
+		);
+	return $wfc_closed_dates_array;
+}
+
+//Sets dates for Wildflower Days
+function wfc_wildflower_days() {
+	$date_vars = wfc_date_vars();	
+	$wildflower_days_begin = new DateTime('2016-03-14'); //Set begin date
+	$wildflower_days_end = new DateTime('2016-05-31'); //Set end date
+	$wildflower_days_end = $wildflower_days_end->modify('+1 day');
+	$wfc_wildflower_days_period = new DatePeriod($wildflower_days_begin, $date_vars[2], $wildflower_days_end);
+	$wfc_wildflower_days_array = array();
+
+	foreach ($wfc_wildflower_days_period as $date) {
+		array_push($wfc_wildflower_days_array, $date->format('M j'));		
+	}
+	return $wfc_wildflower_days_array;	
+}
+
+//Sets dates for Winter Break
+function wfc_winter_break() {
+	$date_vars = wfc_date_vars();
+	$winter_break_begin = new DateTime('2015-12-23'); //Set begin date
+	$winter_break_end = new DateTime('2016-01-01'); //Set end date
+	$winter_break_end = $winter_break_end->modify('+1 day');
+	$wfc_winter_break_period = new DatePeriod($winter_break_begin, $date_vars[2], $winter_break_end);
+	$wfc_winter_break_array = array();
+
+	foreach ($wfc_winter_break_period as $date) {
+		array_push($wfc_winter_break_array, $date->format('M j'));		
+	}
+	return $wfc_winter_break_array;
+}
+
+//Display Wildflower Center Hours
+function wfc_hours() {
+	$date_vars = wfc_date_vars();
+	$closed_dates = wfc_closed_dates();
+	$wildflower_days = wfc_wildflower_days();
+	$winter_break = wfc_winter_break();		
+
+	//Set regular hours
+	$wfc_reg_hours = '
+				<ul>
+					<li>9am – 5pm Tuesday - Sunday</li>
+					<li>Closed Monday</li>
+				</ul>';		
+
+	if (!in_array($date_vars[0], $closed_dates) && !in_array($date_vars[0], $wildflower_days) && !in_array($date_vars[0], $winter_break)) {
+		return $wfc_reg_hours;
+	}
+
+	if (in_array($date_vars[0], $closed_dates)) {
+		return '<p class="text-alert">Closed Today</p>' . $wfc_reg_hours;
+	}
+
+	if (in_array($date_vars[0], $wildflower_days)) { //Display hours during Wildflower Days
+		return '
+				<ul>
+					<li>9am – 5pm Everyday</li>
+					<li>Through ' . end($wildflower_days) . '</li>
+				</ul> ';
+	}
+
+	if (in_array($date_vars[0], $winter_break)) {
+		return '<p class="text-alert">Closed Through ' . end($winter_break) . '</p>' . $wfc_reg_hours;
+	}	
+}
+add_shortcode('wfc_hours', 'wfc_hours');
+
+//Display Wildflower Café Hours
+function wfc_cafe_hours() {
+	$date_vars = wfc_date_vars();
+	$closed_dates = wfc_closed_dates();
+	$wildflower_days = wfc_wildflower_days();
+	$winter_break = wfc_winter_break();
+
+	$wfc_cafe_reg_hours = '
+				<ul>
+					<li>10am – 4pm Tues – Sat</li>
+					<li>11am – 4pm Sun</li>
+					<li>Closed Monday</li>
+				</ul>';
+
+	if (!in_array($date_vars[0], $closed_dates) && !in_array($date_vars[0], $wildflower_days) && !in_array($date_vars[0], $winter_break)) {	
+		return $wfc_cafe_reg_hours;
+	}
+
+	if (in_array($date_vars[0], $closed_dates)) {
+		return '<p class="text-alert">Closed Today</p>' . $wfc_cafe_reg_hours;
+	}
+
+	if (in_array($date_vars[0], $wildflower_days)) { //Display hours during Wildflower Days
+		return '
+				<ul>
+					<li>9am – 4pm Everyday</li>
+					<li>Through ' . end($wildflower_days) . '</li>
+				</ul> ';
+	}
+	if (in_array($date_vars[0], $winter_break)) {
+		return '<p class="text-alert">Closed Through ' . end($winter_break) . '</p>' . $wfc_cafe_reg_hours;
+	}
+}
+add_shortcode('wfc_cafe_hours', 'wfc_cafe_hours');
+
+//Display Wildflower Admission Prices
+function wfc_prices() {
+	return '
+		<table>
+			<tr><td>Members</td><td class="wfc-price">FREE</td></tr>
+			<tr><td>Adults</td><td class="wfc-price">$10</td></tr>
+			<tr><td>Seniors (65+)</td><td class="wfc-price">$8</td></tr>
+			<tr><td>Students (with ID)</td><td class="wfc-price">$8</td></tr>
+			<tr><td>Youth (5-17)</td><td class="wfc-price">$4</td></tr>
+			<tr><td>Children (4 and youger)</td><td class="wfc-price">FREE</td></tr>
+		</table>
+	';
+}
+add_shortcode('wfc_prices', 'wfc_prices');
+
+//Display Wildflower Address
+function wfc_address() {
+	return '
+		<ul>
+			<li>4801 La Crosse Ave</li>
+			<li>Austin, Texas 78739</li>
+			<li>512-232-0100</li>
+		</ul>
+	';
+}
+add_shortcode('wfc_address', 'wfc_address');
 ?>

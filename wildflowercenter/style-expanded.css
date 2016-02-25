@@ -216,6 +216,19 @@ body {
   padding: 1rem 0 0;
 }
 
+.text-alert {
+  background-color: red;
+  color: #fff;
+  display: inline-block;
+  font-weight: 600;
+  padding: 0 1rem;
+  vertical-align: middle;
+}
+
+td.wfc-price {
+  padding-left: 1rem;
+}
+
 .page-heading {
   margin-top: 1rem;
 }
@@ -1178,8 +1191,8 @@ Headway Page Blocks
       -ms-flex: 0 0 100%;
           flex: 0 0 100%;
 }
-#visit-prices #visit-price-amount {
-  margin-left: auto;
+#visit-prices table {
+  width: 100%;
 }
 
 #visit-action-bar {
