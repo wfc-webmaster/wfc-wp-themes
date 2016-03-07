@@ -146,6 +146,10 @@
 
 // EVENTS LIST
 
+#todays-events-wrap {
+    margin-bottom: 2rem;
+}
+
 .events-list {
 
 	a > h6 {
@@ -167,9 +171,10 @@
 		padding-bottom: 0.4rem;
 	}
 
-	hr:last-child {
-		padding-bottom: 0;
+	hr:last-of-type {
+	    display: none;
 	}
+	
 }
 
 #events-all {
@@ -184,20 +189,16 @@
 	}
 }
 
-.landing-events-list-heading {	
-
+.landing-events-list-heading {    
+        border-bottom: 1px solid $wfc-lightgray;
+        border-top: 1px solid $wfc-lightgray;
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.4rem;
+        padding-top: 1rem;
+    
 	h6 {
 		text-transform: uppercase;
-	}
-
-	hr {
-		border: 0;
-		border-top: 1px solid $wfc-lightgray;
-		border-bottom: none;
-		height: 0;
-		margin: 0;
-		padding-bottom: 0.4rem;
-	}
+	}	
 }
 
 @media screen and (max-width: 600px) {

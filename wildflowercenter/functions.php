@@ -252,4 +252,24 @@ function wfc_address() {
 	';
 }
 add_shortcode('wfc_address', 'wfc_address');
+
+//Exclude Categories From Events Calendar List View
+add_action( 'pre_get_posts', 'exclude_events_category' );
+function exclude_events_category( $query ) {
+
+  if ( $query->query_vars['eventDisplay'] == 'upcoming' || $query->query_vars['eventDisplay'] == 'past' || $query->query_vars['post_type'] == TribeEvents::POSTTYPE && !is_tax(TribeEvents::TAXONOMY) && empty( $query->query_vars['suppress_filters'] ) ) {
+    $query->set( 'tax_query', array(
+      array(
+        'taxonomy' => TribeEvents::TAXONOMY,
+        'field' => 'slug',
+        'terms' => array('art-exhibit'), //Add slug of category to exclude
+        'operator' => 'NOT IN'
+      )
+    ) );
+  }
+
+  return $query;
+
+}
+
 ?>

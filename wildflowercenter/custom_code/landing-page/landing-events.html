@@ -2,9 +2,9 @@
     <div id="todays-events-wrap">
         <div id="todays-events-heading" class="landing-events-list-heading">
             <h6>Today's Events</h6>
-            <p><em>Events for <?php echo date('F j, Y'); ?> at the Wildflower Center</em></p>
-            <hr>
+            <p><em>Events for <?php echo date('F j, Y'); ?> at the Wildflower Center</em></p>            
         </div>
+        <!-- Display Today's Events (if any) -->
         <div id="landing-events-list" class="events-list">
             <?php 
             // Ensure the global $post variable is in scope
@@ -62,11 +62,10 @@
 
         </div>
     </div>
-
+    <!-- Display Upcoming Events -->
     <div id="upcoming-events-heading" class="landing-events-list-heading">
         <h6>Upcoming Events</h6>
-        <p><em>Plan ahead for these Wildflower Center events</em></p>
-        <hr>
+        <p><em>Plan ahead for these Wildflower Center events</em></p>        
     </div>
     <div id="landing-events-list" class="events-list">
 
@@ -120,7 +119,7 @@
         <?php
             // If event is multiday, show next day's date
             if ($multiday_event && ($todays_date < $event_end_date)) {
-                echo '<p><em>' . date('F d', $next_day_date) . '</em></p>';
+                echo '<p><em>' . date('F j', $next_day_date) . '</em></p>';
             } else {
                 // Display upcoming event's start date
                 echo '<p><em>' . tribe_get_start_date($event = null, $display_time = false, $date_format = '', $timezone = null) . '</em></p>';
