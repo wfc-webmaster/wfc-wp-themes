@@ -18,7 +18,12 @@ $views   = tribe_events_get_views();
 
 $current_url = tribe_events_get_current_filter_url();
 ?>
+<!-- List Title -->
+<?php do_action( 'tribe_events_before_the_title' ); ?>
+<h1>Calendar Of Events</h1>
+<?php do_action( 'tribe_events_after_the_title' ); ?>
 
+<!-- Search Bar -->
 <?php do_action( 'tribe_events_bar_before_template' ) ?>
 <div id="tribe-events-bar">	
 	<form id="tribe-bar-form" class="tribe-clearfix flex-container-row" name="tribe-bar-form" method="post" action="<?php echo esc_attr( $current_url ); ?>">

@@ -70,6 +70,15 @@ table {
   border-spacing: 0;
 }
 
+.block-type-content .hentry {
+  margin: 0;
+  padding: 0;
+}
+
+.block-type-content div.entry-content {
+  margin: 0;
+}
+
 /*
 =========
 Variables
@@ -1266,23 +1275,23 @@ Headway Page Blocks
   margin-bottom: 2rem;
 }
 
-.events-list a > h6 {
+#wrapper-waq56bbaa9519b9f .events-list a > h6 {
   color: #4d4d4d;
 }
-.events-list a:hover > h6 {
+#wrapper-waq56bbaa9519b9f .events-list a:hover > h6 {
   text-decoration: underline;
 }
-.events-list p {
+#wrapper-waq56bbaa9519b9f .events-list p {
   margin-bottom: 1rem;
 }
-.events-list hr {
+#wrapper-waq56bbaa9519b9f .events-list hr {
   border: 0;
   border-top: 1px solid #efefef;
   border-bottom: none;
   height: 0;
   padding-bottom: 0.4rem;
 }
-.events-list hr:last-of-type {
+#wrapper-waq56bbaa9519b9f .events-list hr:last-of-type {
   display: none;
 }
 
@@ -1903,15 +1912,22 @@ div#whitewrap div.wrapper-mirroring-wm65591a6abc65d9 {
 Pages
 =====
 */
+#tribe-events-content-wrapper {
+  border-right: 1px solid #dedede;
+  padding-right: 1rem;
+}
+
 #tribe-events-bar {
-  border: 1px solid #dedede;
+  background-color: #f2f2f2;
   box-sizing: border-box;
+  margin: 2rem 0;
   padding: 1rem;
 }
 #tribe-events-bar #tribe-views-wrap {
   -webkit-flex: 1 1 auto;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
+  margin-bottom: 1rem;
 }
 #tribe-events-bar #tribe-selected-views li {
   display: inline-block;
@@ -1955,17 +1971,21 @@ Pages
           justify-content: center;
 }
 .tribe-events-loop .tribe-events-list-separator-month {
+  border-bottom: 0.5rem solid #c1d580;
   -webkit-flex: 0 1 auto;
       -ms-flex: 0 1 auto;
           flex: 0 1 auto;
   font-size: 1.4rem;
   font-weight: 600;
   margin: 2rem 0;
+  padding-bottom: 0.1rem;
+}
+.tribe-events-loop .tribe-events-list-separator-month:first-of-type {
+  margin-top: 0;
 }
 .tribe-events-loop .type-tribe_events {
   border-bottom: 1px solid #dedede;
-  padding: 1rem 0;
-  margin: 1rem 0;
+  padding: 1.3rem 0;
 }
 .tribe-events-loop .tribe-event-wrap {
   -webkit-flex: 1 1 0;
@@ -1993,6 +2013,31 @@ Pages
 }
 .tribe-events-loop .tribe-events-list-event-description.tribe-events-content p {
   font-size: 0.85rem;
+  margin-bottom: 0;
+}
+
+#wrapper-w4c56c78283d9ebe .column-2 {
+  margin: 0;
+}
+
+.event-categories {
+  padding-left: 1rem;
+}
+
+#menu-events-calendar-categories li {
+  background-color: #c1d580;
+  border-radius: 0.2rem;
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+#menu-events-calendar-categories li a {
+  color: #fff;
+  display: block;
+  padding: 0.25rem 0.5rem;
+}
+#menu-events-calendar-categories li a:hover {
+  background-color: #acbd72;
+  border-radius: 0.2rem;
 }
 
 /*
