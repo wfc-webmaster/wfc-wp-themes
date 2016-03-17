@@ -67,11 +67,13 @@ $current_url = tribe_events_get_current_filter_url();
 						<div class="<?php echo esc_attr( $filter['name'] ) ?>-filter">
 							<label class="label-<?php echo esc_attr( $filter['name'] ) ?>" for="<?php echo esc_attr( $filter['name'] ) ?>"><?php echo $filter['caption'] ?></label>
 							<?php echo $filter['html'] ?>
+							<?php 
+								if ($filter['name'] === 'tribe-bar-search') { 
+									echo '<button class="sidebar-button tribe-events-button tribe-no-param" type="submit" name="submit-bar"><i class="fa fa-search"></i></button>'; 
+								} 
+							?>
 						</div>
-					<?php endforeach; ?>
-					<div class="tribe-bar-submit">						
-						<button class="sidebar-button tribe-events-button tribe-no-param" type="submit" name="submit-bar"><i class="fa fa-search"></i></button>
-					</div>
+					<?php endforeach; ?>					
 					<!-- .tribe-bar-submit -->
 				</div>
 				<!-- .tribe-bar-filters-inner -->

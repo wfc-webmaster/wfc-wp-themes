@@ -22,14 +22,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php if ( tribe_has_previous_event() ) : ?>
 		<li class="<?php echo esc_attr( tribe_left_navigation_classes() ); ?>">
-			<a href="<?php echo esc_url( tribe_get_listview_prev_link() ); ?>" rel="prev"><?php printf( '<span>&laquo; </span> ' . esc_html__( 'Previous %s', 'the-events-calendar' ), $events_label_plural ); ?></a>
+			<a  href="<?php echo esc_url( tribe_get_listview_prev_link() ); ?>" rel="prev"><button class="sidebar-button"><?php printf( esc_html__( 'Prev %s', 'the-events-calendar' ), $events_label_plural ); ?></button></a>
 		</li><!-- .tribe-events-nav-left -->
 	<?php endif; ?>
 
 	<!-- Right Navigation -->
 	<?php if ( tribe_has_next_event() ) : ?>
 		<li class="<?php echo esc_attr( tribe_right_navigation_classes() ); ?>">
-			<a href="<?php echo esc_url( tribe_get_listview_next_link() ); ?>" rel="next"><?php printf( esc_html__( 'Next %s', 'the-events-calendar' ), $events_label_plural . ' <span>&raquo;</span>' ); ?></a>
+			<a href="<?php echo esc_url( tribe_get_listview_next_link() ); ?>" rel="next"><button class="sidebar-button"><?php printf( esc_html__( 'Next %s', 'the-events-calendar' ), $events_label_plural ); ?></button></a>
 		</li><!-- .tribe-events-nav-right -->
 	<?php endif; ?>
 </ul>

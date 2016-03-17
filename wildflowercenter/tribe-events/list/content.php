@@ -30,7 +30,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<!-- Header Navigation -->
 		<?php do_action( 'tribe_events_before_header_nav' ); ?>
-		<?php tribe_get_template_part( 'list/nav', 'header' ); ?>
+		<?php //tribe_get_template_part( 'list/nav', 'header' ); ?>
 		<?php do_action( 'tribe_events_after_header_nav' ); ?>
 
 	</div>
