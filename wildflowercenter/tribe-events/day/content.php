@@ -18,7 +18,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<!-- List Title -->
 	<?php do_action( 'tribe_events_before_the_title' ); ?>
-	<h2 class="tribe-events-page-title"><?php echo tribe_get_events_title() ?></h2>
+	<div id="day-title-wrap">
+		<h2 class="tribe-events-page-title"><?php echo tribe_get_events_title() ?></h2>
+	</div>
 	<?php do_action( 'tribe_events_after_the_title' ); ?>
 
 	<!-- Notices -->
@@ -27,11 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<!-- List Header -->
 	<?php do_action( 'tribe_events_before_header' ); ?>
 	<div id="tribe-events-header" <?php tribe_events_the_header_attributes() ?>>
-
-		<!-- Header Navigation -->
-		<?php do_action( 'tribe_events_before_header_nav' ); ?>
-		<?php tribe_get_template_part( 'day/nav' ); ?>
-		<?php do_action( 'tribe_events_after_header_nav' ); ?>
+		
 
 	</div>
 	<!-- #tribe-events-header -->

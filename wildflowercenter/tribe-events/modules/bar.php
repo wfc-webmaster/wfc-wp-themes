@@ -19,8 +19,16 @@ $views   = tribe_events_get_views();
 $current_url = tribe_events_get_current_filter_url();
 ?>
 <!-- List Title -->
-<?php do_action( 'tribe_events_before_the_title' ); ?>
-<h1>Calendar Of Events</h1>
+<?php do_action( 'tribe_events_before_the_title' ); ?> 
+
+<?php 
+	$page_title = single_cat_title($prefix = '', $display = false);
+	if ($page_title == '') {
+		echo '<h1>Calendar of Events</h1>';
+	}
+?>
+
+<h1><?php single_cat_title(); ?></h1>
 <?php do_action( 'tribe_events_after_the_title' ); ?>
 
 <!-- Search Bar -->
@@ -58,27 +66,7 @@ $current_url = tribe_events_get_current_filter_url();
 					<!-- .tribe-bar-views-inner -->
 				</div><!-- .tribe-bar-views -->
 			<?php } // if ( count( $views ) > 1 ) ?>
-		</div>
-
-		<?php if ( ! empty( $filters ) ) { ?>
-			<div class="tribe-bar-filters">
-				<div class="tribe-bar-filters-inner tribe-clearfix flex-container-row">
-					<?php foreach ( $filters as $filter ) : ?>
-						<div class="<?php echo esc_attr( $filter['name'] ) ?>-filter">
-							<label class="label-<?php echo esc_attr( $filter['name'] ) ?>" for="<?php echo esc_attr( $filter['name'] ) ?>"><?php echo $filter['caption'] ?></label>
-							<?php echo $filter['html'] ?>
-							<?php 
-								if ($filter['name'] === 'tribe-bar-search') { 
-									echo '<button class="sidebar-button tribe-events-button tribe-no-param" type="submit" name="submit-bar"><i class="fa fa-search"></i></button>'; 
-								} 
-							?>
-						</div>
-					<?php endforeach; ?>					
-					<!-- .tribe-bar-submit -->
-				</div>
-				<!-- .tribe-bar-filters-inner -->
-			</div><!-- .tribe-bar-filters -->
-		<?php } // if ( !empty( $filters ) ) ?>
+		</div>	
 
 	</form>
 	<!-- #tribe-bar-form -->

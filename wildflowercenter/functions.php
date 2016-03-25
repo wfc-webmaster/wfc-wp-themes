@@ -258,7 +258,7 @@ add_shortcode('wfc_address', 'wfc_address');
 add_action( 'pre_get_posts', 'exclude_events_category' );
 function exclude_events_category( $query ) {
 
-  if ( $query->query_vars['eventDisplay'] == 'upcoming' || $query->query_vars['eventDisplay'] == 'past' || $query->query_vars['post_type'] == TribeEvents::POSTTYPE && !is_tax(TribeEvents::TAXONOMY) && empty( $query->query_vars['suppress_filters'] ) && !is_admin() ) {
+  if ( $query->query_vars['eventDisplay'] == 'upcoming' || $query->query_vars['eventDisplay'] == 'past' || $query->query_vars['eventDisplay'] == 'month' || $query->query_vars['paged'] || $query->query_vars['post_type'] == TribeEvents::POSTTYPE && !is_tax(TribeEvents::TAXONOMY) && empty( $query->query_vars['suppress_filters'] ) && !is_admin() ) {
     $query->set( 'tax_query', array(
       array(
         'taxonomy' => TribeEvents::TAXONOMY,
@@ -271,6 +271,12 @@ function exclude_events_category( $query ) {
 
   return $query;
 
+}
+
+//Remove default Google Calendar and iCal from Events Calendar Single View
+add_action('tribe_events_single_event_before_the_content', 'tribe_remove_single_event_links');
+function tribe_remove_single_event_links () {
+	remove_action( 'tribe_events_single_event_after_the_content', array( 'Tribe__Events__iCal', 'single_event_links' ) );
 }
 
 ?>

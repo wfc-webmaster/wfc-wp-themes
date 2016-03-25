@@ -20,50 +20,53 @@ $has_venue = ( $venue_details ) ? ' vcard' : '';
 $has_venue_address = ( ! empty( $venue_details['address'] ) ) ? ' location' : '';
 
 ?>
+<div class="tribe-event-wrap">
+	<!-- Event Title -->
+	<?php do_action( 'tribe_events_before_the_event_title' ) ?>
+	<h3 class="tribe-events-list-event-title summary">
+		<a class="url" href="<?php echo esc_url( tribe_get_event_link() ); ?>" title="<?php the_title_attribute() ?>" rel="bookmark">
+			<?php the_title() ?>
+		</a>
+	</h3>
+	<?php do_action( 'tribe_events_after_the_event_title' ) ?>
 
-<!-- Event Cost -->
-<?php if ( tribe_get_cost() ) : ?>
-	<div class="tribe-events-event-cost">
-		<span><?php echo tribe_get_cost( null, true ); ?></span>
-	</div>
-<?php endif; ?>
+	<!-- Event Meta -->
+	<?php do_action( 'tribe_events_before_the_meta' ) ?>
+	<div class="tribe-events-event-meta <?php echo esc_attr( $has_venue . $has_venue_address ); ?>">
 
-<!-- Event Title -->
-<?php do_action( 'tribe_events_before_the_event_title' ) ?>
-<h2 class="tribe-events-list-event-title summary">
-	<a class="url" href="<?php echo esc_url( tribe_get_event_link() ); ?>" title="<?php the_title_attribute() ?>" rel="bookmark">
-		<?php the_title() ?>
-	</a>
-</h2>
-<?php do_action( 'tribe_events_after_the_event_title' ) ?>
+		<!-- Schedule & Recurrence Details -->
+		<div class="tribe-event-schedule-details">
+			<?php 
+				// If event is multiday, show next day's date
+				if ($multiday_event && ($todays_date < $event_end_date)) {
+				    echo 'Ongoing through ' . date('F j', $event_end_date) . '<br />';
+				} else {
+				    // Display upcoming event's start date
+					echo tribe_get_start_date($event = null, $display_time=false, $date_format='', $timezone=null) . '<br />'; 					    
+				}
+				echo tribe_get_start_time() . ' &ndash; ' . tribe_get_end_time(); 
+			?>
+		</div>	
 
-<!-- Event Meta -->
-<?php do_action( 'tribe_events_before_the_meta' ) ?>
-<div class="tribe-events-event-meta <?php echo esc_attr( $has_venue . $has_venue_address ); ?>">
+		<!-- Event Cost -->
+		<?php if ( tribe_get_cost() ) : ?>
+			<div class="tribe-events-event-cost">
+				<span><?php echo tribe_get_cost( null, true ); ?></span>
+			</div>
+		<?php endif; ?>
 
-	<!-- Schedule & Recurrence Details -->
-	<div class="tribe-updated published time-details">
-		<?php echo tribe_events_event_schedule_details(); ?>
-	</div>
+	</div><!-- .tribe-events-event-meta -->
+	<?php do_action( 'tribe_events_after_the_meta' ) ?>
 
-	<?php if ( $venue_details ) : ?>
-		<!-- Venue Display Info -->
-		<div class="tribe-events-venue-details">
-			<?php echo implode( ', ', $venue_details ); ?>
-		</div> <!-- .tribe-events-venue-details -->
-	<?php endif; ?>
-
-</div><!-- .tribe-events-event-meta -->
-<?php do_action( 'tribe_events_after_the_meta' ) ?>
-
-<!-- Event Image -->
-<?php echo tribe_event_featured_image( null, 'medium' ); ?>
-
-<!-- Event Content -->
-<?php do_action( 'tribe_events_before_the_content' ) ?>
-<div class="tribe-events-list-event-description tribe-events-content description entry-summary">
-	<?php echo tribe_events_get_the_excerpt(); ?>
-	<a href="<?php echo esc_url( tribe_get_event_link() ); ?>" class="tribe-events-read-more" rel="bookmark"><?php esc_html_e( 'Find out more', 'the-events-calendar' ) ?> &raquo;</a>
-</div><!-- .tribe-events-list-event-description -->
+	<!-- Event Content -->
+	<?php do_action( 'tribe_events_before_the_content' ) ?>
+	<div class="tribe-events-list-event-description tribe-events-content description entry-summary">
+		<?php echo tribe_events_get_the_excerpt(); ?>		
+	</div><!-- .tribe-events-list-event-description -->
+</div>
+<div class="tribe-event-img-wrap">
+	<!-- Event Image -->
+	<?php echo tribe_event_featured_image( null, 'medium' ); ?>
+</div>
 <?php
 do_action( 'tribe_events_after_the_content' );

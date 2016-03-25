@@ -1,0 +1,115 @@
+<?php
+/**
+ * Single Event Template
+ * A single event. This displays the event title, description, meta, and
+ * optionally, the Google map for the event.
+ *
+ * Override this template in your own theme by creating a file at [your-theme]/tribe-events/single-event.php
+ *
+ * @package TribeEventsCalendar
+ *
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '-1' );
+}
+
+$events_label_singular = tribe_get_event_label_singular();
+$events_label_plural = tribe_get_event_label_plural();
+
+$event_id = get_the_ID();
+
+?>
+
+<div id="tribe-events-content" class="tribe-events-single">
+
+	<p class="tribe-events-back"><a href="<?php echo esc_url( tribe_get_events_link() ); ?>"> <?php printf( '&laquo; ' . esc_html__( 'All %s', 'the-events-calendar' ), $events_label_plural ); ?></a></p>
+
+	<!-- Notices -->
+	<?php tribe_the_notices() ?>
+
+	<?php the_title( '<h2 class="tribe-events-single-event-title tribe-events-page-title">', '</h2>' ); ?>
+
+	<?php while ( have_posts() ) :  the_post(); ?>
+		<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+			<!-- Event featured image, but exclude link -->
+			<?php echo tribe_event_featured_image( $event_id, 'full', false ); ?>
+
+			<!-- Event content -->
+			<?php do_action( 'tribe_events_single_event_before_the_content' ) ?>
+			<div class="tribe-events-single-event-description tribe-events-content">
+				<h6 class="event-meta-title">Event Description</h6>
+				<?php the_content(); ?>
+			</div>
+			<!-- .tribe-events-single-event-description -->
+			<?php do_action( 'tribe_events_single_event_after_the_content' ) ?>
+		</div> <!-- #post-x -->
+		<?php if ( get_post_type() == Tribe__Events__Main::POSTTYPE && tribe_get_option( 'showComments', false ) ) comments_template() ?>
+	<?php endwhile; ?>
+	
+	<!-- Event Meta -->
+	<div class="tribe-events-event-meta">
+		<div class="author <?php echo esc_attr( $has_venue_address ); ?>">
+
+			<!-- Schedule & Recurrence Details -->
+			<div class="tribe-event-schedule-details">
+				<h6 class="event-meta-title">When</h6>
+				<?php 
+					// If event is multiday, show next day's date
+					if ($multiday_event && ($todays_date < $event_end_date)) {
+					    echo 'Ongoing through ' . date('F j', $event_end_date) . '<br />';
+					} else {
+					    // Display upcoming event's start date
+						echo tribe_get_start_date($event = null, $display_time=false, $date_format='', $timezone=null) . '<br />'; 					    
+					}
+					echo tribe_get_start_time() . ' &ndash; ' . tribe_get_end_time(); 
+				?>
+			</div>		
+
+		</div>
+		<!-- Event Cost -->
+		<h6 class="event-meta-title">Cost</h6>
+		<?php if ( tribe_get_cost() ) : ?>
+			<div class="tribe-events-event-cost">
+				<span>
+					<?php 
+						echo tribe_get_cost( null, true ); 
+						else : 
+							echo "FREE";
+					?>
+				</span>
+			</div>
+		<?php endif; ?>
+		<!-- Event Website -->
+		<?php if ( tribe_get_event_website_link() ) :
+					echo '<h6 class="event-meta-title">Website</h6>';
+					echo tribe_get_event_website_link();
+					endif;
+		?>
+		<!-- Venue -->
+		<h6 class="event-meta-title">Where</h6>
+		<dd class="tribe-venue"> <?php echo tribe_get_venue() ?> </dd>
+
+		<?php if ( tribe_address_exists() ) : ?>
+			<dd class="tribe-venue-location">
+				<address class="tribe-events-address">
+					<?php echo tribe_get_full_address(); ?>
+
+					<?php if ( tribe_show_google_map_link() ) : ?>
+						<?php echo tribe_get_map_link_html(); ?>
+					<?php endif; ?>
+				</address>
+			</dd>
+		<?php endif; ?>
+		<?php if ( tribe_get_phone() ) : 
+					echo '<h6 class="event-meta-title">Phone</h6>';
+					echo tribe_get_phone();
+				endif;
+		?>
+		<!-- Event Map -->
+		<?php do_action( 'tribe_events_single_event_before_the_meta' ) ?>
+		<?php tribe_get_template_part( 'modules/meta/map' ); ?>
+		<?php do_action( 'tribe_events_single_event_after_the_meta' ) ?>
+	</div>	
+
+</div><!-- #tribe-events-content -->

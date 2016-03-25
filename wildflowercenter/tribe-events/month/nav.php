@@ -19,11 +19,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <ul class="tribe-events-sub-nav">
 	<li class="tribe-events-nav-previous">
-		<?php tribe_events_the_previous_month_link(); ?>
+		<button class="sidebar-button"><?php tribe_events_the_previous_month_link(); ?></button>
 	</li>
 	<!-- .tribe-events-nav-previous -->
 	<li class="tribe-events-nav-next">
-		<?php tribe_events_the_next_month_link(); ?>
+		<button class="sidebar-button"><?php tribe_events_the_next_month_link(); ?></button>
 	</li>
 	<!-- .tribe-events-nav-next -->
 </ul><!-- .tribe-events-sub-nav -->

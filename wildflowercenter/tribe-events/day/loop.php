@@ -21,23 +21,17 @@ $current_timeslot = null;
 
 ?>
 
-<div class="tribe-events-loop">
+<div class="tribe-events-loop flex-container-row">
 	<div class="tribe-events-day-time-slot">
 
 	<?php while ( have_posts() ) : the_post(); ?>
-		<?php do_action( 'tribe_events_inside_before_loop' ); ?>
-
-		<?php if ( $current_timeslot != $post->timeslot ) :
-		$current_timeslot = $post->timeslot; ?>
+		<?php do_action( 'tribe_events_inside_before_loop' ); ?>		
 	</div>
 	<!-- .tribe-events-day-time-slot -->
 
 	<div class="tribe-events-day-time-slot">
-		<h5><?php echo $current_timeslot; ?></h5>
-		<?php endif; ?>
-
 		<!-- Event  -->
-		<div id="post-<?php the_ID() ?>" class="<?php tribe_events_event_classes() ?>">
+		<div id="post-<?php the_ID() ?>" class="<?php tribe_events_event_classes() ?> flex-container-row">
 			<?php tribe_get_template_part( 'day/single', 'event' ) ?>
 		</div>
 
