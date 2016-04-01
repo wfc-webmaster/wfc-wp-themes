@@ -15,6 +15,7 @@ button:hover {
 
 .slider-button {
     background-color: $wfc-darkgreen;
+    border-radius: 0.2rem;
     display: inline-block;
     font-size: ms(1);
     font-weight: 900;
@@ -33,6 +34,7 @@ button:hover {
 .orange-button {
     background-color: $wfc-orange;
     border: none;
+    border-radius: 0.2rem;
     color: $wfc-white;
     display: block;
     font-size: 0.7rem;
@@ -56,6 +58,7 @@ button:hover {
 .sidebar-button {
     background-color: #f0b252;
     border: none;
+    border-radius: 0.2rem;
     color: #ffffff;
     display: block;
     font-size: 0.9rem;

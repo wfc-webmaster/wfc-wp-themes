@@ -1,9 +1,44 @@
+//Sidebar Content Area
+
+#block-bym56fbf62ea9b5e {
+    border-top: 7px solid $wfc-lightgray;
+    margin-top: 5.6rem;
+}
+
+@media screen and (max-width: 1024px) {
+	#block-bym56fbf62ea9b5e {
+		margin-top: 11.25rem;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	#block-bym56fbf62ea9b5e {
+		margin-top: 2rem;
+	}
+}
+
+.bottom-hr {
+    border-bottom: 1px solid $wfc-lightgray;
+}
+
+.sidebar-heading i {
+	margin-right: 0.1rem;
+}
+
+h6.sidebar-heading {
+    margin: 1.5rem 0 0.6rem; 
+}
+
+#sidebar-join-cto button, #sidebar-donate-cto button {
+    margin-bottom: 1rem;
+}
+
 /** Text */
-.sidebar-heading {
-	p {
-    	font-size: 0.8rem;
-    	margin: 0 0 0.5rem 0;
-    }
+p.sidebar-italic {	
+	font-size: 0.8rem;
+    margin: 0 0 0.75rem 0;
+    line-height: 160%;
+    font-style: italic;
 }
 
 /** Containers */
@@ -42,11 +77,10 @@
 
 }
 
-//Events List
-
-
-//Twitter Feed
-
+//Events List - Landing Page
+#wrapper-waq56bbaa9519b9f .column-2 {
+	padding: 0;
+}
 
 //Wire Signup Form
 

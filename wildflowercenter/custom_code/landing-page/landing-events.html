@@ -1,7 +1,7 @@
 <div id="landing-events-container" class="sidebar-container">
     <div id="todays-events-wrap">
         <div id="todays-events-heading" class="landing-events-list-heading">
-            <h6>Today's Events</h6>
+            <h6 class="no-margin">Today's Events</h6>
             <p><em>Events for <?php echo date('F j, Y'); ?> at the Wildflower Center</em></p>            
         </div>
         <!-- Display Today's Events (if any) -->
@@ -47,7 +47,7 @@
                 ?>
                 <a href="<?php echo tribe_get_event_link(); ?>">
                 <?php
-                the_title('<h6>', '</h6>');
+                the_title('<h6 class="no-margin">', '</h6>');
                 ?>
                 </a>
                 <?php
@@ -64,7 +64,7 @@
     </div>
     <!-- Display Upcoming Events -->
     <div id="upcoming-events-heading" class="landing-events-list-heading">
-        <h6>Upcoming Events</h6>
+        <h6 class="no-margin">Upcoming Events</h6>
         <p><em>Plan ahead for these Wildflower Center events</em></p>        
     </div>
     <div id="landing-events-list" class="events-list">
@@ -113,7 +113,7 @@
         ?>
         <a href="<?php echo tribe_get_event_link(); ?>">
         <?php
-            the_title('<h6>', '</h6>');
+            the_title('<h6 class="no-margin">', '</h6>');
         ?>
         </a>
         <?php

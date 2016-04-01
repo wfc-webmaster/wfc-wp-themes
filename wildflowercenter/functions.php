@@ -27,7 +27,8 @@ function register_my_menus() {
 			'wfc-footer-visit' => __( 'WFC Footer Nav - Visit' ),
 			'wfc-footer-news' => __( 'WFC Footer Nav - News' ),
 			'wfc-footer-shortcuts' => __( 'WFC Footer Nav - Shortcuts' ),
-			'wfc-events-categories' => __( 'WFC Events - Categories' )
+			'wfc-events-categories' => __( 'WFC Events - Categories' ),
+			'wfc-about-child-pages' => __( 'WFC About Child Pages' )
 		)
 	);
 }
@@ -277,6 +278,17 @@ function exclude_events_category( $query ) {
 add_action('tribe_events_single_event_before_the_content', 'tribe_remove_single_event_links');
 function tribe_remove_single_event_links () {
 	remove_action( 'tribe_events_single_event_after_the_content', array( 'Tribe__Events__iCal', 'single_event_links' ) );
+}
+
+//Add Custom Image Crop Size
+add_image_size( 'page-top-image', 700, 466 );
+
+add_filter( 'image_size_names_choose', 'wfc_custom_sizes' );
+ 
+function wfc_custom_sizes( $sizes ) {
+    return array_merge( $sizes, array(
+        'page-top-image' => __( 'Page Top Image' ),
+    ) );
 }
 
 ?>

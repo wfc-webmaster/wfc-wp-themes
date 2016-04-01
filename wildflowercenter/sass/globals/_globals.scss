@@ -15,6 +15,17 @@ body {
     vertical-align: middle;
 }
 
+.no-margin {
+    margin: 0;
+}
+
+#enable-js-alert {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 100%;
+}
+
 //Shortcodes
 
     // [wfcprices]
@@ -103,6 +114,19 @@ td.wfc-price {
 	.mobile-padding {
 		padding: 0 2rem;
 	}
+    .mobile-padding-2col-left {
+        padding: 0 0 0 2rem;
+    }
+
+    .mobile-padding-2col-right {
+        padding: 0 2rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .mobile-padding-2col-left {
+        padding: 0 2rem;
+    }
 }
 
 //Breadcrumbs
@@ -165,10 +189,38 @@ ul#post-sharebar {
     }
 }
 
-
 //Captions
 figcaption.wp-caption-text {
 	color: inherit;
 	font-size: 0.85rem;
 	font-style: italic;
+}
+
+//Lists
+.bullets-disc {
+    list-style: inside disc;
+    margin: 0 0 1rem 2rem;
+}
+
+.inline-list {
+    li {
+        display: inline-block;
+    }
+}
+
+//Main Content Area
+.column-1 .loop article {
+    border-right: 1px solid $wfc-lightgray;
+    padding-right: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+    .column-1 .loop article {
+        border: none;
+        padding-right: 0;
+    }
+}
+
+article img {
+    margin: 1.5rem 0;
 }

@@ -30,7 +30,7 @@ $event_id = get_the_ID();
 			<p><a class="tribe-events-back-button" href="<?php echo esc_url( tribe_get_events_link() ); ?>"> <?php printf( '&laquo; ' . esc_html__( 'All %s', 'the-events-calendar' ), $events_label_plural ); ?></a></p>
 		</div>
 		<div id="tribe-calendar-links">
-			<p>Add To: <a class="tribe-events-ical tribe-events-button" href="<?php echo tribe_get_gcal_link(); ?>">Google Calendar</a>
+			<p>Add To: <a class="tribe-events-button" href="<?php echo tribe_get_gcal_link(); ?>">Google Calendar</a>
 						<a class="tribe-events-ical tribe-events-button" href="<?php echo tribe_get_single_ical_link(); ?>">iCal</a></p>
 		</div>
 	</div>
@@ -128,7 +128,7 @@ $event_id = get_the_ID();
 		<div id="tribe-events-map">
 			<?php 
 				if ( tribe_show_google_map_link() ) :					
-					echo '<a class="tribe-events-ical tribe-events-button" href="' . tribe_get_map_link() . '">View In Google Maps</a>';
+					echo '<a class="tribe-events-button" href="' . tribe_get_map_link() . '" target="_blank">View In Google Maps</a>';
 				endif;
 			?>
 		</div>

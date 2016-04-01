@@ -8,11 +8,11 @@
 }
 
 //Tribe Wrapper
-#tribe-events-content-wrapper, 
+/* #tribe-events-content-wrapper, 
 #tribe-events-content.tribe-events-single {
     border-right: 1px solid $wfc-lightgray;
     padding-right: 1rem;
-}
+} */
 
 @media screen and (max-width: 600px) {
     #tribe-events-content-wrapper,
@@ -26,7 +26,7 @@
 #tribe-events-bar {      
     background-color: $wfc-lightgray3;
     box-sizing: border-box;
-    margin: 2rem 0;
+    margin: 1rem 0 1.5rem;
     padding: 1rem;
 
     #tribe-views-wrap {
@@ -172,13 +172,13 @@
             order: -1;
 
             .tribe-events-event-image {
-                width: 20rem;
+                width: auto;
             }
         }
     }
 }
 
-a.tribe-events-ical.tribe-events-button {
+a.tribe-events-button {
     background-color: $wfc-lightgray3;
     border-radius: 0.15rem;
     color: inherit;
@@ -191,22 +191,14 @@ a.tribe-events-ical.tribe-events-button:hover {
 
 //Sidebar Categories Nav
 
-#wrapper-w4c56c78283d9ebe,
-#wrapper-w9q56eaeae2d00e8,
-#wrapper-w1x56eaeb3a0f0ba,
-#wrapper-w5f56eb078d5cde1,
-#wrapper-wqp56f553c69860b {
+.margin-fix {
     .column-2 {
-        margin: 0;
+        margin-left: 0 !important;
     }
 }
 
 #event-categories-head {
     display: none;
-}
-
-.event-categories {
-    padding-left: 1rem;
 }
 
 @media screen and (max-width: 1180px) {
@@ -224,33 +216,6 @@ a.tribe-events-ical.tribe-events-button:hover {
     .event-categories {
         margin-top: 3rem;
         padding: 0 2rem;
-    }
-}
-
-#menu-events-calendar-categories li {
-    background-color: $wfc-lightgreen;
-    border-radius: 0.2rem;
-    font-size: 0.9rem;
-    margin-bottom: 0.4rem;
-
-    a {
-        color: inherit;
-        display: block;
-        padding: 0.25rem 0.5rem;
-    }
-    a:hover {
-        background-color: green;
-        border-radius: 0.2rem;
-        color: $wfc-white;
-        text-decoration: none !important;
-    }
-}
-
-#menu-events-calendar-categories li.current-menu-item {
-    background-color: green;
-
-    a {
-        color: $wfc-white;
     }
 }
 

@@ -1,0 +1,15 @@
+ul#about-content-links {
+	li {
+		font-size: inherit;
+	}
+
+	a {
+	    border: none;
+	    padding-left: 0;
+	    color: #f0b252;
+	}
+
+	a:hover {
+		text-decoration: underline !important;
+	}
+}
